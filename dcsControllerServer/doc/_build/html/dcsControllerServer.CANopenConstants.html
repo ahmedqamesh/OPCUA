@@ -1,0 +1,648 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dcsControllerServer.CANopenConstants module &#8212; dcsControllerServer 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dcsControllerServer.CANopenForDCSController module" href="dcsControllerServer.CANopenForDCSController.html" />
+    <link rel="prev" title="dcsControllerServer package" href="dcsControllerServer.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dcsControllerServer.CANopenForDCSController.html" title="dcsControllerServer.CANopenForDCSController module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="dcsControllerServer.html" title="dcsControllerServer package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">dcsControllerServer 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="dcsControllerServer.html" accesskey="U">dcsControllerServer package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-dcsControllerServer.CANopenConstants">
+<span id="dcscontrollerserver-canopenconstants-module"></span><h1>dcsControllerServer.CANopenConstants module<a class="headerlink" href="#module-dcsControllerServer.CANopenConstants" title="Permalink to this headline">¶</a></h1>
+<p>ALl kind of constants used in CANopen or PSPPs</p>
+<p>&#64;author: Sebastian Scholz</p>
+<dl class="class">
+<dt id="dcsControllerServer.CANopenConstants.ATTR">
+<em class="property">class </em><code class="descclassname">dcsControllerServer.CANopenConstants.</code><code class="descname">ATTR</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/CANopenConstants.html#ATTR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.CANopenConstants.ATTR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">aenum.Enum</span></code></p>
+<p>Access attributes for data objects</p>
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.ATTR.CONST">
+<code class="descname">CONST</code><em class="property"> = 4</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.ATTR.CONST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read only access, value is constant.</p>
+<p>The value may change in NMT state Initialisation. The value shall not
+change in the NMT states preoperation, operational and stopped.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.ATTR.RO">
+<code class="descname">RO</code><em class="property"> = 1</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.ATTR.RO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read only access</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.ATTR.RW">
+<code class="descname">RW</code><em class="property"> = 3</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.ATTR.RW" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read and write access</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.ATTR.WO">
+<code class="descname">WO</code><em class="property"> = 2</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.ATTR.WO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write only access</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dcsControllerServer.CANopenConstants.COBID">
+<em class="property">class </em><code class="descclassname">dcsControllerServer.CANopenConstants.</code><code class="descname">COBID</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/CANopenConstants.html#COBID"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.CANopenConstants.COBID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">aenum.Enum</span></code></p>
+<p>Default COB Ids used by CANopen</p>
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.COBID.EMCY">
+<code class="descname">EMCY</code><em class="property"> = 128</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.COBID.EMCY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.COBID.NMT_ERROR_CTRL">
+<code class="descname">NMT_ERROR_CTRL</code><em class="property"> = 1792</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.COBID.NMT_ERROR_CTRL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.COBID.NMT_MASTER">
+<code class="descname">NMT_MASTER</code><em class="property"> = 0</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.COBID.NMT_MASTER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.COBID.SDO_RX">
+<code class="descname">SDO_RX</code><em class="property"> = 1536</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.COBID.SDO_RX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.COBID.SDO_TX">
+<code class="descname">SDO_TX</code><em class="property"> = 1408</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.COBID.SDO_TX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.COBID.TPDO0">
+<code class="descname">TPDO0</code><em class="property"> = 384</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.COBID.TPDO0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.COBID.TPDO1">
+<code class="descname">TPDO1</code><em class="property"> = 640</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.COBID.TPDO1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dcsControllerServer.CANopenConstants.ENTRYTYPE">
+<em class="property">class </em><code class="descclassname">dcsControllerServer.CANopenConstants.</code><code class="descname">ENTRYTYPE</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/CANopenConstants.html#ENTRYTYPE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.CANopenConstants.ENTRYTYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">aenum.Enum</span></code></p>
+<p>Object Dictionary object definitions</p>
+<p>Object codes and documenation correspond to CiA 301.</p>
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.ENTRYTYPE.ARRAY">
+<code class="descname">ARRAY</code><em class="property"> = 8</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.ENTRYTYPE.ARRAY" title="Permalink to this definition">¶</a></dt>
+<dd><p>A multiple data field object</p>
+<p>Each data field is a simple variable of the SAME basic data type e.g.
+array of UNSIGNED16 etc. Sub-index 0 is of UNSIGNED8 and therefore not
+part of the ARRAY data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.ENTRYTYPE.DEFSTRUCT">
+<code class="descname">DEFSTRUCT</code><em class="property"> = 6</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.ENTRYTYPE.DEFSTRUCT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a new record type e.g. the PDO mapping structure at 21h.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.ENTRYTYPE.DEFTYPE">
+<code class="descname">DEFTYPE</code><em class="property"> = 5</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.ENTRYTYPE.DEFTYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Denotes a type definition</p>
+<p>Possible types may be such as a BOOLEAN, UNSIGNED16, FLOAT and so on.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.ENTRYTYPE.DOMAIN">
+<code class="descname">DOMAIN</code><em class="property"> = 2</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.ENTRYTYPE.DOMAIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Large variable amount of data, e.g. executable program code</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.ENTRYTYPE.NULL">
+<code class="descname">NULL</code><em class="property"> = 0</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.ENTRYTYPE.NULL" title="Permalink to this definition">¶</a></dt>
+<dd><p>An object with no data fields</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.ENTRYTYPE.RECORD">
+<code class="descname">RECORD</code><em class="property"> = 9</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.ENTRYTYPE.RECORD" title="Permalink to this definition">¶</a></dt>
+<dd><p>A multiple data field object</p>
+<p>The data fields may be any combination of simple variables. Sub-index 0 is
+of UNSIGNED8 and sub-index 255 is of UNSIGNED32 and therefore not part of
+the RECORD data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.ENTRYTYPE.VAR">
+<code class="descname">VAR</code><em class="property"> = 7</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.ENTRYTYPE.VAR" title="Permalink to this definition">¶</a></dt>
+<dd><p>A single value such as an UNSIGNED8, BOOLEAN, FLOAT, INTEGER16,
+VISIBLE STRING etc.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="dcsControllerServer.CANopenConstants.MAX_DATABYTES">
+<code class="descclassname">dcsControllerServer.CANopenConstants.</code><code class="descname">MAX_DATABYTES</code><em class="property"> = 8</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.MAX_DATABYTES" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> – The maxmimum number of data bytes in a standard CAN message</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="dcsControllerServer.CANopenConstants.MSGHEADER">
+<code class="descclassname">dcsControllerServer.CANopenConstants.</code><code class="descname">MSGHEADER</code><em class="property"> = 'ID  DLC DATA                            TIME'</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.MSGHEADER" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – Used as header for output of CAN messages</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="dcsControllerServer.CANopenConstants.PSPPMONVALS">
+<code class="descclassname">dcsControllerServer.CANopenConstants.</code><code class="descname">PSPPMONVALS</code><em class="property"> = {'Temperature': 0, 'Voltage1': 1, 'Voltage2': 2}</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.PSPPMONVALS" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>dict</em> – Keys are names of monitoring values and values are their relative
+position.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="dcsControllerServer.CANopenConstants.PSPP_REGISTERS">
+<code class="descclassname">dcsControllerServer.CANopenConstants.</code><code class="descname">PSPP_REGISTERS</code><em class="property"> = {'ADCL1': 8, 'ADCL2': 9, 'ADCR1': 2, 'ADCR2': 3, 'ADCmux': 7, 'BGHI': 11, 'BGLO': 12, 'Bypass': 6, 'ChipID1': 0, 'ChipID2': 1, 'Control': 10, 'DIN': 4, 'DOUT': 5}</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.PSPP_REGISTERS" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>dict</em> – Keys are PSPP register names and values are their number.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="dcsControllerServer.CANopenConstants.STATUS">
+<em class="property">class </em><code class="descclassname">dcsControllerServer.CANopenConstants.</code><code class="descname">STATUS</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/CANopenConstants.html#STATUS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.CANopenConstants.STATUS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">aenum.Enum</span></code></p>
+<p>Default status codes for CAN nodes</p>
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.STATUS.INITIALIZING">
+<code class="descname">INITIALIZING</code><em class="property"> = 0</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.STATUS.INITIALIZING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.STATUS.OPERATIONAL">
+<code class="descname">OPERATIONAL</code><em class="property"> = 5</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.STATUS.OPERATIONAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.STATUS.PREOPERATIONAL">
+<code class="descname">PREOPERATIONAL</code><em class="property"> = 127</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.STATUS.PREOPERATIONAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.STATUS.STOPPED">
+<code class="descname">STOPPED</code><em class="property"> = 4</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.STATUS.STOPPED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE">
+<em class="property">class </em><code class="descclassname">dcsControllerServer.CANopenConstants.</code><code class="descname">VARTYPE</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/CANopenConstants.html#VARTYPE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">aenum.Enum</span></code></p>
+<p>Object dictionary data types according to CiA 301</p>
+<p>Numbers correspond to OD indices where they are defined. The free indices
+in between are marked as reserved.</p>
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.BOOLEAN">
+<code class="descname">BOOLEAN</code><em class="property"> = 1</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.BOOLEAN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.DOMAIN">
+<code class="descname">DOMAIN</code><em class="property"> = 15</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.DOMAIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.IDENTITY">
+<code class="descname">IDENTITY</code><em class="property"> = 35</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.IDENTITY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.INTEGER16">
+<code class="descname">INTEGER16</code><em class="property"> = 3</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.INTEGER16" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.INTEGER24">
+<code class="descname">INTEGER24</code><em class="property"> = 16</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.INTEGER24" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.INTEGER32">
+<code class="descname">INTEGER32</code><em class="property"> = 4</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.INTEGER32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.INTEGER40">
+<code class="descname">INTEGER40</code><em class="property"> = 18</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.INTEGER40" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.INTEGER48">
+<code class="descname">INTEGER48</code><em class="property"> = 19</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.INTEGER48" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.INTEGER56">
+<code class="descname">INTEGER56</code><em class="property"> = 20</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.INTEGER56" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.INTEGER64">
+<code class="descname">INTEGER64</code><em class="property"> = 21</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.INTEGER64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.INTEGER8">
+<code class="descname">INTEGER8</code><em class="property"> = 2</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.INTEGER8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.OCTET_STRING">
+<code class="descname">OCTET_STRING</code><em class="property"> = 10</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.OCTET_STRING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.PDO_COMMUNICATION_PARAMETER">
+<code class="descname">PDO_COMMUNICATION_PARAMETER</code><em class="property"> = 32</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.PDO_COMMUNICATION_PARAMETER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.PDO_MAPPING">
+<code class="descname">PDO_MAPPING</code><em class="property"> = 33</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.PDO_MAPPING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.REAL32">
+<code class="descname">REAL32</code><em class="property"> = 8</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.REAL32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.REAL64">
+<code class="descname">REAL64</code><em class="property"> = 17</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.REAL64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.SDO_PARAMETER">
+<code class="descname">SDO_PARAMETER</code><em class="property"> = 34</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.SDO_PARAMETER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.TIME_DIFFERENCE">
+<code class="descname">TIME_DIFFERENCE</code><em class="property"> = 13</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.TIME_DIFFERENCE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.TIME_OF_DAY">
+<code class="descname">TIME_OF_DAY</code><em class="property"> = 12</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.TIME_OF_DAY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.UNICODE_STRING">
+<code class="descname">UNICODE_STRING</code><em class="property"> = 11</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.UNICODE_STRING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED16">
+<code class="descname">UNSIGNED16</code><em class="property"> = 6</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED16" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED24">
+<code class="descname">UNSIGNED24</code><em class="property"> = 22</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED24" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED32">
+<code class="descname">UNSIGNED32</code><em class="property"> = 7</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED40">
+<code class="descname">UNSIGNED40</code><em class="property"> = 24</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED40" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED48">
+<code class="descname">UNSIGNED48</code><em class="property"> = 25</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED48" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED56">
+<code class="descname">UNSIGNED56</code><em class="property"> = 26</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED56" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED64">
+<code class="descname">UNSIGNED64</code><em class="property"> = 27</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED8">
+<code class="descname">UNSIGNED8</code><em class="property"> = 5</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.UNSIGNED8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.VARTYPE.VISISBLE_STRING">
+<code class="descname">VISISBLE_STRING</code><em class="property"> = 9</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.VARTYPE.VISISBLE_STRING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes">
+<em class="property">class </em><code class="descclassname">dcsControllerServer.CANopenConstants.</code><code class="descname">sdoAbortCodes</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/CANopenConstants.html#sdoAbortCodes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">aenum.Enum</span></code></p>
+<p>SDO abort codes as defined in CiA 301</p>
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.ACCESS">
+<code class="descname">ACCESS</code><em class="property"> = 100728832</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.ACCESS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsupported access to an object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.APP">
+<code class="descname">APP</code><em class="property"> = 134217760</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.APP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data cannot be transferred or stored to the application.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.APP_LOCAL">
+<code class="descname">APP_LOCAL</code><em class="property"> = 134217761</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.APP_LOCAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data cannot be transferred or stored to the application because of local
+control.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.APP_STATE">
+<code class="descname">APP_STATE</code><em class="property"> = 134217762</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.APP_STATE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data cannot be transferred or stored to the application because of the
+present device state.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.BLOCK_SIZE">
+<code class="descname">BLOCK_SIZE</code><em class="property"> = 84148226</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.BLOCK_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invalid block size (block mode only).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.COMMAND">
+<code class="descname">COMMAND</code><em class="property"> = 84082689</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.COMMAND" title="Permalink to this definition">¶</a></dt>
+<dd><p>Client/server command specifier not valid or unknown.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.CRC_ERROR">
+<code class="descname">CRC_ERROR</code><em class="property"> = 84148228</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.CRC_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd><p>CRC error (block mode only).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.GENERAL_ERROR">
+<code class="descname">GENERAL_ERROR</code><em class="property"> = 134217728</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.GENERAL_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd><p>General error</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.HARDWARE_ERROR">
+<code class="descname">HARDWARE_ERROR</code><em class="property"> = 101056512</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.HARDWARE_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access failed due to an hardware error.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.INCOMP_INTERNAL">
+<code class="descname">INCOMP_INTERNAL</code><em class="property"> = 100925511</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.INCOMP_INTERNAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>General internal incompatibility in the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.INCOMP_PARAM">
+<code class="descname">INCOMP_PARAM</code><em class="property"> = 100925507</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.INCOMP_PARAM" title="Permalink to this definition">¶</a></dt>
+<dd><p>General parameter incompatibility reason.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.MAX_LESS_MIN">
+<code class="descname">MAX_LESS_MIN</code><em class="property"> = 101253174</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.MAX_LESS_MIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum value is less than minimum value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.NO_DATA">
+<code class="descname">NO_DATA</code><em class="property"> = 134217764</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.NO_DATA" title="Permalink to this definition">¶</a></dt>
+<dd><p>No data available</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.NO_OBJECT">
+<code class="descname">NO_OBJECT</code><em class="property"> = 100794368</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.NO_OBJECT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object does not exist in the object dictionary.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.NO_OD">
+<code class="descname">NO_OD</code><em class="property"> = 134217763</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.NO_OD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object dictionary dynamic generation fails or no object dictionary is
+present (e.g. object dictionary is generated from file and generation fails
+because of an file error).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.OUT_OF_MEMORY">
+<code class="descname">OUT_OF_MEMORY</code><em class="property"> = 84148229</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.OUT_OF_MEMORY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Out of memory.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.PARAM_LEN">
+<code class="descname">PARAM_LEN</code><em class="property"> = 101122064</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.PARAM_LEN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data type does not match, length of service parameter does not match</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.PARAM_LEN_HI">
+<code class="descname">PARAM_LEN_HI</code><em class="property"> = 101122066</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.PARAM_LEN_HI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data type does not match, length of service parameter too high</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.PARAM_LEN_LO">
+<code class="descname">PARAM_LEN_LO</code><em class="property"> = 101122067</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.PARAM_LEN_LO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data type does not match, length of service parameter too low</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.PARAM_VALUE">
+<code class="descname">PARAM_VALUE</code><em class="property"> = 101253168</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.PARAM_VALUE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invalid value for parameter (download only).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.PARAM_VAL_HI">
+<code class="descname">PARAM_VAL_HI</code><em class="property"> = 101253169</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.PARAM_VAL_HI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value of parameter written too high (download only).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.PARAM_VAL_LO">
+<code class="descname">PARAM_VAL_LO</code><em class="property"> = 101253170</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.PARAM_VAL_LO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value of parameter written too low (download only).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.PDO_LENGTH">
+<code class="descname">PDO_LENGTH</code><em class="property"> = 100925506</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.PDO_LENGTH" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number and length of the objects to be mapped would exceed PDO
+length.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.PDO_MAPPING">
+<code class="descname">PDO_MAPPING</code><em class="property"> = 100925505</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.PDO_MAPPING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object cannot be mapped to the PDO.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.RES_AVBL">
+<code class="descname">RES_AVBL</code><em class="property"> = 101318691</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.RES_AVBL" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Resource not available</em> – SDO connection</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.RO">
+<code class="descname">RO</code><em class="property"> = 100728834</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.RO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempt to write a read only object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.SEQUENCE_NUM">
+<code class="descname">SEQUENCE_NUM</code><em class="property"> = 84148227</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.SEQUENCE_NUM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invalid sequence number (block mode only).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.SUBINDEX">
+<code class="descname">SUBINDEX</code><em class="property"> = 101253137</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.SUBINDEX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sub-index does not exist.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.TIMEOUT">
+<code class="descname">TIMEOUT</code><em class="property"> = 84148224</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>SDO protocol timed out.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.TOGGLE_BIT">
+<code class="descname">TOGGLE_BIT</code><em class="property"> = 84082688</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.TOGGLE_BIT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle bit not alternated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.CANopenConstants.sdoAbortCodes.WO">
+<code class="descname">WO</code><em class="property"> = 100728833</em><a class="headerlink" href="#dcsControllerServer.CANopenConstants.sdoAbortCodes.WO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempt to read a write only object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dcsControllerServer.html"
+                        title="previous chapter">dcsControllerServer package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dcsControllerServer.CANopenForDCSController.html"
+                        title="next chapter">dcsControllerServer.CANopenForDCSController module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/dcsControllerServer.CANopenConstants.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dcsControllerServer.CANopenForDCSController.html" title="dcsControllerServer.CANopenForDCSController module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="dcsControllerServer.html" title="dcsControllerServer package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">dcsControllerServer 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="dcsControllerServer.html" >dcsControllerServer package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Sebastian Scholz.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

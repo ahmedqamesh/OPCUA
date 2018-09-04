@@ -1,0 +1,649 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dcsControllerServer.objectDictionary module &#8212; dcsControllerServer 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dcsControllerServer.untitled0 module" href="dcsControllerServer.untitled0.html" />
+    <link rel="prev" title="dcsControllerServer.mirrorClasses module" href="dcsControllerServer.mirrorClasses.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dcsControllerServer.untitled0.html" title="dcsControllerServer.untitled0 module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="dcsControllerServer.mirrorClasses.html" title="dcsControllerServer.mirrorClasses module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">dcsControllerServer 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="dcsControllerServer.html" accesskey="U">dcsControllerServer package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-dcsControllerServer.objectDictionary">
+<span id="dcscontrollerserver-objectdictionary-module"></span><h1>dcsControllerServer.objectDictionary module<a class="headerlink" href="#module-dcsControllerServer.objectDictionary" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="dcsControllerServer.objectDictionary.ifNone">
+<code class="descclassname">dcsControllerServer.objectDictionary.</code><code class="descname">ifNone</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#ifNone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.ifNone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="dcsControllerServer.objectDictionary.objectDictionary">
+<em class="property">class </em><code class="descclassname">dcsControllerServer.objectDictionary.</code><code class="descname">objectDictionary</code><span class="sig-paren">(</span><em>logger</em>, <em>direct_access=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#objectDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.objectDictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class which represents an object dictionary and manages its entries</p>
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.objectDictionary.__contains__">
+<code class="descname">__contains__</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#objectDictionary.__contains__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.objectDictionary.__contains__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if index exists in object dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) – Index of OD entry</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.objectDictionary.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#objectDictionary.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.objectDictionary.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adress an entry via its index</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) – Index of OD entry</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">OD entry with specified index</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#dcsControllerServer.objectDictionary.odEntry" title="dcsControllerServer.objectDictionary.odEntry">odEntry</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code> – If index is not part of object dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.objectDictionary.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>logger</em>, <em>direct_access=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#objectDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.objectDictionary.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize an empty object dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>logger</strong> (<em>Logger</em>) – A Logger object for logging purposes</li>
+<li><strong>direct_access</strong> (<em>bool</em>) – True makes it possible to write on all
+entries</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.objectDictionary.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#objectDictionary.__iter__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.objectDictionary.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an iterator to loop over all entries</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.objectDictionary.__len__">
+<code class="descname">__len__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#objectDictionary.__len__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.objectDictionary.__len__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of all defined top level entries</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.objectDictionary.__next__">
+<code class="descname">__next__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#objectDictionary.__next__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.objectDictionary.__next__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop over defined indices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">OD entry at this index</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#dcsControllerServer.objectDictionary.odEntry" title="dcsControllerServer.objectDictionary.odEntry">odEntry</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code> – If there are no more defined indices left</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.objectDictionary.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>index</em>, <em>val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#objectDictionary.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.objectDictionary.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to set the value of an entry</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>index</strong> (<em>int</em>) – Index of the entry</li>
+<li><strong>val</strong> – Value to be written</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code> – If index is not part of object dictionary</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.objectDictionary.addEntry">
+<code class="descname">addEntry</code><span class="sig-paren">(</span><em>index</em>, <em>entrytype</em>, <em>datatype=None</em>, <em>attribute=None</em>, <em>description=''</em>, <em>default=None</em>, <em>comment=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#objectDictionary.addEntry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.objectDictionary.addEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an odEntry to the object dictionary if index is still free</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>index</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – The index of the odEntry to be added</li>
+<li><strong>entrytype</strong> (<a class="reference internal" href="dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.ENTRYTYPE" title="dcsControllerServer.CANopenConstants.ENTRYTYPE"><em>ENTRYTYPE</em></a>) – Object type of the object to be added.</li>
+<li><strong>datatype</strong> (<a class="reference internal" href="dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.VARTYPE" title="dcsControllerServer.CANopenConstants.VARTYPE"><em>VARTYPE</em></a><em>, </em><em>optional</em>) – Data type if single value
+entry.</li>
+<li><strong>attribute</strong> (<a class="reference internal" href="dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.ATTR" title="dcsControllerServer.CANopenConstants.ATTR"><em>ATTR</em></a><em>, </em><em>optional</em>) – Access attribute if single
+value entry.</li>
+<li><strong>description</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – Name of the entry to be added.
+Defaults to <code class="docutils literal notranslate"><span class="pre">''</span></code>.</li>
+<li><strong>default</strong> – Default value if single value entry. Defaults to None.</li>
+<li><strong>comment</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – Additional comment on this entry.
+Defaults to <code class="docutils literal notranslate"><span class="pre">''</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code> – If index is already defined</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.objectDictionary.direct_access">
+<code class="descname">direct_access</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.objectDictionary.direct_access" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.objectDictionary.entries">
+<code class="descname">entries</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.objectDictionary.entries" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of entries where not defined entries are None</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="dcsControllerServer.objectDictionary.objectDictionary.from_eds">
+<em class="property">classmethod </em><code class="descname">from_eds</code><span class="sig-paren">(</span><em>logger</em>, <em>source</em>, <em>node_id</em>, <em>direct_access=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#objectDictionary.from_eds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.objectDictionary.from_eds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import an existing object dictionary form an eds file</p>
+<p>It may happen that not all features of the eds format ar supported by
+this method. In this case the logger displays an ERROR message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>logger</strong> (<em>Logger</em>) – A Logger object for obvious purposes</li>
+<li><strong>source</strong> – A file-like object or the path to the eds file</li>
+<li><strong>node_id</strong> (<em>int</em>) – The node-id to which this object dictionary shall
+belong</li>
+<li><strong>direct_access</strong> (<em>bool</em>) – True makes it possible to write on all
+entries</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.objectDictionary.indices">
+<code class="descname">indices</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.objectDictionary.indices" title="Permalink to this definition">¶</a></dt>
+<dd><p>All currently used indices in this OD</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.objectDictionary.parse_value">
+<code class="descname">parse_value</code><span class="sig-paren">(</span><em>datatype</em>, <em>node_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#objectDictionary.parse_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.objectDictionary.parse_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a value from an eds file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>val_as_string</strong> (<em>str</em>) – The value gotten from the config parser</li>
+<li><strong>datatype</strong> (<a class="reference internal" href="dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.ATTR" title="dcsControllerServer.CANopenConstants.ATTR"><em>ATTR</em></a>) – Datatype of the entry</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The value in an appropiate type</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dcsControllerServer.objectDictionary.odEntry">
+<em class="property">class </em><code class="descclassname">dcsControllerServer.objectDictionary.</code><code class="descname">odEntry</code><span class="sig-paren">(</span><em>index</em>, <em>entrytype</em>, <em>logger</em>, <em>datatype=None</em>, <em>attribute=None</em>, <em>description=''</em>, <em>default=None</em>, <em>comment=''</em>, <em>direct_access=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#odEntry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Object dictionary entry</p>
+<p>This class represents a top level entry of an object dictionary. Its value
+may be modified if it defined as writable.</p>
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odEntry.__index">
+<code class="descname">__index</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.__index" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code> – Index of this OD entry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odEntry.__entrytype">
+<code class="descname">__entrytype</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.__entrytype" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>ENTRYTYPE</em> – Object type of this OD entry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odEntry.__attribute">
+<code class="descname">__attribute</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.__attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>ATTR</em> – Access attribute if entry is
+single value entry. If not so, it defaults to None.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odEntry.__default">
+<code class="descname">__default</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.__default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default value if entry is single value entry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odEntry.description">
+<code class="descname">description</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.description" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code> – Name of this OD entry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odEntry.logger">
+<code class="descname">logger</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.logger" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Logger</span></code> – A Logger object for logging purposes</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odEntry.comment">
+<code class="descname">comment</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.comment" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code> – Additional comment describing this entry</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.odEntry.__contains__">
+<code class="descname">__contains__</code><span class="sig-paren">(</span><em>subindex</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#odEntry.__contains__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.__contains__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if this entry has a certain subentry</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>subindex</strong> (<em>int</em>) – The subindex to look for</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.odEntry.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#odEntry.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a subentry</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>(</strong><strong>obj</strong> (<em>key</em>) – <cite>int</cite>): index of the subentry</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The subentry</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#dcsControllerServer.objectDictionary.odSubEntry" title="dcsControllerServer.objectDictionary.odSubEntry">odSubEntry</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.odEntry.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>index</em>, <em>entrytype</em>, <em>logger</em>, <em>datatype=None</em>, <em>attribute=None</em>, <em>description=''</em>, <em>default=None</em>, <em>comment=''</em>, <em>direct_access=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#odEntry.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inizialize a top-level OD entry</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>index</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – The index the OD entry shall be initialized
+with</li>
+<li><strong>entrytype</strong> (<a class="reference internal" href="dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.ENTRYTYPE" title="dcsControllerServer.CANopenConstants.ENTRYTYPE"><em>ENTRYTYPE</em></a>) – Object type of this OD entry.</li>
+<li><strong>logger</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Logger</span></code>) – A Logger object for logging purposes</li>
+<li><strong>datatype</strong> (<a class="reference internal" href="dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.VARTYPE" title="dcsControllerServer.CANopenConstants.VARTYPE"><em>VARTYPE</em></a><em>, </em><em>optional</em>) – Data type if entry is single
+value entry (Defaults to None)</li>
+<li><strong>attribute</strong> (<a class="reference internal" href="dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.ATTR" title="dcsControllerServer.CANopenConstants.ATTR"><em>ATTR</em></a><em>, </em><em>optional</em>) – Access attribute if entry is
+single value entry (Defaults to None)</li>
+<li><strong>description</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – Name of the OD entry (Defaults
+to ‘’)</li>
+<li><strong>default</strong> (<em>optional</em>) – Default value if entry is single value entry
+(Defaults to None)</li>
+<li><strong>comment</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – Additional comment (Defaults to ‘’)</li>
+<li><strong>direct_access</strong> (<em>bool</em>) – True makes it possible to write on all
+entries</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.odEntry.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#odEntry.__iter__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop over all subentries</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.odEntry.__len__">
+<code class="descname">__len__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#odEntry.__len__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.__len__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Length of entry</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The number of subentries</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.odEntry.__repr__">
+<code class="descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#odEntry.__repr__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a string with python syntax</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.odEntry.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#odEntry.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to write the value of a subentry</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – Index of the subentry</li>
+<li><strong>val</strong> – Value to write</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.odEntry.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#odEntry.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a string containing the index and object type</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.odEntry.addSubEntry">
+<code class="descname">addSubEntry</code><span class="sig-paren">(</span><em>subindex</em>, <em>vartype</em>, <em>attribute</em>, <em>description=''</em>, <em>default=None</em>, <em>comment=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#odEntry.addSubEntry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.addSubEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a sub entry to the current OD top level entry</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>subindex</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – Subindex to be added. Subindeces must be
+continuous.</li>
+<li><strong>vartype</strong> (<a class="reference internal" href="dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.VARTYPE" title="dcsControllerServer.CANopenConstants.VARTYPE"><em>VARTYPE</em></a>) – Data type of future subentry</li>
+<li><strong>attribute</strong> (<a class="reference internal" href="dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.ATTR" title="dcsControllerServer.CANopenConstants.ATTR"><em>ATTR</em></a>) – Access attribute</li>
+<li><strong>description</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – Name of subentry.
+Defaults to <code class="docutils literal notranslate"><span class="pre">''</span></code>.</li>
+<li><strong>default</strong> (<em>optional</em>) – Default value. Defaults to None.</li>
+<li><strong>comment</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – Additional comment on subentry.
+Defaults to <code class="docutils literal notranslate"><span class="pre">''</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code> – If top level entry is of type obj:<cite>ENTRYTYPE.VAR</cite></li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – If subindex is not continuous with previous subindeces</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odEntry.attribute">
+<code class="descname">attribute</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access attribute to data object</p>
+<p>Returns None if entry is not object ENTRYTYPE.VAR.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odEntry.datatype">
+<code class="descname">datatype</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.datatype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data type of OD entry</p>
+<p>Returns None if entry is not object ENTRYTYPE.VAR.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odEntry.default">
+<code class="descname">default</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default value of OD entry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odEntry.entrytype">
+<code class="descname">entrytype</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.entrytype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object definition of OD entry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odEntry.index">
+<code class="descname">index</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>OD index</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odEntry.subentries">
+<code class="descname">subentries</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.subentries" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of odSubEntry belonging to this odEntry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odEntry.value">
+<code class="descname">value</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odEntry.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value of OD entry</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dcsControllerServer.objectDictionary.odSubEntry">
+<em class="property">class </em><code class="descclassname">dcsControllerServer.objectDictionary.</code><code class="descname">odSubEntry</code><span class="sig-paren">(</span><em>master</em>, <em>subindex</em>, <em>logger</em>, <em>vartype=None</em>, <em>attribute=None</em>, <em>description=''</em>, <em>default=None</em>, <em>comment=''</em>, <em>reserved=False</em>, <em>direct_access=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#odSubEntry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.odSubEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Low level object dictionary entry</p>
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.odSubEntry.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>master</em>, <em>subindex</em>, <em>logger</em>, <em>vartype=None</em>, <em>attribute=None</em>, <em>description=''</em>, <em>default=None</em>, <em>comment=''</em>, <em>reserved=False</em>, <em>direct_access=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#odSubEntry.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.odSubEntry.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a low level OD entry</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>master</strong> (<a class="reference internal" href="#dcsControllerServer.objectDictionary.odEntry" title="dcsControllerServer.objectDictionary.odEntry"><em>odEntry</em></a>) – Top level entry for this subentry. This is needed
+because this entry has to know its main index.</li>
+<li><strong>(</strong><strong>obj</strong> (<em>subindex</em>) – <cite>int</cite>): Subindex to be initialized with</li>
+<li><strong>vartype</strong> (<a class="reference internal" href="dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.VARTYPE" title="dcsControllerServer.CANopenConstants.VARTYPE"><em>VARTYPE</em></a>) – Data type of this entry.</li>
+<li><strong>attribute</strong> (<a class="reference internal" href="dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.ATTR" title="dcsControllerServer.CANopenConstants.ATTR"><em>ATTR</em></a>) – Access attribute for this entry</li>
+<li><strong>logger</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Logger</span></code>) – A Logger object for logging purposes</li>
+<li><strong>description</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – Name of this entry.
+Defaults to <code class="docutils literal notranslate"><span class="pre">''</span></code>.</li>
+<li><strong>default</strong> (<em>optional</em>) – Default value of this entry. Defaults to None.</li>
+<li><strong>comment</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional) – Additional comment for this entry.
+Defaults to <code class="docutils literal notranslate"><span class="pre">''</span></code>.</li>
+<li><strong>direct_access</strong> (<em>bool</em>) – True makes it possible to write on all
+entries</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.odSubEntry.__repr__">
+<code class="descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#odSubEntry.__repr__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.odSubEntry.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>String containing index, subindex and data type</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dcsControllerServer.objectDictionary.odSubEntry.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dcsControllerServer/objectDictionary.html#odSubEntry.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dcsControllerServer.objectDictionary.odSubEntry.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>String containing index, subindex, data type and value</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odSubEntry.attribute">
+<code class="descname">attribute</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odSubEntry.attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access attribute for this entry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odSubEntry.default">
+<code class="descname">default</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odSubEntry.default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default value of this entry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odSubEntry.index">
+<code class="descname">index</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odSubEntry.index" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> – Top level index of this entry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odSubEntry.reserved">
+<code class="descname">reserved</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odSubEntry.reserved" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> – If this is a reserved subentry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odSubEntry.subindex">
+<code class="descname">subindex</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odSubEntry.subindex" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> – Low level index of this entry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odSubEntry.value">
+<code class="descname">value</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odSubEntry.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data value of entry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dcsControllerServer.objectDictionary.odSubEntry.vartype">
+<code class="descname">vartype</code><a class="headerlink" href="#dcsControllerServer.objectDictionary.odSubEntry.vartype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data type of this entry</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dcsControllerServer.mirrorClasses.html"
+                        title="previous chapter">dcsControllerServer.mirrorClasses module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dcsControllerServer.untitled0.html"
+                        title="next chapter">dcsControllerServer.untitled0 module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/dcsControllerServer.objectDictionary.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dcsControllerServer.untitled0.html" title="dcsControllerServer.untitled0 module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="dcsControllerServer.mirrorClasses.html" title="dcsControllerServer.mirrorClasses module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">dcsControllerServer 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="dcsControllerServer.html" >dcsControllerServer package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Sebastian Scholz.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

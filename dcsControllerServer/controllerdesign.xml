@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='utf-8'?>
+<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NamespaceUris />
+  <Aliases>
+    <Alias Alias="Boolean">i=1</Alias>
+    <Alias Alias="Byte">i=3</Alias>
+    <Alias Alias="UInt64">i=9</Alias>
+    <Alias Alias="Organizes">i=35</Alias>
+    <Alias Alias="HasTypeDefinition">i=40</Alias>
+    <Alias Alias="HasSubtype">i=45</Alias>
+    <Alias Alias="HasProperty">i=46</Alias>
+    <Alias Alias="HasComponent">i=47</Alias>
+  </Aliases>
+  <UAObject BrowseName="0:MyDCSController" NodeId="i=20003" ParentNodeId="i=85">
+    <DisplayName>MyDCSController</DisplayName>
+    <Description>The base type for all object nodes.</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="Organizes">i=85</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="HasProperty">i=20005</Reference>
+      <Reference ReferenceType="HasProperty">i=20006</Reference>
+      <Reference ReferenceType="HasComponent">i=20001</Reference>
+      <Reference ReferenceType="HasComponent">i=20004</Reference>
+      <Reference ReferenceType="HasComponent">i=20007</Reference>
+      <Reference ReferenceType="HasComponent">i=20008</Reference>
+    </References>
+  </UAObject>
+  <UAVariable BrowseName="0:NodeId" DataType="Byte" NodeId="i=20005" ParentNodeId="i=20003">
+    <DisplayName>NodeId</DisplayName>
+    <Description>NodeId</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="HasProperty">i=20003</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+    </References>
+    <Value>
+      <uax:Byte>42</uax:Byte>
+    </Value>
+  </UAVariable>
+  <UAVariable BrowseName="0:ConnectedPSPP" DataType="UInt64" NodeId="i=20006" ParentNodeId="i=20003" UserAccessLevel="3">
+    <DisplayName>ConnectedPSPP</DisplayName>
+    <Description>ConnectedPSPP</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="HasProperty">i=20003</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+    </References>
+    <Value>
+      <uax:UInt64>1</uax:UInt64>
+    </Value>
+  </UAVariable>
+  <UAVariable BrowseName="0:ADCR2" DataType="Byte" NodeId="i=20014">
+    <DisplayName>ADCR2</DisplayName>
+    <Description>ADCR2</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+    </References>
+    <Value>
+      <uax:Byte>0</uax:Byte>
+    </Value>
+  </UAVariable>
+  <UAObjectType BrowseName="0:PSPPType" NodeId="i=20083">
+    <DisplayName>PSPPType</DisplayName>
+    <Description>PSPPType</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="HasSubtype">i=58</Reference>
+      <Reference ReferenceType="HasProperty">i=20084</Reference>
+      <Reference ReferenceType="HasComponent">i=20085</Reference>
+      <Reference ReferenceType="HasProperty">i=20090</Reference>
+    </References>
+  </UAObjectType>
+  <UAVariable BrowseName="0:Status" DataType="Boolean" NodeId="i=20084" ParentNodeId="i=20083">
+    <DisplayName>Status</DisplayName>
+    <Description>Status</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="HasProperty">i=20083</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+    </References>
+    <Value>
+      <uax:Boolean>true</uax:Boolean>
+    </Value>
+  </UAVariable>
+  <UAObject BrowseName="0:Regs" NodeId="i=20085" ParentNodeId="i=20083">
+    <DisplayName>Regs</DisplayName>
+    <Description>Regs</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="HasComponent">i=20083</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+      <Reference ReferenceType="HasProperty">i=20086</Reference>
+      <Reference ReferenceType="HasProperty">i=20087</Reference>
+      <Reference ReferenceType="HasProperty">i=20088</Reference>
+      <Reference ReferenceType="HasProperty">i=20089</Reference>
+    </References>
+  </UAObject>
+  <UAVariable BrowseName="0:ChipID1" DataType="Byte" NodeId="i=20086" ParentNodeId="i=20085">
+    <DisplayName>ChipID1</DisplayName>
+    <Description>ChipID1</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="HasProperty">i=20085</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+    </References>
+    <Value>
+      <uax:Byte>0</uax:Byte>
+    </Value>
+  </UAVariable>
+  <UAVariable BrowseName="0:ChipID2" DataType="Byte" NodeId="i=20087" ParentNodeId="i=20085">
+    <DisplayName>ChipID2</DisplayName>
+    <Description>ChipID2</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="HasProperty">i=20085</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+    </References>
+    <Value>
+      <uax:Byte>0</uax:Byte>
+    </Value>
+  </UAVariable>
+  <UAVariable BrowseName="0:ADCR1" DataType="Byte" NodeId="i=20088" ParentNodeId="i=20085">
+    <DisplayName>ADCR1</DisplayName>
+    <Description>ADCR1</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="HasProperty">i=20085</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+    </References>
+    <Value>
+      <uax:Byte>0</uax:Byte>
+    </Value>
+  </UAVariable>
+  <UAVariable BrowseName="0:ADCR2" DataType="Byte" NodeId="i=20089" ParentNodeId="i=20085">
+    <DisplayName>ADCR2</DisplayName>
+    <Description>ADCR2</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="HasProperty">i=20085</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+    </References>
+    <Value>
+      <uax:Byte>0</uax:Byte>
+    </Value>
+  </UAVariable>
+  <UAVariable BrowseName="0:Position" DataType="Byte" NodeId="i=20090" ParentNodeId="i=20083">
+    <DisplayName>Position</DisplayName>
+    <Description>Position</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="HasProperty">i=20083</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+    </References>
+    <Value>
+      <uax:Byte>0</uax:Byte>
+    </Value>
+  </UAVariable>
+  <UAObject BrowseName="0:SCB0" NodeId="i=20001" ParentNodeId="i=20003">
+    <DisplayName>SCB0</DisplayName>
+    <Description>SCB0</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="HasComponent">i=20003</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+      <Reference ReferenceType="Organizes">i=20009</Reference>
+    </References>
+  </UAObject>
+  <UAObject BrowseName="0:SCB1" NodeId="i=20004" ParentNodeId="i=20003">
+    <DisplayName>SCB1</DisplayName>
+    <Description>SCB1</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="HasComponent">i=20003</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+    </References>
+  </UAObject>
+  <UAObject BrowseName="0:SCB2" NodeId="i=20007" ParentNodeId="i=20003">
+    <DisplayName>SCB2</DisplayName>
+    <Description>SCB2</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="HasComponent">i=20003</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+    </References>
+  </UAObject>
+  <UAObject BrowseName="0:SCB3" NodeId="i=20008" ParentNodeId="i=20003">
+    <DisplayName>SCB3</DisplayName>
+    <Description>SCB3</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="HasComponent">i=20003</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+    </References>
+  </UAObject>
+  <UAObject BrowseName="0:PSPP0" NodeId="i=20009" ParentNodeId="i=20001">
+    <DisplayName>PSPP0</DisplayName>
+    <Description>The base type for all object nodes.</Description>
+    <References>
+      <Reference IsForward="false" ReferenceType="Organizes">i=20001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+    </References>
+  </UAObject>
+</UANodeSet>

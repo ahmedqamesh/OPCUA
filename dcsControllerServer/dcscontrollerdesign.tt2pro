@@ -1,0 +1,25 @@
+###########################
+# UaModeler Project File  #
+# Generated at 16.07.2018 #
+###########################
+
+PROJECTNAME = DCSControllerDesign
+
+TEMPLATESET = ($TEMPLATES)/modeling/v1_0/t0/modeling.tt2set
+
+MODELS += ($MODELS)/Opc.Ua.NodeSet2.ua \
+    dcscontrollerdesign.ua
+
+COLORS = ($MODELS)/Opc.Ua.NodeSet2.ua: #0000ff\
+    dcscontrollerdesign.ua: #008000
+
+OUTPUTPATH = 
+
+GENERATE += dcscontrollerdesign.ua
+
+NODEACCESSINFOROLES += Administrator \
+    SecurityAdmin \
+    ConfigurationAdmin \
+    Operator \
+    Observer
+

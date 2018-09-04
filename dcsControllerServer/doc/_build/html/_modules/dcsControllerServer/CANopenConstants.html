@@ -1,0 +1,296 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dcsControllerServer.CANopenConstants &#8212; dcsControllerServer 0.1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">dcsControllerServer 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for dcsControllerServer.CANopenConstants</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;ALl kind of constants used in CANopen or PSPPs</span>
+
+<span class="sd">@author: Sebastian Scholz</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># Third party modules</span>
+<span class="kn">from</span> <span class="nn">aenum</span> <span class="k">import</span> <span class="n">Enum</span>
+
+
+<span class="n">MAX_DATABYTES</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="sd">&quot;&quot;&quot;int: The maxmimum number of data bytes in a standard CAN message&quot;&quot;&quot;</span>
+<span class="n">MSGHEADER</span> <span class="o">=</span> <span class="s1">&#39;ID  DLC DATA&#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">MAX_DATABYTES</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">-</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;TIME&#39;</span>
+<span class="sd">&quot;&quot;&quot;str: Used as header for output of CAN messages&quot;&quot;&quot;</span>
+<span class="n">PSPP_REGISTERS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ChipID1&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ChipID2&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;ADCR1&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;ADCR2&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;DIN&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                  <span class="s1">&#39;DIN&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;DOUT&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;Bypass&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;ADCmux&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;ADCL1&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+                  <span class="s1">&#39;ADCL2&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;Control&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;BGHI&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;BGLO&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">}</span>
+<span class="sd">&quot;&quot;&quot;dict: Keys are PSPP register names and values are their number.&quot;&quot;&quot;</span>
+<span class="n">PSPPMONVALS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Temperature&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Voltage1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Voltage2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="sd">&quot;&quot;&quot;dict: Keys are names of monitoring values and values are their relative</span>
+<span class="sd">    position.&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="STATUS"><a class="viewcode-back" href="../../dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.STATUS">[docs]</a><span class="k">class</span> <span class="nc">STATUS</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Default status codes for CAN nodes&quot;&quot;&quot;</span>
+    <span class="n">INITIALIZING</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">STOPPED</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">OPERATIONAL</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">PREOPERATIONAL</span> <span class="o">=</span> <span class="mi">127</span></div>
+
+
+<div class="viewcode-block" id="COBID"><a class="viewcode-back" href="../../dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.COBID">[docs]</a><span class="k">class</span> <span class="nc">COBID</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Default COB Ids used by CANopen&quot;&quot;&quot;</span>
+    <span class="n">NMT_MASTER</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">EMCY</span> <span class="o">=</span> <span class="mh">0x80</span>
+    <span class="n">TPDO0</span> <span class="o">=</span> <span class="mh">0x180</span>
+    <span class="n">TPDO1</span> <span class="o">=</span> <span class="mh">0x280</span>
+    <span class="n">SDO_TX</span> <span class="o">=</span> <span class="mh">0x580</span>
+    <span class="n">SDO_RX</span> <span class="o">=</span> <span class="mh">0x600</span>
+    <span class="n">NMT_ERROR_CTRL</span> <span class="o">=</span> <span class="mh">0x700</span></div>
+
+
+<div class="viewcode-block" id="ATTR"><a class="viewcode-back" href="../../dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.ATTR">[docs]</a><span class="k">class</span> <span class="nc">ATTR</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Access attributes for data objects&quot;&quot;&quot;</span>
+
+    <span class="n">RO</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="sd">&quot;&quot;&quot;Read only access&quot;&quot;&quot;</span>
+    <span class="n">WO</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="sd">&quot;&quot;&quot;Write only access&quot;&quot;&quot;</span>
+    <span class="n">RW</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="sd">&quot;&quot;&quot;Read and write access&quot;&quot;&quot;</span>
+    <span class="n">CONST</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="sd">&quot;&quot;&quot;Read only access, value is constant.</span>
+
+<span class="sd">    The value may change in NMT state Initialisation. The value shall not</span>
+<span class="sd">    change in the NMT states preoperation, operational and stopped.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_missing_name_</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="bp">cls</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                <span class="k">return</span> <span class="n">member</span></div>
+
+
+<div class="viewcode-block" id="VARTYPE"><a class="viewcode-back" href="../../dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.VARTYPE">[docs]</a><span class="k">class</span> <span class="nc">VARTYPE</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Object dictionary data types according to CiA 301</span>
+
+<span class="sd">    Numbers correspond to OD indices where they are defined. The free indices</span>
+<span class="sd">    in between are marked as reserved.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">BOOLEAN</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">INTEGER8</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">INTEGER16</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">INTEGER32</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">UNSIGNED8</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">UNSIGNED16</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">UNSIGNED32</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">REAL32</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">VISISBLE_STRING</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">OCTET_STRING</span> <span class="o">=</span> <span class="mh">0xa</span>
+    <span class="n">UNICODE_STRING</span> <span class="o">=</span> <span class="mh">0xb</span>
+    <span class="n">TIME_OF_DAY</span> <span class="o">=</span> <span class="mh">0xc</span>
+    <span class="n">TIME_DIFFERENCE</span> <span class="o">=</span> <span class="mh">0xd</span>
+    <span class="n">DOMAIN</span> <span class="o">=</span> <span class="mh">0xf</span>
+    <span class="n">INTEGER24</span> <span class="o">=</span> <span class="mh">0x10</span>
+    <span class="n">REAL64</span> <span class="o">=</span> <span class="mh">0x11</span>
+    <span class="n">INTEGER40</span> <span class="o">=</span> <span class="mh">0x12</span>
+    <span class="n">INTEGER48</span> <span class="o">=</span> <span class="mh">0x13</span>
+    <span class="n">INTEGER56</span> <span class="o">=</span> <span class="mh">0x14</span>
+    <span class="n">INTEGER64</span> <span class="o">=</span> <span class="mh">0x15</span>
+    <span class="n">UNSIGNED24</span> <span class="o">=</span> <span class="mh">0x16</span>
+    <span class="n">UNSIGNED40</span> <span class="o">=</span> <span class="mh">0x18</span>
+    <span class="n">UNSIGNED48</span> <span class="o">=</span> <span class="mh">0x19</span>
+    <span class="n">UNSIGNED56</span> <span class="o">=</span> <span class="mh">0x1a</span>
+    <span class="n">UNSIGNED64</span> <span class="o">=</span> <span class="mh">0x1b</span>
+    <span class="n">PDO_COMMUNICATION_PARAMETER</span> <span class="o">=</span> <span class="mh">0x20</span>
+    <span class="n">PDO_MAPPING</span> <span class="o">=</span> <span class="mh">0x21</span>
+    <span class="n">SDO_PARAMETER</span> <span class="o">=</span> <span class="mh">0x22</span>
+    <span class="n">IDENTITY</span> <span class="o">=</span> <span class="mh">0x23</span></div>
+
+
+<div class="viewcode-block" id="ENTRYTYPE"><a class="viewcode-back" href="../../dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.ENTRYTYPE">[docs]</a><span class="k">class</span> <span class="nc">ENTRYTYPE</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Object Dictionary object definitions</span>
+
+<span class="sd">    Object codes and documenation correspond to CiA 301.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">NULL</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="sd">&quot;&quot;&quot;An object with no data fields&quot;&quot;&quot;</span>
+    <span class="n">DOMAIN</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="sd">&quot;&quot;&quot;Large variable amount of data, e.g. executable program code&quot;&quot;&quot;</span>
+    <span class="n">DEFTYPE</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="sd">&quot;&quot;&quot;Denotes a type definition</span>
+
+<span class="sd">    Possible types may be such as a BOOLEAN, UNSIGNED16, FLOAT and so on.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">DEFSTRUCT</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="sd">&quot;&quot;&quot;Defines a new record type e.g. the PDO mapping structure at 21h.&quot;&quot;&quot;</span>
+    <span class="n">VAR</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="sd">&quot;&quot;&quot;A single value such as an UNSIGNED8, BOOLEAN, FLOAT, INTEGER16,</span>
+<span class="sd">    VISIBLE STRING etc.&quot;&quot;&quot;</span>
+    <span class="n">ARRAY</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="sd">&quot;&quot;&quot;A multiple data field object</span>
+
+<span class="sd">    Each data field is a simple variable of the SAME basic data type e.g.</span>
+<span class="sd">    array of UNSIGNED16 etc. Sub-index 0 is of UNSIGNED8 and therefore not</span>
+<span class="sd">    part of the ARRAY data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">RECORD</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="sd">&quot;&quot;&quot;A multiple data field object</span>
+
+<span class="sd">    The data fields may be any combination of simple variables. Sub-index 0 is</span>
+<span class="sd">    of UNSIGNED8 and sub-index 255 is of UNSIGNED32 and therefore not part of</span>
+<span class="sd">    the RECORD data.</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="sdoAbortCodes"><a class="viewcode-back" href="../../dcsControllerServer.CANopenConstants.html#dcsControllerServer.CANopenConstants.sdoAbortCodes">[docs]</a><span class="k">class</span> <span class="nc">sdoAbortCodes</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;SDO abort codes as defined in CiA 301&quot;&quot;&quot;</span>
+
+    <span class="n">TOGGLE_BIT</span> <span class="o">=</span> <span class="mh">0x05030000</span>
+    <span class="sd">&quot;&quot;&quot;Toggle bit not alternated.&quot;&quot;&quot;</span>
+    <span class="n">TIMEOUT</span> <span class="o">=</span> <span class="mh">0x05040000</span>
+    <span class="sd">&quot;&quot;&quot;SDO protocol timed out.&quot;&quot;&quot;</span>
+    <span class="n">COMMAND</span> <span class="o">=</span> <span class="mh">0x05030001</span>
+    <span class="sd">&quot;&quot;&quot;Client/server command specifier not valid or unknown.&quot;&quot;&quot;</span>
+    <span class="n">BLOCK_SIZE</span> <span class="o">=</span> <span class="mh">0x05040002</span>
+    <span class="sd">&quot;&quot;&quot;Invalid block size (block mode only).&quot;&quot;&quot;</span>
+    <span class="n">SEQUENCE_NUM</span> <span class="o">=</span> <span class="mh">0x05040003</span>
+    <span class="sd">&quot;&quot;&quot;Invalid sequence number (block mode only).&quot;&quot;&quot;</span>
+    <span class="n">CRC_ERROR</span> <span class="o">=</span> <span class="mh">0x05040004</span>
+    <span class="sd">&quot;&quot;&quot;CRC error (block mode only).&quot;&quot;&quot;</span>
+    <span class="n">OUT_OF_MEMORY</span> <span class="o">=</span> <span class="mh">0x05040005</span>
+    <span class="sd">&quot;&quot;&quot;Out of memory.&quot;&quot;&quot;</span>
+    <span class="n">ACCESS</span> <span class="o">=</span> <span class="mh">0x06010000</span>
+    <span class="sd">&quot;&quot;&quot;Unsupported access to an object.&quot;&quot;&quot;</span>
+    <span class="n">WO</span> <span class="o">=</span> <span class="mh">0x06010001</span>
+    <span class="sd">&quot;&quot;&quot;Attempt to read a write only object.&quot;&quot;&quot;</span>
+    <span class="n">RO</span> <span class="o">=</span> <span class="mh">0x06010002</span>
+    <span class="sd">&quot;&quot;&quot;Attempt to write a read only object.&quot;&quot;&quot;</span>
+    <span class="n">NO_OBJECT</span> <span class="o">=</span> <span class="mh">0x06020000</span>
+    <span class="sd">&quot;&quot;&quot;Object does not exist in the object dictionary.&quot;&quot;&quot;</span>
+    <span class="n">PDO_MAPPING</span> <span class="o">=</span> <span class="mh">0x06040041</span>
+    <span class="sd">&quot;&quot;&quot;Object cannot be mapped to the PDO.&quot;&quot;&quot;</span>
+    <span class="n">PDO_LENGTH</span> <span class="o">=</span> <span class="mh">0x06040042</span>
+    <span class="sd">&quot;&quot;&quot;The number and length of the objects to be mapped would exceed PDO</span>
+<span class="sd">    length.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">INCOMP_PARAM</span> <span class="o">=</span> <span class="mh">0x06040043</span>
+    <span class="sd">&quot;&quot;&quot;General parameter incompatibility reason.&quot;&quot;&quot;</span>
+    <span class="n">INCOMP_INTERNAL</span> <span class="o">=</span> <span class="mh">0x06040047</span>
+    <span class="sd">&quot;&quot;&quot;General internal incompatibility in the device.&quot;&quot;&quot;</span>
+    <span class="n">HARDWARE_ERROR</span> <span class="o">=</span> <span class="mh">0x06060000</span>
+    <span class="sd">&quot;&quot;&quot;Access failed due to an hardware error.&quot;&quot;&quot;</span>
+    <span class="n">PARAM_LEN</span> <span class="o">=</span> <span class="mh">0x06070010</span>
+    <span class="sd">&quot;&quot;&quot;Data type does not match, length of service parameter does not match&quot;&quot;&quot;</span>
+    <span class="n">PARAM_LEN_HI</span> <span class="o">=</span> <span class="mh">0x06070012</span>
+    <span class="sd">&quot;&quot;&quot;Data type does not match, length of service parameter too high&quot;&quot;&quot;</span>
+    <span class="n">PARAM_LEN_LO</span> <span class="o">=</span> <span class="mh">0x06070013</span>
+    <span class="sd">&quot;&quot;&quot;Data type does not match, length of service parameter too low&quot;&quot;&quot;</span>
+    <span class="n">SUBINDEX</span> <span class="o">=</span> <span class="mh">0x06090011</span>
+    <span class="sd">&quot;&quot;&quot;Sub-index does not exist.&quot;&quot;&quot;</span>
+    <span class="n">PARAM_VALUE</span> <span class="o">=</span> <span class="mh">0x06090030</span>
+    <span class="sd">&quot;&quot;&quot;Invalid value for parameter (download only).&quot;&quot;&quot;</span>
+    <span class="n">PARAM_VAL_HI</span> <span class="o">=</span> <span class="mh">0x06090031</span>
+    <span class="sd">&quot;&quot;&quot;Value of parameter written too high (download only).&quot;&quot;&quot;</span>
+    <span class="n">PARAM_VAL_LO</span> <span class="o">=</span> <span class="mh">0x06090032</span>
+    <span class="sd">&quot;&quot;&quot;Value of parameter written too low (download only).&quot;&quot;&quot;</span>
+    <span class="n">MAX_LESS_MIN</span> <span class="o">=</span> <span class="mh">0x06090036</span>
+    <span class="sd">&quot;&quot;&quot;Maximum value is less than minimum value.&quot;&quot;&quot;</span>
+    <span class="n">RES_AVBL</span> <span class="o">=</span> <span class="mh">0x060A0023</span>
+    <span class="sd">&quot;&quot;&quot;Resource not available: SDO connection&quot;&quot;&quot;</span>
+    <span class="n">GENERAL_ERROR</span> <span class="o">=</span> <span class="mh">0x08000000</span>
+    <span class="sd">&quot;&quot;&quot;General error&quot;&quot;&quot;</span>
+    <span class="n">APP</span> <span class="o">=</span> <span class="mh">0x08000020</span>
+    <span class="sd">&quot;&quot;&quot;Data cannot be transferred or stored to the application.&quot;&quot;&quot;</span>
+    <span class="n">APP_LOCAL</span> <span class="o">=</span> <span class="mh">0x08000021</span>
+    <span class="sd">&quot;&quot;&quot;Data cannot be transferred or stored to the application because of local</span>
+<span class="sd">    control.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">APP_STATE</span> <span class="o">=</span> <span class="mh">0x08000022</span>
+    <span class="sd">&quot;&quot;&quot;Data cannot be transferred or stored to the application because of the</span>
+<span class="sd">    present device state.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">NO_OD</span> <span class="o">=</span> <span class="mh">0x08000023</span>
+    <span class="sd">&quot;&quot;&quot;Object dictionary dynamic generation fails or no object dictionary is</span>
+<span class="sd">    present (e.g. object dictionary is generated from file and generation fails</span>
+<span class="sd">    because of an file error).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">NO_DATA</span> <span class="o">=</span> <span class="mh">0x08000024</span>
+    <span class="sd">&quot;&quot;&quot;No data available&quot;&quot;&quot;</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">dcsControllerServer 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Sebastian Scholz.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

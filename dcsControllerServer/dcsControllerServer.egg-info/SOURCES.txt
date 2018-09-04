@@ -1,0 +1,7 @@
+README.rst
+dcsControllerServer.egg-info/PKG-INFO
+dcsControllerServer.egg-info/SOURCES.txt
+dcsControllerServer.egg-info/dependency_links.txt
+dcsControllerServer.egg-info/entry_points.txt
+dcsControllerServer.egg-info/requires.txt
+dcsControllerServer.egg-info/top_level.txt
