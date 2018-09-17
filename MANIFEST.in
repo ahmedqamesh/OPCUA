@@ -1,0 +1,2 @@
+include analib/lib/x86_64/*
+include analib/lib/x86/*
