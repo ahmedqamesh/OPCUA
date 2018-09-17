@@ -14,18 +14,7 @@
 #
 import os
 import sys
-from unittest.mock import MagicMock
 
-
-class Mock(MagicMock):
-    @classmethod
-    def __getattr__(cls, name):
-        return MagicMock()
-
-
-MOCK_MODULES = ['pygtk', 'gtk', 'gobject', 'argparse', 'numpy', 'pandas',
-                'canlib']
-sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 
 sys.path.insert(0, os.path.abspath('.'))
 
@@ -47,6 +36,7 @@ release = '0.1.0'
 # If your documentation needs a minimal Sphinx version, state it here.
 #
 # needs_sphinx = '1.0'
+add_module_names = False
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -57,6 +47,10 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.napoleon'
 ]
+
+# Autodoc settings
+autodoc_mock_imports = ['canlib', 'analib']
+autodoc_member_order = 'groupwise'
 
 # Napoleon settings
 napoleon_google_docstring = False
