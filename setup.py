@@ -10,9 +10,14 @@ from setuptools import setup
 
 from dcsControllerServer.__init__ import __version__
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 setup(name='dcsControllerServer',
       version=__version__,
       description='OPCUA CANopen server for DCS Controllers',
+      long_description=long_description,
+      long_description_content_type="text/markdown",
       classifiers=['Development Status :: 3 - Alpha',
                    'License :: Freeware',
                    'Intended Audience :: Science/Research',
