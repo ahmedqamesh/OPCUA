@@ -159,7 +159,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'DCSControllerdoc.tex', 'DCSController Software Documentation',
-     'Author', 'manual'),
+     'Sebastian Scholz', 'manual'),
 ]
 
 
