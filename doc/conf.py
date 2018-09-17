@@ -16,7 +16,7 @@ import os
 import sys
 
 
-sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('..'))
 
 
 # -- Project information -----------------------------------------------------
@@ -49,7 +49,9 @@ extensions = [
 ]
 
 # Autodoc settings
-autodoc_mock_imports = ['canlib', 'analib']
+autodoc_mock_imports = ['canlib',
+                        # 'analib'
+                        ]
 autodoc_member_order = 'groupwise'
 
 # Napoleon settings
