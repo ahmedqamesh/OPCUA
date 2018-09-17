@@ -16,10 +16,12 @@ import os
 import sys
 from unittest.mock import MagicMock
 
+
 class Mock(MagicMock):
     @classmethod
     def __getattr__(cls, name):
         return MagicMock()
+
 
 MOCK_MODULES = ['pygtk', 'gtk', 'gobject', 'argparse', 'numpy', 'pandas',
                 'canlib']
