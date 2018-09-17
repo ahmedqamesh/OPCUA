@@ -1,3 +1,27 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+"""CANopen Object Dictionary
+
+Example
+-------
+Create an empty Object Dictionary (OD):
+
+>>> import logging, coloredlogs, verboselogs
+>>> from extend_logging import extend_logging
+>>> from objectDictionary import objectDictionary
+>>> logger = logging.getLogger(name='OD')
+>>> coloredlogs.install(level='DEBUG', isatty=True)
+>>> od = objectDictionary(logger)
+
+In order to create an OD from an Electronic Data Sheet (EDS) replace the last
+line with:
+
+>>> od = objectDictionary.from_eds(logger, '/path/to/eds', 42)
+
+:Author: Sebastian Scholz
+:Contact: sebastian.scholz@cern.ch
+:Organization: Bergische Universität Wuppertal
+"""
 # Standard library modules
 import logging
 import re
@@ -20,6 +44,7 @@ except (ModuleNotFoundError, ImportError):
 
 
 def ifNone(a, b):
+    """Returns `b` if a is ``None`` and `a` otherwise"""
     return b if a is None else a
 
 
@@ -29,40 +54,40 @@ class odEntry():
     This class represents a top level entry of an object dictionary. Its value
     may be modified if it defined as writable.
 
-    Attributes:
-        __index (:obj:`int`): Index of this OD entry
-        __entrytype (ENTRYTYPE): Object type of this OD entry
-        __attribute (ATTR): Access attribute if entry is
-            single value entry. If not so, it defaults to None.
-        __default: Default value if entry is single value entry
-        description(:obj:`str`): Name of this OD entry
-        logger(:obj:`Logger`): A Logger object for logging purposes
-        comment(:obj:`str`): Additional comment describing this entry
+    Parameters
+    ----------
+    index : :obj:`int`
+        The index the OD entry shall be initialized with.
+    entrytype  : :obj:`CANopenConstants.ENTRYTYPE`
+        Object type of this OD entry.
+    logger : :obj:`logging.Logger`
+        A Logger object for logging purposes
+    datatype : :obj:`CANopenConstants.VARTYPE`, optional
+        Data type if entry is single value entry (Defaults to ``None``)
+    attribute : :obj:`CANopenConstants.ATTR`, optional
+        Access attribute if entry is single value entry (Defaults to ``None``)
+    description : :obj:`str`, optional
+        Name of the OD entry (Defaults to ``''``)
+    default: optional
+        Default value if entry is single value entry (Defaults to ``None``)
+    comment : :obj:`str`, optional
+        Additional comment (Defaults to ``''``)
+    direct_access : :obj:`bool`
+        True makes it possible to write on all entries
+
+    Attributes
+    ----------
+    description : :obj:`str`
+        Name of this OD entry
+    logger : :obj:`logging.Logger`
+        A Logger object for logging purposes
+    comment : :obj:`str`
+        Additional comment describing this entry
     """
 
     def __init__(self, index, entrytype, logger, datatype=None, attribute=None,
                  description='', default=None, comment='',
                  direct_access=False):
-        """Inizialize a top-level OD entry
-
-        Args:
-            index (:obj:`int`): The index the OD entry shall be initialized
-                with
-            entrytype (ENTRYTYPE): Object type of this OD entry.
-            logger (:obj:`Logger`): A Logger object for logging purposes
-            datatype (VARTYPE, optional): Data type if entry is single
-                value entry (Defaults to None)
-            attribute (ATTR, optional): Access attribute if entry is
-                single value entry (Defaults to None)
-            description (:obj:`str`, optional): Name of the OD entry (Defaults
-                to '')
-            default (optional): Default value if entry is single value entry
-                (Defaults to None)
-            comment (:obj:`str`): Additional comment (Defaults to '')
-            direct_access (bool): True makes it possible to write on all
-                entries
-        """
-
         self.__index = index
         self.description = description
         self.logger = logger
@@ -95,8 +120,10 @@ class odEntry():
     def __len__(self):
         """Length of entry
 
-        Returns:
-            int: The number of subentries
+        Returns
+        -------
+        :obj:`int`
+            The number of subentries
         """
         if self.__subentries is None:
             return 0
@@ -105,11 +132,15 @@ class odEntry():
     def __getitem__(self, key):
         """Get a subentry
 
-        Args:
-            key (obj:`int`): index of the subentry
+        Parameters
+        ----------
+        key : :obj:`int`
+            index of the subentry
 
-        Returns:
-            odSubEntry: The subentry
+        Returns
+        -------
+        subentry : :obj:`odSubEntry`
+            The subentry
         """
         if self.__entrytype is ENTRYTYPE.VAR and key == 0:
             return self
@@ -122,17 +153,22 @@ class odEntry():
     def __setitem__(self, key, val):
         """Try to write the value of a subentry
 
-        Args:
-            key (:obj:`int`): Index of the subentry
-            val: Value to write
+        Parameters
+        ----------
+        key : :obj:`int`
+            Index of the subentry
+        val
+            Value to write
         """
         self.__subentries[key].value = val
 
     def __contains__(self, subindex):
         """Checks if this entry has a certain subentry
 
-        Args:
-            subindex (int): The subindex to look for
+        Parameters
+        ----------
+        subindex : :obj:`int`
+            The subindex to look for
         """
         if self.__entrytype is ENTRYTYPE.VAR:
             return subindex == 0
@@ -141,19 +177,19 @@ class odEntry():
 
     @property
     def index(self):
-        """OD index"""
+        """:obj:`int` : OD index"""
         return self.__index
 
     @property
     def entrytype(self):
-        """Object definition of OD entry"""
+        """:obj:`CANopenConstants.ENTRYTYPE` : Object definition of OD entry"""
         return self.__entrytype
 
     @property
     def datatype(self):
         """Data type of OD entry
 
-        Returns None if entry is not object ENTRYTYPE.VAR.
+        Returns ``None`` if entry is not object :obj:`ENTRYTYPE.VAR`.
         """
         return self.__datatype
 
@@ -161,7 +197,7 @@ class odEntry():
     def attribute(self):
         """Access attribute to data object
 
-        Returns None if entry is not object ENTRYTYPE.VAR.
+        Returns ``None`` if entry is not object :obj:`ENTRYTYPE.VAR`.
         """
         return self.__attribute
 
@@ -172,7 +208,8 @@ class odEntry():
 
     @property
     def subentries(self):
-        """List of odSubEntry belonging to this odEntry"""
+        """:obj:`list` of :obj:`odSubEntry` : List of subentries belonging to
+        this :obj:`odEntry`"""
         return self.__subentries
 
     @property
@@ -195,20 +232,27 @@ class odEntry():
                     default=None, comment=''):
         """Add a sub entry to the current OD top level entry
 
-        Args:
-            subindex (:obj:`int`): Subindex to be added. Subindeces must be
-                continuous.
-            vartype (VARTYPE): Data type of future subentry
-            attribute (ATTR): Access attribute
-            description (:obj:`str`, optional): Name of subentry.
-                Defaults to ``''``.
-            default (optional): Default value. Defaults to None.
-            comment (:obj:`str`, optional): Additional comment on subentry.
-                Defaults to ``''``.
+        Parameters
+        ----------
+        subindex : :obj:`int`
+            Subindex to be added. Subindeces must be continuous.
+        vartype : :obj:`CANopenConstants.VARTYPE`
+            Data type of future subentry
+        attribute : :obj:`CANopenConstants.ATTR`
+            Access attribute
+        description : :obj:`str`, optional
+            Name of subentry. Defaults to ``''``.
+        default : optional
+            Default value. Defaults to ``None``.
+        comment : :obj:`str`, optional
+            Additional comment on subentry. Defaults to ``''``.
 
-        Raises:
-            AttributeError: If top level entry is of type obj:`ENTRYTYPE.VAR`
-            ValueError: If subindex is not continuous with previous subindeces
+        Raises
+        ------
+        AttributeError
+            If top level entry is of type :obj:`ENTRYTYPE.VAR`
+        ValueError
+            If subindex is not continuous with previous subindeces
         """
 
         if self.__entrytype is ENTRYTYPE.VAR:
@@ -232,29 +276,36 @@ class odEntry():
 
 
 class odSubEntry():
-    """Low level object dictionary entry"""
+    """Low level object dictionary entry
+
+    Parameters
+    ----------
+    master : :obj:`odEntry`
+        Top level entry for this subentry. This is needed because this entry
+        has to know its main index.
+    subindex : :obj:`int`
+        Subindex to be initialized with
+    vartype : :obj:`CANopenConstants.VARTYPE`
+        Data type of this entry.
+    attribute : :obj:`CANopenConstants.ATTR`
+        Access attribute for this entry
+    logger : :obj:`logging.Logger`
+        A Logger object for logging purposes
+    description : :obj:`str`, optional
+        Name of this entry. Defaults to ``''``.
+    default : optional
+        Default value of this entry. Defaults to ``None``.
+    comment : :obj:`str`, optional
+        Additional comment for this entry. Defaults to ``''``.
+    reserved : :obj:`bool`, optional
+        Mark an subentry as reserved for further use.
+    direct_access : :obj:`bool`
+        True makes it possible to write on all entries.
+    """
 
     def __init__(self, master, subindex, logger, vartype=None, attribute=None,
                  description='', default=None, comment='', reserved=False,
                  direct_access=False):
-        """Initialize a low level OD entry
-
-        Args:
-            master (odEntry): Top level entry for this subentry. This is needed
-                because this entry has to know its main index.
-            subindex (obj:`int`): Subindex to be initialized with
-            vartype (VARTYPE): Data type of this entry.
-            attribute (ATTR): Access attribute for this entry
-            logger (:obj:`Logger`): A Logger object for logging purposes
-            description (:obj:`str`, optional): Name of this entry.
-                Defaults to ``''``.
-            default (optional): Default value of this entry. Defaults to None.
-            comment (:obj:`str`, optional): Additional comment for this entry.
-                Defaults to ``''``.
-            direct_access (bool): True makes it possible to write on all
-                entries
-        """
-
         if not reserved:
             if vartype is None:
                 raise ValueError(f'Missing VARTYPE for subentry at '
@@ -340,17 +391,17 @@ class odSubEntry():
 
 
 class objectDictionary():
-    """Class which represents an object dictionary and manages its entries"""
+    """Class which represents an object dictionary and manages its entries
+
+    Parameters
+    ----------
+    logger : :obj:`logging.Logger`
+        A Logger object for logging purposes
+    direct_access : :obj:`bool`, optional
+        True makes it possible to write on all entries
+    """
 
     def __init__(self, logger, direct_access=False):
-        """Initialize an empty object dictionary
-
-        Args:
-            logger (Logger): A Logger object for logging purposes
-            direct_access (bool): True makes it possible to write on all
-                entries
-        """
-
         self.logger = logger
         self.__direct_access = direct_access
         self.__entries = [None for i in range(0x10000)]
@@ -364,13 +415,16 @@ class objectDictionary():
         It may happen that not all features of the eds format ar supported by
         this method. In this case the logger displays an ERROR message.
 
-        Args:
-            logger (Logger): A Logger object for obvious purposes
-            source: A file-like object or the path to the eds file
-            node_id (int): The node-id to which this object dictionary shall
-                belong
-            direct_access (bool): True makes it possible to write on all
-                entries
+        Parameters
+        ----------
+        logger : :obj:`logging.Logger`
+            A Logger object for logging purposes
+        source : :obj:`FILE` or :obj:`str`
+            A file-like object or the path to the eds file
+        node_id : :obj:`int`
+            The node-id to which this object dictionary shall belong
+        direct_access : :obj:`bool`, optional
+            True makes it possible to write on all entries
         """
         logger.debug('Importing object dictionary from EDS ...')
         eds = ConfigParser()
@@ -443,11 +497,16 @@ class objectDictionary():
     def parse_value(val_as_string, datatype, node_id):
         """Parse a value from an eds file
 
-        Args:
-            val_as_string (str): The value gotten from the config parser
-            datatype (ATTR): Datatype of the entry
+        Parameters
+        ----------
+        val_as_string : :obj:`str`
+            The value gotten from the config parser
+        datatype : :obj:`CANopenConstants.ATTR`
+            Datatype of the entry
 
-        Returns:
+        Returns
+        -------
+        value : :obj:`int` or :obj:`str`
             The value in an appropiate type
         """
         if datatype.value == 1:
@@ -475,19 +534,26 @@ class objectDictionary():
 
     @property
     def direct_access(self):
+        """:obj:`bool`: True makes it possible to write on all entries"""
         return self.__direct_access
 
     def __getitem__(self, key):
         """Adress an entry via its index
 
-        Args:
-            index (int): Index of OD entry
+        Parameters
+        ----------
+        index : :obj:`int`
+            Index of OD entry
 
-        Returns:
-            odEntry: OD entry with specified index
+        Returns
+        -------
+        :obj:`odEntry`
+            OD entry with specified index
 
-        Raises:
-            IndexError: If index is not part of object dictionary
+        Raises
+        ------
+        IndexError
+            If index is not part of object dictionary
         """
 
         if isinstance(key, slice):
@@ -505,12 +571,17 @@ class objectDictionary():
     def __setitem__(self, index, val):
         """Try to set the value of an entry
 
-        Args:
-            index (int): Index of the entry
-            val: Value to be written
+        Parameters
+        ----------
+        index : :obj:`int`
+            Index of the entry
+        val
+            Value to be written
 
-        Raises:
-            IndexError: If index is not part of object dictionary
+        Raises
+        ------
+        IndexError
+            If index is not part of object dictionary
         """
         if index not in self.__indices:
             estr = f'Index {index:04X} not in object dictionary.'
@@ -521,21 +592,27 @@ class objectDictionary():
                  description='', default=None, comment=''):
         """Add an odEntry to the object dictionary if index is still free
 
-        Args:
-            index (:obj:`int`): The index of the odEntry to be added
-            entrytype (ENTRYTYPE): Object type of the object to be added.
-            datatype (VARTYPE, optional): Data type if single value
-                entry.
-            attribute (ATTR, optional): Access attribute if single
-                value entry.
-            description (:obj:`str`, optional): Name of the entry to be added.
-                Defaults to ``''``.
-            default: Default value if single value entry. Defaults to None.
-            comment (:obj:`str`, optional): Additional comment on this entry.
-                Defaults to ``''``.
+        Parameters
+        ----------
+        index : :obj:`int`
+            The index of the odEntry to be added
+        entrytype : :obj:`CANopenConstants.ENTRYTYPE`
+            Object type of the object to be added.
+        datatype : :obj:`CANopenConstants.VARTYPE`, optional
+            Data type if single value entry.
+        attribute : :obj:`CANopenConstants.ATTR`, optional
+            Access attribute if single value entry.
+        description : :obj:`str`, optional
+            Name of the entry to be added. Defaults to ``''``.
+        default
+            Default value if single value entry. Defaults to ``None``.
+        comment : :obj:`str`, optional
+            Additional comment on this entry. Defaults to ``''``.
 
-        Raises:
-            IndexError: If index is already defined
+        Raises
+        ------
+        IndexError
+            If index is already defined
         """
 
         if index in self.__indices:
@@ -562,11 +639,15 @@ class objectDictionary():
     def __next__(self):
         """Loop over defined indices
 
-        Returns:
-            odEntry: OD entry at this index
+        Returns
+        -------
+        :obj:`odEntry`
+            OD entry at this index
 
-        Raises:
-            StopIteration: If there are no more defined indices left
+        Raises
+        ------
+        StopIteration
+            If there are no more defined indices left
         """
         if self.__i >= len(self.__indices):
             raise StopIteration
@@ -577,8 +658,10 @@ class objectDictionary():
     def __contains__(self, index):
         """Check if index exists in object dictionary
 
-        Args:
-            index (int): Index of OD entry
+        Parameters
+        ----------
+        index : :obj:`int`
+            Index of OD entry
         """
         return index in self.__indices
 

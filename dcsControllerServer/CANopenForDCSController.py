@@ -157,13 +157,18 @@ class CANopenDCSController(object):
     def dumpMessage(self, cobid, msg, dlc, flag, time):
         """Print a CAN message to the screen
 
-        Args:
-            cobid (int):  CAN identifier
-            msg (bytes):  CAN data - max length 8
-            dlc (int):    Data Length Code
-            flag (int):   Flags, a combination of the canMSG_xxx and
-                canMSGERR_xxx values
-            time (float): Timestamp from hardware
+        Parameters
+        ----------
+        cobid : :obj:`int`
+            CAN identifier
+        msg : :obj:`bytes`
+            CAN data - max length 8
+        dlc : :obj:`int`
+            Data Length Code
+        flag : :obj:`int`
+            Flags, a combination of the canMSG_xxx and canMSGERR_xxx values
+        time : :obj:`float`
+            Timestamp from hardware
         """
 
         if (flag & canlib.canMSG_ERROR_FRAME != 0):
@@ -215,13 +220,18 @@ class CANopenDCSController(object):
         on the message content a subroutine may be called for processing the
         message.
 
-        Args:
-            cobid (int):  CAN identifier
-            msg (bytes):  CAN data - max length 8
-            dlc (int):    Data Length Code
-            flag (int):   Flags, a combination of the canMSG_xxx and
-                canMSGERR_xxx values
-            time (float): Timestamp from hardware
+        Parameters
+        ----------
+        cobid : :obj:`int`
+            CAN identifier
+        msg : :obj:`bytes`
+            CAN data - max length 8
+        dlc : :obj:`int`
+            Data Length Code
+        flag : :obj:`int`
+            Flags, a combination of the canMSG_xxx and canMSGERR_xxx values
+        time : :obj:`float`
+            Timestamp from hardware
         """
 
         # Check for error frame
@@ -273,13 +283,17 @@ class CANopenDCSController(object):
         Values are created randomly according to their data type and (in case
         of PSPP registers) allowed values.
 
-        Args:
-            index (int): Index of the OD entry
-            subindex (int): Subindex of the OD entry. Should be zero for single
-                value entries
+        Parameters
+        ----------
+        index : :obj:`int`
+            Index of the OD entry
+        subindex : :obj:`int`
+            Subindex of the OD entry. Should be zero for single value entries
 
-        Raises:
-            ChipNotConnectedError: When a PSPP is not connected
+        Raises
+        ------
+        ChipNotConnectedError
+            When a PSPP is not connected
         """
         if index in range(0x2200, 0x2240):
             if subindex != 2 and not self.__od[index][2]:
@@ -307,10 +321,20 @@ class CANopenDCSController(object):
         """Process an SDO read request
 
         Currently expedited and segmented transfer is supported. Error checks
-        are done for existence of (sub)index
+        are done for existence of (sub)index.
 
-        Args:
-            msg (list): CAN data. Must have a length of 8 bytes.
+        Parameters
+        ----------
+        msg : :obj:`list` of :obj:`int`
+            CAN data. Must have a length of 8 bytes.
+        timeout : :obj:`int`, optional
+            SDO timeout in milliseconds
+
+        Returns
+        -------
+        bool
+            If the SDO read service has been executed correctly including data
+            transfer.
         """
 
         # Initialize variables and parameters
@@ -371,8 +395,12 @@ class CANopenDCSController(object):
 
         Abort transfer if not expedited.
 
-        Args:
-            msg (list): CAN data. Must have a length of 8 bytes.
+        Parameters
+        ----------
+        msg : :obj:`list` of :obj:`int`
+            CAN data. Must have a length of 8 bytes.
+        timeout : :obj:`int`, optional
+            SDO timeout in milliseconds
         """
 
         cmd = msg[0]
@@ -422,17 +450,22 @@ class CANopenDCSController(object):
     def sdo_abort_message(self, index, subindex, abort_code):
         """Calculate message bytes for SDO error message
 
-        The first byte (0x80) indicates a SDO abort message.
+        The first byte (:obj:`0x80`) indicates a SDO abort message.
 
-        Args:
-            index: The main index as byte-like object of length two with
-                byteorder 'little'
-            subindex (int): The subindex of an specified OD object
-            abort_code: May be the actual 32 bit abort code as integer or as
-                type sdoAbortCode
+        Parameters
+        ----------
+        index
+            The main index as byte-like object of length two with byteorder
+            'little'.
+        subindex : :obj:`int`
+            The subindex of an specified OD object
+        abort_code : :obj:`int` or :obj:`CANopenConstants.sdoAbortCode`
+            SDO abort code (32 bit)
 
-        Returns:
-            list: The message bytes as a list of integers
+        Returns
+        -------
+        :obj:`list` of :obj:`int`
+            The message bytes as a list of integers
         """
         if isinstance(abort_code, SAC):
             ac = abort_code.value.to_bytes(4, 'little')
@@ -481,19 +514,23 @@ class CANopenDCSController(object):
                 self.__ch.write(cobid, msg)
 
     def parse_val(self, val):
-        """Convert a value to a byte array
+        """Convert a value to a byte array.
 
         The byte array will be at least four bytes long. When there is not
         enough data, bytes conatining zero will be added. Currently only
         strings and integers can be parsed.
 
-        Args:
-            val: The value which shall be converted
+        Parameters
+        ----------
+        val
+            The value which shall be converted
 
-        Returns:
-            A tuple containing:
-                1. The byte array containing the data
-                2. The actual data size
+        Returns
+        -------
+        :obj:`bytes`
+            Data bytes
+        :obj:`int`
+            Data size
         """
         ret = None
         if isinstance(val, str):

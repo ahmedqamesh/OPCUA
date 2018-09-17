@@ -1,8 +1,15 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-"""ALl kind of constants used in CANopen or PSPPs
+"""ALl kind of constants used in CANopen or PSPPs.
 
-@author: Sebastian Scholz
+Documentation of official CANopen constants is taken from the official CANopen
+specification CiA_ 301_.
+
+.. _CiA: https://www.can-cia.org/standardization/specifications/
+.. _301: https://workarea.ego-gw.it/ego2/ego/itf/software/301_canopen.pdf
+
+:Author: Sebastian Scholz
+:Contact: sebastian.scholz@cern.ch
 """
 # Third party modules
 from aenum import Enum

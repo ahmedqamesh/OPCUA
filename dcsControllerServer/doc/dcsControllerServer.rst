@@ -12,7 +12,6 @@ Submodules
    dcsControllerServer.extend_logging
    dcsControllerServer.mirrorClasses
    dcsControllerServer.objectDictionary
-   dcsControllerServer.untitled0
 
 Module contents
 ---------------

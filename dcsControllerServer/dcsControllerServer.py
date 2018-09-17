@@ -10,7 +10,9 @@ start it manually with the following command::
 
     $ sudo /usr/sbin/virtualcan.sh start
 
-@author: Sebastian Scholz
+:Author: Sebastian Scholz
+:Contact: sebastian.scholz@cern.ch
+:Organization: Bergische Universität Wuppertal
 """
 # Standard library modules
 import os
@@ -52,13 +54,56 @@ class DCSControllerServer(object):
     corresponding OPC UA objects. The CAN communication is started during
     initialization but the OPC UA server has to be started separatly.
 
-    Example:
-        For trying this just execute this file::
+    The Initialization does several things in the following order:
 
-            $ python DCSControllerServer.py
+    * Initialize logging
+    * Configure OPC UA server
+    * Import OPC UA Objects Types from XML
+    * Configure and open CAN channel
+    * Import Object Dictionary from EDS
 
+    Parameters
+    ----------
+    interface : {'Kvaser', 'AnaGate'}
+        Vendor of the CAN interface.
+    edsfile : :obj:`str`, optional
+        File path of EDS. The default will search for
+        'CANControllerForPSPPv1.eds' in the directory of this file.
+    console_loglevel : :obj:`int` or :obj:`str`, optional
+        Defines which log messages are displayed in the console.
+    file_loglevel : :obj:`int` or :obj:`str`, optional
+        Defines which log messages are written to the logfiles.
+    channel : :obj:`int`, optional
+        Number of the CAN port to be used.
+    logformat : :obj:`str`, optional
+        Defines formatting of log messages. Defaults to a compact form
+        containing only time, levelname and message.
+    endpoint : :obj:`str`, optional
+        Endpoint of the OPC UA server. Defaults to
+        'opc.tcp://localhost:4840/'
+    bitrate : :obj:`int`, optional
+        CAN bitrate to be used. The default value (None) correponds to a
+        frequency of 125 kHz.
+    xmlfile : :obj:`str`, optional
+        File name or path of OPC UA model design file. The default searches
+        'dcscontrollerdesign.xml' in the directory of this file.
+    ipAddress : :obj:`str`, optional
+        Network address of the AnaGate partner. Defaults to '192.168.1.254'
+        which is the factory default.
+
+    Example
+    -------
+    You may use the commandline tool which is created on installation or you
+    can start the server from python script with a few simple lines.
+
+    >>> from dcsControllerServer import DCSControllerServer
+    >>> with DCSControllerServer() as server:
+    >>>     server.start()
+
+    Notes
+    -----
     It recommended that this class is initialized within a ``with`` statement
-    to make use of the __enter__ and __exit__ methods so that all open
+    to make use of the ``__enter__`` and ``__exit__`` methods so that all open
     connections get cleaned up in case of errors.
     """
 
@@ -69,37 +114,6 @@ class DCSControllerServer(object):
                  file_loglevel=logging.INFO, channel=0,
                  bitrate=None, xmlfile=None,
                  ipAddress='192.168.1.254'):
-        """Initialize OPC UA Server and CANopen communication.
-
-        The Initialization does several things in the following order:
-            * Initialize logging
-            * Configure OPC UA server
-            * Import OPC UA Objects Types from XML
-            * Configure and open CAN channel
-            * Import Object Dictionary from EDS
-
-        Args:
-            interface (str): Vendor of the CAN interface. Possible values are
-                'Kvaser' and 'AnaGate'
-            edsfile (str): File path of EDS. The default will search for
-                'CANControllerForPSPPv1.eds' in the directory of this file.
-            console_loglevel (int or str): Defines which log messages are
-                displayed in the console.
-            file_loglevel (int or str): Defines which log messages are written
-                to the logfiles.
-            channel (int): Number of the CAN port to be used.
-            logformat (str): Defines formatting of log messages. Defaults to a
-                compact form containing only time, levelname and message.
-            endpoint (str): Endpoint of the OPC UA server. Defaults to
-                'opc.tcp://localhost:4840/'
-            bitrate (int): CAN bitrate to be used. The default value (None)
-                correponds to a frequency of 125 kHz.
-            xmlfile (str): File name or path of OPC UA model design file. The
-                default searches 'dcscontrollerdesign.xml' in the directory of
-                this file.
-            ipAddress (str, optional): Network address of the AnaGate partner.
-                Defaults to '192.168.1.254' which is the factory default.
-        """
 
         self.__isinit = False
         self.ret = None
@@ -317,11 +331,12 @@ class DCSControllerServer(object):
         Make sure that this is called so that the connection is established.
 
         Steps:
-            * Open CAN channel
-            * Scan CAN bus for nodes (and create UA objects)
-            * Start the actual OPCUA server
-            * Create python objects mirroring the UA address space
-            * Start the main run() routine
+
+        * Open CAN channel
+        * Scan CAN bus for nodes (and create UA objects)
+        * Start the actual OPCUA server
+        * Create python objects mirroring the UA address space
+        * Start the main run() routine
 
         This method has a small error tolerance and restarts 2 two times in
         case of errors.
@@ -399,7 +414,7 @@ class DCSControllerServer(object):
 
     def run(self):
         """Start actual CANopen communication"""
-        
+
         count = 0
         while True:
             count = 0 if count == 10 else count
@@ -439,12 +454,16 @@ class DCSControllerServer(object):
     def dumpMessage(self, cobid, msg, dlc, flag):
         """Dumps a CANopen message to the screen and log file
 
-        Args:
-            cobid (int):  CAN identifier
-            msg (bytes):  CAN data - max length 8
-            dlc (int):    Data Length Code
-            flag (int):   Flags, a combination of the canMSG_xxx and
-                canMSGERR_xxx values
+        Parameters
+        ----------
+        cobid : :obj:`int`
+            CAN identifier
+        msg : bytes
+            CAN data - max length 8
+        dlc : int
+            Data Length Code
+        flag : int
+            Flags, a combination of the canMSG_xxx and canMSGERR_xxx values
         """
 
         if (flag & canlib.canMSG_ERROR_FRAME != 0):
@@ -458,14 +477,37 @@ class DCSControllerServer(object):
             self.logger.info(msgstr)
 
     def writeMessage(self, cobid, msg, flag=0, timeout=10):
-        """Combining writing functions for different CAN interfaces"""
+        """Combining writing functions for different CAN interfaces
+
+        Parameters
+        ----------
+        cobid : :obj:`int`
+            CAN identifier
+        msg : :obj:`list` of :obj:`int` or :obj:`bytes`
+            Data bytes
+        flag : :obj:`int`, optional
+            Message flag (RTR, etc.). Defaults to zero.
+        timeout : :obj:`int`, optional
+            SDO write timeout in milliseconds. Defaults to 10 ms.
+        """
         if self.__interface == 'Kvaser':
             self.__ch.writeWait(Frame(cobid, msg), timeout)
         else:
             self.__ch.write(cobid, msg, flag)
 
     def readMessage(self, timeout):
-        """Combining different reading functions for CAN interfaces"""
+        """Combining different reading functions for CAN interfaces
+
+        Parameters
+        ----------
+        timeout : :obj:`int`
+            SDO timeout in milliseconds
+
+        Raises
+        ------
+        analib.CanNoMsg, canlib.CanNoMsg
+            No new CAN message has arrived and the timeout has expired.
+        """
         if self.__interface == 'Kvaser':
             return self.__ch.read(timeout)
         else:
@@ -484,15 +526,23 @@ class DCSControllerServer(object):
         Currently expedited and segmented transfer is supported by this method.
         The user has to decide how to decode the data.
 
-        Args:
-            nodeId (int): The id from the node to read from
-            index (int): The od index to read from
-            subindex (int): Subindex. Defaults to zero for single value entries
-            timeout(int): SDO timeout in milliseconds
+        Parameters
+        ----------
+        nodeId : :obj:`int`
+            The id from the node to read from
+        index : :obj:`int`
+            The Object Dictionary index to read from
+        subindex : :obj:`int`
+            OD Subindex. Defaults to zero for single value entries.
+        timeout : :obj:`int`, optional
+            SDO timeout in milliseconds
 
-        Returns:
-            * list(int): The data if was successfully read
-            * None: In case of errors
+        Returns
+        -------
+        :obj:`list` of :obj:`int`
+            The data if was successfully read
+        None
+            In case of errors
         """
         if nodeId is None or index is None or subindex is None:
             self.logger.warning('SDO read protocol cancelled before it could '
@@ -556,15 +606,23 @@ class DCSControllerServer(object):
 
         This sends the request and analyses the response.
 
-        Args:
-            nodeId (int): The id from the node to read from
-            index (int): The od index to read from
-            subindex (int): Subindex. Defaults to zero for single value entries
-            value (int): The value you want to write.
-            timeout(int): SDO timeout in milliseconds
+        Parameters
+        ----------
+        nodeId : :obj:`int`
+            The id from the node to read from
+        index : :obj:`int`
+            The OD index to read from
+        subindex : :obj:`int`
+            Subindex. Defaults to zero for single value entries
+        value : :obj:`int`
+            The value you want to write.
+        timeout : :obj:`int`, optional
+            SDO timeout in milliseconds
 
-        Returns:
-            bool: If writing the object was successful
+        Returns
+        -------
+        bool
+            If writing the object was successful
         """
 
         # Create the request message
@@ -619,13 +677,15 @@ class DCSControllerServer(object):
             self.logger.success('SDO write protocol successful!')
         return True
 
-    def set_connected_PSPP(self, nodeId=42, data=None, userdmvals=None):
+    def set_connected_PSPP(self, nodeId=42, data=None):
         """Set which PSPPs are connected to a specified Controller
 
-        Args:
-            nodeId (int): Node Id of the Controller. Defaults to None.
-            data (list(int)): 4*16 bit of information about connected PSPPs.
-                Defaults to None.
+        Parameters
+        ----------
+        nodeId : :obj:`int`, optional
+            Node Id of the Controller. Defaults to 42.
+        data : :obj:`list` of :obj:`int`, optional
+            4*16 bit of information about connected PSPPs. Defaults to None.
         """
         self.logger.notice('Start transmitting info about connected PSPPs to '
                            'the Controller ...')
@@ -642,11 +702,11 @@ class DCSControllerServer(object):
         for nodeid in self.__nodeIds:
             self.set_connected_PSPP(nodeid, [0xffff for i in range(4)])
 
-    def scan_nodes(self, timeout=10):
+    def scan_nodes(self, timeout=42):
         """Do a complete scan over all CAN nodes
 
         The internally stored information about all nodes are reset. This
-        method will be called by the __init__ method. It should also be used
+        method will be called by the :obj:`__init__` method. It should also be used
         to reestablish communication when it was lost or when a new device was
         connected while the user program is running.
 
@@ -656,8 +716,10 @@ class DCSControllerServer(object):
         This overrides any previous configurations and empties the lists and
         dictionaries for stored objects.
 
-        Args:
-            timeout(int): SDO timeout in milliseconds
+        Parameters
+        ----------
+        timeout : :obj:`int`, optional
+            SDO timeout in milliseconds
         """
         self.logger.notice('Scanning nodes. This will take a few seconds ...')
         self.__nodeIds = list(range(1, 128))
@@ -690,9 +752,10 @@ class DCSControllerServer(object):
         that the dictionary where these classes are stored is emptied at the
         start of this methods.
 
-        Warning:
-            This method must be called after the server is started and after
-            the UA objects have been created.
+        Warning
+        -------
+        This method must be called after the server is started and after
+        the UA objects have been created.
         """
         self.logger.notice('Creating mirrored python objects for every UA '
                            'object ...')
@@ -719,7 +782,7 @@ def main():
                                    'sebastian.scholz@cern.ch')
     parser.add_argument('-i', '--interface', metavar='INTERFACE',
                         help='Vendor of the CAN interface. Possible values are'
-                        '"Kvaser" (default) and "AnaGate" (case-sensitive)', 
+                        ' "Kvaser" (default) and "AnaGate" (case-sensitive)',
                         default='Kvaser')
     parser.add_argument('-E', '--endpoint', metavar='ENDPOINT',
                         help='Endpoint of the OPCUA server',

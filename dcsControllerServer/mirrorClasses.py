@@ -8,7 +8,8 @@ CANopen comminucation) happens inside descriptors. There are two descriptor
 classes which only differ in details because there is one for an unsigned
 integer (which is the predominant data type) and one for a boolean.
 
-@author: Sebastian Scholz
+:Author: Sebastian Scholz
+:Contact: sebastian.scholz@cern.ch
 """
 
 # Standard library modules
@@ -27,16 +28,24 @@ except (ModuleNotFoundError, ImportError):
 def check_uint(value, bitlength=64):
     """Check if a value is an unsigned integer of a specified length
 
-    Args:
-        value: The Value to check
-        bitlength (int): Maximum number of bits that the value must stick to.
+    Parameters
+    ----------
+    value
+        The Value to check
+    bitlength : :obj:`int`, optional
+        Maximum number of bits that the value must stick to.
 
-    Returns:
-        bool: If the value fulfills the conditions
+    Returns
+    -------
+    bool
+        If the value fulfills the conditions
 
-    Raises:
-        TypeError: If the value is not an integer
-        ValueError: If the value exceeds the given range
+    Raises
+    ------
+    TypeError
+        If the value is not an integer
+    ValueError
+        If the value exceeds the given range
     """
     if value is None:
         return True
@@ -52,14 +61,20 @@ def check_uint(value, bitlength=64):
 def check_bool(value):
     """Check if a value is a bool
 
-    Args:
-        value: The Value to check
+    Parameters
+    ----------
+    value
+        The Value to check
 
-    Returns:
-        bool: If the value fulfills the conditions
+    Returns
+    -------
+    bool
+        If the value fulfills the conditions
 
-    Raises:
-        TypeError: If the value is not a bool
+    Raises
+    ------
+    TypeError
+        If the value is not a bool
     """
     if value is not None and not isinstance(value, bool):
         raise TypeError(f'Expecting bool and not '
@@ -69,27 +84,43 @@ def check_bool(value):
 
 def pspp_index(n_scb, n_pspp):
     """Get OD main index of a PSPP chip
-    
-    Args:
-        n_scb (int): SCB master number (0-3)
-        n_pspp (int): Number of the PSPP in its SCB chain (0-15)
+
+    Parameters
+    ----------
+    n_scb : :obj:`int`
+        SCB master number (0-3)
+    n_pspp : :obj:`int`
+        Number of the PSPP in its SCB chain (0-15)
+
+    Returns
+    -------
+    int
+        Object Dictionary main index of PSPP
     """
     return 0x2200 + 16 * n_scb + n_pspp
 
 
 def get_address(name, n_scb=None, n_pspp=None, inst=None):
     """Get object dictionary address based on the name.
-    
-    Args:
-        name (str): Attribute name
-        n_scb (int): SCB master number (0-3)
-        n_pspp (int): Number of the PSPP in its SCB chain (0-15)
-        inst: The descriptor object calling this method. Needed to distinguish
-            between nodes that have the same display names.
 
-    Returns:
-        int: OD index or None if name does not fit
-        int: OD subindex or None if name does not fit
+    Parameters
+    ----------
+    name : str
+        Attribute name
+    n_scb : :obj:`int`
+        SCB master number (0-3)
+    n_pspp : :obj:`int`
+        Number of the PSPP in its SCB chain (0-15)
+    inst
+        The descriptor object calling this method. Needed to distinguish
+        between nodes that have the same display names.
+
+    Returns
+    -------
+    index : :obj:`int`
+        OD index or None if name does not fit
+    subindex : :obj:`int`
+        OD subindex or None if name does not fit
     """
     index, subindex = None, None
     if name is 'ConnectedPSPPs':
@@ -115,25 +146,30 @@ class UIntField(object):
     """Descriptor class for an unsigned integer of variable bit length.
 
     The setter checks if the value is None or a valid integer.
+
+    Parameters
+    ----------
+    parent
+        Points to the parent object in attribute hierarchy
+    master : :obj:`DCSControllerServer`
+        The master class providing CAN communication and OPCUA functionality.
+    name : str
+        Name of this UInt. Needed to make the connection to the object
+        dictionary.
+    nodeId : :obj:`int`, optional
+        CAN node id of the DCS Controller
+    n_scb : :obj:`int`, optional
+        Number of the SCB master if this belongs to one
+    bitlength : :obj:`int`, optional
+        Defines maximum size. Defaults to 64 bits.
+    val : :obj:`int`, optional
+        Initial value
+    n_pspp : :obj:`int`, optional
+        Number of the PSPP in the serial power chain if this belongs to a PSPP.
     """
 
     def __init__(self, parent, master, name, nodeId, n_scb=None,
                  bitlength=64, val=None, n_pspp=None):
-        """Initialize and check if it has a partner in the OD.
-
-        Args:
-            parent: Points to the parent object in attribute hierarchy
-            master (DCSControllerServer): The master class providing CAN
-                communication and OPCUA functionality
-            name (str): Name of this UInt. Needed to make the connection to the
-                object dictionary
-            nodeId (int): CAN node id of the DCS Controller
-            n_scb (int): Number of the SCB master if this belongs to one
-            bitlength (int): Defines maximum size. Defaults to 64 bits.
-            val (int): Initial value
-            n_pspp (int): Number of the PSPP in the serial power chain if this
-                belongs to a PSPP.
-        """
         self.parent = parent
         self.master = master
         self.logger = master.logger
@@ -204,24 +240,28 @@ class BoolField(object):
     """Descriptor class for a boolean.
 
     The setter checks if the value is None or a bool.
+
+    Parameters
+    ----------
+    parent
+        Points to the parent object in attribute hierarchy
+    master : :obj:`DCSControllerServer`
+        The master class providing CAN communication and OPCUA functionality
+    name : str
+        Name of this Bool. Needed to make the connection to the object
+        dictionary
+    nodeId : int
+        CAN node id of the DCS Controller
+    n_scb : :obj:`int`, optional
+        Number of the SCB master if this belongs to one
+    val : :obj:`bool`, optional
+        Initial value
+    n_pspp : :obj:`int`, optional
+        Number of the PSPP in the serial power chain if this belongs to a PSPP.
     """
 
     def __init__(self, parent, master, name, nodeId, n_scb=None, val=None,
                  n_pspp=None):
-        """Initialize and check if it has a partner in the OD.
-
-        Args:
-            parent: Points to the parent object in attribute hierarchy
-            master (DCSControllerServer): The master class providing CAN
-                communication and OPCUA functionality
-            name (str): Name of this Bool. Needed to make the connection to the
-                object dictionary
-            nodeId (int): CAN node id of the DCS Controller
-            n_scb (int): Number of the SCB master if this belongs to one
-            val (bool): Initial value
-            n_pspp (int): Number of the PSPP in the serial power chain if this
-                belongs to a PSPP.
-        """
         self.parent = parent
         self.master = master
         self.logger = master.logger
@@ -283,7 +323,7 @@ class SubHandler(object):
 
     def datachange_notification(self, node, val, data):
         """Write incoming value from the server to mirrored object
-        
+
         This method passes the value to the respective descriptor which handles
         the actual writing.
         """
@@ -306,6 +346,13 @@ class UaObject(object):
     descriptors work with instance attributes. This is necessary because in
     order to mirror the address space correctly the attributes have to be
     instance attributes.
+
+    Parameters
+    ----------
+    master : :obj:`DCSControllerServer`
+        The master class providing CAN communication and OPCUA functionality
+    ua_node
+        The python respresentation of the corresponding OPC UA node
     """
 
     def __init__(self, master, ua_node):
@@ -334,14 +381,16 @@ class UaObject(object):
 
     def write(self, attr=None):
         """Write value of mirrored object to OPC UA node.
-        
+
         If a specific attr isn't passed to write, write all OPC UA children.
-        
+
         Currently this is unused because all the writing is handled by the
         respective descriptor objects.
-        
-        Args:
-            attr (str): The attribute to write
+
+        Parameters
+        ----------
+        attr : :obj:`str`, optional
+            The attribute to write
         """
         if attr is None:
             for k, node in self.nodes.items():
@@ -380,6 +429,19 @@ class MyPSPPADCChannels(UaObject):
 
     This class mirrors all 13 PSPP registers. Each has a length of one byte.
     The instance attributes are created dynamically to decrease verbosity.
+
+    Parameters
+    ----------
+    master : :obj:`DCSControllerServer`
+        The master class providing CAN communication and OPCUA functionality
+    ua_node
+        The python respresentation of the corresponding OPC UA node
+    nodeId : int
+        CAN node id of the DCS Controller
+    n_scb : int
+        Number of the SCB master if this belongs to one
+    n_pspp : int
+        Number of the PSPP in the serial power chain if this belongs to a PSPP.
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
@@ -402,6 +464,19 @@ class MyMonitoringData(UaObject):
 
     This class mirrors a FolderType Object that contains three UInt16
     properties.
+
+    Parameters
+    ----------
+    master : :obj:`DCSControllerServer`
+        The master class providing CAN communication and OPCUA functionality
+    ua_node
+        The python respresentation of the corresponding OPC UA node
+    nodeId : int
+        CAN node id of the DCS Controller
+    n_scb : int
+        Number of the SCB master if this belongs to one
+    n_pspp : int
+        Number of the PSPP in the serial power chain if this belongs to a PSPP.
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
@@ -430,6 +505,19 @@ class MyRegs(UaObject):
 
     This class mirrors all 13 PSPP registers. Each has a length of one byte.
     The instance attributes are created dynamically to decrease verbosity.
+
+    Parameters
+    ----------
+    master : :obj:`DCSControllerServer`
+        The master class providing CAN communication and OPCUA functionality
+    ua_node
+        The python respresentation of the corresponding OPC UA node
+    nodeId : int
+        CAN node id of the DCS Controller
+    n_scb : int
+        Number of the SCB master if this belongs to one
+    n_pspp : int
+        Number of the PSPP in the serial power chain if this belongs to a PSPP.
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
@@ -447,11 +535,24 @@ class MyRegs(UaObject):
 class MyPSPP(UaObject):
     """
     Definition of OPC UA object which represents a object to be mirrored in
-    python. This class mirrors it's UA counterpart and semi-configures itself
+    python. This class mirrors its UA counterpart and semi-configures itself
     according to the UA model (generally from XML).
 
     This class mirrors a PSPPType Object. Its children are two Folders and a
     Boolean property.
+
+    Parameters
+    ----------
+    master : :obj:`DCSControllerServer`
+        The master class providing CAN communication and OPCUA functionality
+    ua_node
+        The python respresentation of the corresponding OPC UA node
+    nodeId : int
+        CAN node id of the DCS Controller
+    n_scb : int
+        Number of the SCB master if this belongs to one
+    n_pspp : int
+        Number of the PSPP in the serial power chain if this belongs to a PSPP.
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
@@ -487,6 +588,17 @@ class MySCBMaster(UaObject):
 
     This class mirrors a SCB Master which is a FolderType Object and contains
     16 PSPPType Objects which are created dynamically to decrease verbosity.
+
+    Parameters
+    ----------
+    master : :obj:`DCSControllerServer`
+        The master class providing CAN communication and OPCUA functionality
+    ua_node
+        The python respresentation of the corresponding OPC UA node
+    nodeId : int
+        CAN node id of the DCS Controller
+    n_scb : int
+        Number of the SCB master if this belongs to one
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb):
@@ -522,6 +634,15 @@ class MyDCSController(UaObject):
     connected, its CAN node id and a status boolean) and four SCB Masters
     representing the actual hardware. The latter are created dynamically to
     decrease verbosity.
+
+    Parameters
+    ----------
+    master : :obj:`DCSControllerServer`
+        The master class providing CAN communication and OPCUA functionality
+    ua_node
+        The python respresentation of the corresponding OPC UA node
+    nodeId : int
+        CAN node id of the DCS Controller
     """
 
     def __init__(self, master, ua_node, nodeId):
