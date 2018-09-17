@@ -24,7 +24,7 @@ class Mock(MagicMock):
 
 
 MOCK_MODULES = ['pygtk', 'gtk', 'gobject', 'argparse', 'numpy', 'pandas',
-                'canlib', 'analib']
+                'canlib']
 sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 
 sys.path.insert(0, os.path.abspath('.'))
