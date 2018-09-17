@@ -6,4 +6,3 @@ opcua
 
 ###### A particular file ######
 ./canlib-1.6.615-py2.py3-none-any.whl
-./anagate-0.1.0-py3-none-any.whl

@@ -8,13 +8,11 @@ Created on Sat Jul  7 13:45:04 2018
 
 from setuptools import setup
 
-from dcsControllerServer.__init__ import __version__
-
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-setup(name='dcsControllerServer',
-      version=__version__,
+setup(name='DCSController',
+      version='0.1.0',
       description='OPCUA CANopen server for DCS Controllers',
       long_description=long_description,
       long_description_content_type="text/markdown",
@@ -25,7 +23,7 @@ setup(name='dcsControllerServer',
                    'Topic :: Scientific/Engineering :: Physics'],
       author='Sebastian Scholz',
       author_email='sebastian.scholz@cern.ch',
-      packages=['dcsControllerServer'],
+      packages=['anagate', 'dcsControllerServer'],
       install_requires=['coloredlogs', 'verboselogs', 'opcua', 'aenum',
                         'canlib'],
       include_package_data=True,
