@@ -32,7 +32,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'dcsControllerServer'
+project = 'DCSController'
 copyright = '2018, Sebastian Scholz'
 author = 'Sebastian Scholz'
 
@@ -131,7 +131,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'dcsControllerServerdoc'
+htmlhelp_basename = 'DCSControllerdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -158,7 +158,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'dcsControllerServer.tex', 'dcsControllerServer Documentation',
+    (master_doc, 'DCSControllerdoc.tex', 'DCSController Software Documentation',
      'Author', 'manual'),
 ]
 
@@ -168,7 +168,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'dcscontrollerserver', 'dcsControllerServer Documentation',
+    (master_doc, 'dcscontrollerdoc', 'DCS Controller Software Documentation',
      [author], 1)
 ]
 
@@ -179,8 +179,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'dcsControllerServer', 'dcsControllerServer Documentation',
-     author, 'dcsControllerServer', 'One line description of project.',
+    (master_doc, 'DCSController', 'DCS Controller Software Documentation',
+     author, 'DCSController', 'One line description of project.',
      'Miscellaneous'),
 ]
 
