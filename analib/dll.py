@@ -11,12 +11,15 @@ from . import dllLoader
 
 
 class libCANDLL(dllLoader.MyDll):
+    """This class contains all the prototypes from the used API"""
 
     CBFUNC = ct.CFUNCTYPE(ct.c_void_p, ct.c_int32, ct.POINTER(ct.c_char),
                           ct.c_int32, ct.c_int32, ct.c_int32)
+    """Function type for callback functions"""
     CBFUNCEX = ct.CFUNCTYPE(ct.c_void_p, ct.c_int32, ct.POINTER(ct.c_char),
                             ct.c_int32, ct.c_int32, ct.c_int32, ct.c_int32,
                             ct.c_int32)
+    """Function type for callback functions which use the timestamp"""
 
     function_prototypes = {
         'DLLInfo': [[ct.c_char_p, ct.c_int32], ct.c_int32],
@@ -65,6 +68,14 @@ class libCANDLL(dllLoader.MyDll):
         'CANDeviceConnectState': [[ct.c_int32], ct.c_int32],
         'CANErrorMessage': [[ct.c_int32, ct.c_char_p, ct.c_int32], ct.c_int32]
         }
+    """dict : Function prototypes.
+
+    One entry has the following form:
+
+        ``'dllFunctionName': [[typeOfArg1, typeOfArg2, ...], returnType]``
+
+    All types are ``ctypes`` classes.
+    """
 
     def __init__(self, ct_dll):
         # set default values for function_prototypes
