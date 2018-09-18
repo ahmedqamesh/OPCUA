@@ -1,13 +1,36 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jul 23 21:27:10 2018
+Some basic custom exceptions which do nothing special
 
-@author: Sebastian Scholz
+:Author: Sebastian Scholz
+:Contact: sebastian.scholz@cern.ch
+:Organization: Bergische Universität Wuppertal
 """
 
-class dllException(Exception):
+class AnalibException(Exception):
+    """Base class for all exceptions in analib"""
     pass
 
-class CanNoMsg(Exception):
+
+class DllException(AnalibException):
+    """Base class for exceptions from dll calls in analib
+
+    All instances of this class must have a `rc` attribute defined (this is
+    enforced in `DllException.__init__()`). Its value is the return code from
+    the API function.
+    """
+
+    @staticmethod
+    def _get_error_text(rc):
+        # import here to prevent circular imports
+        from .wrapper import errorMessage
+        return errorMessage(rc)
+
+    def __init__(self, rc):
+        self.rc = rc
+        super(DllException, self).__init__(self._get_error_text(self.rc))
+
+
+class CanNoMsg(AnalibException):
     pass
 

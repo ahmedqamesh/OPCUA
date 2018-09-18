@@ -19,7 +19,7 @@ import ipaddress
 
 # Other files in this package
 from .wrapper import dll, errorCheck, restart
-from .exception import dllException, CanNoMsg
+from .exception import DllException, CanNoMsg
 from .constants import CONNECT_STATES, BAUDRATES
 
 
@@ -406,12 +406,10 @@ class Channel(object):
         nCANPort = ct.c_int32(port)
         pcIPAddress = ct.create_string_buffer(bytes(ipAddress, 'utf-8'))
         nTimeout = ct.c_int32(timeout)
-        ret = ct.c_int32()
 
-        ret = dll.CANOpenDevice(ct.byref(self.__handle), bSendDataConfirm,
-                                bSendDataInd, nCANPort, pcIPAddress, nTimeout)
+        dll.CANOpenDevice(ct.byref(self.__handle), bSendDataConfirm,
+                          bSendDataInd, nCANPort, pcIPAddress, nTimeout)
 
-        errorCheck(ret)
         self.__port = nCANPort
         self.__sendDataConfirm = bSendDataConfirm
         self.__sendDataInd = bSendDataInd
@@ -421,22 +419,28 @@ class Channel(object):
 
     def _closeDevice(self):
         """Closes an open network connection to an AnaGate CAN device."""
-        ret = dll.CANCloseDevice(self.__handle)
-        errorCheck(ret)
+        dll.CANCloseDevice(self.__handle)
         self.__deviceOpen = False
 
     def close(self):
+        """Close a connection.
+
+        If the wrapped function returns an error the connection was already
+        closed and the error is ignored.
+        """
         try:
             self._closeDevice()
-        except dllException:
+        except DllException:
             pass
 
     def openChannel(self):
+        """Opens a connections if it is not already open"""
         if not self.__deviceOpen:
             return self._openDevice(self.ipAddress, self.port,
                                     self.sendDataConfirm, self.sendDataInd)
 
     def restart(self):
+        """Restart the AnaGate device"""
         restart(self.ipAddress)
 
     def setGlobals(self, baudrate=None, operatingMode=None, termination=None,
@@ -511,9 +515,8 @@ class Channel(object):
         timeStampOn = self.__timeStampOn if timeStampOn is None \
             else ct.c_int32(timeStampOn)
 
-        ret = dll.CANSetGlobals(self.__handle, baudrate, operatingMode,
-                                termination, highSpeedMode, timeStampOn)
-        errorCheck(ret)
+        dll.CANSetGlobals(self.__handle, baudrate, operatingMode, termination,
+                          highSpeedMode, timeStampOn)
         self.__baudrate = baudrate
         self.__operatingMode = operatingMode
         self.__termination = termination
@@ -528,12 +531,11 @@ class Channel(object):
 
         Saves the received values in the corresponding private attributes.
         """
-        ret = dll.CANGetGlobals(self.__handle, ct.byref(self.__baudrate),
-                                ct.byref(self.__operatingMode),
-                                ct.byref(self.__termination),
-                                ct.byref(self.__highSpeedMode),
-                                ct.byref(self.__timeStampOn))
-        errorCheck(ret)
+        dll.CANGetGlobals(self.__handle, ct.byref(self.__baudrate),
+                          ct.byref(self.__operatingMode),
+                          ct.byref(self.__termination),
+                          ct.byref(self.__highSpeedMode),
+                          ct.byref(self.__timeStampOn))
 
     def setTime(self, seconds=None, microseconds=0):
         """Sets the current system time on the AnaGate device.
@@ -559,8 +561,7 @@ class Channel(object):
         seconds = ct.c_uint32(seconds)
         microseconds = ct.c_uint32(microseconds)
 
-        ret = dll.CANSetTime(self.__handle, seconds, microseconds)
-        errorCheck(ret)
+        dll.CANSetTime(self.__handle, seconds, microseconds)
 
     def getTime(self):
         """Gets the current system time from the AnaGate CAN device.
@@ -580,9 +581,8 @@ class Channel(object):
         seconds = ct.c_uint32()
         microseconds = ct.c_uint32()
         timeWasSet = ct.c_int32()
-        ret = dll.CANGetTime(self.__handle, ct.byref(timeWasSet),
-                             ct.byref(seconds), ct.byref(microseconds))
-        errorCheck(ret)
+        dll.CANGetTime(self.__handle, ct.byref(timeWasSet),
+                       ct.byref(seconds), ct.byref(microseconds))
         return seconds.value, microseconds.value
 
     def write(self, identifier, data, flags=0):
@@ -611,8 +611,7 @@ class Channel(object):
         flags = ct.c_int32(flags)
         identifier = ct.c_int32(identifier)
 
-        ret = dll.CANWrite(self.__handle, identifier, buffer, bufferLen, flags)
-        errorCheck(ret)
+        dll.CANWrite(self.__handle, identifier, buffer, bufferLen, flags)
 
     def _setMaxSizePerQueue(self, maxSize):
         """Sets the maximum size of the queue that buffers received CAN
@@ -644,8 +643,7 @@ class Channel(object):
             Maximum size of the receive buffer.
         """
         maxSize = ct.c_uint32(maxSize)
-        ret = dll.CANSetMaxSizePerQueue(self.__handle, maxSize)
-        errorCheck(ret)
+        dll.CANSetMaxSizePerQueue(self.__handle, maxSize)
 
     def getMessage(self):
         """Returns a received CAN telegram from the receive queue.
@@ -685,11 +683,11 @@ class Channel(object):
         seconds = ct.c_int32()
         microseconds = ct.c_int32()
 
-        ret = dll.CANGetMessage(self.__handle, ct.byref(availMsgs),
-                                ct.byref(identifier), data, ct.byref(dataLen),
-                                ct.byref(flags), ct.byref(seconds),
-                                ct.byref(microseconds))
-        errorCheck(ret)
+        dll.CANGetMessage(self.__handle, ct.byref(availMsgs),
+                          ct.byref(identifier), data, ct.byref(dataLen),
+                          ct.byref(flags), ct.byref(seconds),
+                          ct.byref(microseconds))
+
         if availMsgs.value == ct.c_uint32(-1).value:
             raise CanNoMsg
         return identifier.value, data.raw[:dataLen.value], dataLen.value, \
@@ -749,8 +747,7 @@ class Channel(object):
             1 s.
         """
 
-        ret = dll.CANStartAlive(self.__handle, ct.c_int32(aliveTime))
-        errorCheck(ret)
+        dll.CANStartAlive(self.__handle, ct.c_int32(aliveTime))
 
     def setCallback(self, callbackFunction):
         """Defines an asynchronous callback function which is called for each
@@ -768,5 +765,4 @@ class Channel(object):
             parameters of the callback function are described in the
             documentation of the ``CANWrite`` function.
         """
-        ret = dll.CANSetCallback(self.__handle, callbackFunction)
-        errorCheck(ret)
+        dll.CANSetCallback(self.__handle, callbackFunction)

@@ -2,7 +2,9 @@
 """
 Created on Mon Jul 23 11:45:30 2018
 
-@author: Sebastian Scholz
+:Author: Sebastian Scholz
+:Contact: sebastian.scholz@cern.ch
+:Organization: Bergische Universität Wuppertal
 """
 import os
 import ctypes as ct
@@ -10,10 +12,24 @@ import sys
 import platform
 
 from .dll import libCANDLL
-from .exception import dllException
+from .exception import DllException
 
 
 def loadDLL():
+    """Load AnaGate API libaries.
+
+    This function handles the platform-specific stuff.
+
+    Returns
+    -------
+    :obj:`ctypes.WinDLL`,  :obj:`ctypes.CDLL`
+        ``ctypes`` library. The exact type is platform specific.
+
+    Raises
+    ------
+    ValueError
+        When platform is not Windows or Linux
+    """
 
     f_dir = os.path.dirname(os.path.abspath(__file__))
     ext = ''
@@ -44,13 +60,15 @@ dll = libCANDLL(loadDLL())
 def dllInfo():
     """Determines the current version information of the AnaGate DLL.
 
-    Returns:
-        str: Version reference number of the AnaGate DLL.
+    Returns
+    -------
+    str
+        Version reference string of the AnaGate DLL.
     """
     buf = ct.create_string_buffer(128)
     nMessageLen = ct.c_int32(128)
 
-    ret = dll.DLLInfo(buf, nMessageLen)
+    dll.DLLInfo(buf, nMessageLen)
     return buf.value.decode()
 
 
@@ -62,17 +80,21 @@ def errorMessage(returnCode):
     large enough to store the text, the text is shortened to the specified
     buffer size.
 
-    Args:
-        int: Error code for which the error description is to be determined.
+    Parameters
+    ----------
+    returnCode : int
+        Error code for which the error description is to be determined.
 
-    Returns:
-        str: Error description.
+    Returns
+    -------
+    str
+        Error description.
     """
     buf = ct.create_string_buffer(128)
     buflen = ct.c_int32(128)
     nRC = ct.c_int32(returnCode)
 
-    ret = dll.CANErrorMessage(nRC, buf, buflen)
+    dll.CANErrorMessage(nRC, buf, buflen)
     return buf.value.decode()
 
 
@@ -84,20 +106,43 @@ def restart(ipAddress='192.168.1.254', timeout=10000):
     interfaces. The Restart command is even possible if the maximum number of
     allowed connections is reached.
 
-    Args:
-        ipAddress (str, optional): Network address of the AnaGate partner.
-            Defaults to '192.168.1.254' which is the factory default.
-        timeout (int, optional): Default timeout for accessing the AnaGate in
-            milliseconds. A timeout is reported if the AnaGate partner does not
-            respond within the defined timeout period. Defaults to 10 s.
+    Parameters
+    ----------
+    ipAddress : :obj:`str`, optional
+        Network address of the AnaGate partner. Defaults to '192.168.1.254'
+        which is the factory default.
+    timeout : :obj:`int`, optional
+        Default timeout for accessing the AnaGate in milliseconds. A timeout is
+        reported if the AnaGate partner does not respond within the defined
+        timeout period. Defaults to 10 s.
     """
     ipAddress = ct.c_char_p(bytes(ipAddress, 'utf-8'))
-    ret = dll.CANRestart(ipAddress, ct.c_int32(timeout))
-    errorCheck(ret)
+    dll.CANRestart(ipAddress, ct.c_int32(timeout))
 
 
 def errorCheck(returnCode):
+    """Check return code from API function for error.
+
+    For AnaGate API functions an error has occured when the return code is not
+    0. The error message is then constructed by an API function form this
+    return code.
+
+    Parameters
+    ----------
+    returnCode : int
+        The integer returns code from the AnaGate API function
+
+    Returns
+    -------
+    bool
+        True only if the return code is 0.
+
+    Raises
+    ------
+    dllException
+        When the API function returned an error.
+    """
     if returnCode == 0:
         return True
     else:
-        raise dllException(errorMessage(returnCode))
+        raise DllException(errorMessage(returnCode))
