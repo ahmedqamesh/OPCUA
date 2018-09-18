@@ -1,1 +1,1 @@
-from . import dcsControllerServer, mirrorClasses
+from .dcsControllerServer import DCSControllerServer
