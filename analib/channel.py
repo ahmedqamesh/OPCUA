@@ -18,7 +18,7 @@ import time
 import ipaddress
 
 # Other files in this package
-from .wrapper import dll, errorCheck, restart
+from .wrapper import dll, restart
 from .exception import DllException, CanNoMsg
 from .constants import CONNECT_STATES, BAUDRATES
 
@@ -40,30 +40,30 @@ class Channel(object):
     Parameters
     ----------
     ipAddress : :obj:`str`, optional
-        Network address of the AnaGate partner. Defaults to '192.168.1.254'
+        Network address of the AnaGate partner. Defaults to `'192.168.1.254'`
         which is the factory default.
     port : :obj:`int`, optional
         CAN port number.
         Allowed values are:
 
-        * 0 for port 1/A (all AnaGate CAN models)
-        * 1 for port 2/B (AnaGate CAN duo, AnaGate CAN quattro,
+        * 0 for port 1/A (all AnaGate |CAN| models)
+        * 1 for port 2/B (AnaGate |CAN| duo, AnaGate |CAN| quattro,
           AnaGate CAN X2/X4/X8)
-        * 2 for port 3/C (AnaGate CAN quattro, AnaGate CAN X4/X8)
-        * 3 for port 4/D (AnaGate CAN quattro, AnaGate CAN X4/X8)
-        * 4 for port 5/E (AnaGate CAN X8)
-        * 5 for port 6/F (AnaGate CAN X8)
-        * 6 for port 7/G (AnaGate CAN X8)
-        * 7 for port 8/H (AnaGate CAN X8)
+        * 2 for port 3/C (AnaGate |CAN| quattro, AnaGate |CAN| X4/X8)
+        * 3 for port 4/D (AnaGate |CAN| quattro, AnaGate |CAN| X4/X8)
+        * 4 for port 5/E (AnaGate |CAN| X8)
+        * 5 for port 6/F (AnaGate |CAN| X8)
+        * 6 for port 7/G (AnaGate |CAN| X8)
+        * 7 for port 8/H (AnaGate |CAN| X8)
 
         Defaults to 0.
     confirm : :obj:`bool`, optional
-        If set to ``True``, all incoming and outgoing data requests are
+        If set to :const:`True`, all incoming and outgoing data requests are
         confirmed by the internal message protocol. Without confirmations a
-        better transmission performance is reached. Defaults to ``True``.
+        better transmission performance is reached. Defaults to :const:`True`.
     ind : :obj:`bool`, optional
-        If set to ``False``, all incoming telegrams are discarded. Defaults to
-        ``True``.
+        If set to :const:`False`, all incoming telegrams are discarded.
+        Defaults to :const:`True`.
     timeout : :obj:`int`, optional
         Default timeout for accessing the AnaGate in milliseconds.
 
@@ -85,7 +85,7 @@ class Channel(object):
         * 125000 für 125kBit
         * 250000 für 250kBit
         * 500000 für 500kBit
-        * 800000 für 800kBit (not AnaGate CAN)
+        * 800000 für 800kBit (not AnaGate |CAN|)
         * 1000000 für 1MBit
 
     operatingMode : :obj:`int`, optional
@@ -93,33 +93,34 @@ class Channel(object):
         The following values are allowed:
 
         * 0 = default mode.
-        * 1 = loop back mode: No telegrams are sent via CAN bus. Instead they
-          are received as if they had been transmitted over CAN by a different
-          CAN device.
+        * 1 = loop back mode: No telegrams are sent via |CAN| bus. Instead they
+          are received as if they had been transmitted over |CAN| by a
+          different |CAN| device.
         * 2 = listen mode: Device operates as a passive bus partner, meaning no
-          telegrams are sent to the CAN bus (nor ACKs for incoming telegrams).
-        * 3 = offline mode: No telegrams are sent or received on the CAN bus.
-          Thus no error frames are generated on the bus if other connected CAN
-          devices send telegrams with a different baud rate.
+          telegrams are sent to the |CAN| bus (nor ACKs for incoming
+          telegrams).
+        * 3 = offline mode: No telegrams are sent or received on the |CAN| bus.
+          Thus no error frames are generated on the bus if other connected
+          |CAN| devices send telegrams with a different baud rate.
 
     termination : :obj:`bool`, optional
-        Use integrated CAN bus termination. This setting is not supported by
-        all AnaGate CAN models.
+        Use integrated |CAN| bus termination. This setting is not supported by
+        all AnaGate |CAN| models.
     highSpeedMode : :obj:`bool`, optional
-        Use high speed mode. This setting is not supported by all AnaGate CAN
+        Use high speed mode. This setting is not supported by all AnaGate |CAN|
         models.
 
         The high speed mode was created for large baud rates with continuously
         high bus load. In this mode telegrams are not confirmed on the protocol
         layer and the software filters defined via CANSetFilter are ignored.
     timeStampOn : :obj:`bool`, optional
-        Use time stamp mode. This setting is not supported by all AnaGate CAN
+        Use time stamp mode. This setting is not supported by all AnaGate |CAN|
         models.
 
         In activated time stamp mode an additional timestamp is sent with the
         CAN telegram. This timestamp indicates when the incoming message was
-        received by the CAN controller or when the outgoing message was
-        confirmed by the CAN controller.
+        received by the |CAN| controller or when the outgoing message was
+        confirmed by the |CAN| controller.
     maxSizePerQueue : :obj:`int`, optional
         Maximum size of the receive buffer. Defaults to 42.
     """
@@ -179,48 +180,49 @@ class Channel(object):
 
     @property
     def handle(self):
-        """int : Access handle"""
+        """:obj:`int` : Access handle"""
         return self.__handle.value
 
     @property
     def port(self):
-        """int : CAN port number"""
+        """:obj:`int` : CAN port number"""
         return self.__port.value
 
     @property
     def sendDataConfirm(self):
-        """bool : If ``True``, all incoming and outgoing data requests are
-            confirmed by the internal message protocol. Without confirmations a
-            better transmission performance is reached.
+        """:obj:`bool` : If :const:`True`, all incoming and outgoing data
+        requests are confirmed by the internal message protocol. Without
+        confirmations a better transmission performance is reached.
         """
         return bool(self.__sendDataConfirm.value)
 
     @property
     def sendDataInd(self):
-        """bool : If set to ``False``, all incoming telegrams are discarded."""
+        """:obj:`bool` : If set to :const:`False`, all incoming telegrams are
+        discarded."""
         return bool(self.__sendDataInd.value)
 
     @property
     def ipAddress(self):
-        """str : Network address of the AnaGate partner."""
+        """:obj:`str` : Network address of the AnaGate partner."""
         return self.__ipAddress.value.decode()
 
     @property
     def baudrate(self):
-        """int : The baud rate to be used.
+        """:obj:`int` : The baud rate to be used.
 
-            The following values are supported:
+        The following values are supported:
 
-            * 10000 für 10kBit
-            * 20000 für 20kBit
-            * 50000 für 50kBit
-            * 62500 für 62.5kBit
-            * 100000 für 100kBit
-            * 125000 für 125kBit
-            * 250000 für 250kBit
-            * 500000 für 500kBit
-            * 800000 für 800kBit (not AnaGate CAN)
-            * 1000000 für 1MBit
+        * 10000 für 10kBit
+        * 20000 für 20kBit
+        * 50000 für 50kBit
+        * 62500 für 62.5kBit
+        * 100000 für 100kBit
+        * 125000 für 125kBit
+        * 250000 für 250kBit
+        * 500000 für 500kBit
+        * 800000 für 800kBit (not AnaGate CAN)
+        * 1000000 für 1MBit
 
         """
         self.getGlobals()
@@ -236,19 +238,20 @@ class Channel(object):
 
     @property
     def operatingMode(self):
-        """int : The operating mode to be used.
+        """:obj:`int` : The operating mode to be used.
 
         The following values are allowed:
 
         * 0 = default mode.
-        * 1 = loop back mode: No telegrams are sent via CAN bus. Instead they
-          are received as if they had been transmitted over CAN by a different
-          CAN device.
+        * 1 = loop back mode: No telegrams are sent via |CAN| bus. Instead they
+          are received as if they had been transmitted over |CAN| by a
+          different |CAN| device.
         * 2 = listen mode: Device operates as a passive bus partner, meaning no
-          telegrams are sent to the CAN bus (nor ACKs for incoming telegrams).
-        * 3 = offline mode: No telegrams are sent or received on the CAN bus.
-          Thus no error frames are generated on the bus if other connected CAN
-          devices send telegrams with a different baud rate.
+          telegrams are sent to the |CAN| bus (nor ACKs for incoming
+          telegrams).
+        * 3 = offline mode: No telegrams are sent or received on the |CAN| bus.
+          Thus no error frames are generated on the bus if other connected
+          |CAN| devices send telegrams with a different baud rate.
 
         """
         self.getGlobals()
@@ -265,9 +268,9 @@ class Channel(object):
 
     @property
     def termination(self):
-        """bool : Use high speed mode (``True``=yes, ``False``=no).
+        """:obj:`bool` : Use high speed mode.
 
-        This setting is not supported by all AnaGate CAN models.
+        This setting is not supported by all AnaGate |CAN| models.
         """
         self.getGlobals()
         return bool(self.__termination.value)
@@ -280,13 +283,15 @@ class Channel(object):
 
     @property
     def highSpeedMode(self):
-        """bool : Use high speed mode (``True``=yes, ``False``=no).
+        """:obj:`bool` : Use high speed mode.
 
-        This setting is not supported by all AnaGate CAN models.
+        This setting is not supported by all AnaGate |CAN| models.
 
         The high speed mode was created for large baud rates with continuously
         high bus load. In this mode telegrams are not confirmed on the protocol
-        layer and the software filters defined via CANSetFilter are ignored.
+        layer and the software filters defined via CANSetFilter_ are ignored.
+
+
         """
         self.getGlobals()
         return bool(self.__highSpeedMode.value)
@@ -299,14 +304,14 @@ class Channel(object):
 
     @property
     def timeStampOn(self):
-        """bool : Use time stamp mode (``True``=yes, ``False``=no).
+        """:obj:`bool` : Use time stamp mode.
 
-        This setting is not supported by all AnaGate CAN models.
+        This setting is not supported by all AnaGate |CAN| models.
 
         In activated time stamp mode an additional timestamp is sent with the
         CAN telegram. This timestamp indicates when the incoming message was
-        received by the CAN controller or when the outgoing message was
-        confirmed by the CAN controller.
+        received by the |CAN| controller or when the outgoing message was
+        confirmed by the |CAN| controller.
         """
         self.getGlobals()
         return bool(self.__timeStampOn.value)
@@ -319,7 +324,8 @@ class Channel(object):
 
     @property
     def state(self):
-        """str : Parses the integer connection state to a meaningful string.
+        """:obj:`str` : Parses the integer connection state to a meaningful
+        string.
 
         Possible values are:
 
@@ -336,7 +342,7 @@ class Channel(object):
 
     @property
     def maxSizePerQueue(self):
-        """int : Maximum size of the receive buffer."""
+        """:obj:`int` : Maximum size of the receive buffer."""
         return self.__maxSizePerQueue.value
 
     @maxSizePerQueue.setter
@@ -349,19 +355,19 @@ class Channel(object):
 
     @property
     def deviceOpen(self):
-        """bool : If the Access handle is valid"""
+        """:obj:`bool` : If the Access handle is valid"""
         return self.__deviceOpen
 
     def _openDevice(self, ipAddress='192.168.1.254', port=0, confirm=True,
                     ind=True, timeout=10000):
-        """Opens an network connection (TCP or UDP) to an AnaGate CAN device.
+        """Opens an network connection (TCP or UDP) to an AnaGate |CAN| device.
 
-        Opens a TCP/IP connection to an CAN interface of an AnaGate CAN device.
-        If the connection is established, CAN telegrams can be sent and
-        received.
+        Opens a TCP/IP connection to an CAN interface of an AnaGate |CAN|
+        device. If the connection is established, |CAN| telegrams can be sent
+        and received.
 
-        The connection should be closed with the function ``_closeDevice`` if
-        not longer needed.
+        The connection should be closed with the function :func:`_closeDevice`
+        if not longer needed.
 
         Parameters
         ----------
@@ -372,24 +378,25 @@ class Channel(object):
             CAN port number.
             Allowed values are:
 
-            * 0 for port 1/A (all AnaGate CAN models)
-            * 1 for port 2/B (AnaGate CAN duo, AnaGate CAN quattro,
-              AnaGate CAN X2/X4/X8)
-            * 2 for port 3/C (AnaGate CAN quattro, AnaGate CAN X4/X8)
-            * 3 for port 4/D (AnaGate CAN quattro, AnaGate CAN X4/X8)
-            * 4 for port 5/E (AnaGate CAN X8)
-            * 5 for port 6/F (AnaGate CAN X8)
-            * 6 for port 7/G (AnaGate CAN X8)
-            * 7 for port 8/H (AnaGate CAN X8)
+            * 0 for port 1/A (all AnaGate |CAN| models)
+            * 1 for port 2/B (AnaGate |CAN| duo, AnaGate |CAN| quattro,
+              AnaGate |CAN| X2/X4/X8)
+            * 2 for port 3/C (AnaGate |CAN| quattro, AnaGate |CAN| X4/X8)
+            * 3 for port 4/D (AnaGate |CAN| quattro, AnaGate |CAN| X4/X8)
+            * 4 for port 5/E (AnaGate |CAN| X8)
+            * 5 for port 6/F (AnaGate |CAN| X8)
+            * 6 for port 7/G (AnaGate |CAN| X8)
+            * 7 for port 8/H (AnaGate |CAN| X8)
 
             Defaults to 0.
         confirm : :obj:`bool`, optional
-            If set to ``True``, all incoming and outgoing data requests are
-            confirmed by the internal message protocol. Without confirmations a
-            better transmission performance is reached. Defaults to ``True``.
+            If set to :const:`True`, all incoming and outgoing data requests
+            are confirmed by the internal message protocol. Without
+            confirmations a better transmission performance is reached.
+            Defaults to :const:`True`.
         ind : :obj:`bool`, optional
-            If set to ``False``, all incoming telegrams are discarded. Defaults
-            to ``True``.
+            If set to :const:`False`, all incoming telegrams are discarded.
+            Defaults to :const:`True`.
         timeout : :obj:`int`, optional
             Default timeout for accessing the AnaGate in milliseconds.
 
@@ -418,7 +425,7 @@ class Channel(object):
         return True
 
     def _closeDevice(self):
-        """Closes an open network connection to an AnaGate CAN device."""
+        """Closes an open network connection to an AnaGate |CAN| device."""
         dll.CANCloseDevice(self.__handle)
         self.__deviceOpen = False
 
@@ -434,7 +441,7 @@ class Channel(object):
             pass
 
     def openChannel(self):
-        """Opens a connections if it is not already open"""
+        """Opens a connection if it is not already open"""
         if not self.__deviceOpen:
             return self._openDevice(self.ipAddress, self.port,
                                     self.sendDataConfirm, self.sendDataInd)
@@ -445,12 +452,12 @@ class Channel(object):
 
     def setGlobals(self, baudrate=None, operatingMode=None, termination=None,
                    highSpeedMode=None, timeStampOn=None):
-        """Sets the global settings which are to be used on the CAN bus.
+        """Sets the global settings which are to be used on the |CAN| bus.
 
-        Sets the global settings of the used CAN interface. These settings are
-        effective for all concurrent connections to the CAN interface. The
-        settings are not saved permanently on the device and are reset after
-        every device restart.
+        Sets the global settings of the used |CAN| interface. These settings
+        are effective for all concurrent connections to the |CAN| interface.
+        The settings are not saved permanently on the device and are reset
+        after every device restart.
 
         Parameters
         ----------
@@ -466,7 +473,7 @@ class Channel(object):
             * 125000 für 125kBit
             * 250000 für 250kBit
             * 500000 für 500kBit
-            * 800000 für 800kBit (not AnaGate CAN)
+            * 800000 für 800kBit (not AnaGate |CAN|)
             * 1000000 für 1MBit
 
         operatingMode : :obj:`int`, optional
@@ -474,18 +481,18 @@ class Channel(object):
             The following values are allowed:
 
             * 0 = default mode.
-            * 1 = loop back mode: No telegrams are sent via CAN bus. Instead
-              they are received as if they had been transmitted over CAN by a
-              different CAN device.
+            * 1 = loop back mode: No telegrams are sent via |CAN| bus. Instead
+              they are received as if they had been transmitted over |CAN| by a
+              different |CAN| device.
             * 2 = listen mode: Device operates as a passive bus partner,
-              meaning no telegrams are sent to the CAN bus (nor ACKs for
+              meaning no telegrams are sent to the |CAN| bus (nor ACKs for
               incoming telegrams).
-            * 3 = offline mode: No telegrams are sent or received on the CAN
+            * 3 = offline mode: No telegrams are sent or received on the |CAN|
               bus. Thus no error frames are generated on the bus if other
               connected CAN devices send telegrams with a different baud rate.
 
         termination : :obj:`bool`, optional
-            Use integrated CAN bus termination. This setting is not supported
+            Use integrated |CAN| bus termination. This setting is not supported
             by all AnaGate CAN models.
         highSpeedMode : :obj:`bool`, optional
             Use high speed mode. This setting is not supported by all AnaGate
@@ -494,15 +501,15 @@ class Channel(object):
             The high speed mode was created for large baud rates with
             continuously high bus load. In this mode telegrams are not
             confirmed on the protocol layer and the software filters defined
-            via ``CANSetFilter`` are ignored.
+            via CANSetFilter_ are ignored.
         timeStampOn : :obj:`bool`, optional
             Use time stamp mode. This setting is not supported by all AnaGate
             CAN models.
 
             In activated time stamp mode an additional timestamp is sent with
-            the CAN telegram. This timestamp indicates when the incoming
-            message was received by the CAN controller or when the outgoing
-            message was confirmed by the CAN controller.
+            the |CAN| telegram. This timestamp indicates when the incoming
+            message was received by the |CAN| controller or when the outgoing
+            message was confirmed by the |CAN| controller.
        """
         baudrate = self.__baudrate if baudrate is None \
             else ct.c_uint32(baudrate)
@@ -524,10 +531,10 @@ class Channel(object):
         self.__timeStampOn = timeStampOn
 
     def getGlobals(self):
-        """Gets the currently used global settings on the CAN bus.
+        """Gets the currently used global settings on the |CAN| bus.
 
-        Returns the global settings of the used CAN interface. These settings
-        are effective for all concurrent connections to the CAN interface.
+        Returns the global settings of the used |CAN| interface. These settings
+        are effective for all concurrent connections to the |CAN| interface.
 
         Saves the received values in the corresponding private attributes.
         """
@@ -540,17 +547,17 @@ class Channel(object):
     def setTime(self, seconds=None, microseconds=0):
         """Sets the current system time on the AnaGate device.
 
-        The CANSetTime function sets the system time on the AnaGate hardware.
+        The CANSetTime_ function sets the system time on the AnaGate hardware.
         If the time stamp mode is switched on by the setGlobals function, the
-        AnaGate hardware adds a time stamp to each incoming CAN telegram and a
-        time stamp to the confirmation of a telegram sent via the API (only if
-        confirmations are switched on for data requests).
+        AnaGate hardware adds a time stamp to each incoming |CAN| telegram and a
+        time stamp to the confirmation of a telegram sent via the |API| (only
+        if confirmations are switched on for data requests).
 
         Parameters
         ----------
-        seconds : float
-            Time in seconds from 01.01.1970. Defaults to None. In that case the
-            current system time is used.
+        seconds : :obj:`float`
+            Time in seconds from 01.01.1970. Defaults to :const:`None`. In that
+            case the current system time is used.
         microseconds : :obj:`int`, optional
             Micro seconds. Defaults to 0.
         """
@@ -566,16 +573,16 @@ class Channel(object):
     def getTime(self):
         """Gets the current system time from the AnaGate CAN device.
 
-        If the time stamp mode is switched on by the ``CANSetGlobals``
-        function, the AnaGate hardware adds a time stamp to each incoming CAN
+        If the time stamp mode is switched on by the CANSetGlobals_
+        function, the AnaGate hardware adds a time stamp to each incoming |CAN|
         telegram and a time stamp to the confirmation of a telegram sent via
-        the API (only if confirmations are switched on for data requests).
+        the |API| (only if confirmations are switched on for data requests).
 
         Returns
         -------
-        seconds : int
+        seconds : :obj:`int`
             Time in seconds from 01.01.1970.
-        microseconds : int
+        microseconds : :obj:`int`
             Additional microseconds.
         """
         seconds = ct.c_uint32()
@@ -590,8 +597,8 @@ class Channel(object):
 
         Parameters
         ----------
-        identifier : int
-            CAN identifier of the sender. Parameter flags defines whether the
+        identifier : :obj:`int`
+            |CAN| identifier of the sender. Parameter flags defines whether the
             address is in extended format (29-bit) or standard format (11-bit).
         data : :obj:`list` of :obj:`int`
             Data content given as a list of integers. Data length is computed
@@ -599,12 +606,12 @@ class Channel(object):
         flags : :obj:`int`, optional
             The format flags are defined as follows:
 
-            * Bit 0: If set, the CAN identifier is in extended format (29 bit),
-              otherwise not (11 bit).
+            * Bit 0: If set, the |CAN| identifier is in extended format (29
+              bit), otherwise not (11 bit).
             * Bit 1: If set, the telegram is marked as remote frame.
             * Bit 2: If set, the telegram has a valid timestamp. This bit is
               only set for incoming data telegrams and doesn't need to be set
-              for the ``CANWrite`` and ``CANWriteEx`` functions.
+              for the CANWrite_ and CANWriteEx_ functions.
         """
         buffer = ct.create_string_buffer(bytes(data))
         bufferLen = ct.c_int32(len(data))
@@ -614,41 +621,42 @@ class Channel(object):
         dll.CANWrite(self.__handle, identifier, buffer, bufferLen, flags)
 
     def _setMaxSizePerQueue(self, maxSize):
-        """Sets the maximum size of the queue that buffers received CAN
+        """Sets the maximum size of the queue that buffers received |CAN|
         telegrams.
 
-        Sets the maximum size of the queue that buffers received CAN telegrams.
-        No telegrams are buffered before this function is called. Once received
-        telegrams have been added to the buffer they can be read with
-        getMessage. If the queue is full while a new telegram is received
-        then it gets discarded.
+        Sets the maximum size of the queue that buffers received |CAN|
+        telegrams. No telegrams are buffered before this function is called.
+        Once received telegrams have been added to the buffer they can be read
+        with :func:`getMessage`. If the queue is full while a new telegram is
+        received then it gets discarded.
 
         If the queue size is set to 0 then all previously queued telegrams are
         deleted. However, if the queue size is reduced to a value different
         from 0 then excess telegrams are not discarded. Instead newly received
         telegrams don't get queued until the queue has been freed enough via
-        getMessage calls, or until the queue size has been increased again.
+        :func:`getMessage` calls, or until the queue size has been increased
+        again.
 
         Note
         ----
         Received telegrams are only buffered if no callback function was
-        registered via setCallback. Once a callback function has been
+        registered via :func:`setCallback`. Once a callback function has been
         enabled, previously buffered telegrams can still be read via
-        getMessage. Newly received telegrams are not added to the queue
+        :func:`getMessage`. Newly received telegrams are not added to the queue
         though.
 
         Parameters
         ----------
-        maxSize : int
+        maxSize : :obj:`int`
             Maximum size of the receive buffer.
         """
         maxSize = ct.c_uint32(maxSize)
         dll.CANSetMaxSizePerQueue(self.__handle, maxSize)
 
     def getMessage(self):
-        """Returns a received CAN telegram from the receive queue.
+        """Returns a received |CAN| telegram from the receive queue.
 
-        Returns a received CAN telegram from the receive queue. The caller
+        Returns a received |CAN| telegram from the receive queue. The caller
         needs to supply memory buffers for the telegram parameters he is
         interested in. Parameters for unneeded values can be NULL pointers.
 
@@ -659,21 +667,21 @@ class Channel(object):
 
         Returns
         -------
-        cobid : int
-            11 bit CAN ID of the telegram
-        data : bytes
+        cobid : :obj:`int`
+            11 bit |CAN| identifier of the telegram
+        data : :obj:`bytes`
             Data bytes of the telegram
-        dlc : int
+        dlc : :obj:`int`
             Number of data bytes in the telegram
-        flags : int
+        flags : :obj:`int`
             Flags of the telegram
-        timestamp : float
+        timestamp : :obj:`float`
             Timestamp in seconds since 1.1.1970
 
         Raises
         ------
-        CanNoMsg
-            If there no available CAN messages in the buffer
+        :exc:`~.exception.CanNoMsg`
+            If there no available |CAN| messages in the buffer
         """
         availMsgs = ct.c_uint32()
         identifier = ct.c_int32()
@@ -702,12 +710,13 @@ class Channel(object):
 
         The detection period of a state change depends on the use of the
         internal AnaGateALIVE mechanism. This ALIVE mechanism has to be
-        switched on explicitly via the ``startAlive`` function. Once activated
-        the connection state is periodically checked by the ALIVE mechanism.
+        switched on explicitly via the :func:`startAlive` function. Once
+        activated the connection state is periodically checked by the ALIVE
+        mechanism.
 
         Returns
         -------
-        state : int
+        state : :obj:`int`
             The current network connection state. The following values are
             possible:
 
@@ -730,15 +739,15 @@ class Channel(object):
         application specific connection control which allows faster detection
         of broken connection lines.
 
-        The ``CANStartAlive`` function starts a concurrent thread in the DLL in
+        The CANStartAlive_ function starts a concurrent thread in the DLL in
         order to send defined alive telegrams (ALIVE_REQ) peridically (approx.
         every half of the given time out) to the Anagate device via the current
         network connection. If the alive telegram is not confirmed within the
         alive time the connection is marked as disconnected and the socket is
         closed if not already closed.
 
-        Use the ``_deviceConnectState`` function to check the current network
-        connection state.
+        Use the :func:`_deviceConnectState` function to check the current
+        network connection state.
 
         Parameters
         ----------
@@ -751,11 +760,11 @@ class Channel(object):
 
     def setCallback(self, callbackFunction):
         """Defines an asynchronous callback function which is called for each
-        incoming CAN telegram.
+        incoming |CAN| telegram.
 
-        Incoming CAN telegrams can bei received via a callback function which
-        can be set by a simple API call. If a callback function is set it will
-        be called by the API asynchronously.
+        Incoming |CAN| telegrams can bei received via a callback function which
+        can be set by a simple |API| call. If a callback function is set it
+        will be called by the |API| asynchronously.
 
         Parameters
         ----------
@@ -763,6 +772,6 @@ class Channel(object):
             Function pointer to the private callback function. Set this
             parameter to NULL to deactivate the callback function. The
             parameters of the callback function are described in the
-            documentation of the ``CANWrite`` function.
+            documentation of the CANWrite_ function.
         """
         dll.CANSetCallback(self.__handle, callbackFunction)

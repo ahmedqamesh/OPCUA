@@ -16,18 +16,18 @@ from .exception import DllException
 
 
 def loadDLL():
-    """Load AnaGate API libaries.
+    """Load AnaGate |API| libaries.
 
     This function handles the platform-specific stuff.
 
     Returns
     -------
     :obj:`ctypes.WinDLL`,  :obj:`ctypes.CDLL`
-        ``ctypes`` library. The exact type is platform specific.
+        :mod:`ctypes` library. The exact type is platform specific.
 
     Raises
     ------
-    ValueError
+    :exc:`ValueError`
         When platform is not Windows or Linux
     """
 
@@ -58,12 +58,12 @@ dll = libCANDLL(loadDLL())
 
 
 def dllInfo():
-    """Determines the current version information of the AnaGate DLL.
+    """Determines the current version information of the AnaGate |DLL|.
 
     Returns
     -------
-    str
-        Version reference string of the AnaGate DLL.
+    :obj:`str`
+        Version reference string of the AnaGate |DLL|.
     """
     buf = ct.create_string_buffer(128)
     nMessageLen = ct.c_int32(128)
@@ -75,19 +75,19 @@ def dllInfo():
 def errorMessage(returnCode):
     """Returns a description of the given error code as a text string.
 
-    Returns a textual description of the parsed error code (see Anagate API 2.0
-    Manualm Appendix A, API return codes). If the destination buffer is not
-    large enough to store the text, the text is shortened to the specified
+    Returns a textual description of the parsed error code (see `Anagate API
+    2.0 Manualm Appendix A, API return codes`_). If the destination buffer is
+    not large enough to store the text, the text is shortened to the specified
     buffer size.
 
     Parameters
     ----------
-    returnCode : int
+    returnCode : :obj:`int`
         Error code for which the error description is to be determined.
 
     Returns
     -------
-    str
+    :obj:`str`
         Error description.
     """
     buf = ct.create_string_buffer(128)
@@ -99,17 +99,17 @@ def errorMessage(returnCode):
 
 
 def restart(ipAddress='192.168.1.254', timeout=10000):
-    """Restarts an AnaGate CAN device.
+    """Restarts an AnaGate |CAN| device.
 
-    Restarts the AnaGate CAN device at the specified network address. It
-    implicitly disconnects all open network connections to all existing CAN
+    Restarts the AnaGate |CAN| device at the specified network address. It
+    implicitly disconnects all open network connections to all existing |CAN|
     interfaces. The Restart command is even possible if the maximum number of
     allowed connections is reached.
 
     Parameters
     ----------
     ipAddress : :obj:`str`, optional
-        Network address of the AnaGate partner. Defaults to '192.168.1.254'
+        Network address of the AnaGate partner. Defaults to `'192.168.1.254'`
         which is the factory default.
     timeout : :obj:`int`, optional
         Default timeout for accessing the AnaGate in milliseconds. A timeout is
@@ -121,25 +121,25 @@ def restart(ipAddress='192.168.1.254', timeout=10000):
 
 
 def errorCheck(returnCode):
-    """Check return code from API function for error.
+    """Check return code from |API| function for error.
 
-    For AnaGate API functions an error has occured when the return code is not
-    0. The error message is then constructed by an API function form this
+    For AnaGate |API| functions an error has occured when the return code is
+    not 0. The error message is then constructed by an API function form this
     return code.
 
     Parameters
     ----------
-    returnCode : int
-        The integer returns code from the AnaGate API function
+    returnCode : :obj:`int`
+        The integer returns code from the AnaGate |API| function
 
     Returns
     -------
-    bool
+    :obj:`bool`
         True only if the return code is 0.
 
     Raises
     ------
-    dllException
+    :exc:`~.exception.DllException`
         When the API function returned an error.
     """
     if returnCode == 0:

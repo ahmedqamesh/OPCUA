@@ -13,6 +13,7 @@ Example
 >>> logger.notice('This is a notice.')
 >>> logger.success('This was a success.')
 
+
 :Author: Sebastian Scholz
 :Contact: sebastian.scholz@cern.ch
 """
@@ -54,7 +55,7 @@ def removeAllHandlers(logger):
 
     Parameters
     ----------
-    logger : :obj:`logging.Logger`
+    logger : :obj:`~logging.Logger`
         The Logger object from which all Handlers are removed.
     """
     while len(logger.handlers) > 0:

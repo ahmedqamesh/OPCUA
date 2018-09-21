@@ -82,13 +82,13 @@ class DCSControllerServer(object):
         Endpoint of the OPC UA server. Defaults to
         'opc.tcp://localhost:4840/'
     bitrate : :obj:`int`, optional
-        CAN bitrate to be used. The default value (None) correponds to a
-        frequency of 125 kHz.
+        CAN bitrate to be used. The default value (:const:`None`) correponds to
+        a frequency of 125 kHz.
     xmlfile : :obj:`str`, optional
         File name or path of OPC UA model design file. The default searches
-        'dcscontrollerdesign.xml' in the directory of this file.
+        `'dcscontrollerdesign.xml'` in the directory of this file.
     ipAddress : :obj:`str`, optional
-        Network address of the AnaGate partner. Defaults to '192.168.1.254'
+        Network address of the AnaGate partner. Defaults to `'192.168.1.254'`
         which is the factory default.
 
     Example
@@ -102,9 +102,9 @@ class DCSControllerServer(object):
 
     Notes
     -----
-    It recommended that this class is initialized within a ``with`` statement
-    to make use of the ``__enter__`` and ``__exit__`` methods so that all open
-    connections get cleaned up in case of errors.
+    It recommended that this class is initialized within a :keyword:`with`
+    statement to make use of the :func:`__enter__` and :func:`__exit__` methods
+    so that all open connections get cleaned up in case of errors.
     """
 
     def __init__(self, interface='Kvaser', edsfile=None,
@@ -122,8 +122,8 @@ class DCSControllerServer(object):
         extend_logging()
         verboselogs.install()
         self.logger = logging.getLogger(__name__)
+        """:obj:`~logging.Logger`: Main logger for this class"""
         self.logger.setLevel(logging.DEBUG)
-        """Logger: Main logger for this class"""
         self.opcua_logger = logging.getLogger('opcua')
         self.opcua_logger.setLevel(logging.WARNING)
         scrdir = os.path.dirname(os.path.abspath(__file__))
@@ -157,7 +157,7 @@ class DCSControllerServer(object):
         # Initialize OPC server
         self.logger.notice('Configuring OPC UA server ...')
         self.server = Server()
-        """opcua.Server: Handles the OPC UA server."""
+        """:obj:`opcua.Server` : Handles the OPC UA server."""
         self.__isserver = False
         """bool: If the server is currently running"""
         self.__endpoint = endpoint
@@ -259,13 +259,13 @@ class DCSControllerServer(object):
 
     @property
     def channel(self):
-        """int: Currently used CAN channel."""
+        """:obj:`int` : Currently used CAN channel."""
         return self.__channel
 
     @property
     def bitRate(self):
-        """int: Currently used bit rate. When you try to change it
-        ``stop`` will be called before."""
+        """:obj:`int` : Currently used bit rate. When you try to change it
+        :func:`stop` will be called before."""
         if self.__interface == 'Kvaser':
             return self.__bitrate
         else:
@@ -282,45 +282,46 @@ class DCSControllerServer(object):
 
     @property
     def endpoint(self):
-        """str: Port where the server is listening to"""
+        """:obj:`str` : Port where the server is listening to"""
         return self.__endpoint
 
     @property
     def mypyDCs(self):
-        """dict: Dictionary containing DCS Controller mirror classes. Key is
-            the CANopen node id."""
+        """:obj:`dict`: Dictionary containing DCS Controller mirror classes.
+        Key is the CANopen node id."""
         return self.__mypyDCs
 
     @property
     def idx(self):
-        """int: Index of custom namespace"""
+        """:obj:`int` : Index of custom namespace"""
         return self.__idx
 
     @property
     def myDCs(self):
-        """list: List of created UA objects"""
+        """:obj:`list` : List of created UA objects"""
         return self.__myDCs
 
     @property
     def isinit(self):
-        """bool: If all initialization routines have been executed"""
+        """:obj:`bool` : If all initialization routines have been executed"""
         return self.__isinit
 
     @property
     def od(self):
-        """Object dictionary for checking access attributes"""
+        """:class:`~dcsControllerServer.objectDictionary.objectDictionary` :
+        Object dictionary for checking access attributes"""
         return self.__od
 
     @property
     def interface(self):
-        """str: Vendor of the CAN interface. Possible values are 'Kvaser' and
-            'AnaGate'."""
+        """:obj:`str` : Vendor of the CAN interface. Possible values are
+        ``'Kvaser'`` and ``'AnaGate'``."""
         return self.__interface
 
     @property
     def ipAddress(self):
-        """str: Network address of the AnaGate partner. Only used for AnaGate
-            CAN interfaces."""
+        """:obj:`str` : Network address of the AnaGate partner. Only used for
+        AnaGate CAN interfaces."""
         if self.__interface == 'Kvaser':
             raise AttributeError('You are using a Kvaser CAN interface!')
         return self.__ch.ipAddress
@@ -336,7 +337,7 @@ class DCSControllerServer(object):
         * Scan CAN bus for nodes (and create UA objects)
         * Start the actual OPCUA server
         * Create python objects mirroring the UA address space
-        * Start the main run() routine
+        * Start the main :func:`run` routine
 
         This method has a small error tolerance and restarts 2 two times in
         case of errors.
@@ -395,7 +396,7 @@ class DCSControllerServer(object):
         """Close CAN channel and stop the OPC UA server
 
         Make sure that this is called so that the connection is closed in a
-        correct manner. When this class is used within a ``with`` statement
+        correct manner. When this class is used within a :obj:`with` statement
         this method is called automatically when the statement is exited.
         """
         if self.__busOn:
@@ -458,12 +459,13 @@ class DCSControllerServer(object):
         ----------
         cobid : :obj:`int`
             CAN identifier
-        msg : bytes
+        msg : :obj:`bytes`
             CAN data - max length 8
-        dlc : int
+        dlc : :obj:`int`
             Data Length Code
-        flag : int
-            Flags, a combination of the canMSG_xxx and canMSGERR_xxx values
+        flag : :obj:`int`
+            Flags, a combination of the :const:`canMSG_xxx` and
+            :const:`canMSGERR_xxx` values
         """
 
         if (flag & canlib.canMSG_ERROR_FRAME != 0):
@@ -505,7 +507,7 @@ class DCSControllerServer(object):
 
         Raises
         ------
-        analib.CanNoMsg, canlib.CanNoMsg
+        :exc:`analib.CanNoMsg` and :exc:`canlib.CanNoMsg`
             No new CAN message has arrived and the timeout has expired.
         """
         if self.__interface == 'Kvaser':
@@ -541,7 +543,7 @@ class DCSControllerServer(object):
         -------
         :obj:`list` of :obj:`int`
             The data if was successfully read
-        None
+        :obj:`None`
             In case of errors
         """
         if nodeId is None or index is None or subindex is None:
@@ -621,7 +623,7 @@ class DCSControllerServer(object):
 
         Returns
         -------
-        bool
+        :obj:`bool`
             If writing the object was successful
         """
 
@@ -685,7 +687,8 @@ class DCSControllerServer(object):
         nodeId : :obj:`int`, optional
             Node Id of the Controller. Defaults to 42.
         data : :obj:`list` of :obj:`int`, optional
-            4*16 bit of information about connected PSPPs. Defaults to None.
+            4*16 bit of information about connected PSPPs. Defaults to
+            :obj:`None`.
         """
         self.logger.notice('Start transmitting info about connected PSPPs to '
                            'the Controller ...')
@@ -706,9 +709,9 @@ class DCSControllerServer(object):
         """Do a complete scan over all CAN nodes
 
         The internally stored information about all nodes are reset. This
-        method will be called by the :obj:`__init__` method. It should also be used
-        to reestablish communication when it was lost or when a new device was
-        connected while the user program is running.
+        method will be called by the :meth:`__init__` method. It should also be
+        used to reestablish communication when it was lost or when a new device
+        was connected while the user program is running.
 
         This works by reading a mandatory OD object with SDO of all nodes and
         removing those which do not respond.

@@ -10,22 +10,23 @@ specification CiA_ 301_.
 
 :Author: Sebastian Scholz
 :Contact: sebastian.scholz@cern.ch
+:Organization: Bergische Universität Wuppertal
 """
 # Third party modules
 from aenum import Enum
 
 
 MAX_DATABYTES = 8
-"""int: The maxmimum number of data bytes in a standard CAN message"""
+""":obj:`int` : The maxmimum number of data bytes in a standard CAN message"""
 MSGHEADER = 'ID  DLC DATA' + ' ' * (MAX_DATABYTES * 4 - 4) + 'TIME'
-"""str: Used as header for output of CAN messages"""
+""":obj:`str` : Used as header for output of CAN messages"""
 PSPP_REGISTERS = {'ChipID1': 0, 'ChipID2': 1, 'ADCR1': 2, 'ADCR2': 3, 'DIN': 4,
                   'DIN': 4, 'DOUT': 5, 'Bypass': 6, 'ADCmux': 7, 'ADCL1': 8,
                   'ADCL2': 9, 'Control': 10, 'BGHI': 11, 'BGLO': 12}
-"""dict: Keys are PSPP register names and values are their number."""
+""":obj:`dict` : Keys are PSPP register names and values are their number."""
 PSPPMONVALS = {'Temperature': 0, 'Voltage1': 1, 'Voltage2': 2}
-"""dict: Keys are names of monitoring values and values are their relative
-    position."""
+""":obj:`dict` : Keys are names of monitoring values and values are their
+relative position."""
 
 
 class STATUS(Enum):

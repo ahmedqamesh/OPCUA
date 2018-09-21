@@ -16,8 +16,8 @@ class DllException(AnalibException):
     """Base class for exceptions from dll calls in analib
 
     All instances of this class must have a `rc` attribute defined (this is
-    enforced in `DllException.__init__()`). Its value is the return code from
-    the API function.
+    enforced in :func:`~.DllException.__init__()`). Its value is the return
+    code from the |API| function.
     """
 
     @staticmethod
@@ -28,9 +28,11 @@ class DllException(AnalibException):
 
     def __init__(self, rc):
         self.rc = rc
+        """:obj:`int` : Return code from the |API| function"""
         super(DllException, self).__init__(self._get_error_text(self.rc))
 
 
 class CanNoMsg(AnalibException):
+    """Raised if there are no CAN messages in the message queue"""
     pass
 

@@ -70,14 +70,16 @@ class libCANDLL(dllLoader.MyDll):
         'CANErrorMessage': [[ct.c_int32, ct.c_char_p, ct.c_int32], ct.c_int32,
                             _no_errcheck]
         }
-    """dict : Function prototypes.
+    """:obj:`dict` : Function prototypes.
 
     One entry has the following form:
 
         ``'dllFunctionName': [[typeOfArg1, typeOfArg2, ...],
         errorCheckFunction, returnType]``
 
-    All types are ``ctypes`` classes.
+    All types are :mod:`ctypes` classes. It is possible to omit the return type
+    and the name of the error-check function if you have suitable default
+    values defined in the :meth:`__init__` method.
     """
 
     def __init__(self, ct_dll):
@@ -87,7 +89,13 @@ class libCANDLL(dllLoader.MyDll):
         super(libCANDLL, self).__init__(ct_dll, **self.function_prototypes)
 
     def _error_check(self, result, func, arguments):
-        """Error function used in ctype calls for canlib DLL."""
+        """Error function used in ctype calls for canlib DLL.
+
+        Raises
+        ------
+        :exc:`~.exception.DllException`
+            If the return code from an |API| function does not equal 0.
+        """
         if result != 0:
             raise DllException(result)
         else:
