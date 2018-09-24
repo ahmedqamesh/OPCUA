@@ -40,7 +40,7 @@ class Channel(object):
     Parameters
     ----------
     ipAddress : :obj:`str`, optional
-        Network address of the AnaGate partner. Defaults to `'192.168.1.254'`
+        Network address of the AnaGate partner. Defaults to ``'192.168.1.254'``
         which is the factory default.
     port : :obj:`int`, optional
         |CAN| port number.
@@ -58,12 +58,12 @@ class Channel(object):
 
         Defaults to 0.
     confirm : :obj:`bool`, optional
-        If set to :const:`True`, all incoming and outgoing data requests are
+        If set to :data:`True`, all incoming and outgoing data requests are
         confirmed by the internal message protocol. Without confirmations a
-        better transmission performance is reached. Defaults to :const:`True`.
+        better transmission performance is reached. Defaults to :data:`True`.
     ind : :obj:`bool`, optional
-        If set to :const:`False`, all incoming telegrams are discarded.
-        Defaults to :const:`True`.
+        If set to :data:`False`, all incoming telegrams are discarded.
+        Defaults to :data:`True`.
     timeout : :obj:`int`, optional
         Default timeout for accessing the AnaGate in milliseconds.
 
@@ -190,7 +190,7 @@ class Channel(object):
 
     @property
     def sendDataConfirm(self):
-        """:obj:`bool` : If :const:`True`, all incoming and outgoing data
+        """:obj:`bool` : If :data:`True`, all incoming and outgoing data
         requests are confirmed by the internal message protocol. Without
         confirmations a better transmission performance is reached.
         """
@@ -198,7 +198,7 @@ class Channel(object):
 
     @property
     def sendDataInd(self):
-        """:obj:`bool` : If set to :const:`False`, all incoming telegrams are
+        """:obj:`bool` : If set to :data:`False`, all incoming telegrams are
         discarded."""
         return bool(self.__sendDataInd.value)
 
@@ -389,13 +389,13 @@ class Channel(object):
 
             Defaults to 0.
         confirm : :obj:`bool`, optional
-            If set to :const:`True`, all incoming and outgoing data requests
+            If set to :data:`True`, all incoming and outgoing data requests
             are confirmed by the internal message protocol. Without
             confirmations a better transmission performance is reached.
-            Defaults to :const:`True`.
+            Defaults to :data:`True`.
         ind : :obj:`bool`, optional
-            If set to :const:`False`, all incoming telegrams are discarded.
-            Defaults to :const:`True`.
+            If set to :data:`False`, all incoming telegrams are discarded.
+            Defaults to :data:`True`.
         timeout : :obj:`int`, optional
             Default timeout for accessing the AnaGate in milliseconds.
 
@@ -555,7 +555,7 @@ class Channel(object):
         Parameters
         ----------
         seconds : :obj:`float`
-            Time in seconds from 01.01.1970. Defaults to :const:`None`. In that
+            Time in seconds from 01.01.1970. Defaults to :data:`None`. In that
             case the current system time is used.
         microseconds : :obj:`int`, optional
             Micro seconds. Defaults to 0.

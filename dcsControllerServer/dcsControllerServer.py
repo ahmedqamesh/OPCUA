@@ -87,13 +87,13 @@ class DCSControllerServer(object):
         Endpoint of the |OPCUA| server. Defaults to
         'opc.tcp://localhost:4840/'
     bitrate : :obj:`int`, optional
-        |CAN| bitrate to be used. The default value (:const:`None`) correponds
+        |CAN| bitrate to be used. The default value (:data:`None`) correponds
         to a frequency of 125 kHz.
     xmlfile : :obj:`str`, optional
         File name or path of |OPCUA| model design file. The default searches
         `'dcscontrollerdesign.xml'` in the directory of this file.
     ipAddress : :obj:`str`, optional
-        Network address of the AnaGate partner. Defaults to `'192.168.1.254'`
+        Network address of the AnaGate partner. Defaults to ``'192.168.1.254'``
         which is the factory default.
 
     Example
@@ -108,8 +108,9 @@ class DCSControllerServer(object):
     Notes
     -----
     I recommended that this class is initialized within a :keyword:`with`
-    statement to make use of the :func:`__enter__` and :func:`__exit__` methods
-    so that all open connections get cleaned up in case of errors.
+    statement to make use of the :meth:`~contextmanager.__enter__` and
+    :meth:`~contextmanager.__exit__` methods so that all open connections get
+    cleaned up in case of errors.
     """
 
     def __init__(self, interface='Kvaser', edsfile=None,
@@ -162,7 +163,7 @@ class DCSControllerServer(object):
         # Initialize OPC server
         self.logger.notice('Configuring OPC UA server ...')
         self.server = Server()
-        """:obj:`opcua.Server` : Handles the |OPCUA| server."""
+        """:doc:`opcua.Server<server>` : Handles the |OPCUA| server."""
         self.__isserver = False
         """:obj:`bool` : If the server is currently running"""
         self.__endpoint = endpoint
@@ -548,7 +549,7 @@ class DCSControllerServer(object):
         -------
         :obj:`list` of :obj:`int`
             The data if was successfully read
-        :const:`None`
+        :data:`None`
             In case of errors
         """
         if nodeId is None or index is None or subindex is None:
@@ -693,7 +694,7 @@ class DCSControllerServer(object):
             |CAN| Node Id of the Controller. Defaults to 42.
         data : :obj:`list` of :obj:`int`, optional
             4*16 bit of information about connected |PSPP| chips. Defaults to
-            :const:`None`.
+            :data:`None`.
         """
         self.logger.notice('Start transmitting info about connected PSPPs to '
                            'the Controller ...')

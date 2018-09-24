@@ -69,7 +69,8 @@ napoleon_use_param = True
 napoleon_use_rtype = True
 
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3/', None)
+    'python': ('https://docs.python.org/3/', None),
+    'opcua': ('https://python-opcua.readthedocs.io/en/latest/', None)
 }
 # Keep cached intersphinx inventories indefinitely
 intersphinx_cache_limit = -1

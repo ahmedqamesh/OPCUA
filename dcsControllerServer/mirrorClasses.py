@@ -240,7 +240,7 @@ class UIntField(object):
 class BoolField(object):
     """Descriptor class for a boolean.
 
-    The setter checks if the value is :const:`None` or a :obj:`bool`.
+    The setter checks if the value is :data:`None` or a :obj:`bool`.
 
     Parameters
     ----------
@@ -577,7 +577,7 @@ class MyPSPP(UaObject):
         self.Status = BoolField(self, master, 'Status', nodeId, n_scb, False,
                                 n_pspp)
         """:class:`BoolField` : Status of the |PSPP|. Its default value is
-        :const:`True`."""
+        :data:`True`."""
         self.ADCChannels = \
             MyPSPPADCChannels(master,
                               ua_node.get_child(f'{master.idx}:ADCChannels'),

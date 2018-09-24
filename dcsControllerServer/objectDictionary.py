@@ -45,7 +45,7 @@ except (ModuleNotFoundError, ImportError):
 
 
 def ifNone(a, b):
-    """Returns `b` if a is :const:`None` and `a` otherwise"""
+    """Returns `b` if a is :data:`None` and `a` otherwise"""
     return b if a is None else a
 
 
@@ -64,15 +64,15 @@ class odEntry():
     logger : :obj:`logging.Logger`
         A Logger object for logging purposes
     datatype : :obj:`~.CANopenConstants.VARTYPE`, optional
-        Data type if entry is single value entry (Defaults to :const:`None`)
+        Data type if entry is single value entry (Defaults to :data:`None`)
     attribute : :obj:`~.CANopenConstants.ATTR`, optional
         Access attribute if entry is single value entry (Defaults to
-        :const:`None`)
+        :data:`None`)
     description : :obj:`str`, optional
         Name of the |OD| entry (Defaults to ``''``)
     default: optional
         Default value if entry is single value entry (Defaults to
-        :const:`None`)
+        :data:`None`)
     comment : :obj:`str`, optional
         Additional comment (Defaults to ``''``)
     direct_access : :obj:`bool`
@@ -191,7 +191,7 @@ class odEntry():
 
     @property
     def datatype(self):
-        """:class:`.CANopenConstants.VARTYPE` or :const:`None` : Data type
+        """:class:`.CANopenConstants.VARTYPE` or :data:`None` : Data type
         of |OD| entry"""
         return self.__datatype
 
@@ -242,7 +242,7 @@ class odEntry():
         description : :obj:`str`, optional
             Name of subentry. Defaults to ``''``.
         default : optional
-            Default value. Defaults to :const:`None`.
+            Default value. Defaults to :data:`None`.
         comment : :obj:`str`, optional
             Additional comment on subentry. Defaults to ``''``.
 
@@ -294,7 +294,7 @@ class odSubEntry():
     description : :obj:`str`, optional
         Name of this entry. Defaults to ``''``.
     default
-        Default value of this entry. Defaults to :const:`None`.
+        Default value of this entry. Defaults to :data:`None`.
     comment : :obj:`str`, optional
         Additional comment for this entry. Defaults to ``''``.
     reserved : :obj:`bool`, optional
@@ -421,7 +421,7 @@ class objectDictionary():
         ----------
         logger : :obj:`logging.Logger`
             A Logger object for logging purposes
-        source : :obj:`file-like` or :obj:`str`
+        source : :term:`file<file object>` or :obj:`str`
             A file-like object or the path to the eds file
         node_id : :obj:`int`
             The node-id to which this object dictionary shall belong
@@ -532,7 +532,7 @@ class objectDictionary():
     @property
     def entries(self):
         """:obj:`list` : List of entries where not defined entries are
-        :const:`None`."""
+        :data:`None`."""
         return self.__entries
 
     @property
@@ -608,7 +608,7 @@ class objectDictionary():
         description : :obj:`str`, optional
             Name of the entry to be added. Defaults to ``''``.
         default
-            Default value if single value entry. Defaults to :const:`None`.
+            Default value if single value entry. Defaults to :data:`None`.
         comment : :obj:`str`, optional
             Additional comment on this entry. Defaults to ``''``.
 
