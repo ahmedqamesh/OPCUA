@@ -1,18 +1,23 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """
-This module provides a class for an OPCUA server for the DCS Controller.
+This module provides a class for an |OPCUA|__ server for the |DCS| Controller.
 
 It also provides a function for using this server as a command line tool.
 
+Note
+----
 If you want to use a virtual channel on a Linux machine you have to may have to
 start it manually with the following command::
 
     $ sudo /usr/sbin/virtualcan.sh start
 
+
 :Author: Sebastian Scholz
 :Contact: sebastian.scholz@cern.ch
 :Organization: Bergische Universität Wuppertal
+
+.. __: `OPC UA`_
 """
 # Standard library modules
 import os
@@ -48,44 +53,44 @@ class BusEmptyError(Exception):
 
 
 class DCSControllerServer(object):
-    """OPC UA server for DCS Controllers in a CAN network.
+    """|OPCUA| server for |DCS| Controllers in a |CAN| network.
 
-    Establishes communication with DCS Controllers on a CAN bus and create
-    corresponding OPC UA objects. The CAN communication is started during
-    initialization but the OPC UA server has to be started separatly.
+    Establishes communication with |DCS| Controllers on a |CAN| bus and create
+    corresponding |OPCUA| objects. The |CAN| communication is started during
+    initialization but the |OPCUA| server has to be started separatly.
 
     The Initialization does several things in the following order:
 
     * Initialize logging
-    * Configure OPC UA server
-    * Import OPC UA Objects Types from XML
-    * Configure and open CAN channel
-    * Import Object Dictionary from EDS
+    * Configure |OPCUA| server
+    * Import |OPCUA| Objects Types from |XML|
+    * Configure and open |CAN| channel
+    * Import Object Dictionary from |EDS|
 
     Parameters
     ----------
     interface : {'Kvaser', 'AnaGate'}
-        Vendor of the CAN interface.
+        Vendor of the |CAN| interface.
     edsfile : :obj:`str`, optional
-        File path of EDS. The default will search for
+        File path of |EDS|. The default will search for
         'CANControllerForPSPPv1.eds' in the directory of this file.
     console_loglevel : :obj:`int` or :obj:`str`, optional
         Defines which log messages are displayed in the console.
     file_loglevel : :obj:`int` or :obj:`str`, optional
         Defines which log messages are written to the logfiles.
     channel : :obj:`int`, optional
-        Number of the CAN port to be used.
+        Number of the |CAN| port to be used.
     logformat : :obj:`str`, optional
         Defines formatting of log messages. Defaults to a compact form
         containing only time, levelname and message.
     endpoint : :obj:`str`, optional
-        Endpoint of the OPC UA server. Defaults to
+        Endpoint of the |OPCUA| server. Defaults to
         'opc.tcp://localhost:4840/'
     bitrate : :obj:`int`, optional
-        CAN bitrate to be used. The default value (:const:`None`) correponds to
-        a frequency of 125 kHz.
+        |CAN| bitrate to be used. The default value (:const:`None`) correponds
+        to a frequency of 125 kHz.
     xmlfile : :obj:`str`, optional
-        File name or path of OPC UA model design file. The default searches
+        File name or path of |OPCUA| model design file. The default searches
         `'dcscontrollerdesign.xml'` in the directory of this file.
     ipAddress : :obj:`str`, optional
         Network address of the AnaGate partner. Defaults to `'192.168.1.254'`
@@ -102,7 +107,7 @@ class DCSControllerServer(object):
 
     Notes
     -----
-    It recommended that this class is initialized within a :keyword:`with`
+    I recommended that this class is initialized within a :keyword:`with`
     statement to make use of the :func:`__enter__` and :func:`__exit__` methods
     so that all open connections get cleaned up in case of errors.
     """
@@ -157,9 +162,9 @@ class DCSControllerServer(object):
         # Initialize OPC server
         self.logger.notice('Configuring OPC UA server ...')
         self.server = Server()
-        """:obj:`opcua.Server` : Handles the OPC UA server."""
+        """:obj:`opcua.Server` : Handles the |OPCUA| server."""
         self.__isserver = False
-        """bool: If the server is currently running"""
+        """:obj:`bool` : If the server is currently running"""
         self.__endpoint = endpoint
         self.server.set_endpoint(endpoint)
         # self.server.allow_remote_admin(True)
@@ -168,7 +173,7 @@ class DCSControllerServer(object):
         self.logger.info('Configuring namespace')
         uri = "http://yourorganisation.org/DCSControllerDesign/"
         self.__idx = self.server.register_namespace(uri)
-        """int: Index of the registered custom namespace"""
+        """:obj:`int` : Index of the registered custom namespace"""
         self.logger.info('Namespace index: ' + str(self.__idx))
         self.logger.success('... Done!')
 
@@ -186,13 +191,13 @@ class DCSControllerServer(object):
 
         # Initialize library and set connection parameters
         self.__busOn = False
-        """bool: If communication is established"""
+        """:obj:`bool` : If communication is established"""
         self.__channel = channel
-        """int: Internal attribute for the channel index"""
+        """:obj:`int` : Internal attribute for the channel index"""
         self.__bitrate = bitrate
-        """int: Internal attribute for the bit rate"""
+        """:obj:`int` : Internal attribute for the bit rate"""
         self.__ch = None
-        """Internal attribute for the CAN channel"""
+        """Internal attribute for the |CAN| channel"""
         if interface == 'Kvaser':
             self.__ch = canlib.openChannel(channel,
                                            canlib.canOPEN_ACCEPT_VIRTUAL)
@@ -203,23 +208,23 @@ class DCSControllerServer(object):
             self.__ch = analib.Channel(ipAddress, channel, baudrate=bitrate)
         self.logger.success(str(self))
         self.__busOn = True
-        """bool: If the connection to the CAN bus is established"""
 
         # Get DCS Controller OPC UA Object Type
         self.logger.notice('Get OPC UA Object Type of DCS Controller ...')
         self.__dctni = ua.NodeId.from_string(f'ns={self.__idx};i=1003')
-        """Node: OPC UA Object Type of DCS Controller"""
+        """|OPCUA| Object Type of |DCS| Controller"""
         self.logger.success('... Done!')
 
         # Scan nodes
         self.__nodeIds = []
-        """list(int): Contains all CAN nodeIds currently present on the bus."""
+        """:obj:`list` of :obj:`int` : Contains all |CAN| nodeIds currently
+        present on the bus."""
         self.__myDCs = {}
-        """list(Node): OPC UA Object representation of all DCS Controllers that
-        are currently on the CAN bus"""
+        """:obj:`list` : |OPCUA| Object representation of all |DCS| Controllers
+        that are currently on the |CAN| bus"""
         self.__mypyDCs = {}
-        """dict: List of MyDCSController instances which mirrors OPC UA adress
-            space. Key is the node id."""
+        """:obj:`dict` : List of :class:`MyDCSController` instances which
+        mirrors |OPCUA| adress space. Key is the node id."""
 
         # Import Object Dictionary from EDS
         self.logger.notice('Importing Object Dictionary ...')
@@ -228,8 +233,8 @@ class DCSControllerServer(object):
                               'the dicrectory of this script.')
             edsfile = os.path.join(scrdir, 'CANControllerForPSPPv1.eds')
         self.__od = objectDictionary.from_eds(self.logger, edsfile, 0)
-        """objectDictionary: The CANopen Object Dictionary (OD) for a DCS
-        Controller"""
+        """:class:`~.objectDictionary.objectDictionary` : The CANopen Object
+        Dictionary (|OD|) for a |DCS| Controller"""
 
     def __str__(self):
         if self.__interface == 'Kvaser':
@@ -259,7 +264,7 @@ class DCSControllerServer(object):
 
     @property
     def channel(self):
-        """:obj:`int` : Currently used CAN channel."""
+        """:obj:`int` : Currently used |CAN| channel."""
         return self.__channel
 
     @property
@@ -287,7 +292,7 @@ class DCSControllerServer(object):
 
     @property
     def mypyDCs(self):
-        """:obj:`dict`: Dictionary containing DCS Controller mirror classes.
+        """:obj:`dict`: Dictionary containing |DCS| Controller mirror classes.
         Key is the CANopen node id."""
         return self.__mypyDCs
 
@@ -327,15 +332,15 @@ class DCSControllerServer(object):
         return self.__ch.ipAddress
 
     def start(self):
-        """Start the server and open the CAN connection
+        """Start the server and open the |CAN| connection
 
         Make sure that this is called so that the connection is established.
 
         Steps:
 
-        * Open CAN channel
-        * Scan CAN bus for nodes (and create UA objects)
-        * Start the actual OPCUA server
+        * Open |CAN| channel
+        * Scan |CAN| bus for nodes (and create UA objects)
+        * Start the actual |OPCUA| server
         * Create python objects mirroring the UA address space
         * Start the main :func:`run` routine
 
@@ -393,7 +398,7 @@ class DCSControllerServer(object):
             self.logger.critical('The third try failed. Exiting.')
 
     def stop(self):
-        """Close CAN channel and stop the OPC UA server
+        """Close |CAN| channel and stop the |OPCUA| server
 
         Make sure that this is called so that the connection is closed in a
         correct manner. When this class is used within a :obj:`with` statement
@@ -458,9 +463,9 @@ class DCSControllerServer(object):
         Parameters
         ----------
         cobid : :obj:`int`
-            CAN identifier
+            |CAN| identifier
         msg : :obj:`bytes`
-            CAN data - max length 8
+            |CAN| data - max length 8
         dlc : :obj:`int`
             Data Length Code
         flag : :obj:`int`
@@ -479,18 +484,18 @@ class DCSControllerServer(object):
             self.logger.info(msgstr)
 
     def writeMessage(self, cobid, msg, flag=0, timeout=10):
-        """Combining writing functions for different CAN interfaces
+        """Combining writing functions for different |CAN| interfaces
 
         Parameters
         ----------
         cobid : :obj:`int`
-            CAN identifier
+            |CAN| identifier
         msg : :obj:`list` of :obj:`int` or :obj:`bytes`
             Data bytes
         flag : :obj:`int`, optional
-            Message flag (RTR, etc.). Defaults to zero.
+            Message flag (|RTR|, etc.). Defaults to zero.
         timeout : :obj:`int`, optional
-            SDO write timeout in milliseconds. Defaults to 10 ms.
+            |SDO| write timeout in milliseconds. Defaults to 10 ms.
         """
         if self.__interface == 'Kvaser':
             self.__ch.writeWait(Frame(cobid, msg), timeout)
@@ -498,17 +503,17 @@ class DCSControllerServer(object):
             self.__ch.write(cobid, msg, flag)
 
     def readMessage(self, timeout):
-        """Combining different reading functions for CAN interfaces
+        """Combining different reading functions for |CAN| interfaces
 
         Parameters
         ----------
         timeout : :obj:`int`
-            SDO timeout in milliseconds
+            |SDO| timeout in milliseconds
 
         Raises
         ------
         :exc:`analib.CanNoMsg` and :exc:`canlib.CanNoMsg`
-            No new CAN message has arrived and the timeout has expired.
+            No new |CAN| message has arrived and the timeout has expired.
         """
         if self.__interface == 'Kvaser':
             return self.__ch.read(timeout)
@@ -523,7 +528,7 @@ class DCSControllerServer(object):
             raise analib.CanNoMsg
 
     def sdo_read(self, nodeId, index, subindex, timeout=42):
-        """Read an object via SDO
+        """Read an object via |SDO|
 
         Currently expedited and segmented transfer is supported by this method.
         The user has to decide how to decode the data.
@@ -535,15 +540,15 @@ class DCSControllerServer(object):
         index : :obj:`int`
             The Object Dictionary index to read from
         subindex : :obj:`int`
-            OD Subindex. Defaults to zero for single value entries.
+            |OD| Subindex. Defaults to zero for single value entries.
         timeout : :obj:`int`, optional
-            SDO timeout in milliseconds
+            |SDO| timeout in milliseconds
 
         Returns
         -------
         :obj:`list` of :obj:`int`
             The data if was successfully read
-        :obj:`None`
+        :const:`None`
             In case of errors
         """
         if nodeId is None or index is None or subindex is None:
@@ -604,7 +609,7 @@ class DCSControllerServer(object):
         return None
 
     def sdo_write(self, nodeId, index, subindex, value, timeout=100):
-        """Write an object via SDO expedited write protocol
+        """Write an object via |SDO| expedited write protocol
 
         This sends the request and analyses the response.
 
@@ -613,13 +618,13 @@ class DCSControllerServer(object):
         nodeId : :obj:`int`
             The id from the node to read from
         index : :obj:`int`
-            The OD index to read from
+            The |OD| index to read from
         subindex : :obj:`int`
             Subindex. Defaults to zero for single value entries
         value : :obj:`int`
             The value you want to write.
         timeout : :obj:`int`, optional
-            SDO timeout in milliseconds
+            |SDO| timeout in milliseconds
 
         Returns
         -------
@@ -680,15 +685,15 @@ class DCSControllerServer(object):
         return True
 
     def set_connected_PSPP(self, nodeId=42, data=None):
-        """Set which PSPPs are connected to a specified Controller
+        """Set which |PSPP| chips are connected to a specified Controller
 
         Parameters
         ----------
         nodeId : :obj:`int`, optional
-            Node Id of the Controller. Defaults to 42.
+            |CAN| Node Id of the Controller. Defaults to 42.
         data : :obj:`list` of :obj:`int`, optional
-            4*16 bit of information about connected PSPPs. Defaults to
-            :obj:`None`.
+            4*16 bit of information about connected |PSPP| chips. Defaults to
+            :const:`None`.
         """
         self.logger.notice('Start transmitting info about connected PSPPs to '
                            'the Controller ...')
@@ -706,15 +711,15 @@ class DCSControllerServer(object):
             self.set_connected_PSPP(nodeid, [0xffff for i in range(4)])
 
     def scan_nodes(self, timeout=42):
-        """Do a complete scan over all CAN nodes
+        """Do a complete scan over all |CAN| nodes
 
         The internally stored information about all nodes are reset. This
         method will be called by the :meth:`__init__` method. It should also be
         used to reestablish communication when it was lost or when a new device
         was connected while the user program is running.
 
-        This works by reading a mandatory OD object with SDO of all nodes and
-        removing those which do not respond.
+        This works by reading a mandatory |OD| object with |SDO| of all nodes
+        and removing those which do not respond.
 
         This overrides any previous configurations and empties the lists and
         dictionaries for stored objects.
@@ -722,7 +727,7 @@ class DCSControllerServer(object):
         Parameters
         ----------
         timeout : :obj:`int`, optional
-            SDO timeout in milliseconds
+            |SDO| timeout in milliseconds
         """
         self.logger.notice('Scanning nodes. This will take a few seconds ...')
         self.__nodeIds = list(range(1, 128))
@@ -775,7 +780,7 @@ def main():
     """Wrapper function for using the server as a command line tool
 
     The command line tool accepts arguments for configuring the server which
-    are tranferred to the DCSControllerServer class.
+    are tranferred to the :class:`DCSControllerServer` class.
     """
 
     # Parse arguments

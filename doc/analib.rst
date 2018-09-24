@@ -1,14 +1,4 @@
-.. |CAN| replace:: :abbr:`CAN (Controller Area Network)`
-.. |API| replace:: :abbr:`API (Application Programming Interface)`
-.. |DLL| replace:: :abbr:`DLL (Dynamic Link Library)`
-
-.. _CANSetFilter: http://www.anagate.de/download/Manual-AnaGateAPI-en.pdf#[{"num":978,"gen":0},{"name":"XYZ"},72,720,null]
-.. _CANSetTime: http://www.anagate.de/download/Manual-AnaGateAPI-en.pdf#[{"num":993,"gen":0},{"name":"XYZ"},72,720,null]
-.. _CANSetGlobals: http://www.anagate.de/download/Manual-AnaGateAPI-en.pdf#[{"num":60,"gen":0},{"name":"XYZ"},72,720,null]
-.. _CANWrite: http://www.anagate.de/download/Manual-AnaGateAPI-en.pdf#[{"num":999,"gen":0},{"name":"XYZ"},72,720,null]
-.. _CANWriteEx: CANWrite_
-.. _CANStartAlive: http://www.anagate.de/download/Manual-AnaGateAPI-en.pdf#[{"num":1655,"gen":0},{"name":"XYZ"},72,720,null]
-.. _`Anagate API 2.0 Manualm Appendix A, API return codes`: http://www.anagate.de/download/Manual-AnaGateAPI-en.pdf#[{"num":942,"gen":0},{"name":"XYZ"},72,720,null]
+.. include:: abbr.rst
 
 analib package
 ==============
@@ -72,3 +62,9 @@ Module contents
     :members:
     :undoc-members:
     :show-inheritance:
+
+
+References
+----------
+.. [TCP-2010] Analytica GmbH. Copyright © 2010 Analytica GmbH. 
+    Manual TCP-IP communication .Version 1.2.6. 15.05.2008.

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Some constants for AnaGate CAN devices
+Some constants for AnaGate |CAN| devices
 
 :Author: Sebastian Scholz
 :Contact: sebastian.scholz@cern.ch
@@ -13,5 +13,5 @@ CONNECT_STATES = {1: 'DISCONNECTED', 2: 'CONNECTING', 3: 'CONNECTED',
 
 BAUDRATES = [10000, 20000, 50000, 62500, 100000, 125000, 250000, 500000,
              1000000]
-""":obj:`list` of :obj:`int` : All possible baudrates for AnaGate CAN devices
+""":obj:`list` of :obj:`int` : All possible baudrates for AnaGate |CAN| devices
 in Hertz"""

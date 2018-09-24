@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jul 23 12:16:51 2018
+This module contains definitions that are specific for the used library.
 
 :Author: Sebastian Scholz
 :Contact: sebastian.scholz@cern.ch
@@ -17,7 +17,7 @@ _no_errcheck = dllLoader.no_errcheck
 
 
 class libCANDLL(dllLoader.MyDll):
-    """This class contains all the prototypes from the used API"""
+    """This class contains all the prototypes from the used |API|"""
 
     CBFUNC = ct.CFUNCTYPE(ct.c_void_p, ct.c_int32, ct.POINTER(ct.c_char),
                           ct.c_int32, ct.c_int32, ct.c_int32)
@@ -89,7 +89,8 @@ class libCANDLL(dllLoader.MyDll):
         super(libCANDLL, self).__init__(ct_dll, **self.function_prototypes)
 
     def _error_check(self, result, func, arguments):
-        """Error function used in ctype calls for canlib DLL.
+        """Default error function used in :mod:`ctype` calls for :mod:`canlib`
+        |DLL|.
 
         Raises
         ------

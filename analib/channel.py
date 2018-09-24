@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Main wrapper of AnaGate API
+Main wrapper of AnaGate |API|
 
-The wrapped API functions are adapted in such a manner that they can be used in
-a pythonic way including class structure. The user only sees anad gives python
-build-in data types from and to the functions.
+The wrapped |API| functions are adapted in such a manner that they can be used
+in a pythonic way including class structure. The user only sees and gives
+Python build-in data types from and to the functions.
 
 :Author: Sebastian Scholz
 :Contact: sebastian.scholz@cern.ch
@@ -25,7 +25,7 @@ from .constants import CONNECT_STATES, BAUDRATES
 
 @dll.CBFUNC
 def cbFunc(cobid, data, dlc, flags, handle):
-    """Example callback function for incoming CAN messages.
+    """Example callback function for incoming |CAN| messages.
 
     The arguments are passed as python build-in data types.
     """
@@ -35,7 +35,7 @@ def cbFunc(cobid, data, dlc, flags, handle):
 
 
 class Channel(object):
-    """Open a connection to an Anagate CAN channel.
+    """Open a connection to an Anagate |CAN| channel.
 
     Parameters
     ----------
@@ -43,7 +43,7 @@ class Channel(object):
         Network address of the AnaGate partner. Defaults to `'192.168.1.254'`
         which is the factory default.
     port : :obj:`int`, optional
-        CAN port number.
+        |CAN| port number.
         Allowed values are:
 
         * 0 for port 1/A (all AnaGate |CAN| models)
@@ -85,7 +85,7 @@ class Channel(object):
         * 125000 für 125kBit
         * 250000 für 250kBit
         * 500000 für 500kBit
-        * 800000 für 800kBit (not AnaGate |CAN|)
+        * 800000 für 800kBit (not AnaGate CAN)
         * 1000000 für 1MBit
 
     operatingMode : :obj:`int`, optional
@@ -185,7 +185,7 @@ class Channel(object):
 
     @property
     def port(self):
-        """:obj:`int` : CAN port number"""
+        """:obj:`int` : |CAN| port number"""
         return self.__port.value
 
     @property
@@ -290,8 +290,6 @@ class Channel(object):
         The high speed mode was created for large baud rates with continuously
         high bus load. In this mode telegrams are not confirmed on the protocol
         layer and the software filters defined via CANSetFilter_ are ignored.
-
-
         """
         self.getGlobals()
         return bool(self.__highSpeedMode.value)
@@ -329,11 +327,11 @@ class Channel(object):
 
         Possible values are:
 
-        * 'DISCONNECTED'
-        * 'CONNECTING'
-        * 'CONNECTED',
-        * 'DISCONNECTING'
-        * 'NOT_INITIALIZED'
+        * ``'DISCONNECTED'``
+        * ``'CONNECTING'``
+        * ``'CONNECTED'``
+        * ``'DISCONNECTING'``
+        * ``'NOT_INITIALIZED'``
 
         """
         if self.__deviceOpen:
@@ -360,9 +358,10 @@ class Channel(object):
 
     def _openDevice(self, ipAddress='192.168.1.254', port=0, confirm=True,
                     ind=True, timeout=10000):
-        """Opens an network connection (TCP or UDP) to an AnaGate |CAN| device.
+        """Opens an network connection (|TCP| or |UDP|) to an AnaGate |CAN|
+        device.
 
-        Opens a TCP/IP connection to an CAN interface of an AnaGate |CAN|
+        Opens a |TCPIP| connection to an |CAN| interface of an AnaGate |CAN|
         device. If the connection is established, |CAN| telegrams can be sent
         and received.
 
@@ -375,7 +374,7 @@ class Channel(object):
             Network address of the AnaGate partner. Defaults to '192.168.1.254'
             which is the factory default.
         port : :obj:`int`, optional
-            CAN port number.
+            |CAN| port number.
             Allowed values are:
 
             * 0 for port 1/A (all AnaGate |CAN| models)
@@ -548,10 +547,10 @@ class Channel(object):
         """Sets the current system time on the AnaGate device.
 
         The CANSetTime_ function sets the system time on the AnaGate hardware.
-        If the time stamp mode is switched on by the setGlobals function, the
-        AnaGate hardware adds a time stamp to each incoming |CAN| telegram and a
-        time stamp to the confirmation of a telegram sent via the |API| (only
-        if confirmations are switched on for data requests).
+        If the time stamp mode is switched on by the :func:`setGlobals`
+        function, the AnaGate hardware adds a time stamp to each incoming |CAN|
+        telegram and a time stamp to the confirmation of a telegram sent via
+        the |API| (only if confirmations are switched on for data requests).
 
         Parameters
         ----------
@@ -593,7 +592,7 @@ class Channel(object):
         return seconds.value, microseconds.value
 
     def write(self, identifier, data, flags=0):
-        """Sends a CAN telegram to the CAN bus via the AnaGate device.
+        """Sends a |CAN| telegram to the |CAN| bus via the AnaGate device.
 
         Parameters
         ----------
@@ -735,11 +734,11 @@ class Channel(object):
         """Starts the ALIVE mechanism, which checks periodically the state of
         the network connection to the AnaGate hardware.
 
-        The AnaGate communication protocol (see [TCP-2010]) supports an
+        The AnaGate communication protocol (see [TCP-2010]_) supports an
         application specific connection control which allows faster detection
         of broken connection lines.
 
-        The CANStartAlive_ function starts a concurrent thread in the DLL in
+        The CANStartAlive_ function starts a concurrent thread in the |DLL| in
         order to send defined alive telegrams (ALIVE_REQ) peridically (approx.
         every half of the given time out) to the Anagate device via the current
         network connection. If the alive telegram is not confirmed within the

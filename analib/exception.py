@@ -8,14 +8,14 @@ Some basic custom exceptions which do nothing special
 """
 
 class AnalibException(Exception):
-    """Base class for all exceptions in analib"""
+    """Base class for all exceptions in :mod:`analib`"""
     pass
 
 
 class DllException(AnalibException):
-    """Base class for exceptions from dll calls in analib
+    """Base class for exceptions from dll calls in :mod:`analib`
 
-    All instances of this class must have a `rc` attribute defined (this is
+    All instances of this class must have a ``rc`` attribute defined (this is
     enforced in :func:`~.DllException.__init__()`). Its value is the return
     code from the |API| function.
     """
@@ -33,6 +33,6 @@ class DllException(AnalibException):
 
 
 class CanNoMsg(AnalibException):
-    """Raised if there are no CAN messages in the message queue"""
+    """Raised if there are no |CAN| messages in the message queue"""
     pass
 

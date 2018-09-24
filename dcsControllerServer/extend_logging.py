@@ -47,7 +47,7 @@ def extend_logging():
 
 
 def removeAllHandlers(logger):
-    """Ensure that all existing FileHandlers are removed.
+    """Ensure that all each :class:`~logging.FileHandler` is removed.
 
     When errors during initialisation appear the Handlers may not removed and
     still be present in the next run. This method cleanes up any Handlers that

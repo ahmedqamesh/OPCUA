@@ -1,3 +1,5 @@
+.. include:: abbr.rst
+
 dcsControllerServer package
 ===========================
 
@@ -60,3 +62,10 @@ Module contents
     :members:
     :undoc-members:
     :show-inheritance:
+
+
+References
+----------
+.. [CiA301] © CAN in Automation (CiA) e. V..
+    CANopen application layer and communication profile.
+    Version 4.2.0, 21.02.2011.

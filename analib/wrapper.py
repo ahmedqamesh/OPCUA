@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jul 23 11:45:30 2018
+This modules handles the actual |API| loading and also contains some wrapped
+functions that do not require a valid handle.
 
 :Author: Sebastian Scholz
 :Contact: sebastian.scholz@cern.ch
@@ -55,6 +56,8 @@ def loadDLL():
 
 
 dll = libCANDLL(loadDLL())
+""":obj:`ctypes.WinDLL` or  :obj:`ctypes.CDLL` : AnaGate |API| as a
+:mod:`ctypes` library. The exact type is platform specific."""
 
 
 def dllInfo():
@@ -109,7 +112,7 @@ def restart(ipAddress='192.168.1.254', timeout=10000):
     Parameters
     ----------
     ipAddress : :obj:`str`, optional
-        Network address of the AnaGate partner. Defaults to `'192.168.1.254'`
+        Network address of the AnaGate partner. Defaults to ``'192.168.1.254'``
         which is the factory default.
     timeout : :obj:`int`, optional
         Default timeout for accessing the AnaGate in milliseconds. A timeout is
@@ -140,7 +143,13 @@ def errorCheck(returnCode):
     Raises
     ------
     :exc:`~.exception.DllException`
-        When the API function returned an error.
+        When the |API| function returned an error.
+
+    Note
+    ----
+    This function is not used anymore since the functionality has been
+    integrated into the default error-check function
+    :meth:`~.dll.libCANDLL._error_check`.
     """
     if returnCode == 0:
         return True

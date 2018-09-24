@@ -1,12 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-"""ALl kind of constants used in CANopen or PSPPs.
+"""ALl kind of constants used in CANopen_ or |PSPP| chips.
 
 Documentation of official CANopen constants is taken from the official CANopen
-specification CiA_ 301_.
-
-.. _CiA: https://www.can-cia.org/standardization/specifications/
-.. _301: https://workarea.ego-gw.it/ego2/ego/itf/software/301_canopen.pdf
+specification [CiA301]_.
 
 :Author: Sebastian Scholz
 :Contact: sebastian.scholz@cern.ch
@@ -17,20 +14,21 @@ from aenum import Enum
 
 
 MAX_DATABYTES = 8
-""":obj:`int` : The maxmimum number of data bytes in a standard CAN message"""
+""":obj:`int` : The maxmimum number of data bytes in a standard |CAN|
+message"""
 MSGHEADER = 'ID  DLC DATA' + ' ' * (MAX_DATABYTES * 4 - 4) + 'TIME'
-""":obj:`str` : Used as header for output of CAN messages"""
+""":obj:`str` : Used as header for output of |CAN| messages"""
 PSPP_REGISTERS = {'ChipID1': 0, 'ChipID2': 1, 'ADCR1': 2, 'ADCR2': 3, 'DIN': 4,
                   'DIN': 4, 'DOUT': 5, 'Bypass': 6, 'ADCmux': 7, 'ADCL1': 8,
                   'ADCL2': 9, 'Control': 10, 'BGHI': 11, 'BGLO': 12}
-""":obj:`dict` : Keys are PSPP register names and values are their number."""
+""":obj:`dict` : Keys are |PSPP| register names and values are their number."""
 PSPPMONVALS = {'Temperature': 0, 'Voltage1': 1, 'Voltage2': 2}
 """:obj:`dict` : Keys are names of monitoring values and values are their
 relative position."""
 
 
 class STATUS(Enum):
-    """Default status codes for CAN nodes"""
+    """Default status codes for |CAN| nodes"""
     INITIALIZING = 0
     STOPPED = 4
     OPERATIONAL = 5
@@ -38,7 +36,7 @@ class STATUS(Enum):
 
 
 class COBID(Enum):
-    """Default COB Ids used by CANopen"""
+    """Default |COBID|\ s used by CANopen_."""
     NMT_MASTER = 0
     EMCY = 0x80
     TPDO0 = 0x180
@@ -60,8 +58,8 @@ class ATTR(Enum):
     CONST = 4
     """Read only access, value is constant.
 
-    The value may change in NMT state Initialisation. The value shall not
-    change in the NMT states preoperation, operational and stopped.
+    The value may change in |NMT| state Initialisation. The value shall not
+    change in the |NMT| states preoperation, operational and stopped.
     """
 
     @classmethod
@@ -72,9 +70,9 @@ class ATTR(Enum):
 
 
 class VARTYPE(Enum):
-    """Object dictionary data types according to CiA 301
+    """Object dictionary data types according to [CiA301]_.
 
-    Numbers correspond to OD indices where they are defined. The free indices
+    Numbers correspond to |OD| indices where they are defined. The free indices
     in between are marked as reserved.
     """
     BOOLEAN = 1
@@ -111,7 +109,7 @@ class VARTYPE(Enum):
 class ENTRYTYPE(Enum):
     """Object Dictionary object definitions
 
-    Object codes and documenation correspond to CiA 301.
+    Object codes and documenation correspond to [CiA301]_.
     """
 
     NULL = 0
@@ -124,7 +122,7 @@ class ENTRYTYPE(Enum):
     Possible types may be such as a BOOLEAN, UNSIGNED16, FLOAT and so on.
     """
     DEFSTRUCT = 6
-    """Defines a new record type e.g. the PDO mapping structure at 21h."""
+    """Defines a new record type e.g. the |PDO| mapping structure at 21h."""
     VAR = 7
     """A single value such as an UNSIGNED8, BOOLEAN, FLOAT, INTEGER16,
     VISIBLE STRING etc."""
@@ -145,12 +143,12 @@ class ENTRYTYPE(Enum):
 
 
 class sdoAbortCodes(Enum):
-    """SDO abort codes as defined in CiA 301"""
+    """|SDO| abort codes as defined in [CiA301]_."""
 
     TOGGLE_BIT = 0x05030000
     """Toggle bit not alternated."""
     TIMEOUT = 0x05040000
-    """SDO protocol timed out."""
+    """|SDO| protocol timed out."""
     COMMAND = 0x05030001
     """Client/server command specifier not valid or unknown."""
     BLOCK_SIZE = 0x05040002
@@ -158,7 +156,7 @@ class sdoAbortCodes(Enum):
     SEQUENCE_NUM = 0x05040003
     """Invalid sequence number (block mode only)."""
     CRC_ERROR = 0x05040004
-    """CRC error (block mode only)."""
+    """|CRC| error (block mode only)."""
     OUT_OF_MEMORY = 0x05040005
     """Out of memory."""
     ACCESS = 0x06010000
@@ -170,9 +168,9 @@ class sdoAbortCodes(Enum):
     NO_OBJECT = 0x06020000
     """Object does not exist in the object dictionary."""
     PDO_MAPPING = 0x06040041
-    """Object cannot be mapped to the PDO."""
+    """Object cannot be mapped to the |PDO|."""
     PDO_LENGTH = 0x06040042
-    """The number and length of the objects to be mapped would exceed PDO
+    """The number and length of the objects to be mapped would exceed |PDO|
     length.
     """
     INCOMP_PARAM = 0x06040043
@@ -198,7 +196,7 @@ class sdoAbortCodes(Enum):
     MAX_LESS_MIN = 0x06090036
     """Maximum value is less than minimum value."""
     RES_AVBL = 0x060A0023
-    """Resource not available: SDO connection"""
+    """Resource not available: |SDO| connection"""
     GENERAL_ERROR = 0x08000000
     """General error"""
     APP = 0x08000020
@@ -218,7 +216,3 @@ class sdoAbortCodes(Enum):
     """
     NO_DATA = 0x08000024
     """No data available"""
-
-
-if __name__ == '__main__':
-    pass
