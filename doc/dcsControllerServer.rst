@@ -1,7 +1,6 @@
-.. include:: abbr.rst
-
 dcsControllerServer package
 ===========================
+.. include:: abbr.rst
 
 Submodules
 ----------

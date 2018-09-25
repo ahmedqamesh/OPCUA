@@ -1,7 +1,6 @@
-.. include:: abbr.rst
-
 analib package
 ==============
+.. include:: abbr.rst
 
 Submodules
 ----------

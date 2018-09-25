@@ -8,8 +8,14 @@ Welcome to DCSController's documentation!
 =========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
+
+   installation
+   anagate
+   serverclass
+   analib
+   dcsControllerServer
 
 
 

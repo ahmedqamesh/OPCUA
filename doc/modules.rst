@@ -1,5 +1,5 @@
-dcsControllerServer
-===================
+All modules
+===========
 
 .. toctree::
    :maxdepth: 4
