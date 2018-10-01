@@ -10,7 +10,7 @@ specification [CiA301]_.
 :Organization: Bergische Universität Wuppertal
 """
 # Third party modules
-from aenum import Enum
+from aenum import IntEnum
 
 
 MAX_DATABYTES = 8
@@ -27,7 +27,7 @@ PSPPMONVALS = {'Temperature': 0, 'Voltage1': 1, 'Voltage2': 2}
 relative position."""
 
 
-class STATUS(Enum):
+class STATUS(IntEnum):
     """Default status codes for |CAN| nodes"""
     INITIALIZING = 0
     STOPPED = 4
@@ -35,7 +35,7 @@ class STATUS(Enum):
     PREOPERATIONAL = 127
 
 
-class COBID(Enum):
+class COBID(IntEnum):
     """Default |COBID|\ s used by CANopen_."""
     NMT_MASTER = 0
     EMCY = 0x80
@@ -46,7 +46,7 @@ class COBID(Enum):
     NMT_ERROR_CTRL = 0x700
 
 
-class ATTR(Enum):
+class ATTR(IntEnum):
     """Access attributes for data objects"""
 
     RO = 1
@@ -69,7 +69,7 @@ class ATTR(Enum):
                 return member
 
 
-class VARTYPE(Enum):
+class VARTYPE(IntEnum):
     """Object dictionary data types according to [CiA301]_.
 
     Numbers correspond to |OD| indices where they are defined. The free indices
@@ -106,7 +106,7 @@ class VARTYPE(Enum):
     IDENTITY = 0x23
 
 
-class ENTRYTYPE(Enum):
+class ENTRYTYPE(IntEnum):
     """Object Dictionary object definitions
 
     Object codes and documenation correspond to [CiA301]_.
@@ -142,7 +142,7 @@ class ENTRYTYPE(Enum):
     """
 
 
-class sdoAbortCodes(Enum):
+class sdoAbortCodes(IntEnum):
     """|SDO| abort codes as defined in [CiA301]_."""
 
     TOGGLE_BIT = 0x05030000

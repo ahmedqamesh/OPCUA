@@ -343,7 +343,7 @@ class CANopenDCSController(object):
         idx[0], idx[1] = index.to_bytes(2, 'little')
         subindex = msg[3]
         ret = [0 for i in range(coc.MAX_DATABYTES)]
-        cobid = coc.COBID.SDO_TX.value + self.__nodeId
+        cobid = coc.COBID.SDO_TX + self.__nodeId
         ret[1], ret[2] = msg[1], msg[2]
         ret[3] = msg[3]
         # Check for SDO read request
@@ -409,7 +409,7 @@ class CANopenDCSController(object):
         n = (cmd >> 2) & 0b11
         datasize = 4 - n
         data = int.from_bytes(msg[4:(4 + datasize)], 'little')
-        cobid = coc.COBID.SDO_TX.value + self.__nodeId
+        cobid = coc.COBID.SDO_TX + self.__nodeId
         ret = [0 for i in range(8)]
         # Check if command specifier known
         if cmd not in [0x23, 0x27, 0x2b, 0x2f]:

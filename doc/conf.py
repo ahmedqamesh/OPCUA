@@ -142,12 +142,10 @@ htmlhelp_basename = 'DCSControllerdoc'
 
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
-    #
-    # 'papersize': 'letterpaper',
+    'papersize': 'a4paper',
 
     # The font size ('10pt', '11pt' or '12pt').
-    #
-    # 'pointsize': '10pt',
+    'pointsize': '12pt',
 
     # Additional stuff for the LaTeX preamble.
     #
@@ -158,11 +156,19 @@ latex_elements = {
     # 'figure_align': 'htbp',
 }
 
+# latex_engine = 'pdflatex'
+
+# Allowed values are 'part', 'chapter' and 'section'.
+# latex_toplevel_sectioning = None
+
+latex_show_urls = 'footnote'
+
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'DCSControllerdoc.tex', 'DCSController Software Documentation',
+    (master_doc, 'DCSControllerdoc.tex',
+     'DCSController Software Documentation',
      'Sebastian Scholz', 'manual'),
 ]
 

@@ -513,8 +513,10 @@ class DCSControllerServer(object):
 
         Raises
         ------
-        :exc:`analib.CanNoMsg` and :exc:`canlib.CanNoMsg`
-            No new |CAN| message has arrived and the timeout has expired.
+        :exc:`CanNoMsg`
+            No new |CAN| message has arrived and the timeout has expired. The
+            exception comes from :mod:`canlib` or :mod:`analib` depending on
+            the used interface.
         """
         if self.__interface == 'Kvaser':
             return self.__ch.read(timeout)
@@ -557,7 +559,7 @@ class DCSControllerServer(object):
                                 'begin.')
             return None
         self.logger.info(f'Send SDO read request to node {nodeId}.')
-        cobid = coc.COBID.SDO_RX.value + nodeId
+        cobid = coc.COBID.SDO_RX + nodeId
         msg = [0 for i in range(coc.MAX_DATABYTES)]
         msg[1], msg[2] = index.to_bytes(2, 'little')
         msg[3] = subindex
@@ -636,7 +638,7 @@ class DCSControllerServer(object):
         # Create the request message
         self.logger.info(f'Send SDO write request to node {nodeId}.')
         self.logger.info(f'Writing value {value:X}')
-        cobid = coc.COBID.SDO_RX.value + nodeId
+        cobid = coc.COBID.SDO_RX + nodeId
         datasize = len(f'{value:X}') // 2 + 1
         data = value.to_bytes(4, 'little')
         msg = [0 for i in range(8)]
@@ -657,12 +659,12 @@ class DCSControllerServer(object):
             self.dumpMessage(cobid_ret, ret, dlc, flag)
             if int.from_bytes([ret[1], ret[2]], 'little') == index and \
                     ret[3] == subindex and \
-                    cobid_ret == coc.COBID.SDO_TX.value + nodeId:
+                    cobid_ret == coc.COBID.SDO_TX + nodeId:
                 break
         # Analyse the response
         retindex = int.from_bytes([ret[1], ret[2]], 'little')
         retsubindex = ret[3]
-        if cobid_ret != coc.COBID.SDO_TX.value + nodeId:
+        if cobid_ret != coc.COBID.SDO_TX + nodeId:
             self.logger.error(f'Got wrong COB-ID ({cobid_ret:X})')
             return False
         elif retindex != index:

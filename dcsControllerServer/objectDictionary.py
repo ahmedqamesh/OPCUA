@@ -4,7 +4,7 @@
 
 Example
 -------
-Create an empty Object Dictionary (|OD|):
+Create an empty Object Dictionary (OD):
 
 >>> import logging, coloredlogs, verboselogs
 >>> from extend_logging import extend_logging
@@ -13,7 +13,7 @@ Create an empty Object Dictionary (|OD|):
 >>> coloredlogs.install(level='DEBUG', isatty=True)
 >>> od = objectDictionary(logger)
 
-In order to create an |OD| from an Electronic Data Sheet (|EDS|) replace the
+In order to create an |OD| from an Electronic Data Sheet (EDS) replace the
 last line with:
 
 >>> od = objectDictionary.from_eds(logger, '/path/to/eds', 42)
@@ -221,8 +221,7 @@ class odEntry():
 
     @value.setter
     def value(self, val):
-        if self.__attribute is ATTR.WO or self.__attribute is ATTR.RW or\
-                self.__direct_access:
+        if self.__attribute in [ATTR.WO, ATTR.RW] or self.__direct_access:
             self.__value = val
         else:
             raise AttributeError('Entry may not be written!')
@@ -370,8 +369,7 @@ class odSubEntry():
 
     @value.setter
     def value(self, val):
-        if self.__attribute is ATTR.WO or self.__attribute is ATTR.RW or\
-                self.__direct_access:
+        if self.__attribute in [ATTR.WO, ATTR.RW] or self.__direct_access:
             self.__value = val
         else:
             raise AttributeError('Entry may not be written!')
