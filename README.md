@@ -32,7 +32,7 @@ optional arguments:
   -h, --help            show this help message and exit
   -i INTERFACE, --interface INTERFACE
                         Vendor of the CAN interface. Possible values
-                        are"Kvaser" (default) and "AnaGate" (case-sensitive)
+                        are "Kvaser" (default) and "AnaGate" (case-sensitive)
   -E ENDPOINT, --endpoint ENDPOINT
                         Endpoint of the OPCUA server
   -e EDSFILE, --edsfile EDSFILE
