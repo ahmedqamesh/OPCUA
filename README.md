@@ -2,6 +2,8 @@
 
 This Python package provides a command line tool which starts an [OPC UA](https://opcfoundation.org/about/opc-technologies/opc-ua/) server for the [<abbr title="Detector Control System">DCS</abbr>](https://twiki.cern.ch/twiki/bin/viewauth/Atlas/DetectorControlSystemMainPage "Only accessible with CERN account") Controller. It communicates with a <abbr title="Controller Area Network">CAN</abbr> interface and talks CANopen with connected DCS Controllers. Currently only CAN interfaces from [AnaGate](https://www.anagate.de/) (Ethernet) and [Kvaser](https://www.kvaser.com/) (USB) are supported.
 
+Some documentation is available on https://opcuacanopenfordcscontroller.readthedocs.io/en/latest/.
+
 ## Installation
 This Python package requires a working [Python 3.6](https://www.python.org/ "Official Python Homepage") Installation. I recommend the usage of [Anaconda](https://anaconda.org/ "Official Anaconda Homepage") which is available for all platforms and also easy to install and manage.
 
@@ -12,6 +14,9 @@ Make sure that your Python installation also contains [pip](https://pypi.org/pro
 If you want to modify the code then use
 
     $ pip install -e .
+    
+## Dependencies
+All third-party Python packages that are needed are installed on-the-fly so you do not need to worry about these. The necessary AnaGate libraries are also included in this repository. For the use of Kvaser CAN interfaces you have to install the [Kvaser drivers](https://www.kvaser.com/downloads-kvaser/ "Kvaser download page") first which are avaiable for [Windows](https://www.kvaser.com/downloads-kvaser/?utm_source=software&utm_ean=7330130980013&utm_status=latest) and [Linux](https://www.kvaser.com/downloads-kvaser/?utm_source=software&utm_ean=7330130980754&utm_status=latest).
 
 ## Usage
 The package creates a command line tool `DCSControllerServer` so that you do not have to invoke python yourself. It provides several options for configuration.
