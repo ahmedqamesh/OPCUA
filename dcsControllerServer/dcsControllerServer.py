@@ -254,6 +254,8 @@ class DCSControllerServer(object):
     def __exit__(self, exception_type, exception_value, traceback):
         if exception_type is KeyboardInterrupt:
             self.logger.warning('Received Ctrl+C event (KeyboardInterrupt).')
+        self.__fh.close()
+        self.__fh_opcua.close()
         removeAllHandlers(self.logger)
         removeAllHandlers(self.opcua_logger)
         self.stop()
@@ -370,16 +372,20 @@ class DCSControllerServer(object):
                         self.logger.notice('Restarting AnaGate CAN interface.')
                         self.__ch.restart()
                         time.sleep(10)
-                self.scan_nodes()
+                self.scanNodes()
                 if len(self.__nodeIds) == 0:
                     raise BusEmptyError('No CAN nodes found!')
                 self.logger.notice('Starting the server ...')
                 self.server.start()
                 self.__isserver = True
-                self.create_mirrored_objects()
+                self.createMirroredObjects()
                 time.sleep(1)
                 self.__isinit = True
-                self.rdm_set_conn_PSPP()
+                # Do not do this if you have auto-detection of your PSPPs
+                # self.rdmSetConnPSPP()
+                # Do this instead
+                for nodeId in self.__nodeIds:
+                    self.mypyDCs[nodeId].Status = True
                 self.logger.success('Initialization Done.')
                 self.run()
             except BusEmptyError as ex:
@@ -433,14 +439,17 @@ class DCSControllerServer(object):
                 for scb in range(4):
                     exec(f'self.ret = self.mypyDCs[nodeId].SCB{scb}.'
                          'ConnectedPSPPs')
-                    cp = [i for i in range(16) if int(f'{self.ret:016b}'[i])]
-                    self.logger.debug(f'Connected PSPPs: {self.ret}')
+                    cp = [i for i in range(16)
+                          if int(f'{self.ret:016b}'[::-1][i])]
+                    if self.ret is not None:
+                        self.logger.debug(f'Connected PSPPs: {self.ret}')
                     # Loop over all possible PSPPs
                     for pspp in cp:
                         # Loop over PSPP monitoring data
                         exec(f'self.ret = self.mypyDCs[nodeId].SCB{scb}.'
                              f'PSPP{pspp}.MonitoringData.Temperature')
-                        self.logger.debug(f'SCB{scb}.PSPP{pspp}.MonVals = '
+                        if self.ret is not None:
+                            self.logger.debug(f'SCB{scb}.PSPP{pspp}.MonVals = '
                                           f'{self.ret:X}')
                         # Read less often than monitoring values
                         if count == 0:
@@ -530,7 +539,7 @@ class DCSControllerServer(object):
                     pass
             raise analib.CanNoMsg
 
-    def sdo_read(self, nodeId, index, subindex, timeout=42):
+    def sdoRead(self, nodeId, index, subindex, timeout=42):
         """Read an object via |SDO|
 
         Currently expedited and segmented transfer is supported by this method.
@@ -611,7 +620,7 @@ class DCSControllerServer(object):
             self.logger.error('Invalid SDO command specifier')
         return None
 
-    def sdo_write(self, nodeId, index, subindex, value, timeout=100):
+    def sdoWrite(self, nodeId, index, subindex, value, timeout=100):
         """Write an object via |SDO| expedited write protocol
 
         This sends the request and analyses the response.
@@ -687,7 +696,7 @@ class DCSControllerServer(object):
             self.logger.success('SDO write protocol successful!')
         return True
 
-    def set_connected_PSPP(self, nodeId=42, data=None):
+    def setConnectedPSPP(self, nodeId=42, data=None):
         """Set which |PSPP| chips are connected to a specified Controller
 
         Parameters
@@ -708,12 +717,12 @@ class DCSControllerServer(object):
         self.mypyDCs[nodeId].Status = True
         self.logger.success('... Done.')
 
-    def rdm_set_conn_PSPP(self):
+    def rdmSetConnPSPP(self):
         """Wrapper function which randomly sets connected PSPPs"""
         for nodeid in self.__nodeIds:
-            self.set_connected_PSPP(nodeid, [0xffff for i in range(4)])
+            self.setConnectedPSPP(nodeid, [0xffff for i in range(4)])
 
-    def scan_nodes(self, timeout=42):
+    def scanNodes(self, timeout=42):
         """Do a complete scan over all |CAN| nodes
 
         The internally stored information about all nodes are reset. This
@@ -736,7 +745,7 @@ class DCSControllerServer(object):
         self.__nodeIds = list(range(1, 128))
         self.__mypyDCs = {}
         for nodeId in range(1, 128):
-            dev_t = self.sdo_read(nodeId, 0x1000, 0, timeout)
+            dev_t = self.sdoRead(nodeId, 0x1000, 0, timeout)
             time.sleep(timeout / 1000)
             if dev_t is None:
                 self.logger.debug(f'Remove node id {nodeId}')
@@ -755,7 +764,7 @@ class DCSControllerServer(object):
                                           self.__dctni)
         self.logger.success('... Done!')
 
-    def create_mirrored_objects(self):
+    def createMirroredObjects(self):
         """Create mirror Classes for every UA object.
 
         This method sets the CANopen node id to the Controller UA objects and

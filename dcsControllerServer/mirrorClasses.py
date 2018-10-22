@@ -195,7 +195,7 @@ class UIntField(object):
     def __get__(self, obj, objtype):
         self.logger.info(f'Invoking getter on {obj}{self.name}.')
         if self.master.isinit and self.valid_entry:
-            val = self.master.sdo_read(self.nodeId, self.index, self.subindex)
+            val = self.master.sdoRead(self.nodeId, self.index, self.subindex)
             if val is not None:
                 self.justread = True
                 self.val = int.from_bytes(val, 'little')
@@ -221,7 +221,7 @@ class UIntField(object):
         if val is not None and self.master.isinit and self.valid_entry \
                 and self.acc_attr in [coc.ATTR.WO, coc.ATTR.RW] and not \
                 self.justread:
-            if self.master.sdo_write(self.nodeId, self.index,
+            if self.master.sdoWrite(self.nodeId, self.index,
                                      self.subindex, val):
                 self.val = val
                 if self.name is 'ConnectedPSPPs':
@@ -286,7 +286,7 @@ class BoolField(object):
     def __get__(self, obj, objtype):
         self.logger.info(f'Invoking getter on {obj}{self.name}.')
         if self.master.isinit and self.valid_entry:
-            val = self.master.sdo_read(self.nodeId, self.index, self.subindex)
+            val = self.master.sdoRead(self.nodeId, self.index, self.subindex)
             if val is not None:
                 self.justread = True
                 self.val = bool(int.from_bytes(val, 'little'))
@@ -304,7 +304,7 @@ class BoolField(object):
         if val is not None and self.master.isinit and self.valid_entry \
                 and self.acc_attr in [coc.ATTR.WO, coc.ATTR.RW] and not \
                 self.justread:
-            if self.master.sdo_write(self.nodeId, self.index, self.subindex,
+            if self.master.sdoWrite(self.nodeId, self.index, self.subindex,
                                      val) or self.name == 'Status':
                 self.val = val
         else:
