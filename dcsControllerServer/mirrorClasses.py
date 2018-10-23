@@ -221,6 +221,8 @@ class UIntField(object):
         if val is not None and self.master.isinit and self.valid_entry \
                 and self.acc_attr in [coc.ATTR.WO, coc.ATTR.RW] and not \
                 self.justread:
+            self.logger.notice(f'Invoking setter on {obj}{self.name} with '
+                               f'value {val:X}.')
             if self.master.sdoWrite(self.nodeId, self.index,
                                      self.subindex, val):
                 self.val = val

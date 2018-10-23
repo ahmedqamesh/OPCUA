@@ -528,7 +528,10 @@ class DCSControllerServer(object):
             the used interface.
         """
         if self.__interface == 'Kvaser':
-            return self.__ch.read(timeout)
+            frame = self.__ch.read(timeout)
+            if frame is None or (frame.id == 0 and frame.dlc == 0):
+                raise canlib.CanNoMsg
+            return frame
         else:
             t0 = time.perf_counter()
             while time.perf_counter() - t0 < timeout / 1000:
@@ -539,7 +542,7 @@ class DCSControllerServer(object):
                     pass
             raise analib.CanNoMsg
 
-    def sdoRead(self, nodeId, index, subindex, timeout=42):
+    def sdoRead(self, nodeId, index, subindex, timeout=100):
         """Read an object via |SDO|
 
         Currently expedited and segmented transfer is supported by this method.
@@ -645,8 +648,8 @@ class DCSControllerServer(object):
         """
 
         # Create the request message
-        self.logger.info(f'Send SDO write request to node {nodeId}.')
-        self.logger.info(f'Writing value {value:X}')
+        self.logger.notice(f'Send SDO write request to node {nodeId}.')
+        self.logger.notice(f'Writing value {value:X}')
         cobid = coc.COBID.SDO_RX + nodeId
         datasize = len(f'{value:X}') // 2 + 1
         data = value.to_bytes(4, 'little')
