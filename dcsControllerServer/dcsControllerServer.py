@@ -78,6 +78,8 @@ class DCSControllerServer(object):
         Defines which log messages are displayed in the console.
     file_loglevel : :obj:`int` or :obj:`str`, optional
         Defines which log messages are written to the logfiles.
+    logdir : :obj:`str`, optional
+        Directory where log files should be saved to
     channel : :obj:`int`, optional
         Number of the |CAN| port to be used.
     logformat : :obj:`str`, optional
@@ -117,7 +119,7 @@ class DCSControllerServer(object):
                  console_loglevel=logging.NOTICE,
                  logformat='%(asctime)s %(levelname)-8s %(message)s',
                  endpoint='opc.tcp://localhost:4840/',
-                 file_loglevel=logging.INFO, channel=0,
+                 file_loglevel=logging.INFO, logdir=None, channel=0,
                  bitrate=None, xmlfile=None,
                  ipAddress='192.168.1.254'):
 
@@ -132,7 +134,10 @@ class DCSControllerServer(object):
         self.logger.setLevel(logging.DEBUG)
         self.opcua_logger = logging.getLogger('opcua')
         self.opcua_logger.setLevel(logging.WARNING)
-        scrdir = os.path.dirname(os.path.abspath(__file__))
+        if logdir is None:
+            scrdir = os.path.dirname(os.path.abspath(__file__))
+        else:
+            scrdir = logdir
         ts = os.path.join(scrdir, 'log',
                           time.strftime('%Y-%m-%d_%H-%M-%S_OPCUA_Server.'))
         self.__fh = RotatingFileHandler(ts + 'log', backupCount=10,
@@ -822,6 +827,8 @@ def main():
     parser.add_argument('-f', '--file-loglevel', metavar='FILE_LOGLEVEL',
                         default=logging.INFO, dest='file_loglevel',
                         help='Level of file logging')
+    parser.add_argument('-l', '--logdir', metavar='LOGDIR',
+                        help='Directory where log files should be stored')
     parser.add_argument('-v', '--version', action='version',
                         version='0.1.0')
     args = parser.parse_args()

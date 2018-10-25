@@ -6,7 +6,7 @@ Created on Sat Jul  7 13:45:04 2018
 @author: Sebastian Scholz
 """
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -23,7 +23,7 @@ setup(name='DCSController',
                    'Topic :: Scientific/Engineering :: Physics'],
       author='Sebastian Scholz',
       author_email='sebastian.scholz@cern.ch',
-      packages=['analib', 'dcsControllerServer'],
+      packages=find_packages(),
       install_requires=['coloredlogs', 'verboselogs', 'opcua', 'aenum',
                         'canlib'],
       include_package_data=True,

@@ -39,7 +39,7 @@ class ChipNotConnectedError(Exception):
 class CANopenDCSController(object):
 
     def __init__(self, channel=None, bitrate=canlib.canBITRATE_125K,
-                 nodeId=None, loglevel=None,
+                 nodeId=None, loglevel=None, logdir=None,
                  logformat='%(asctime)s %(levelname)-8s %(message)s'):
 
         if channel is None:
@@ -56,7 +56,10 @@ class CANopenDCSController(object):
         verboselogs.install()
         self.logger = logging.getLogger(os.path.basename(__name__))
         self.logger.setLevel(logging.DEBUG)
-        scrdir = os.path.dirname(os.path.abspath(__file__))
+        if logdir is None:
+            scrdir = os.path.dirname(os.path.abspath(__file__))
+        else:
+            scrdir = logdir
         self.canLogger = logging.getLogger('CAN_messages')
         self.canLogger.setLevel(logging.DEBUG)
         fname = os.path.join(scrdir, 'log', strftime('%Y-%m-%d_%H-%M-%S_'))
@@ -559,6 +562,8 @@ def main():
                         help='Number of CAN channel to use')
     parser.add_argument('-l', '--loglevel', metavar='LOGLEVEL',
                         help='Level of console logging')
+    parser.add_argument('-d', '--logdir', metavar='LOGDIR',
+                        help='Path where log files should be stored')
     parser.add_argument('-v', '--version', action='version',
                         version='0.1.0')
     args = parser.parse_args()
