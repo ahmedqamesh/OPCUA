@@ -195,7 +195,12 @@ class UIntField(object):
     def __get__(self, obj, objtype):
         self.logger.info(f'Invoking getter on {obj}{self.name}.')
         if self.master.isinit and self.valid_entry:
-            val = self.master.sdoRead(self.nodeId, self.index, self.subindex)
+            if self.name is 'ConnectedPSPPs':
+                val = self.master.sdoRead(self.nodeId, self.index,
+                                          self.subindex, 3000)
+            else:
+                val = self.master.sdoRead(self.nodeId, self.index,
+                                          self.subindex, 1000)
             if val is not None:
                 self.justread = True
                 self.val = int.from_bytes(val, 'little')
@@ -231,6 +236,8 @@ class UIntField(object):
                         exec(f'self.parent.PSPP{i}.Status = '
                              'bool((val >> i) & 1)')
                     self.parent.isinit = True
+            else:
+                self.logger.warning('SDO write protocol failed')
         else:
             self.val = val
             self.justread = False

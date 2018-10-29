@@ -27,6 +27,8 @@ import random as rdm
 import time
 # from datetime import timedelta
 from argparse import ArgumentParser
+from collections import deque, Counter
+from threading import Thread, Event, Lock
 
 # Third party modules
 import coloredlogs as cl
@@ -36,16 +38,10 @@ from opcua import Server, ua
 import analib
 
 # Other files
-try:
-    from .objectDictionary import objectDictionary
-    from . import CANopenConstants as coc
-    from .mirrorClasses import MyDCSController
-    from .extend_logging import extend_logging, removeAllHandlers
-except (ModuleNotFoundError, ImportError):
-    from objectDictionary import objectDictionary
-    import CANopenConstants as coc
-    from mirrorClasses import MyDCSController
-    from extend_logging import extend_logging, removeAllHandlers
+from .objectDictionary import objectDictionary
+from . import CANopenConstants as coc
+from .mirrorClasses import MyDCSController
+from .extend_logging import extend_logging, removeAllHandlers
 
 
 class BusEmptyError(Exception):
@@ -125,6 +121,7 @@ class DCSControllerServer(object):
 
         self.__isinit = False
         self.ret = None
+        self.cnt = Counter()
 
         # Initialize logger
         extend_logging()
@@ -214,6 +211,10 @@ class DCSControllerServer(object):
             self.__ch = analib.Channel(ipAddress, channel, baudrate=bitrate)
         self.logger.success(str(self))
         self.__busOn = True
+        self.__canMsgQueue = deque([], 1000)
+        self.__pill2kill = Event()
+        self.__canMsgThread = Thread(target=self.readCanMessages)
+        self.lock = Lock()
 
         # Get DCS Controller OPC UA Object Type
         self.logger.notice('Get OPC UA Object Type of DCS Controller ...')
@@ -241,6 +242,8 @@ class DCSControllerServer(object):
         self.__od = objectDictionary.from_eds(self.logger, edsfile, 0)
         """:class:`~.objectDictionary.objectDictionary` : The CANopen Object
         Dictionary (|OD|) for a |DCS| Controller"""
+
+        self.__connectedPSPPs = {}
 
     def __str__(self):
         if self.__interface == 'Kvaser':
@@ -273,6 +276,10 @@ class DCSControllerServer(object):
     @property
     def channel(self):
         """:obj:`int` : Currently used |CAN| channel."""
+        return self.__ch
+
+    @property
+    def channelNumber(self):
         return self.__channel
 
     @property
@@ -332,6 +339,10 @@ class DCSControllerServer(object):
         return self.__interface
 
     @property
+    def canMsgQueue(self):
+        return self.__canMsgQueue
+
+    @property
     def ipAddress(self):
         """:obj:`str` : Network address of the AnaGate partner. Only used for
         AnaGate CAN interfaces."""
@@ -377,6 +388,7 @@ class DCSControllerServer(object):
                         self.logger.notice('Restarting AnaGate CAN interface.')
                         self.__ch.restart()
                         time.sleep(10)
+                self.__canMsgThread.start()
                 self.scanNodes()
                 if len(self.__nodeIds) == 0:
                     raise BusEmptyError('No CAN nodes found!')
@@ -387,10 +399,11 @@ class DCSControllerServer(object):
                 time.sleep(1)
                 self.__isinit = True
                 # Do not do this if you have auto-detection of your PSPPs
-                # self.rdmSetConnPSPP()
+                # self.rdmSetConnPSPPs()
                 # Do this instead
                 for nodeId in self.__nodeIds:
                     self.mypyDCs[nodeId].Status = True
+                self.getConnectedPSPPs()
                 self.logger.success('Initialization Done.')
                 self.run()
             except BusEmptyError as ex:
@@ -399,13 +412,6 @@ class DCSControllerServer(object):
                 self.stop()
                 self.logger.notice('Restarting in 60 seconds ...')
                 time.sleep(60)
-            except Exception as ex:
-                self.__isinit = False
-                self.logger.exception(ex)
-                self.stop()
-                self.logger.notice('Restarting in 10 seconds ...')
-                time.sleep(10)
-                count += 1
         else:
             self.logger.critical('The third try failed. Exiting.')
 
@@ -416,6 +422,11 @@ class DCSControllerServer(object):
         correct manner. When this class is used within a :obj:`with` statement
         this method is called automatically when the statement is exited.
         """
+        with self.lock:
+            self.cnt['Residual CAN messages'] = len(self.__canMsgQueue)
+        self.logger.notice(f'Error counters: {self.cnt}')
+        self.__pill2kill.set()
+        self.__canMsgThread.join()
         if self.__busOn:
             if self.__interface == 'Kvaser':
                 self.logger.warning('Going in \'Bus Off\' state.')
@@ -442,20 +453,15 @@ class DCSControllerServer(object):
                 self.logger.debug(f'Controller{nodeId}.Status = {ret}')
                 # Loop over all SCB masters
                 for scb in range(4):
-                    exec(f'self.ret = self.mypyDCs[nodeId].SCB{scb}.'
-                         'ConnectedPSPPs')
-                    cp = [i for i in range(16)
-                          if int(f'{self.ret:016b}'[::-1][i])]
-                    if self.ret is not None:
-                        self.logger.debug(f'Connected PSPPs: {self.ret}')
                     # Loop over all possible PSPPs
-                    for pspp in cp:
+                    for pspp in self.__connectedPSPPs[nodeId][scb]:
                         # Loop over PSPP monitoring data
                         exec(f'self.ret = self.mypyDCs[nodeId].SCB{scb}.'
                              f'PSPP{pspp}.MonitoringData.Temperature')
                         if self.ret is not None:
                             self.logger.debug(f'SCB{scb}.PSPP{pspp}.MonVals = '
                                           f'{self.ret:X}')
+                        time.sleep(0.001)
                         # Read less often than monitoring values
                         if count == 0:
                             exec(f'self.ret = self.mypyDCs[nodeId].SCB{scb}.'
@@ -464,13 +470,33 @@ class DCSControllerServer(object):
                             for ch in range(8):
                                 exec(f'self.ret = self.mypyDCs[nodeId].'
                                      f'SCB{scb}.PSPP{pspp}.ADCChannels.Ch{ch}')
+                                time.sleep(0.001)
                             # Loop over registers
                             for name in coc.PSPP_REGISTERS:
                                 exec(f'self.ret = self.mypyDCs[nodeId].'
                                      f'SCB{scb}.PSPP{pspp}.Regs.{name}')
-                            count = 0   # Reset to avoid overflow
+                                time.sleep(0.001)
             count += 1
             # time.sleep(60)
+
+    def readCanMessages(self):
+        self.logger.notice('Starting pulling of CAN messages')
+        while not self.__pill2kill.is_set():
+            try:
+                if self.__interface == 'Kvaser':
+                    frame = self.__ch.read()
+                    cobid, data, dlc, flag, t = (frame.id, frame.data,
+                                                 frame.dlc, frame.flags,
+                                                 frame.timestamp)
+                    if frame is None or (cobid == 0 and dlc == 0):
+                        raise canlib.CanNoMsg
+                else:
+                    cobid, data, dlc, flag, t = self.__ch.getMessage()
+                with self.lock:
+                    self.__canMsgQueue.append((cobid, data, dlc, flag, t))
+                self.dumpMessage(cobid, data, dlc, flag)
+            except (canlib.CanNoMsg, analib.CanNoMsg):
+                pass
 
     def dumpMessage(self, cobid, msg, dlc, flag):
         """Dumps a CANopen message to the screen and log file
@@ -517,36 +543,6 @@ class DCSControllerServer(object):
         else:
             self.__ch.write(cobid, msg, flag)
 
-    def readMessage(self, timeout):
-        """Combining different reading functions for |CAN| interfaces
-
-        Parameters
-        ----------
-        timeout : :obj:`int`
-            |SDO| timeout in milliseconds
-
-        Raises
-        ------
-        :exc:`CanNoMsg`
-            No new |CAN| message has arrived and the timeout has expired. The
-            exception comes from :mod:`canlib` or :mod:`analib` depending on
-            the used interface.
-        """
-        if self.__interface == 'Kvaser':
-            frame = self.__ch.read(timeout)
-            if frame is None or (frame.id == 0 and frame.dlc == 0):
-                raise canlib.CanNoMsg
-            return frame
-        else:
-            t0 = time.perf_counter()
-            while time.perf_counter() - t0 < timeout / 1000:
-                try:
-                    cobid, data, dlc, flag, t = self.__ch.getMessage()
-                    return cobid, data, dlc, flag, t
-                except analib.CanNoMsg:
-                    pass
-            raise analib.CanNoMsg
-
     def sdoRead(self, nodeId, index, subindex, timeout=100):
         """Read an object via |SDO|
 
@@ -575,6 +571,7 @@ class DCSControllerServer(object):
             self.logger.warning('SDO read protocol cancelled before it could '
                                 'begin.')
             return None
+        self.cnt['SDO read total'] += 1
         self.logger.info(f'Send SDO read request to node {nodeId}.')
         cobid = coc.COBID.SDO_RX + nodeId
         msg = [0 for i in range(coc.MAX_DATABYTES)]
@@ -584,51 +581,39 @@ class DCSControllerServer(object):
         self.writeMessage(cobid, msg, timeout=timeout)
         # Wait for response
         t0 = time.perf_counter()
+        messageValid = False
         while time.perf_counter() - t0 < timeout / 1000:
-            try:
-                cobid_ret, ret, dlc, flag, t = self.readMessage(timeout)
-            except (canlib.canNoMsg, analib.CanNoMsg):
-                return None
-            self.dumpMessage(cobid_ret, ret, dlc, flag)
-            if int.from_bytes([ret[1], ret[2]], 'little') == index and \
-                    ret[3] == subindex:
+            with self.lock:
+                for i, (cobid_ret, ret, dlc, flag, t) in \
+                        zip(range(len(self.__canMsgQueue)),
+                            self.__canMsgQueue):
+                    messageValid = \
+                        (cobid_ret == coc.COBID.SDO_TX + nodeId and
+                         ret[0] in [0x80, 0x43, 0x47, 0x4b, 0x4f] and
+                         int.from_bytes([ret[1], ret[2]], 'little') == index
+                         and ret[3] == subindex and
+                         dlc == 8)
+                    if messageValid:
+                        del self.__canMsgQueue[i]
+                        break
+            if messageValid:
                 break
-        # Check command byte
-        datasize_indicated = (ret[0] & 0b1) == 1
-        expedited = ((ret[0] >> 1) & 0b1) == 1
-        segmented = not expedited
-        databytes = 4 - ((ret[0] >> 2) & 0b11)
-        scs = ret[0] >> 4
-        retindex = int.from_bytes([ret[1], ret[2]], 'little')
-        retsubindex = ret[3]
-        if retindex != index:
-            self.logger.warning(f'Got wrong return index: {retindex:X} instead'
-                                f' of {index:X}')
-            return None
-        if retsubindex != subindex:
-            self.logger.warning(f'Got wrong return subindex: {retsubindex:X} '
-                              f'instead of {subindex:X}')
-            return None
-        if scs == 0b0100 and not datasize_indicated:
-            self.logger.error('Datasize not indicated')
-            return None
-        if scs == 0b0100:
-            data = []
-            if expedited:
-                for i in range(databytes):
-                    data.append(ret[4 + i])
-            elif segmented:
-                self.logger.error('Segmented transfer not implemented!')
-                return None
-            self.logger.info(f'Got data: {data}')
-            return data
-        elif ret[0] == 0x80:
-            self.logger.error('Received SDO abort message')
         else:
-            self.logger.error('Invalid SDO command specifier')
-        return None
+            self.cnt['SDO read timeout'] += 1
+            return None
+        # Check command byte
+        if ret[0] == 0x80:
+            self.logger.error('Received SDO abort message')
+            self.cnt['SDO read abort'] += 1
+            return None
+        nDatabytes = 4 - ((ret[0] >> 2) & 0b11)
+        data = []
+        for i in range(nDatabytes):
+            data.append(ret[4 + i])
+        self.logger.info(f'Got data: {data}')
+        return data
 
-    def sdoWrite(self, nodeId, index, subindex, value, timeout=100):
+    def sdoWrite(self, nodeId, index, subindex, value, timeout=3000):
         """Write an object via |SDO| expedited write protocol
 
         This sends the request and analyses the response.
@@ -655,6 +640,7 @@ class DCSControllerServer(object):
         # Create the request message
         self.logger.notice(f'Send SDO write request to node {nodeId}.')
         self.logger.notice(f'Writing value {value:X}')
+        self.cnt['SDO write total'] += 1
         cobid = coc.COBID.SDO_RX + nodeId
         datasize = len(f'{value:X}') // 2 + 1
         data = value.to_bytes(4, 'little')
@@ -668,43 +654,49 @@ class DCSControllerServer(object):
 
         # Read the response from the bus
         t0 = time.perf_counter()
+        messageValid = False
         while time.perf_counter() - t0 < timeout / 1000:
-            try:
-                cobid_ret, ret, dlc, flag, t = self.readMessage(timeout)
-            except (canlib.canNoMsg, analib.CanNoMsg):
-                return False
-            self.dumpMessage(cobid_ret, ret, dlc, flag)
-            if int.from_bytes([ret[1], ret[2]], 'little') == index and \
-                    ret[3] == subindex and \
-                    cobid_ret == coc.COBID.SDO_TX + nodeId:
+            with self.lock:
+                for i, (cobid_ret, ret, dlc, flag, t) in \
+                        zip(range(len(self.__canMsgQueue)),
+                            self.__canMsgQueue):
+                    messageValid = \
+                        (cobid_ret == coc.COBID.SDO_TX + nodeId and
+                         ret[0] in [0x80, 0b1100000] and
+                         int.from_bytes([ret[1], ret[2]], 'little') == index
+                         and ret[3] == subindex and
+                         dlc == 8)
+                    if messageValid:
+                        del self.__canMsgQueue[i]
+                        break
+            if messageValid:
                 break
+        else:
+            self.cnt['SDO write timeout'] += 1
+            return False
         # Analyse the response
-        retindex = int.from_bytes([ret[1], ret[2]], 'little')
-        retsubindex = ret[3]
-        if cobid_ret != coc.COBID.SDO_TX + nodeId:
-            self.logger.error(f'Got wrong COB-ID ({cobid_ret:X})')
-            return False
-        elif retindex != index:
-            self.logger.warning(f'Got wrong return index: {retindex:X} instead'
-                                f' of {index:X}')
-            return False
-        elif retsubindex != subindex:
-            self.logger.warning(f'Got wrong return subindex: {retsubindex:X} '
-                              f'instead of {subindex:X}')
-            return False
-        elif ret[0] == 0x80:
+        if ret[0] == 0x80:
             abort_code = int.from_bytes(ret[4:], 'little')
             self.logger.error('Got SDO abort message. Abort code: '
                               f'{abort_code:08X}')
-            return False
-        elif ret[0] != 0b1100000:
-            self.logger.error(f'Wrong command specifier ({ret[0]:02X})')
+            self.cnt['SDO write abort'] += 1
             return False
         else:
             self.logger.success('SDO write protocol successful!')
         return True
 
-    def setConnectedPSPP(self, nodeId=42, data=None):
+    def getConnectedPSPPs(self):
+        for nodeId in self.__nodeIds:
+            self.__connectedPSPPs[nodeId] = [[] for scb in range(4)]
+            for scb in range(4):
+                exec(f'self.ret = self.mypyDCs[nodeId].SCB{scb}.'
+                         'ConnectedPSPPs')
+                self.__connectedPSPPs[nodeId][scb] = \
+                    [i for i in range(16) if int(f'{self.ret:016b}'[::-1][i])]
+                if self.ret is not None:
+                    self.logger.debug(f'Connected PSPPs: {self.ret}')
+
+    def setConnectedPSPPs(self, nodeId=42, data=None):
         """Set which |PSPP| chips are connected to a specified Controller
 
         Parameters
@@ -725,10 +717,10 @@ class DCSControllerServer(object):
         self.mypyDCs[nodeId].Status = True
         self.logger.success('... Done.')
 
-    def rdmSetConnPSPP(self):
+    def rdmSetConnPSPPs(self):
         """Wrapper function which randomly sets connected PSPPs"""
         for nodeid in self.__nodeIds:
-            self.setConnectedPSPP(nodeid, [0xffff for i in range(4)])
+            self.setConnectedPSPPs(nodeid, [0xffff for i in range(4)])
 
     def scanNodes(self, timeout=42):
         """Do a complete scan over all |CAN| nodes
@@ -754,7 +746,6 @@ class DCSControllerServer(object):
         self.__mypyDCs = {}
         for nodeId in range(1, 128):
             dev_t = self.sdoRead(nodeId, 0x1000, 0, timeout)
-            time.sleep(timeout / 1000)
             if dev_t is None:
                 self.logger.debug(f'Remove node id {nodeId}')
                 self.__nodeIds.remove(nodeId)
