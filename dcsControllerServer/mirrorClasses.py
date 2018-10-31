@@ -339,12 +339,34 @@ class SubHandler(object):
         This method passes the value to the respective descriptor which handles
         the actual writing.
         """
-        # print("Python: New data change event", node, val, data)
+
+        if val is None or not self.obj.server.isinit:
+            return
 
         _node_name = node.get_browse_name()
-        # display_name = node.get_display_name().to_string()
-        setattr(self.obj, _node_name.Name,
-                data.monitored_item.Value.Value.Value)
+        display_name = node.get_display_name().to_string()
+        if self.obj.serverWriting[display_name]:
+            self.obj.serverWriting[display_name] = False
+            return
+        self.obj.server.cnt['Datachange events'] += 1
+        self.obj.server.logger.info('New data change event')
+        self.obj.server.logger.info(f'Node:         {node}')
+        self.obj.server.logger.info(f'Display Name: {display_name}')
+        self.obj.server.logger.info(f'Value:        {val}')
+        self.obj.server.logger.info(f'Data:         {data}')
+        if type(self.obj) is MyRegs:
+            index = 0x2200 | (self.obj.n_scb << 4) | self.obj.n_pspp
+            subindex = 0x10 | coc.PSPP_REGISTERS[display_name]
+            if self.obj.server.od[index][subindex].attribute == coc.ATTR.RO:
+                return
+        elif type(self.obj) is MySCBMaster:
+            index = 0x2000
+            subindex = 1 + self.obj.n_scb
+        else:
+            return
+        if self.obj.server.sdoWrite(self.obj.nodeId, index, subindex, val):
+            setattr(self.obj, _node_name.Name,
+                    data.monitored_item.Value.Value.Value)
 
 
 class UaObject(object):
@@ -390,7 +412,7 @@ class UaObject(object):
 
         # subscribe to properties/variables
         handler = SubHandler(self)
-        sub = self.server.create_subscription(500, handler)
+        sub = self.server.create_subscription(100, handler)
         sub.subscribe_data_change(sub_children)
 
     def write(self, attr=None):
@@ -464,13 +486,18 @@ class MyPSPPADCChannels(UaObject):
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
 
         # properties and variables; must mirror UA model (based on browsename!)
-        for i in range(8):
-            exec(f'self.Ch{i} = UIntField(self, master, "Ch{i}", nodeId, '
-                 f'n_scb, 16, n_pspp=n_pspp)')
+        for ch in range(8):
+            exec(f'self.Ch{ch} = None')
 
         # init the UaObject super class to connect the python object to the UA
         # object.
         super().__init__(master, ua_node)
+
+        self.server = master
+        self.nodeId = nodeId
+        self.n_scb = n_scb
+        self.n_pspp = n_pspp
+        self.serverWriting = {f'"Ch{ch}"': False for ch in range(8)}
 
 
 class MyMonitoringData(UaObject):
@@ -501,21 +528,24 @@ class MyMonitoringData(UaObject):
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
 
         # properties and variables; must mirror UA model (based on browsename!)
-        self.Temperature = UIntField(self, master, 'Temperature', nodeId,
-                                     n_scb, 16, n_pspp=n_pspp)
+        self.Temperature = None
         """:class:`UIntField` : UInt16 attribute for a |PSPP| chip
         temperature"""
-        self.Voltage1 = UIntField(self, master, 'Voltage1', nodeId, n_scb, 16,
-                                  n_pspp=n_pspp)
+        self.Voltage1 = None
         """:class:`UIntField` : UInt16 attribute for a |PSPP| chip voltage"""
-        self.Voltage2 = UIntField(self, master, 'Voltage2', nodeId, n_scb, 16,
-                                  n_pspp=n_pspp)
+        self.Voltage2 = None
         """:class:`UIntField` : UInt16 attribute for another |PSPP| chip
         voltage"""
 
         # init the UaObject super class to connect the python object to the UA
         # object.
         super().__init__(master, ua_node)
+
+        self.server = master
+        self.nodeId = nodeId
+        self.n_scb = n_scb
+        self.n_pspp = n_pspp
+        self.serverWriting = {name: False for name in coc.PSPPMONVALS}
 
 
 class MyRegs(UaObject):
@@ -547,12 +577,17 @@ class MyRegs(UaObject):
 
         # properties and variables; must mirror UA model (based on browsename!)
         for name in coc.PSPP_REGISTERS.keys():
-            exec(f'self.{name} = UIntField(self, master, name, nodeId, '
-                 f'n_scb, 8, n_pspp=n_pspp)')
+            exec(f'self.{name} = None')
 
         # init the UaObject super class to connect the python object to the UA
         # object.
         super().__init__(master, ua_node)
+
+        self.server = master
+        self.nodeId = nodeId
+        self.n_scb = n_scb
+        self.n_pspp = n_pspp
+        self.serverWriting = {name: False for name in coc.PSPP_REGISTERS}
 
 
 class MyPSPP(UaObject):
@@ -583,8 +618,7 @@ class MyPSPP(UaObject):
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
 
         # properties and variables; must mirror UA model (based on browsename!)
-        self.Status = BoolField(self, master, 'Status', nodeId, n_scb, False,
-                                n_pspp)
+        self.Status = False
         """:class:`BoolField` : Status of the |PSPP|. Its default value is
         :data:`True`."""
         self.ADCChannels = \
@@ -605,6 +639,12 @@ class MyPSPP(UaObject):
         # init the UaObject super class to connect the python object to the UA
         # object.
         super().__init__(master, ua_node)
+
+        self.server = master
+        self.nodeId = nodeId
+        self.n_scb = n_scb
+        self.n_pspp = n_pspp
+        self.serverWriting = {'Status': False}
 
 
 class MySCBMaster(UaObject):
@@ -632,8 +672,7 @@ class MySCBMaster(UaObject):
     def __init__(self, master, ua_node, nodeId, n_scb):
 
         # properties and variables; must mirror UA model (based on browsename!)
-        self.ConnectedPSPPs = UIntField(self, master, 'ConnectedPSPPs', nodeId,
-                                        n_scb, 16, 0)
+        self.ConnectedPSPPs = 0
         """:class:`UIntField` : Describes the value which states how many
         |PSPP| chips are connected to this |SCB| master."""
         for i in range(16):
@@ -646,12 +685,9 @@ class MySCBMaster(UaObject):
         self.isinit = False
         """:obj:`bool`: If the :attr:`ConnectedPSPPs` attribute has been set
         from outside"""
-        self.__number = n_scb
-
-    @property
-    def number(self):
-        """:obj:`int` : Number of this |SCB| master (0-3)"""
-        return self.__number
+        self.n_scb = n_scb
+        self.server = master
+        self.nodeId = nodeId
 
 
 class MyDCSController(UaObject):
@@ -680,9 +716,9 @@ class MyDCSController(UaObject):
     def __init__(self, master, ua_node, nodeId):
 
         # properties and variables; must mirror UA model (based on browsename!)
-        self.Status = BoolField(self, master, 'Status', nodeId, val=False)
+        self.Status = True
         """:class:`BoolField` : Status of the Controller"""
-        self.__NodeId = nodeId
+        self.NodeId = nodeId
         for i in range(4):
             exec(f"self.SCB{i} = MySCBMaster(master, "
                  f"ua_node.get_child('{master.idx}:SCB{i}'), nodeId, i)")
@@ -693,21 +729,10 @@ class MyDCSController(UaObject):
 
         self.isinit = True
         """:obj:`bool` : If the Controller has been initialized"""
-        self.master = master
+        self.server = master
         """:class:`~.dcsControllerServer.DCSControllerServer` : The master
         class providing |CAN| communication and |OPCUA| functionality"""
-
-    @property
-    def NodeId(self):
-        """:obj:`int`: The |CAN| node id of the |DCS| Controller takes a value
-        between 1 and 127."""
-        return self.__NodeId
-
-    @NodeId.setter
-    def NodeId(self, value):
-        if value not in range(1, 128) and self.master.isinit:
-            raise ValueError(f'Valid node ids are 1-127 and not {value}.')
-        self.__NodeId = value
+        self.nodeId = nodeId
 
 
 class TestClass(object):

@@ -388,6 +388,7 @@ class DCSControllerServer(object):
                         self.logger.notice('Restarting AnaGate CAN interface.')
                         self.__ch.restart()
                         time.sleep(10)
+                self.__canMsgThread = Thread(target=self.readCanMessages)
                 self.__canMsgThread.start()
                 self.scanNodes()
                 if len(self.__nodeIds) == 0:
@@ -449,33 +450,49 @@ class DCSControllerServer(object):
             count = 0 if count == 10 else count
             # Loop over all connected CAN nodeIds
             for nodeId in self.__nodeIds:
-                ret = self.mypyDCs[nodeId].Status
-                self.logger.debug(f'Controller{nodeId}.Status = {ret}')
+                dcsc = self.mypyDCs[nodeId]
                 # Loop over all SCB masters
                 for scb in range(4):
                     # Loop over all possible PSPPs
                     for pspp in self.__connectedPSPPs[nodeId][scb]:
+                        exec(f'global PSPP; '
+                             f'PSPP = dcsc.SCB{scb}.PSPP{pspp}')
+                        index = 0x2200 | (scb << 4) | pspp
                         # Loop over PSPP monitoring data
-                        exec(f'self.ret = self.mypyDCs[nodeId].SCB{scb}.'
-                             f'PSPP{pspp}.MonitoringData.Temperature')
-                        if self.ret is not None:
-                            self.logger.debug(f'SCB{scb}.PSPP{pspp}.MonVals = '
-                                          f'{self.ret:X}')
-                        time.sleep(0.001)
+                        monVals = self.sdoRead(nodeId, index, 1, 3000)
+                        if monVals is not None:
+                            vals = [(monVals >> i * 10) & (2**10 - 1)
+                                    for i in range(3)]
+                            for v, name in zip(vals, coc.PSPPMONVALS):
+                                exec(f'PSPP.MonitoringData.{name} = v; '
+                                     f'PSPP.MonitoringData.'
+                                     f'serverWriting[name] = True; '
+                                     f'PSPP.MonitoringData.write(name)')
                         # Read less often than monitoring values
-                        if count == 0:
-                            exec(f'self.ret = self.mypyDCs[nodeId].SCB{scb}.'
-                                 f'PSPP{pspp}.Status')
+                        if True:
+                            val = bool(self.sdoRead(nodeId, index, 2, 1000))
+                            exec(f'PSPP.Status = val')
+                            PSPP.serverWriting['Status'] = True
+                            PSPP.write('Status')
                             # Loop over ADC channels
                             for ch in range(8):
-                                exec(f'self.ret = self.mypyDCs[nodeId].'
-                                     f'SCB{scb}.PSPP{pspp}.ADCChannels.Ch{ch}')
-                                time.sleep(0.001)
+                                val = self.sdoRead(nodeId, index, 0x20 | ch,
+                                                   1000)
+                                if val is not None:
+                                    exec(f'PSPP.ADCChannels.Ch{ch} = val; '
+                                         f'PSPP.ADCChannels.'
+                                         f'serverWriting["Ch{ch}"] = True; '
+                                         f'PSPP.ADCChannels.write("Ch{ch}")')
                             # Loop over registers
                             for name in coc.PSPP_REGISTERS:
-                                exec(f'self.ret = self.mypyDCs[nodeId].'
-                                     f'SCB{scb}.PSPP{pspp}.Regs.{name}')
-                                time.sleep(0.001)
+                                val = self.sdoRead(nodeId, index, 0x10 |
+                                                   coc.PSPP_REGISTERS[name],
+                                                   1000)
+                                if val is not None:
+                                    exec(f'PSPP.Regs.{name} = val; '
+                                         f'PSPP.Regs.serverWriting[name]'
+                                         f' = True; '
+                                         f'PSPP.Regs.write(name)')
             count += 1
             # time.sleep(60)
 
@@ -524,7 +541,7 @@ class DCSControllerServer(object):
             self.logger.info(coc.MSGHEADER)
             self.logger.info(msgstr)
 
-    def writeMessage(self, cobid, msg, flag=0, timeout=10):
+    def writeMessage(self, cobid, msg, flag=0, timeout=None):
         """Combining writing functions for different |CAN| interfaces
 
         Parameters
@@ -539,6 +556,8 @@ class DCSControllerServer(object):
             |SDO| write timeout in milliseconds. Defaults to 10 ms.
         """
         if self.__interface == 'Kvaser':
+            if timeout is None:
+                timeout = 0xFFFFFFFF
             self.__ch.writeWait(Frame(cobid, msg), timeout)
         else:
             self.__ch.write(cobid, msg, flag)
@@ -611,7 +630,7 @@ class DCSControllerServer(object):
         for i in range(nDatabytes):
             data.append(ret[4 + i])
         self.logger.info(f'Got data: {data}')
-        return data
+        return int.from_bytes(data, 'little')
 
     def sdoWrite(self, nodeId, index, subindex, value, timeout=3000):
         """Write an object via |SDO| expedited write protocol
@@ -650,7 +669,7 @@ class DCSControllerServer(object):
         msg[3] = subindex
         msg[4:] = [data[i] for i in range(4)]
         # Send the request message
-        self.writeMessage(cobid, msg, timeout=timeout)
+        self.writeMessage(cobid, msg)
 
         # Read the response from the bus
         t0 = time.perf_counter()
@@ -672,6 +691,7 @@ class DCSControllerServer(object):
             if messageValid:
                 break
         else:
+            self.logger.warning('SDO write timeout')
             self.cnt['SDO write timeout'] += 1
             return False
         # Analyse the response
@@ -689,12 +709,13 @@ class DCSControllerServer(object):
         for nodeId in self.__nodeIds:
             self.__connectedPSPPs[nodeId] = [[] for scb in range(4)]
             for scb in range(4):
-                exec(f'self.ret = self.mypyDCs[nodeId].SCB{scb}.'
-                         'ConnectedPSPPs')
+                val = None
+                while val is None:
+                    val = self.sdoRead(nodeId, 0x2000, 1 + scb, 3000)
+                exec(f'self.mypyDCs[nodeId].SCB{scb}.ConnectedPSPPs = val')
                 self.__connectedPSPPs[nodeId][scb] = \
-                    [i for i in range(16) if int(f'{self.ret:016b}'[::-1][i])]
-                if self.ret is not None:
-                    self.logger.debug(f'Connected PSPPs: {self.ret}')
+                    [i for i in range(16) if int(f'{val:016b}'[::-1][i])]
+                self.logger.debug(f'Connected PSPPs: {val}')
 
     def setConnectedPSPPs(self, nodeId=42, data=None):
         """Set which |PSPP| chips are connected to a specified Controller
@@ -722,7 +743,7 @@ class DCSControllerServer(object):
         for nodeid in self.__nodeIds:
             self.setConnectedPSPPs(nodeid, [0xffff for i in range(4)])
 
-    def scanNodes(self, timeout=42):
+    def scanNodes(self, timeout=100):
         """Do a complete scan over all |CAN| nodes
 
         The internally stored information about all nodes are reset. This
