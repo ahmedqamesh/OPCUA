@@ -81,6 +81,17 @@ class CANopenDCSController(object):
         # Intialize object dictionary
         fp = os.path.join(scrdir, 'CANControllerForPSPPv1.eds')
         self.__od = od.from_eds(self.logger, fp, 42, True)
+        for scb in range(4):
+            val = rdm.randrange(2**16)
+            self.logger.notice(f'Connected PSPPs on SCB {scb}: {val:016b}')
+            self.__od[0x2000][1 + scb].value = val
+            states = [bool(int(x)) for x in f'{val:016b}'[::-1]]
+            for pspp in range(16):
+                index = 0x2200 | (scb << 4) | pspp
+                self.__od[index][2].value = states[pspp]
+        self.__od[0x2000][1].value |= 0b11
+        self.__od[0x2200][2].value = True
+        self.__od[0x2201][2].value = True
 
         # Initialize library and open channel
         self.__channel = channel
@@ -268,7 +279,7 @@ class CANopenDCSController(object):
         # Check for SDOrx request
         elif (cobid == coc.COBID.SDO_RX.value + self.__nodeId) and \
                 ((msg[0] >> 5) == 1):
-            self.logger.info('Received a SDO write request')
+            self.logger.notice('Received a SDO write request')
             self.process_sdo_write(msg)
         # When it is not a valid request then the command specifier is invalid.
         elif cobid == coc.COBID.SDO_RX.value + self.__nodeId:
@@ -299,7 +310,7 @@ class CANopenDCSController(object):
             When a PSPP is not connected
         """
         if index in range(0x2200, 0x2240):
-            if subindex != 2 and not self.__od[index][2]:
+            if subindex != 2 and not self.__od[index][2].value:
                 raise ChipNotConnectedError
             # Register values
             if subindex in range(0x10, 0x1D):
@@ -308,7 +319,7 @@ class CANopenDCSController(object):
             # ADC channels
             if subindex in range(0x20, 0x28):
                 # sleep(0.001)
-                return (subindex - 0x20) * 8192 + rdm.randrange(1024)
+                return (subindex - 0x20) * 128 + rdm.randrange(64)
             # Monitoring data
             if subindex == 1:
                 # sleep(0.005)
@@ -436,8 +447,8 @@ class CANopenDCSController(object):
             ret = self.sdo_abort_message([msg[2], msg[1]], msg[3],
                                          SAC.ACCESS)
         else:
-            self.logger.debug(f'Writing value {data:X} on '
-                              f'{index:X}:{subindex:X}.')
+            self.logger.notice(f'Writing value {data:X} on '
+                               f'{index:X}:{subindex:X}.')
             self.__od[index][subindex].value = data
             ret[0] = 0x60
             ret[1:4] = msg[1:4]

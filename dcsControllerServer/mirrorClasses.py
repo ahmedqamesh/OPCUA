@@ -97,7 +97,7 @@ def pspp_index(n_scb, n_pspp):
     :obj:`int`
         Object Dictionary main index of |PSPP|
     """
-    return 0x2200 + 16 * n_scb + n_pspp
+    return 0x2200 | (n_scb << 4) | n_pspp
 
 
 def get_address(name, n_scb=None, n_pspp=None, inst=None):
@@ -349,11 +349,6 @@ class SubHandler(object):
             self.obj.serverWriting[display_name] = False
             return
         self.obj.server.cnt['Datachange events'] += 1
-        self.obj.server.logger.info('New data change event')
-        self.obj.server.logger.info(f'Node:         {node}')
-        self.obj.server.logger.info(f'Display Name: {display_name}')
-        self.obj.server.logger.info(f'Value:        {val}')
-        self.obj.server.logger.info(f'Data:         {data}')
         if type(self.obj) is MyRegs:
             index = 0x2200 | (self.obj.n_scb << 4) | self.obj.n_pspp
             subindex = 0x10 | coc.PSPP_REGISTERS[display_name]
@@ -378,26 +373,42 @@ class UaObject(object):
     trigger an update for UA clients.
 
     This class redefines the :meth:`__getattribute__` and :meth:`__setattr__`
-    methods so that descriptors work with instance attributes. This is
+    methods so that :any:`descriptors<descriptors>` work with instance attributes. This is
     necessary because in order to mirror the address space correctly the
     attributes have to be instance attributes.
 
     Parameters
     ----------
     master : :class:`~.dcsControllerServer.DCSControllerServer`
-        The master class providing |CAN| communication and |OPCUA|
+        The master server providing |CAN| communication and |OPCUA|
         functionality
     ua_node
         The python respresentation of the corresponding |OPCUA| node
+    period : :obj:`int`, optional
+        Publish interval for |OPCUA| data subscription in milliseconds. Most
+        subscriptions use 500 ms whereas here a default value of 100 ms is used
+        in order to ensure that changes made by the user are applied as fast as
+        possible.
     """
 
-    def __init__(self, master, ua_node):
+    def __init__(self, master, ua_node, period=100):
         self.ua_node = ua_node
+        """The python respresentation of the corresponding |OPCUA| node"""
         self.logger = master.logger
+        """:class:`~logging.Logger` : The main logger of the master server also
+        serves as the logger for the mirror classes"""
         self.server = master.server
+        """:class:`~.dcsControllerServer.DCSControllerServer` : The master
+        server providing |CAN| communication and |OPCUA| functionality"""
         self.nodes = {}
+        """:obj:`dict` : Holds references to the child nodes based on their
+        browse names as keys"""
         self.b_name = ua_node.get_browse_name().Name
+        """:obj:`str` : Browse Name. ``Name`` attribute of a
+        :class:`~opcua.ua.uatypes.QualifiedName` object describing the browse
+        name of this node"""
         self.d_name = ua_node.get_display_name().to_string()
+        """:obj:`str` : Display name of this node"""
 
         # keep track of the children of this object (in case python needs to
         # write, or get more info from UA server)
@@ -412,7 +423,7 @@ class UaObject(object):
 
         # subscribe to properties/variables
         handler = SubHandler(self)
-        sub = self.server.create_subscription(100, handler)
+        sub = self.server.create_subscription(period, handler)
         sub.subscribe_data_change(sub_children)
 
     def write(self, attr=None):
@@ -470,7 +481,7 @@ class MyPSPPADCChannels(UaObject):
     Parameters
     ----------
     master : :class:`~.dcsControllerServer.DCSControllerServer`
-        The master class providing |CAN| communication and |OPCUA|
+        The master server providing |CAN| communication and |OPCUA|
         functionality
     ua_node
         The python respresentation of the corresponding |OPCUA| node
@@ -479,8 +490,7 @@ class MyPSPPADCChannels(UaObject):
     n_scb : :obj:`int`
         Number of the |SCB| master if this belongs to one
     n_pspp : :obj:`int`
-        Number of the |PSPP| in the serial power chain if this belongs to a
-        |PSPP|.
+        Chip address of the parent |PSPP| in the serial power chain
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
@@ -494,10 +504,18 @@ class MyPSPPADCChannels(UaObject):
         super().__init__(master, ua_node)
 
         self.server = master
+        """:class:`~.dcsControllerServer.DCSControllerServer` : The master
+        server providing |CAN| communication and |OPCUA| functionality"""
         self.nodeId = nodeId
+        """:obj:`int` : |CAN| node id of the parent |DCS| Controller"""
         self.n_scb = n_scb
+        """:obj:`int` : Number of the |SCB| master this belongs to"""
         self.n_pspp = n_pspp
+        """:obj:`int` : Chip address of the parent |PSPP| in the serial power
+        chain"""
         self.serverWriting = {f'"Ch{ch}"': False for ch in range(8)}
+        """:obj:`dict` : Internal status attribute describing if the server is
+        currently writing to the children of this instance"""
 
 
 class MyMonitoringData(UaObject):
@@ -512,17 +530,16 @@ class MyMonitoringData(UaObject):
     Parameters
     ----------
     master : :class:`~.dcsControllerServer.DCSControllerServer`
-        The master class providing |CAN| communication and |OPCUA|
+        The master server providing |CAN| communication and |OPCUA|
         functionality
     ua_node
         The python respresentation of the corresponding |OPCUA| node
     nodeId : :obj:`int`
-        |CAN| node id of the |DCS| Controller
+        |CAN| node id of the parent |DCS| Controller
     n_scb : :obj:`int`
         Number of the |SCB| master if this belongs to one
     n_pspp : :obj:`int`
-        Number of the |PSPP| in the serial power chain if this belongs to a
-        |PSPP|.
+        Chip address of the |PSPP| in the serial power chain
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
@@ -542,10 +559,18 @@ class MyMonitoringData(UaObject):
         super().__init__(master, ua_node)
 
         self.server = master
+        """:class:`~.dcsControllerServer.DCSControllerServer` : The master
+        server providing |CAN| communication and |OPCUA| functionality"""
         self.nodeId = nodeId
+        """:obj:`int` : |CAN| node id of the parent |DCS| Controller"""
         self.n_scb = n_scb
+        """:obj:`int` : Number of the |SCB| master this belongs to"""
         self.n_pspp = n_pspp
+        """:obj:`int` : Chip address of the parent |PSPP| in the serial power
+        chain"""
         self.serverWriting = {name: False for name in coc.PSPPMONVALS}
+        """:obj:`dict` : Internal status attribute describing if the server is
+        currently writing to the children of this instance"""
 
 
 class MyRegs(UaObject):
@@ -560,17 +585,16 @@ class MyRegs(UaObject):
     Parameters
     ----------
     master : :class:`~.dcsControllerServer.DCSControllerServer`
-        The master class providing |CAN| communication and |OPCUA|
+        The master server providing |CAN| communication and |OPCUA|
         functionality
     ua_node
         The python respresentation of the corresponding |OPCUA| node
     nodeId : :obj:`int`
-        |CAN| node id of the |DCS| Controller
+        |CAN| node id of the parent |DCS| Controller
     n_scb : :obj:`int`
         Number of the |SCB| master if this belongs to one
     n_pspp : :obj:`int`
-        Number of the |PSPP| in the serial power chain if this belongs to a
-        |PSPP|.
+        Chip address of the parent |PSPP| in the serial power chain
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
@@ -584,10 +608,18 @@ class MyRegs(UaObject):
         super().__init__(master, ua_node)
 
         self.server = master
+        """:class:`~.dcsControllerServer.DCSControllerServer` : The master
+        server providing |CAN| communication and |OPCUA| functionality"""
         self.nodeId = nodeId
+        """:obj:`int` : |CAN| node id of the parent |DCS| Controller"""
         self.n_scb = n_scb
+        """:obj:`int` : Number of the |SCB| master this belongs to"""
         self.n_pspp = n_pspp
+        """:obj:`int` : Chip address of the parent |PSPP| in the serial power
+        chain"""
         self.serverWriting = {name: False for name in coc.PSPP_REGISTERS}
+        """:obj:`dict` : Internal status attribute describing if the server is
+        currently writing to the children of this instance"""
 
 
 class MyPSPP(UaObject):
@@ -602,17 +634,16 @@ class MyPSPP(UaObject):
     Parameters
     ----------
     master : :class:`~.dcsControllerServer.DCSControllerServer`
-        The master class providing |CAN| communication and |OPCUA|
+        The master server providing |CAN| communication and |OPCUA|
         functionality
     ua_node
         The python respresentation of the corresponding |OPCUA| node
     nodeId : :obj:`int`
-        |CAN| node id of the |DCS| Controller
+        |CAN| node id of the parent |DCS| Controller
     n_scb : :obj:`int`
-        Number of the |SCB| master if this belongs to one
+        Number of the |SCB| master this belongs to
     n_pspp : :obj:`int`
-        Number of the |PSPP| in the serial power chain if this belongs to a
-        |PSPP|.
+        Chip address of this |PSPP| in the serial power chain
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
@@ -641,10 +672,18 @@ class MyPSPP(UaObject):
         super().__init__(master, ua_node)
 
         self.server = master
+        """:class:`~.dcsControllerServer.DCSControllerServer` : The master
+        server providing |CAN| communication and |OPCUA| functionality"""
         self.nodeId = nodeId
+        """:obj:`int` : |CAN| node id of the parent |DCS| Controller"""
         self.n_scb = n_scb
+        """:obj:`int` : Number of the |SCB| master this belongs to"""
         self.n_pspp = n_pspp
+        """:obj:`int` : Chip address of this |PSPP| in the serial power
+        chain"""
         self.serverWriting = {'Status': False}
+        """:obj:`dict` : Internal status attribute describing if the server is
+        currently writing to the children of this instance"""
 
 
 class MySCBMaster(UaObject):
@@ -659,14 +698,14 @@ class MySCBMaster(UaObject):
     Parameters
     ----------
     master : :class:`~.dcsControllerServer.DCSControllerServer`
-        The master class providing |CAN| communication and |OPCUA|
+        The master server providing |CAN| communication and |OPCUA|
         functionality
     ua_node
         The python respresentation of the corresponding |OPCUA| node
     nodeId : :obj:`int`
-        |CAN| node id of the |DCS| Controller
+        |CAN| node id of the parent |DCS| Controller
     n_scb : :obj:`int`
-        Number of the |SCB| master if this belongs to one
+        Number of this |SCB| master
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb):
@@ -686,8 +725,12 @@ class MySCBMaster(UaObject):
         """:obj:`bool`: If the :attr:`ConnectedPSPPs` attribute has been set
         from outside"""
         self.n_scb = n_scb
+        """:obj:`int` : Number of this |SCB| master"""
         self.server = master
+        """:class:`~.dcsControllerServer.DCSControllerServer` : The master
+        server providing |CAN| communication and |OPCUA| functionality"""
         self.nodeId = nodeId
+        """:obj:`int` : |CAN| node id of the parent |DCS| Controller"""
 
 
 class MyDCSController(UaObject):
@@ -705,12 +748,12 @@ class MyDCSController(UaObject):
     Parameters
     ----------
     master : :class:`~.dcsControllerServer.DCSControllerServer`
-        The master class providing |CAN| communication and |OPCUA|
+        The master server providing |CAN| communication and |OPCUA|
         functionality
     ua_node
         The python respresentation of the corresponding |OPCUA| node
     nodeId : :obj:`int`
-        |CAN| node id of the |DCS| Controller
+        |CAN| node id of this |DCS| Controller
     """
 
     def __init__(self, master, ua_node, nodeId):
@@ -719,6 +762,7 @@ class MyDCSController(UaObject):
         self.Status = True
         """:class:`BoolField` : Status of the Controller"""
         self.NodeId = nodeId
+        """:obj:`int` : |CAN| node id of this |DCS| Controller"""
         for i in range(4):
             exec(f"self.SCB{i} = MySCBMaster(master, "
                  f"ua_node.get_child('{master.idx}:SCB{i}'), nodeId, i)")
@@ -731,8 +775,9 @@ class MyDCSController(UaObject):
         """:obj:`bool` : If the Controller has been initialized"""
         self.server = master
         """:class:`~.dcsControllerServer.DCSControllerServer` : The master
-        class providing |CAN| communication and |OPCUA| functionality"""
+        server providing |CAN| communication and |OPCUA| functionality"""
         self.nodeId = nodeId
+        """:obj:`int` : |CAN| node id of the |DCS| Controller"""
 
 
 class TestClass(object):

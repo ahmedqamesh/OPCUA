@@ -26,7 +26,7 @@ from logging.handlers import RotatingFileHandler
 import random as rdm
 import time
 # from datetime import timedelta
-from argparse import ArgumentParser
+from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from collections import deque, Counter
 from threading import Thread, Event, Lock
 
@@ -34,14 +34,24 @@ from threading import Thread, Event, Lock
 import coloredlogs as cl
 import verboselogs
 from canlib import canlib, Frame
+from canlib.canlib.exceptions import CanGeneralError
 from opcua import Server, ua
 import analib
 
 # Other files
-from .objectDictionary import objectDictionary
-from . import CANopenConstants as coc
-from .mirrorClasses import MyDCSController
-from .extend_logging import extend_logging, removeAllHandlers
+try:
+    from .objectDictionary import objectDictionary
+    from . import CANopenConstants as coc
+    from .mirrorClasses import MyDCSController
+    from .extend_logging import extend_logging, removeAllHandlers
+except (ImportError, ModuleNotFoundError):
+    from objectDictionary import objectDictionary
+    import CANopenConstants as coc
+    from mirrorClasses import MyDCSController
+    from extend_logging import extend_logging, removeAllHandlers
+
+
+scrdir = os.path.dirname(os.path.abspath(__file__))
 
 
 class BusEmptyError(Exception):
@@ -116,12 +126,12 @@ class DCSControllerServer(object):
                  logformat='%(asctime)s %(levelname)-8s %(message)s',
                  endpoint='opc.tcp://localhost:4840/',
                  file_loglevel=logging.INFO, logdir=None, channel=0,
-                 bitrate=None, xmlfile=None,
+                 bitrate=125000, xmlfile='dcscontrollerdesign.xml',
                  ipAddress='192.168.1.254'):
 
         self.__isinit = False
         self.ret = None
-        self.cnt = Counter()
+        self.__cnt = Counter()
 
         # Initialize logger
         extend_logging()
@@ -132,10 +142,8 @@ class DCSControllerServer(object):
         self.opcua_logger = logging.getLogger('opcua')
         self.opcua_logger.setLevel(logging.WARNING)
         if logdir is None:
-            scrdir = os.path.dirname(os.path.abspath(__file__))
-        else:
-            scrdir = logdir
-        ts = os.path.join(scrdir, 'log',
+            logdir = os.path.join(scrdir, 'log')
+        ts = os.path.join(logdir,
                           time.strftime('%Y-%m-%d_%H-%M-%S_OPCUA_Server.'))
         self.__fh = RotatingFileHandler(ts + 'log', backupCount=10,
                                         maxBytes=10 * 1024 * 1024)
@@ -152,15 +160,15 @@ class DCSControllerServer(object):
         self.logger.info(f'Existing logging Handler: {self.logger.handlers}')
 
         # Initialize default arguments
-        if interface not in ['Kvaser', 'AnaGate']:
+        if interface is None:
+            interface = 'Kvaser'
+        elif interface not in ['Kvaser', 'AnaGate']:
             raise ValueError(f'Possible CAN interfaces are "Kvaser" or '
                              f'"AnaGate" and not "{interface}".')
         self.__interface = interface
         if bitrate is None:
-            if interface == 'Kvaser':
-                bitrate = canlib.canBITRATE_125K
-            else:
-                bitrate = 125000
+            bitrate = 125000
+        bitrate = self._parseBitRate(bitrate)
 
         # Initialize OPC server
         self.logger.notice('Configuring OPC UA server ...')
@@ -183,7 +191,6 @@ class DCSControllerServer(object):
         # Import objects
         self.logger.notice('Importing OPCUA object types from XML. This may '
                            'take some time ...')
-        scrdir = os.path.dirname(os.path.abspath(__file__))
         if xmlfile is None:
             xmlfile = os.path.join(scrdir, 'dcscontrollerdesign.xml')
         self.server.import_xml(xmlfile)
@@ -214,7 +221,9 @@ class DCSControllerServer(object):
         self.__canMsgQueue = deque([], 1000)
         self.__pill2kill = Event()
         self.__canMsgThread = Thread(target=self.readCanMessages)
-        self.lock = Lock()
+        self.__lock = Lock()
+        self.__kvaserLock = Lock()
+
 
         # Get DCS Controller OPC UA Object Type
         self.logger.notice('Get OPC UA Object Type of DCS Controller ...')
@@ -275,11 +284,13 @@ class DCSControllerServer(object):
 
     @property
     def channel(self):
-        """:obj:`int` : Currently used |CAN| channel."""
+        """Currently used |CAN| channel. The actual class depends on the used
+        |CAN| interface."""
         return self.__ch
 
     @property
     def channelNumber(self):
+        """:obj:`int` : Number of the rurrently used |CAN| channel."""
         return self.__channel
 
     @property
@@ -340,6 +351,17 @@ class DCSControllerServer(object):
 
     @property
     def canMsgQueue(self):
+        """:class:`collections.deque` : Queue object holding incoming |CAN|
+        messages. This class supports thread-safe adding and removing of
+        elements but not thread-safe iterating. Therefore the designated
+        :class:`~threading.Lock` object :attr:`lock` should be acquired before
+        accessing it.
+
+        The queue is initialized with a maxmimum length of ``1000`` elements
+        to avoid memory problems although it is not expected to grow at all.
+
+        This special class is used instead of the :class:`queue.Queue` class
+        because it is iterable and fast."""
         return self.__canMsgQueue
 
     @property
@@ -349,6 +371,51 @@ class DCSControllerServer(object):
         if self.__interface == 'Kvaser':
             raise AttributeError('You are using a Kvaser CAN interface!')
         return self.__ch.ipAddress
+
+    @property
+    def lock(self):
+        """:class:`~threading.Lock` : Lock object for accessing the incoming
+        message queue :attr:`canMsgQueue`"""
+        return self.__lock
+
+    @property
+    def kvaserLock(self):
+        """:class:`~threading.Lock` : Lock object which should be acquired for
+        performing read or write operations on the Kvaser |CAN| channel. It
+        turned out that bad things can happen if that is not done."""
+        return self.__kvaserLock
+
+    @property
+    def cnt(self):
+        """:class:`~collections.Counter` : Counter holding information about
+        quality of transmitting and receiving. Its contens are logged when the
+        program ends."""
+        return self.__cnt
+
+    @property
+    def pill2kill(self):
+        """:class:`threading.Event` : Stop event for the message collecting
+        method :meth:`readCanMessages`"""
+        return self.__pill2kill
+
+    @property
+    def connectedPSPPs(self):
+        """:obj:`dict` of :obj:`list` of :obj:`list` of :obj:`int` : Internal
+        attribute holding information about which |PSPP| chips are connected.
+        """
+        return self.__connectedPSPPs
+
+    def _parseBitRate(self, bitrate):
+        if self.__interface == 'Kvaser':
+            if bitrate not in coc.CANLIB_BITRATES:
+                raise ValueError(f'Bitrate {bitrate} not in list of allowed '
+                                 f'values!')
+            return coc.CANLIB_BITRATES[bitrate]
+        else:
+            if bitrate not in analib.constants.BAUDRATES:
+                raise ValueError(f'Bitrate {bitrate} not in list of allowed '
+                                 f'values!')
+            return bitrate
 
     def start(self):
         """Start the server and open the |CAN| connection
@@ -443,7 +510,13 @@ class DCSControllerServer(object):
         self.__isserver = False
 
     def run(self):
-        """Start actual CANopen communication"""
+        """Start actual CANopen communication
+
+        This function contains an endless loop in which it is looped over all
+        connected |DCS| Controllers and |PSPP| chips. Each value is read using
+        :meth:`sdoRead` and written to its corresponding |OPCUA| node if the
+        SDO read protocol was succesful.
+        """
 
         count = 0
         while True:
@@ -469,7 +542,7 @@ class DCSControllerServer(object):
                                      f'serverWriting[name] = True; '
                                      f'PSPP.MonitoringData.write(name)')
                         # Read less often than monitoring values
-                        if True:
+                        if count == 0:
                             val = bool(self.sdoRead(nodeId, index, 2, 1000))
                             exec(f'PSPP.Status = val')
                             PSPP.serverWriting['Status'] = True
@@ -497,11 +570,19 @@ class DCSControllerServer(object):
             # time.sleep(60)
 
     def readCanMessages(self):
+        """Read incoming |CAN| messages and store them in the queue
+        :attr:`canMsgQueue`.
+
+        This method runs an endless loop which can only be stopped by setting
+        the :class:`~threading.Event` :attr:`pill2kill` and is therefore
+        designed to be used as a :class:`~threading.Thread`.
+        """
         self.logger.notice('Starting pulling of CAN messages')
         while not self.__pill2kill.is_set():
             try:
                 if self.__interface == 'Kvaser':
-                    frame = self.__ch.read()
+                    with self.__kvaserLock:
+                        frame = self.__ch.read()
                     cobid, data, dlc, flag, t = (frame.id, frame.data,
                                                  frame.dlc, frame.flags,
                                                  frame.timestamp)
@@ -509,8 +590,8 @@ class DCSControllerServer(object):
                         raise canlib.CanNoMsg
                 else:
                     cobid, data, dlc, flag, t = self.__ch.getMessage()
-                with self.lock:
-                    self.__canMsgQueue.append((cobid, data, dlc, flag, t))
+                with self.__lock:
+                    self.__canMsgQueue.appendleft((cobid, data, dlc, flag, t))
                 self.dumpMessage(cobid, data, dlc, flag)
             except (canlib.CanNoMsg, analib.CanNoMsg):
                 pass
@@ -553,12 +634,14 @@ class DCSControllerServer(object):
         flag : :obj:`int`, optional
             Message flag (|RTR|, etc.). Defaults to zero.
         timeout : :obj:`int`, optional
-            |SDO| write timeout in milliseconds. Defaults to 10 ms.
+            |SDO| write timeout in milliseconds. When :data:`None` or not
+            given an infinit timeout is used.
         """
         if self.__interface == 'Kvaser':
             if timeout is None:
                 timeout = 0xFFFFFFFF
-            self.__ch.writeWait(Frame(cobid, msg), timeout)
+            with self.__kvaserLock:
+                self.__ch.writeWait(Frame(cobid, msg), timeout)
         else:
             self.__ch.write(cobid, msg, flag)
 
@@ -597,7 +680,11 @@ class DCSControllerServer(object):
         msg[1], msg[2] = index.to_bytes(2, 'little')
         msg[3] = subindex
         msg[0] = 0x40
-        self.writeMessage(cobid, msg, timeout=timeout)
+        try:
+            self.writeMessage(cobid, msg, timeout=timeout)
+        except CanGeneralError:
+            self.cnt['SDO read request timeout'] += 1
+            return None
         # Wait for response
         t0 = time.perf_counter()
         messageValid = False
@@ -618,7 +705,7 @@ class DCSControllerServer(object):
             if messageValid:
                 break
         else:
-            self.cnt['SDO read timeout'] += 1
+            self.cnt['SDO read response timeout'] += 1
             return None
         # Check command byte
         if ret[0] == 0x80:
@@ -669,7 +756,11 @@ class DCSControllerServer(object):
         msg[3] = subindex
         msg[4:] = [data[i] for i in range(4)]
         # Send the request message
-        self.writeMessage(cobid, msg)
+        try:
+            self.writeMessage(cobid, msg)
+        except CanGeneralError:
+            self.cnt['SDO write request timeout'] += 1
+            return False
 
         # Read the response from the bus
         t0 = time.perf_counter()
@@ -706,6 +797,10 @@ class DCSControllerServer(object):
         return True
 
     def getConnectedPSPPs(self):
+        """Read the `ConnectedPSPPs` |OD| attribute from the connected |DCS|
+        Controllers. The received values are stored in the attribute
+        :attr:`connectedPSPPs` and written to their corresponding |OPCUA| node.
+        """
         for nodeId in self.__nodeIds:
             self.__connectedPSPPs[nodeId] = [[] for scb in range(4)]
             for scb in range(4):
@@ -716,32 +811,6 @@ class DCSControllerServer(object):
                 self.__connectedPSPPs[nodeId][scb] = \
                     [i for i in range(16) if int(f'{val:016b}'[::-1][i])]
                 self.logger.debug(f'Connected PSPPs: {val}')
-
-    def setConnectedPSPPs(self, nodeId=42, data=None):
-        """Set which |PSPP| chips are connected to a specified Controller
-
-        Parameters
-        ----------
-        nodeId : :obj:`int`, optional
-            |CAN| Node Id of the Controller. Defaults to 42.
-        data : :obj:`list` of :obj:`int`, optional
-            4*16 bit of information about connected |PSPP| chips. Defaults to
-            :data:`None`.
-        """
-        self.logger.notice('Start transmitting info about connected PSPPs to '
-                           'the Controller ...')
-        if data is None:
-            data = [rdm.randrange(2**16) for i in range(4)]
-        self.logger.info('Writing data: ' + str(data))
-        for scb in range(4):
-            exec(f'self.mypyDCs[nodeId].SCB{scb}.ConnectedPSPPs = data[scb]')
-        self.mypyDCs[nodeId].Status = True
-        self.logger.success('... Done.')
-
-    def rdmSetConnPSPPs(self):
-        """Wrapper function which randomly sets connected PSPPs"""
-        for nodeid in self.__nodeIds:
-            self.setConnectedPSPPs(nodeid, [0xffff for i in range(4)])
 
     def scanNodes(self, timeout=100):
         """Do a complete scan over all |CAN| nodes
@@ -801,8 +870,6 @@ class DCSControllerServer(object):
                            'object ...')
         self.__mypyDCs = {}
         for i in self.__nodeIds:
-            # self.__objects.get_child([f'{self.__idx}:DCSController{i}',
-            #                          f'{self.__idx}:NodeId']).set_value(i)
             self.__myDCs[i].get_child(f'{self.__idx}:NodeId').set_value(i)
             self.__mypyDCs[i] = MyDCSController(self, self.__myDCs[i], i)
         self.logger.success('... Done!')
@@ -817,30 +884,69 @@ def main():
 
     # Parse arguments
     parser = ArgumentParser(description='OPCUA CANopen server for DCS '
-                                        'Controller',
+                            'Controller',
                             epilog='For more information contact '
-                                   'sebastian.scholz@cern.ch')
-    parser.add_argument('-i', '--interface', metavar='INTERFACE',
-                        help='Vendor of the CAN interface. Possible values are'
-                        ' "Kvaser" (default) and "AnaGate" (case-sensitive)',
-                        default='Kvaser')
-    parser.add_argument('-E', '--endpoint', metavar='ENDPOINT',
+                            'sebastian.scholz@cern.ch',
+                            formatter_class=ArgumentDefaultsHelpFormatter)
+    parser.set_defaults(interface='Kvaser')
+
+    # Server configuration group
+    sGroup = parser.add_argument_group('OPC UA server configuration')
+    sGroup.add_argument('-E', '--endpoint', metavar='ENDPOINT',
                         help='Endpoint of the OPCUA server',
                         default='opc.tcp://localhost:4840/')
-    parser.add_argument('-e', '--edsfile', metavar='EDSFILE',
+    sGroup.add_argument('-e', '--edsfile', metavar='EDSFILE',
+                        default=os.path.join(scrdir,
+                                             'CANControllerForPSPPv1.eds'),
                         help='File path of Electronic Data Sheet (EDS)')
-    parser.add_argument('-x', '--xmlfile', metavar='XMLFILE',
+    sGroup.add_argument('-x', '--xmlfile', metavar='XMLFILE',
+                        default=os.path.join(scrdir,
+                                             'dcscontrollerdesign.xml'),
                         help='File path of OPCUA XML design file')
-    parser.add_argument('-C', '--channel', metavar='CHANNEL', type=int,
+
+    # CAN interface
+    CGroup = parser.add_argument_group('CAN interface')
+    iGroup = CGroup.add_mutually_exclusive_group()
+    iGroup.add_argument('-K', '--kvaser', action='store_const', const='Kvaser',
+                        dest='interface',
+                        help='Use Kvaser CAN interface (default). When no '
+                        'Kvaser interface is found or connected a virtual '
+                        'channel is used.')
+    iGroup.add_argument('-A', '--anagate', action='store_const',
+                        const='AnaGate', dest='interface',
+                        help='Use AnaGate Ethernet CAN interface')
+
+    # CAN settings group
+    cGroup = parser.add_argument_group('CAN settings')
+    cGroup.add_argument('-C', '--channel', metavar='CHANNEL', type=int,
                         help='Number of CAN channel to use', default=0)
-    parser.add_argument('-c', '--console-loglevel', metavar='CONSOLE_LOGLEVEL',
-                        default=logging.NOTICE, dest='console_loglevel',
+    cGroup.add_argument('-i', '--ipaddress', metavar='IPADDRESS',
+                        default='192.168.1.254', dest='ipAddress',
+                        help='IP address of the AnaGate Ethernet CAN '
+                        'interface')
+    cGroup.add_argument('-b', '--bitrate', metavar='BITRATE', type=int,
+                        default=125000,
+                        help='CAN bitrate as integer in bit/s')
+
+    # Logging configuration
+    lGroup = parser.add_argument_group('Logging settings')
+    lGroup.add_argument('-c', '--console_loglevel',
+                        choices={'NOTSET', 'SPAM', 'DEBUG', 'VERBOSE', 'INFO',
+                                 'NOTICE', 'SUCCESS', 'WARNING', 'ERROR',
+                                 'CRITICAL'},
+                        default='NOTICE',
                         help='Level of console logging')
-    parser.add_argument('-f', '--file-loglevel', metavar='FILE_LOGLEVEL',
-                        default=logging.INFO, dest='file_loglevel',
+    lGroup.add_argument('-f', '--file_loglevel',
+                        choices={'NOTSET', 'SPAM', 'DEBUG', 'VERBOSE', 'INFO',
+                                 'NOTICE', 'SUCCESS', 'WARNING', 'ERROR',
+                                 'CRITICAL'},
+                        default='INFO',
                         help='Level of file logging')
-    parser.add_argument('-l', '--logdir', metavar='LOGDIR',
+    lGroup.add_argument('-d', '--logdir', metavar='LOGDIR',
+                        default=os.path.join(scrdir, 'log'),
                         help='Directory where log files should be stored')
+
+    # Program version
     parser.add_argument('-v', '--version', action='version',
                         version='0.1.0')
     args = parser.parse_args()

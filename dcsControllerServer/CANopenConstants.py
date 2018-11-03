@@ -11,6 +11,7 @@ specification [CiA301]_.
 """
 # Third party modules
 from aenum import IntEnum
+from canlib import canlib
 
 
 MAX_DATABYTES = 8
@@ -25,6 +26,20 @@ PSPP_REGISTERS = {'ChipID1': 0, 'ChipID2': 1, 'ADCR1': 2, 'ADCR2': 3, 'DIN': 4,
 PSPPMONVALS = {'Temperature': 0, 'Voltage1': 1, 'Voltage2': 2}
 """:obj:`dict` : Keys are names of monitoring values and values are their
 relative position."""
+
+CANLIB_BITRATES = {
+    1000000: canlib.canBITRATE_1M,
+    500000: canlib.canBITRATE_500K,
+    250000: canlib.canBITRATE_250K,
+    125000: canlib.canBITRATE_125K,
+    100000: canlib.canBITRATE_100K,
+    62000: canlib.canBITRATE_62K,
+    50000: canlib.canBITRATE_50K,
+    83000: canlib.canBITRATE_83K,
+    10000: canlib.canBITRATE_10K,
+}
+""":obj:`dict` : Translate integer bitrates given in bit/s to :mod:`canlib`
+constants"""
 
 
 class STATUS(IntEnum):
