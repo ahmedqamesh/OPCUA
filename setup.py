@@ -28,6 +28,6 @@ setup(name='DCSController',
                         'canlib'],
       include_package_data=True,
       entry_points={'console_scripts':
-                    ['DCSControllerServer=dcsControllerServer:main',
-                     'CANopenForDCSController=CANopenForDCSController:main']}
+                    ['DCSControllerServer=dcsControllerServer.dcsControllerServer:main',
+                     'CANopenForDCSController=dcsControllerServer.CANopenForDCSController:main']}
       )

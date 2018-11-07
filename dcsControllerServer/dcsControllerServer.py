@@ -23,7 +23,7 @@ start it manually with the following command::
 import os
 import logging
 from logging.handlers import RotatingFileHandler
-import random as rdm
+# import random as rdm
 import time
 # from datetime import timedelta
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
@@ -123,11 +123,13 @@ class DCSControllerServer(object):
 
     def __init__(self, interface='Kvaser', edsfile=None,
                  console_loglevel=logging.NOTICE,
-                 logformat='%(asctime)s %(levelname)-8s %(message)s',
+                 logformat='%(asctime)s.%(msecs)03d %(levelname)-8s '
+                 '%(message)s',
                  endpoint='opc.tcp://localhost:4840/',
                  file_loglevel=logging.INFO, logdir=None, channel=0,
                  bitrate=125000, xmlfile='dcscontrollerdesign.xml',
-                 ipAddress='192.168.1.254'):
+                 ipAddress='192.168.1.254',
+                 nodes=[]):
 
         self.__isinit = False
         self.ret = None
@@ -147,7 +149,7 @@ class DCSControllerServer(object):
                           time.strftime('%Y-%m-%d_%H-%M-%S_OPCUA_Server.'))
         self.__fh = RotatingFileHandler(ts + 'log', backupCount=10,
                                         maxBytes=10 * 1024 * 1024)
-        fmt = logging.Formatter(logformat)
+        fmt = logging.Formatter('%(asctime)s %(levelname)-8s %(message)s')
         self.__fh.setFormatter(fmt)
         cl.install(fmt=logformat, level=console_loglevel, isatty=True)
         self.__fh.setLevel(file_loglevel)
@@ -218,9 +220,9 @@ class DCSControllerServer(object):
             self.__ch = analib.Channel(ipAddress, channel, baudrate=bitrate)
         self.logger.success(str(self))
         self.__busOn = True
-        self.__canMsgQueue = deque([], 1000)
+        self.__canMsgQueue = deque([], 10)
         self.__pill2kill = Event()
-        self.__canMsgThread = Thread(target=self.readCanMessages)
+        self.__canMsgThread = None
         self.__lock = Lock()
         self.__kvaserLock = Lock()
 
@@ -232,7 +234,7 @@ class DCSControllerServer(object):
         self.logger.success('... Done!')
 
         # Scan nodes
-        self.__nodeIds = []
+        self.__nodeIds = nodes
         """:obj:`list` of :obj:`int` : Contains all |CAN| nodeIds currently
         present on the bus."""
         self.__myDCs = {}
@@ -271,16 +273,14 @@ class DCSControllerServer(object):
     def __exit__(self, exception_type, exception_value, traceback):
         if exception_type is KeyboardInterrupt:
             self.logger.warning('Received Ctrl+C event (KeyboardInterrupt).')
+        else:
+            self.logger.exception(exception_value)
         self.__fh.close()
         self.__fh_opcua.close()
         removeAllHandlers(self.logger)
         removeAllHandlers(self.opcua_logger)
         self.stop()
-        if exception_type is KeyboardInterrupt:
-            return True
-        else:
-            self.logger.exception(exception_value)
-            return True
+        return True
 
     @property
     def channel(self):
@@ -493,8 +493,13 @@ class DCSControllerServer(object):
         with self.lock:
             self.cnt['Residual CAN messages'] = len(self.__canMsgQueue)
         self.logger.notice(f'Error counters: {self.cnt}')
+        self.logger.warning('Stopping helper threads. This might take a '
+                            'minute')
         self.__pill2kill.set()
-        self.__canMsgThread.join()
+        try:
+            self.__canMsgThread.join()
+        except RuntimeError:
+            pass
         if self.__busOn:
             if self.__interface == 'Kvaser':
                 self.logger.warning('Going in \'Bus Off\' state.')
@@ -523,13 +528,11 @@ class DCSControllerServer(object):
             count = 0 if count == 10 else count
             # Loop over all connected CAN nodeIds
             for nodeId in self.__nodeIds:
-                dcsc = self.mypyDCs[nodeId]
                 # Loop over all SCB masters
                 for scb in range(4):
                     # Loop over all possible PSPPs
                     for pspp in self.__connectedPSPPs[nodeId][scb]:
-                        exec(f'global PSPP; '
-                             f'PSPP = dcsc.SCB{scb}.PSPP{pspp}')
+                        PSPP = self.mypyDCs[nodeId][scb][pspp]
                         index = 0x2200 | (scb << 4) | pspp
                         # Loop over PSPP monitoring data
                         monVals = self.sdoRead(nodeId, index, 1, 3000)
@@ -537,14 +540,17 @@ class DCSControllerServer(object):
                             vals = [(monVals >> i * 10) & (2**10 - 1)
                                     for i in range(3)]
                             for v, name in zip(vals, coc.PSPPMONVALS):
-                                exec(f'PSPP.MonitoringData.{name} = v; '
+                                PSPP.MonitoringData[name] = v
+                                PSPP.MonitoringData.serverWriting[name] = True
+                                PSPP.MonitoringData.write(name)
+                                """exec(f'PSPP.MonitoringData.{name} = v; '
                                      f'PSPP.MonitoringData.'
                                      f'serverWriting[name] = True; '
-                                     f'PSPP.MonitoringData.write(name)')
+                                     f'PSPP.MonitoringData.write(name)')"""
                         # Read less often than monitoring values
-                        if count == 0:
+                        if True:
                             val = bool(self.sdoRead(nodeId, index, 2, 1000))
-                            exec(f'PSPP.Status = val')
+                            PSPP.Status = val
                             PSPP.serverWriting['Status'] = True
                             PSPP.write('Status')
                             # Loop over ADC channels
@@ -552,20 +558,27 @@ class DCSControllerServer(object):
                                 val = self.sdoRead(nodeId, index, 0x20 | ch,
                                                    1000)
                                 if val is not None:
-                                    exec(f'PSPP.ADCChannels.Ch{ch} = val; '
+                                    PSPP.ADCChannels[ch] = val
+                                    PSPP.ADCChannels.serverWriting[f'Ch{ch}']=\
+                                        True
+                                    PSPP.ADCChannels.write(f'Ch{ch}')
+                                    """exec(f'PSPP.ADCChannels.Ch{ch} = val; '
                                          f'PSPP.ADCChannels.'
                                          f'serverWriting["Ch{ch}"] = True; '
-                                         f'PSPP.ADCChannels.write("Ch{ch}")')
+                                         f'PSPP.ADCChannels.write("Ch{ch}")')"""
                             # Loop over registers
                             for name in coc.PSPP_REGISTERS:
                                 val = self.sdoRead(nodeId, index, 0x10 |
                                                    coc.PSPP_REGISTERS[name],
                                                    1000)
                                 if val is not None:
-                                    exec(f'PSPP.Regs.{name} = val; '
+                                    PSPP.Regs[name] = val
+                                    PSPP.Regs.serverWriting[name] = True
+                                    PSPP.Regs.write(name)
+                                    """exec(f'PSPP.Regs.{name} = val; '
                                          f'PSPP.Regs.serverWriting[name]'
                                          f' = True; '
-                                         f'PSPP.Regs.write(name)')
+                                         f'PSPP.Regs.write(name)')"""
             count += 1
             # time.sleep(60)
 
@@ -689,7 +702,7 @@ class DCSControllerServer(object):
         t0 = time.perf_counter()
         messageValid = False
         while time.perf_counter() - t0 < timeout / 1000:
-            with self.lock:
+            with self.__lock:
                 for i, (cobid_ret, ret, dlc, flag, t) in \
                         zip(range(len(self.__canMsgQueue)),
                             self.__canMsgQueue):
@@ -705,6 +718,8 @@ class DCSControllerServer(object):
             if messageValid:
                 break
         else:
+            self.logger.info(f'SDO read response timeout (node {nodeId}, index'
+                             f' {index:04X}:{subindex:02X})')
             self.cnt['SDO read response timeout'] += 1
             return None
         # Check command byte
@@ -801,13 +816,16 @@ class DCSControllerServer(object):
         Controllers. The received values are stored in the attribute
         :attr:`connectedPSPPs` and written to their corresponding |OPCUA| node.
         """
+        attr = 'ConnectedPSPPs'
         for nodeId in self.__nodeIds:
             self.__connectedPSPPs[nodeId] = [[] for scb in range(4)]
             for scb in range(4):
                 val = None
                 while val is None:
                     val = self.sdoRead(nodeId, 0x2000, 1 + scb, 3000)
-                exec(f'self.mypyDCs[nodeId].SCB{scb}.ConnectedPSPPs = val')
+                self.mypyDCs[nodeId][scb].ConnectedPSPPs = val
+                self.mypyDCs[nodeId][scb].serverWriting[attr] = True
+                self.mypyDCs[nodeId][scb].write(attr)
                 self.__connectedPSPPs[nodeId][scb] = \
                     [i for i in range(16) if int(f'{val:016b}'[::-1][i])]
                 self.logger.debug(f'Connected PSPPs: {val}')

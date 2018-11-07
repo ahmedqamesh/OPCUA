@@ -516,6 +516,23 @@ class MyPSPPADCChannels(UaObject):
         self.serverWriting = {f'"Ch{ch}"': False for ch in range(8)}
         """:obj:`dict` : Internal status attribute describing if the server is
         currently writing to the children of this instance"""
+        self.__i = 0
+
+    def __getitem__(self, ch):
+        return eval(f'self.Ch{ch}')
+
+    def __setitem__(self, ch, val):
+        exec(f'self.Ch{ch} = val')
+
+    def __iter__(self):
+        self.__i = 0
+        return self
+
+    def __next__(self):
+        if self.__i < 8:
+            self.__i += 1
+            return self[self.__i - 1]
+        raise StopIteration
 
 
 class MyMonitoringData(UaObject):
@@ -571,6 +588,23 @@ class MyMonitoringData(UaObject):
         self.serverWriting = {name: False for name in coc.PSPPMONVALS}
         """:obj:`dict` : Internal status attribute describing if the server is
         currently writing to the children of this instance"""
+        self.__i = 0
+
+    def __getitem__(self, key):
+        return eval(f'self.{key}')
+
+    def __setitem__(self, key, val):
+        exec(f'self.{key} = val')
+
+    def __iter__(self):
+        self.__i = 0
+        return self
+
+    def __next__(self):
+        if self.__i < len(list(coc.PSPPMONVALS)):
+            self.__i += 1
+            return self[coc.PSPPMONVALS[self.__i - 1]]
+        raise StopIteration
 
 
 class MyRegs(UaObject):
@@ -620,6 +654,29 @@ class MyRegs(UaObject):
         self.serverWriting = {name: False for name in coc.PSPP_REGISTERS}
         """:obj:`dict` : Internal status attribute describing if the server is
         currently writing to the children of this instance"""
+        self.__i = 0
+
+    def __getitem__(self, key):
+        if isinstance(key, int):
+            return eval(f'self.{list(coc.PSPP_REGISTERS.keys())[key]}')
+        return eval(f'self.{key}')
+
+    def __setitem__(self, key, val):
+        if isinstance(key, int):
+            exstr = f'self.{list(coc.PSPP_REGISTERS.keys())[key]} = val'
+        else:
+            exstr = f'self.{key} = val'
+        exec(exstr)
+
+    def __iter__(self):
+        self.__i = 0
+        return self
+
+    def __next__(self):
+        if self.__i < len(coc.PSPP_REGISTERS):
+            self.__i += 1
+            return self[self.__i - 1]
+        raise StopIteration
 
 
 class MyPSPP(UaObject):
@@ -731,6 +788,23 @@ class MySCBMaster(UaObject):
         server providing |CAN| communication and |OPCUA| functionality"""
         self.nodeId = nodeId
         """:obj:`int` : |CAN| node id of the parent |DCS| Controller"""
+        self.serverWriting = {'ConnectedPSPPs': False}
+        """:obj:`dict` : Internal status attribute describing if the server is
+        currently writing to the children of this instance"""
+        self.__i = 0
+
+    def __getitem__(self, key):
+        return eval(f'self.PSPP{key}')
+
+    def __iter__(self):
+        self.__i = 0
+        return self
+
+    def __next__(self):
+        if self.__i < 16:
+            self.__i += 1
+            return self[self.__i - 1]
+        raise StopIteration
 
 
 class MyDCSController(UaObject):
@@ -778,7 +852,20 @@ class MyDCSController(UaObject):
         server providing |CAN| communication and |OPCUA| functionality"""
         self.nodeId = nodeId
         """:obj:`int` : |CAN| node id of the |DCS| Controller"""
+        self.__n = 0
 
+    def __getitem__(self, key):
+        return eval(f'self.SCB{key}')
+
+    def __iter__(self):
+        self.__n = 0
+        return self
+
+    def __next__(self):
+        if self.__n < 4:
+            self.__n += 1
+            return self[self.__n - 1]
+        raise StopIteration
 
 class TestClass(object):
     """This class only exists for testing the mirror classes with less
