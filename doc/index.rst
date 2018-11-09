@@ -12,6 +12,7 @@ Welcome to DCSController's documentation!
    :caption: Contents:
 
    installation
+   usage
    anagate
    serverclass
    analib

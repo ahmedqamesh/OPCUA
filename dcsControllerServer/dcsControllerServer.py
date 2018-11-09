@@ -543,10 +543,6 @@ class DCSControllerServer(object):
                                 PSPP.MonitoringData[name] = v
                                 PSPP.MonitoringData.serverWriting[name] = True
                                 PSPP.MonitoringData.write(name)
-                                """exec(f'PSPP.MonitoringData.{name} = v; '
-                                     f'PSPP.MonitoringData.'
-                                     f'serverWriting[name] = True; '
-                                     f'PSPP.MonitoringData.write(name)')"""
                         # Read less often than monitoring values
                         if True:
                             val = bool(self.sdoRead(nodeId, index, 2, 1000))
@@ -562,10 +558,6 @@ class DCSControllerServer(object):
                                     PSPP.ADCChannels.serverWriting[f'Ch{ch}']=\
                                         True
                                     PSPP.ADCChannels.write(f'Ch{ch}')
-                                    """exec(f'PSPP.ADCChannels.Ch{ch} = val; '
-                                         f'PSPP.ADCChannels.'
-                                         f'serverWriting["Ch{ch}"] = True; '
-                                         f'PSPP.ADCChannels.write("Ch{ch}")')"""
                             # Loop over registers
                             for name in coc.PSPP_REGISTERS:
                                 val = self.sdoRead(nodeId, index, 0x10 |
@@ -575,10 +567,6 @@ class DCSControllerServer(object):
                                     PSPP.Regs[name] = val
                                     PSPP.Regs.serverWriting[name] = True
                                     PSPP.Regs.write(name)
-                                    """exec(f'PSPP.Regs.{name} = val; '
-                                         f'PSPP.Regs.serverWriting[name]'
-                                         f' = True; '
-                                         f'PSPP.Regs.write(name)')"""
             count += 1
             # time.sleep(60)
 
