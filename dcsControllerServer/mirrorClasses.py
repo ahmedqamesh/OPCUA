@@ -264,13 +264,11 @@ class MyMonitoringData(UaObject):
 
         # properties and variables; must mirror UA model (based on browsename!)
         self.Temperature = None
-        """:class:`UIntField` : UInt16 attribute for a |PSPP| chip
-        temperature"""
+        """:obj:`int` : UInt16 attribute for a |PSPP| chip temperature"""
         self.Voltage1 = None
-        """:class:`UIntField` : UInt16 attribute for a |PSPP| chip voltage"""
+        """:obj:`int` : UInt16 attribute for a |PSPP| chip voltage"""
         self.Voltage2 = None
-        """:class:`UIntField` : UInt16 attribute for another |PSPP| chip
-        voltage"""
+        """:obj:`int` : UInt16 attribute for another |PSPP| chip voltage"""
 
         # init the UaObject super class to connect the python object to the UA
         # object.
@@ -408,7 +406,7 @@ class MyPSPP(UaObject):
 
         # properties and variables; must mirror UA model (based on browsename!)
         self.Status = False
-        """:class:`BoolField` : Status of the |PSPP|. Its default value is
+        """:obj:`bool` : Status of the |PSPP|. Its default value is
         :data:`True`."""
         self.ADCChannels = \
             MyPSPPADCChannels(master,
@@ -470,8 +468,8 @@ class MySCBMaster(UaObject):
 
         # properties and variables; must mirror UA model (based on browsename!)
         self.ConnectedPSPPs = 0
-        """:class:`UIntField` : Describes the value which states how many
-        |PSPP| chips are connected to this |SCB| master."""
+        """:obj:`int` : Describes the value which states how many |PSPP| chips
+        are connected to this |SCB| master."""
         for i in range(16):
             exec(f"self.PSPP{i} = MyPSPP(master, ua_node.get_child('"
                  f"{master.idx}:PSPP{i}'), nodeId, n_scb, i)")
@@ -535,7 +533,7 @@ class MyDCSController(UaObject):
 
         # properties and variables; must mirror UA model (based on browsename!)
         self.Status = True
-        """:class:`BoolField` : Status of the Controller"""
+        """:obj:`bool` : Status of the Controller"""
         self.NodeId = nodeId
         """:obj:`int` : |CAN| node id of this |DCS| Controller"""
         for i in range(4):
