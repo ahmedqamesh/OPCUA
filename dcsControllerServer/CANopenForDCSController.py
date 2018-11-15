@@ -69,6 +69,7 @@ class CANopenDCSController(object):
         self.__cfh = RotatingFileHandler(fname + 'CANmsg.log', backupCount=10,
                                          maxBytes=10 * 1024 * 1024)
         fmt = logging.Formatter(logformat)
+        fmt.default_msec_format = '%s.%03d'
         self.__fh.setFormatter(fmt)
         self.__cfh.setFormatter(fmt)
         cl.install(fmt=logformat, level=loglevel, isatty=True)

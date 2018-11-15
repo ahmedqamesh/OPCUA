@@ -29,6 +29,7 @@ import time
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from collections import deque, Counter
 from threading import Thread, Event, Lock
+import ctypes as ct
 
 # Third party modules
 import coloredlogs as cl
@@ -123,8 +124,7 @@ class DCSControllerServer(object):
 
     def __init__(self, interface='Kvaser', edsfile=None,
                  console_loglevel=logging.NOTICE,
-                 logformat='%(asctime)s.%(msecs)03d %(levelname)-8s '
-                 '%(message)s',
+                 logformat='%(asctime)s %(levelname)-8s %(message)s',
                  endpoint='opc.tcp://localhost:4840/',
                  file_loglevel=logging.INFO, logdir=None, channel=0,
                  bitrate=125000, xmlfile='dcscontrollerdesign.xml',
@@ -149,9 +149,11 @@ class DCSControllerServer(object):
                           time.strftime('%Y-%m-%d_%H-%M-%S_OPCUA_Server.'))
         self.__fh = RotatingFileHandler(ts + 'log', backupCount=10,
                                         maxBytes=10 * 1024 * 1024)
-        fmt = logging.Formatter('%(asctime)s %(levelname)-8s %(message)s')
+        fmt = logging.Formatter(logformat)
+        fmt.default_msec_format = '%s.%03d'
         self.__fh.setFormatter(fmt)
-        cl.install(fmt=logformat, level=console_loglevel, isatty=True)
+        cl.install(fmt=logformat, level=console_loglevel, isatty=True,
+                   milliseconds=True)
         self.__fh.setLevel(file_loglevel)
         self.logger.addHandler(self.__fh)
         self.__fh_opcua = RotatingFileHandler(ts + 'opcua.log', backupCount=10,
@@ -216,13 +218,15 @@ class DCSControllerServer(object):
             self.__ch.setBusParams(self.__bitrate)
             self.logger.notice('Going in \'Bus On\' state ...')
             self.__ch.busOn()
+            self.__canMsgThread = Thread(target=self.readCanMessages)
         else:
             self.__ch = analib.Channel(ipAddress, channel, baudrate=bitrate)
+            self.__cbFunc = self._anagateCbFunc()
+            self.__ch.setCallback(self.__cbFunc)
         self.logger.success(str(self))
         self.__busOn = True
         self.__canMsgQueue = deque([], 10)
         self.__pill2kill = Event()
-        self.__canMsgThread = None
         self.__lock = Lock()
         self.__kvaserLock = Lock()
 
@@ -275,11 +279,12 @@ class DCSControllerServer(object):
             self.logger.warning('Received Ctrl+C event (KeyboardInterrupt).')
         else:
             self.logger.exception(exception_value)
+        self.__ch.setCallback(ct.cast(None, analib.wrapper.dll.CBFUNC))
+        self.stop()
         self.__fh.close()
         self.__fh_opcua.close()
         removeAllHandlers(self.logger)
         removeAllHandlers(self.opcua_logger)
-        self.stop()
         return True
 
     @property
@@ -439,14 +444,17 @@ class DCSControllerServer(object):
             try:
                 if self.__interface == 'Kvaser':
                     self.logger.notice('Opening CAN channel ...')
-                    self.__ch = canlib.openChannel(self.__channel,
-                                                   canlib.canOPEN_ACCEPT_VIRTUAL)
+                    self.__ch = \
+                        canlib.openChannel(self.__channel,
+                                           canlib.canOPEN_ACCEPT_VIRTUAL)
                     self.logger.info(str(self))
                     self.__ch.setBusParams(self.__bitrate)
                     if not self.__busOn:
                         self.logger.notice('Going in \'Bus On\' state ...')
                         self.__busOn = True
                     self.__ch.busOn()
+                    self.__canMsgThread = Thread(target=self.readCanMessages)
+                    self.__canMsgThread.start()
                 else:
                     if not self.__ch.deviceOpen:
                         self.logger.notice('Reopening AnaGate CAN interface')
@@ -455,8 +463,6 @@ class DCSControllerServer(object):
                         self.logger.notice('Restarting AnaGate CAN interface.')
                         self.__ch.restart()
                         time.sleep(10)
-                self.__canMsgThread = Thread(target=self.readCanMessages)
-                self.__canMsgThread.start()
                 self.scanNodes()
                 if len(self.__nodeIds) == 0:
                     raise BusEmptyError('No CAN nodes found!')
@@ -496,14 +502,16 @@ class DCSControllerServer(object):
         self.logger.warning('Stopping helper threads. This might take a '
                             'minute')
         self.__pill2kill.set()
-        try:
-            self.__canMsgThread.join()
-        except RuntimeError:
-            pass
         if self.__busOn:
             if self.__interface == 'Kvaser':
+                try:
+                    self.__canMsgThread.join()
+                except RuntimeError:
+                    pass
                 self.logger.warning('Going in \'Bus Off\' state.')
                 self.__ch.busOff()
+            else:
+                pass
             self.__busOn = False
             self.logger.warning('Closing the CAN channel.')
             self.__ch.close()
@@ -596,6 +604,51 @@ class DCSControllerServer(object):
                 self.dumpMessage(cobid, data, dlc, flag)
             except (canlib.CanNoMsg, analib.CanNoMsg):
                 pass
+
+    def _anagateCbFunc(self):
+        """Wraps the callback function for AnaGate |CAN| interfaces. This is
+        neccessary in order to have access to the instance attributes.
+
+        The callback function is called asychronous but the instance attributes
+        are accessed in a thread-safe way.
+
+        Returns
+        -------
+        :attr:`analib.dll.libCANDLL.CBFUNC`
+            Function pointer to the callback function
+        """
+
+        @analib.wrapper.dll.CBFUNC
+        def cbFunc(cobid, data, dlc, flag, handle):
+            """Callback function.
+
+            Appends incoming messages to the message queue and logs them.
+
+            Parameters
+            ----------
+            cobid : :obj:`int`
+                |CAN| identifier
+            data : :class:`~ctypes.c_char` :func:`~cytpes.POINTER`
+                |CAN| data - max length 8. Is converted to :obj:`bytes` for
+                internal treatment using :func:`~ctypes.string_at` function. It
+                is not possible to just use :class:`~ctypes.c_char_p` instead
+                because bytes containing zero would be interpreted as end of
+                data.
+            dlc : :obj:`int`
+                Data Length Code
+            flag : :obj:`int`
+                Message flags
+            handle : :obj:`int`
+                Internal handle of the AnaGate channel. Just needed for the API
+                class to work.
+            """
+            data = ct.string_at(data, dlc)
+            t = time.time()
+            with self.__lock:
+                self.__canMsgQueue.appendleft((cobid, data, dlc, flag, t))
+            self.dumpMessage(cobid, data, dlc, flag)
+
+        return cbFunc
 
     def dumpMessage(self, cobid, msg, dlc, flag):
         """Dumps a CANopen message to the screen and log file
@@ -762,6 +815,10 @@ class DCSControllerServer(object):
         try:
             self.writeMessage(cobid, msg)
         except CanGeneralError:
+            self.cnt['SDO write request timeout'] += 1
+            return False
+        except analib.exception.DllException as ex:
+            self.logger.exception(ex)
             self.cnt['SDO write request timeout'] += 1
             return False
 
@@ -965,5 +1022,5 @@ def main():
 if __name__ == '__main__':
 
     # Start the server
-    with DCSControllerServer(loglevel=logging.NOTICE, channel=1) as server:
+    with DCSControllerServer() as server:
         server.start()

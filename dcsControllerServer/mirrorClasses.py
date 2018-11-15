@@ -69,14 +69,14 @@ class UaObject(object):
     """
     Python object which mirrors an |OPCUA| object.
 
-    Child UA variables/properties are auto subscribed to to synchronize python
+    Child UA variables/properties are auto subscribed to synchronize python
     with UA server. Python can write to children via write method, which will
     trigger an update for UA clients.
 
-    This class redefines the :meth:`__getattribute__` and :meth:`__setattr__`
-    methods so that :any:`descriptors<descriptors>` work with instance attributes. This is
-    necessary because in order to mirror the address space correctly the
-    attributes have to be instance attributes.
+    This class redefines the :meth:`object.__getattribute__` and
+    :meth:`object.__setattr__` methods so that :any:`descriptors<descriptors>`
+    work with instance attributes. This is necessary because in order to mirror
+    the address space correctly the attributes have to be instance attributes.
 
     Parameters
     ----------

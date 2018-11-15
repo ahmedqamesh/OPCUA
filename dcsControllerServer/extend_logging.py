@@ -32,6 +32,7 @@ def extend_logging():
     correctly. Note that detects the usage of the Anaconda Prompt and Spyder
     console via its window title.
     """
+    cl.DEFAULT_DATE_FORMAT = '%Y-%m-%d %H:%M:%S.%f'
     if cl.WINDOWS:
         SPYDER = GetWindowText(GetForegroundWindow()).startswith('Spyder')
         if SPYDER:
