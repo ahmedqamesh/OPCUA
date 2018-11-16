@@ -1026,6 +1026,4 @@ def main():
 
 if __name__ == '__main__':
 
-    # Start the server
-    with DCSControllerServer() as server:
-        server.start()
+    main()
