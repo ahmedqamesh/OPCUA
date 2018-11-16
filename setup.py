@@ -7,12 +7,13 @@ Created on Sat Jul  7 13:45:04 2018
 """
 
 from setuptools import setup, find_packages
+from __version__ import __version__
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(name='DCSController',
-      version='0.1.0',
+      version=__version__,
       description='OPCUA CANopen server for DCS Controllers',
       long_description=long_description,
       long_description_content_type="text/markdown",

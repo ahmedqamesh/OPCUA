@@ -24,11 +24,43 @@ from .exception import DllException, CanNoMsg
 from .constants import CONNECT_STATES, BAUDRATES
 
 
-@dll.CBFUNC
 def cbFunc(cobid, data, dlc, flags, handle):
     """Example callback function for incoming |CAN| messages.
 
-    The arguments are passed as python build-in data types.
+    The arguments are passed as python build-in data types except for ``data``
+    which comes as a :mod:`ctypes` type.
+
+    The function only prints the passed arguments.
+
+    Parameters
+    ----------
+    cobid : :obj:`int`
+        11 bit |CAN| identifier of the telegram
+    data : :func:`~ctypes.POINTER` of :class:`~ctypes.c_char`
+        Data bytes of the telegram. Use the :func:`~ctypes.string_at` function
+        to convert this to a :class:`bytes` object.
+    dlc : :obj:`int`
+        Number of data bytes in the telegram
+    flags : :obj:`int`
+        Flags of the telegram
+    handle : :obj:`int`
+        Access :attr:`~Channel.handle` of the AnaGate :class:`Channel`
+
+    Example
+    -------
+    ::
+
+        import analib
+        import ctypes as ct
+
+        with analib.channel.Channel() as ch:
+            cb = analib.wrapper.dll.CBFUNC(cbFunc)
+            ch.setCallback(cb)
+            try:
+                while True:
+                    pass
+            finally:
+                ch.setCallback(ct.cast(None, analib.wrapper.dll.CBFUNC))
     """
     data = ct.string_at(data, dlc)
     print('Calling callback function with the following arguments:')

@@ -45,7 +45,9 @@ try:
     from . import CANopenConstants as coc
     from .mirrorClasses import MyDCSController
     from .extend_logging import extend_logging, removeAllHandlers
+    from .__version__ import __version__
 except (ImportError, ModuleNotFoundError):
+    from __version__ import __version__
     from objectDictionary import objectDictionary
     import CANopenConstants as coc
     from mirrorClasses import MyDCSController
@@ -221,7 +223,7 @@ class DCSControllerServer(object):
             self.__canMsgThread = Thread(target=self.readCanMessages)
         else:
             self.__ch = analib.Channel(ipAddress, channel, baudrate=bitrate)
-            self.__cbFunc = self._anagateCbFunc()
+            self.__cbFunc = analib.wrapper.dll.CBFUNC(self._anagateCbFunc())
             self.__ch.setCallback(self.__cbFunc)
         self.logger.success(str(self))
         self.__busOn = True
@@ -538,6 +540,10 @@ class DCSControllerServer(object):
             for nodeId in self.__nodeIds:
                 # Loop over all SCB masters
                 for scb in range(4):
+                    # Reread connected PSPPs in case the user has changed it
+                    val = self.mypyDCs[nodeId][scb].ConnectedPSPPs
+                    self.__connectedPSPPs[nodeId][scb] = \
+                        [i for i in range(16) if int(f'{val:016b}'[::-1][i])]
                     # Loop over all possible PSPPs
                     for pspp in self.__connectedPSPPs[nodeId][scb]:
                         PSPP = self.mypyDCs[nodeId][scb][pspp]
@@ -614,11 +620,10 @@ class DCSControllerServer(object):
 
         Returns
         -------
-        :attr:`analib.dll.libCANDLL.CBFUNC`
+        cbFunc
             Function pointer to the callback function
         """
 
-        @analib.wrapper.dll.CBFUNC
         def cbFunc(cobid, data, dlc, flag, handle):
             """Callback function.
 
@@ -1011,7 +1016,7 @@ def main():
 
     # Program version
     parser.add_argument('-v', '--version', action='version',
-                        version='0.1.0')
+                        version=__version__)
     args = parser.parse_args()
 
     # Start the server

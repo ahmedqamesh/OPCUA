@@ -1,3 +1,4 @@
+.. include:: abbr.rst
 Usage
 =====
 .. role:: bash(code)
@@ -51,16 +52,15 @@ Miscellaneous:
 
 AnaGate CAN interfaces
 ----------------------
-It is very easy to connect to AnaGate |CAN| interfaces using the :class:`~analib.channel.Channel` class. Incoming |CAN| messages can be received via the :meth:`analib.channel.Channel.getMessage` method or by defining a callback function.
+It is very easy to connect to AnaGate |CAN| interfaces using the :class:`~analib.channel.Channel` class. Incoming |CAN| messages can be received via the :meth:`analib.channel.Channel.getMessage` method or by defining a callback function like :func:`analib.channel.cbFunc`.
 
 Using callback functions
 ^^^^^^^^^^^^^^^^^^^^^^^^
-It is quite easy to define a callback function for incoming CAN messages. Once defined it can be easily applied using the the :meth:`~analib.channel.Channel.setCallback` method. To deactivate a callback function it is neccessary to create a NULL pointer with the :func:`~ctypes.cast` function. An example code is given below::
+It is quite easy to define a callback function for incoming CAN messages. Once defined it can be easily applied using the the :meth:`~analib.channel.Channel.setCallback` method. To deactivate a callback function it is neccessary to create a NULL pointer with the :func:`~ctypes.cast` function. For documentation of the arguments please refer to :func:`analib.channel.cbFunc`. An example code is given below::
 
     import analib
     import ctypes as ct
 
-    @analib.wrapper.dll.CBFUNC
     def cbFunc(cobid, data, dlc, flag, handle):
         # Convert ct.LP_c_char to bytes object
         data = ct.string_at(data, dlc)
@@ -71,7 +71,7 @@ It is quite easy to define a callback function for incoming CAN messages. Once d
     # Open a connection
     with analib.channel.Channel() as ch:
         # Activate the callback function
-        ch.setCallback(cbFunc)
+        ch.setCallback(analib.wrapper.dll.CBFUNC(cbFunc))
         try:
             while True:
                 # Do some more work here
