@@ -22,30 +22,55 @@ All third-party Python packages that are needed are installed on-the-fly so you 
 The package creates a command line tool `DCSControllerServer` so that you do not have to invoke python yourself. It provides several options for configuration.
 ```
 $ DCSControllerServer -h
-usage: DCSControllerServer [-h] [-i INTERFACE] [-E ENDPOINT] [-e EDSFILE]
-                           [-x XMLFILE] [-C CHANNEL] [-c CONSOLE_LOGLEVEL]
-                           [-f FILE_LOGLEVEL] [-v]
+usage: DCSControllerServer [-h] [-E ENDPOINT] [-e EDSFILE] [-x XMLFILE]
+                           [-K | -A] [-C CHANNEL] [-i IPADDRESS] [-b BITRATE]
+                           [-c {CRITICAL,NOTSET,INFO,VERBOSE,SPAM,WARNING,SUCCESS,ERROR,NOTICE,DEBUG}]
+                           [-f {CRITICAL,NOTSET,INFO,VERBOSE,SPAM,WARNING,SUCCESS,ERROR,NOTICE,DEBUG}]
+                           [-d LOGDIR] [-v]
 
 OPCUA CANopen server for DCS Controller
 
 optional arguments:
   -h, --help            show this help message and exit
-  -i INTERFACE, --interface INTERFACE
-                        Vendor of the CAN interface. Possible values
-                        are "Kvaser" (default) and "AnaGate" (case-sensitive)
-  -E ENDPOINT, --endpoint ENDPOINT
-                        Endpoint of the OPCUA server
-  -e EDSFILE, --edsfile EDSFILE
-                        File path of Electronic Data Sheet (EDS)
-  -x XMLFILE, --xmlfile XMLFILE
-                        File path of OPCUA XML design file
-  -C CHANNEL, --channel CHANNEL
-                        Number of CAN channel to use
-  -c CONSOLE_LOGLEVEL, --console-loglevel CONSOLE_LOGLEVEL
-                        Level of console logging
-  -f FILE_LOGLEVEL, --file-loglevel FILE_LOGLEVEL
-                        Level of file logging
   -v, --version         show program's version number and exit
+
+OPC UA server configuration:
+  -E ENDPOINT, --endpoint ENDPOINT
+                        Endpoint of the OPCUA server (default:
+                        opc.tcp://localhost:4840/)
+  -e EDSFILE, --edsfile EDSFILE
+                        File path of Electronic Data Sheet (EDS) (default: c:\
+                        users\sebas\onedrive\dokumente\studium\master\thesis\o
+                        pcua\dcsControllerServer\CANControllerForPSPPv1.eds)
+  -x XMLFILE, --xmlfile XMLFILE
+                        File path of OPCUA XML design file (default: c:\users\
+                        sebas\onedrive\dokumente\studium\master\thesis\opcua\d
+                        csControllerServer\dcscontrollerdesign.xml)
+
+CAN interface:
+  -K, --kvaser          Use Kvaser CAN interface (default). When no Kvaser
+                        interface is found or connected a virtual channel is
+                        used. (default: Kvaser)
+  -A, --anagate         Use AnaGate Ethernet CAN interface (default: Kvaser)
+
+CAN settings:
+  -C CHANNEL, --channel CHANNEL
+                        Number of CAN channel to use (default: 0)
+  -i IPADDRESS, --ipaddress IPADDRESS
+                        IP address of the AnaGate Ethernet CAN interface
+                        (default: 192.168.1.254)
+  -b BITRATE, --bitrate BITRATE
+                        CAN bitrate as integer in bit/s (default: 125000)
+
+Logging settings:
+  -c {CRITICAL,NOTSET,INFO,VERBOSE,SPAM,WARNING,SUCCESS,ERROR,NOTICE,DEBUG}, --console_loglevel {CRITICAL,NOTSET,INFO,VERBOSE,SPAM,WARNING,SUCCESS,ERROR,NOTICE,DEBUG}
+                        Level of console logging (default: NOTICE)
+  -f {CRITICAL,NOTSET,INFO,VERBOSE,SPAM,WARNING,SUCCESS,ERROR,NOTICE,DEBUG}, --file_loglevel {CRITICAL,NOTSET,INFO,VERBOSE,SPAM,WARNING,SUCCESS,ERROR,NOTICE,DEBUG}
+                        Level of file logging (default: INFO)
+  -d LOGDIR, --logdir LOGDIR
+                        Directory where log files should be stored (default: c
+                        :\users\sebas\onedrive\dokumente\studium\master\thesis
+                        \opcua\dcsControllerServer\log)
 
 For more information contact sebastian.scholz@cern.ch
 ```
@@ -59,4 +84,4 @@ If you want to use a virtual channel on a Linux machine you have to may have to 
 
     $ sudo /usr/sbin/virtualcan.sh start
 
-It has happened that the USB port was not correctly reset after the Kvaser interface has been disconnected so that the connection to other USB devices could not be established. As a workaround a recommend rebooting the system.
+It has happened that the USB port was not correctly reset after the Kvaser interface has been disconnected so that the connection to other USB devices could not be established. As a workaround I recommend rebooting the system.
