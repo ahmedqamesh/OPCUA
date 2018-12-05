@@ -63,7 +63,8 @@ class libCANDLL(dllLoader.MyDll):
         'CANWriteDigital': [[ct.c_int32, ct.c_uint32]],
         # TODO: Include array
         'CANReadAnalog': [[ct.c_int32, ct.POINTER(ct.c_uint32),
-                           ct.POINTER(ct.c_uint32), ct.POINTER(ct.c_uint16)]],
+                           ct.POINTER(ct.c_uint32 * 4),
+                           ct.POINTER(ct.c_uint16)]],
         'CANWriteAnalog': [[ct.c_int32, ct.c_uint32 * 4, ct.c_uint16]],
         'CANRestart': [[ct.c_char_p, ct.c_int32]],
         'CANDeviceConnectState': [[ct.c_int32], ct.c_int32, _no_errcheck],

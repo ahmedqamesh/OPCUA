@@ -7,6 +7,7 @@ Created on Mon Jul 23 14:29:35 2018
 import analib
 import time
 import ctypes as ct
+import random
 
 
 @analib.wrapper.dll.CBFUNC
@@ -26,18 +27,40 @@ if __name__=='__main__':
         ch.setCallback(cbFunc)
         print(f'State: {ch.state}')
 
+        # Test CAN message writing
         print('Writing example CAN message ...')
         ch.write(0x42, [1, 2, 3, 4, 5, 6, 7])
 
+        # Test time
         s, m = ch.getTime()
         print(f'Time: {time.ctime(s + m / 1000000)}')
         print('Setting Time ...')
-        ch.setTime()
-        s, m = ch.getTime()
-        print(f'Time: {time.ctime(s + m / 1000000)}')
+        # ch.setTime()
+        # s, m = ch.getTime()
+        # print(f'Time: {time.ctime(s + m / 1000000)}')
 
+        # Test restarting
         # print('Restarting device ...')
         # analib.wrapper.restart(ch.ipAddress)
+
+        # Test digital input and output bits
+        print(f'Input bits: {ch.inputBits}')
+        print(f'Ouput bits: {ch.outputBits}')
+        # Setting output bits
+        val = random.randrange(16)
+        print(f'Setting output bits to {val}')
+        ch.outputBits = val
+        print(f'Ouput bits: {ch.outputBits}')
+
+        # Test measuring of power supply
+        print(f'Power supply: {ch.powerSupply} mV')
+
+        # Analog Inputs
+        print(f'Analog inputs in mV: {ch.analogInputs}')
+
+        # Analog outputs
+        print('Writing analog outputs')
+        ch.writeAnalog([100, 200, 300, 400])
 
         print('Reading messages ...')
         while True:

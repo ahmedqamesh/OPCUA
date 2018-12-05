@@ -1,10 +1,10 @@
 [FileInfo]
 CreatedBy=Sebastian Scholz
 Description=EDS for preliminary CAN Controller
-CreationTime=02:50PM
-CreationDate=07-16-2018
-ModificationTime=02:50PM
-ModificationDate=07-16-2018
+CreationTime=01:33PM
+CreationDate=11-20-2018
+ModificationTime=01:33PM
+ModificationDate=11-20-2018
 FileName=CANControllerForPSPPv1.eds
 FileVersion=1.0
 EDSVersion=4.0
@@ -205,6 +205,7 @@ ParameterName=Transmission Type
 ObjectType=0x7
 DataType=0x0005
 AccessType=rw
+DefaultValue=255
 PDOMapping=0
 
 [1800sub3]
@@ -268,6 +269,7 @@ ParameterName=Transmission Type
 ObjectType=0x7
 DataType=0x0005
 AccessType=rw
+DefaultValue=255
 PDOMapping=0
 
 [1801sub3]

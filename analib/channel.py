@@ -146,7 +146,7 @@ class Channel(object):
 
         The high speed mode was created for large baud rates with continuously
         high bus load. In this mode telegrams are not confirmed on the protocol
-        layer and the software filters defined via CANSetFilter are ignored.
+        layer and the software filters defined via `CANSetFilter`_ are ignored.
     timeStampOn : :obj:`bool`, optional
         Use time stamp mode. This setting is not supported by all AnaGate |CAN|
         models.
@@ -190,6 +190,11 @@ class Channel(object):
         self.__highSpeedMode = ct.c_int32(int(highSpeedMode))
         self.__timeStampOn = ct.c_int32(int(timeStampOn))
         self.__maxSizePerQueue = ct.c_uint32(maxSizePerQueue)
+        self.__inputBits = ct.c_uint32()
+        self.__outputBits = ct.c_uint32()
+        self.__powerSupply = ct.c_uint32()
+        self.__inputCount = ct.c_uint16(4)
+        self.__analogInputs = (ct.c_uint32 * 4)()
 
         # Establish connection with Anagate partner and set configuration
         self._openDevice(ipAddress, port, confirm, ind, timeout)
@@ -397,6 +402,46 @@ class Channel(object):
     def deviceOpen(self):
         """:obj:`bool` : If the Access handle is valid"""
         return self.__deviceOpen
+
+    @property
+    def inputBits(self):
+        """:obj:`int` : Current value of the digital input register. Currently
+        only bits 0 to 3 are used; the remaining bits are reserved for future
+        use and are set to 0 (internally this is :class:`~ctypes.c_uint32`)."""
+        self._readDigital()
+        return self.__inputBits.value
+
+    @property
+    def outputBits(self):
+        """:obj:`int` : Current value of the digital output register. Currently
+        only bits 0 to 3 are used; the remaining bits are reserved for future
+        use and are set to 0 (internally this is :class:`~ctypes.c_uint32`)."""
+        self._readDigital()
+        return self.__outputBits.value
+
+    @outputBits.setter
+    def outputBits(self, val):
+        self.__outputBits.value = val
+        self._writeDigital()
+
+    @property
+    def powerSupply(self):
+        """:obj:`int` : Current supply voltage in millivolt"""
+        self._readAnalog()
+        return self.__powerSupply.value
+
+    @property
+    def inputCount(self):
+        """:obj:`int` : Number of analog inputs of the device"""
+        self._readAnalog()
+        return self.__inputCount.value
+
+    @property
+    def analogInputs(self):
+        """:obj:`list` of :obj:`int` : Array of variables to which the current
+        analog input values in millivolt are saved."""
+        self._readAnalog()
+        return list(self.__analogInputs)
 
     def _openDevice(self, ipAddress='192.168.1.254', port=0, confirm=True,
                     ind=True, timeout=10000):
@@ -831,3 +876,71 @@ class Channel(object):
         """
         with self.__lock:
             dll.CANSetCallback(self.__handle, callbackFunction)
+
+    def _readDigital(self):
+        """Reads the current values of digital input and output registers of
+        the AnaGate device.
+
+        All models of the AnaGate series (except the model AnaGate CAN uno in
+        DIN rail case) have connectors for 4 digital inputs and 4 digital
+        outputs at the rear panel. The AnaGate CAN uno in DIN rail case has
+        connectors for 2 digital inputs and 2 digital outputs at the top side
+        instead.
+
+        The values are stored in internal attributes and can be accessed via
+        their respective properties.
+        """
+        with self.__lock:
+            dll.CANReadDigital(self.__handle, ct.byref(self.__inputBits),
+                               ct.byref(self.__outputBits))
+
+    def _writeDigital(self):
+        """Writes a new value to the digital output register of the AnaGate
+        device.
+
+        All models of the AnaGate series (except the model AnaGate CAN uno in
+        DIN rail case) have connectors for 4 digital inputs and 4 digital
+        outputs at the rear panel. The AnaGate CAN uno in DIN rail case has
+        connectors for 2 digital inputs and 2 digital outputs at the top side
+        instead.
+        """
+        with self.__lock:
+            dll.CANWriteDigital(self.__handle, self.__outputBits)
+
+    def _readAnalog(self):
+        """Reads the current values of analog inputs of the AnaGate device.
+
+        The AnaGate CAN X series models have connectors for 4 analog inputs and
+        4 analog outputs at the top side.
+
+        The current values of the analog inputs and the current supply voltage
+        can be retrieved with this function.
+
+        The values are saved in internal attributes and can be accessed via
+        the respective properties.
+        """
+        with self.__lock:
+            dll.CANReadAnalog(self.__handle, ct.byref(self.__powerSupply),
+                              self.__analogInputs, ct.byref(self.__inputCount))
+
+    def writeAnalog(self, analogOutputs):
+        """Writes new values to the analog outputs of the AnaGate device.
+
+        The AnaGate CAN X series models have connectors for 4 analog inputs and
+        4 analog outputs at the top side.
+
+        The analog outputs can be written with this function. The upper output
+        voltage is limited by the supply voltage of the AnaGate device. The
+        current value of the supply voltage can be read with the
+        :meth:`_readAnalog` function.
+
+        Parameters
+        ----------
+        analogOutputs : :obj:`list` of :obj:`int`
+            Array of 4 new analog output values in millivolt.
+        """
+        outputCount = len(analogOutputs)
+        with self.__lock:
+            dll.CANWriteAnalog(self.__handle,
+                               (ct.c_uint32 * outputCount)(*analogOutputs),
+                               ct.c_uint16(outputCount))
