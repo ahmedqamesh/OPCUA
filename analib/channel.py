@@ -524,6 +524,7 @@ class Channel(object):
         closed and the error is ignored.
         """
         try:
+            self.setCallback(ct.cast(None, dll.CBFUNC))
             self._closeDevice()
         except DllException:
             pass

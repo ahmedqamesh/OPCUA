@@ -281,7 +281,7 @@ class DCSControllerServer(object):
             self.logger.warning('Received Ctrl+C event (KeyboardInterrupt).')
         else:
             self.logger.exception(exception_value)
-        self.__ch.setCallback(ct.cast(None, analib.wrapper.dll.CBFUNC))
+        # self.__ch.setCallback(ct.cast(None, analib.wrapper.dll.CBFUNC))
         self.stop()
         self.__fh.close()
         self.__fh_opcua.close()

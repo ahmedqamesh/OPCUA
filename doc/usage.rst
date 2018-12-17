@@ -56,7 +56,7 @@ It is very easy to connect to AnaGate |CAN| interfaces using the :class:`~analib
 
 Using callback functions
 ^^^^^^^^^^^^^^^^^^^^^^^^
-It is quite easy to define a callback function for incoming CAN messages. Once defined it can be easily applied using the the :meth:`~analib.channel.Channel.setCallback` method. To deactivate a callback function it is neccessary to create a NULL pointer with the :func:`~ctypes.cast` function. For documentation of the arguments please refer to :func:`analib.channel.cbFunc`. An example code is given below::
+It is quite easy to define a callback function for incoming CAN messages. Once defined it can be easily applied using the the :meth:`~analib.channel.Channel.setCallback` method. To deactivate a callback function it is neccessary to create a NULL pointer with the :func:`~ctypes.cast` function. This is done automatically when the :class:`~analib.channel.Channel` is :meth:`closed <analib.channel.Channel.close>`. For documentation of the arguments please refer to :func:`analib.channel.cbFunc`. An example code is given below::
 
     import analib
     import ctypes as ct
@@ -72,12 +72,8 @@ It is quite easy to define a callback function for incoming CAN messages. Once d
     with analib.channel.Channel() as ch:
         # Activate the callback function
         ch.setCallback(analib.wrapper.dll.CBFUNC(cbFunc))
-        try:
-            while True:
-                # Do some more work here
-                pass
-        finally:
-            # Deactivate the callback function
-            ch.setCallback(ct.cast(None, analib.wrapper.dll.CBFUNC))
+        while True:
+            # Do some more work here
+            pass
 
 Note that the arguments of the callback function are passed as Python build-in types except for the data bytes which come as a :class:`~ctypes.c_char` :func:`~ctypes.POINTER` and needs to be converted to a :class:`bytes` object first using the :func:`~ctypes.string_at` function. It is not possible to define :class:`~ctypes.c_char_p` as argument type instead because it behaves differently and interprets bytes containing zero as terminating the byte sequence.
