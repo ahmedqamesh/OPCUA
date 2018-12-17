@@ -56,11 +56,8 @@ def cbFunc(cobid, data, dlc, flags, handle):
         with analib.channel.Channel() as ch:
             cb = analib.wrapper.dll.CBFUNC(cbFunc)
             ch.setCallback(cb)
-            try:
-                while True:
-                    pass
-            finally:
-                ch.setCallback(ct.cast(None, analib.wrapper.dll.CBFUNC))
+            while True:
+                pass
     """
     data = ct.string_at(data, dlc)
     print('Calling callback function with the following arguments:')
