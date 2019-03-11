@@ -21,12 +21,12 @@ try:
     from . import CANopenConstants as coc
     from .CANopenConstants import sdoAbortCodes as SAC
     from .objectDictionary import objectDictionary as od
-    from .extend_logging import extend_logging, removeAllHandlers
+    from .extend_logging import extend_logging
 except (ModuleNotFoundError, ImportError):
     import CANopenConstants as coc
     from CANopenConstants import sdoAbortCodes as SAC
     from objectDictionary import objectDictionary as od
-    from extend_logging import extend_logging, removeAllHandlers
+    from extend_logging import extend_logging
 
 
 PSPP_MAX_VALUES = [256, 256, 4, 256, 4, 4, 256, 8, 256, 4, 8, 256, 256]
@@ -118,8 +118,7 @@ class CANopenDCSController(object):
         if isinstance(exception_value, KeyboardInterrupt):
             self.logger.warning('Received Ctrl+C event (KeyboardInterrupt).')
         self.closeConnection()
-        removeAllHandlers(self.logger)
-        removeAllHandlers(self.canLogger)
+        logging.shutdown()
         if isinstance(exception_value, KeyboardInterrupt):
             return True
 
@@ -315,15 +314,15 @@ class CANopenDCSController(object):
                 raise ChipNotConnectedError
             # Register values
             if subindex in range(0x10, 0x1D):
-                # sleep(0.001)
+                sleep(0.001)
                 return rdm.randrange(PSPP_MAX_VALUES[subindex - 0x10])
             # ADC channels
             if subindex in range(0x20, 0x28):
-                # sleep(0.001)
+                sleep(0.001)
                 return (subindex - 0x20) * 128 + rdm.randrange(64)
             # Monitoring data
             if subindex == 1:
-                # sleep(0.005)
+                sleep(0.005)
                 t = (2**9 + rdm.randrange(2**5)) << 20
                 v1 = (2**9 + rdm.randrange(2**5)) << 10
                 v2 = 2**9 + rdm.randrange(2**5)

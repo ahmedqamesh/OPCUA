@@ -44,14 +44,14 @@ try:
     from .objectDictionary import objectDictionary
     from . import CANopenConstants as coc
     from .mirrorClasses import MyDCSController
-    from .extend_logging import extend_logging, removeAllHandlers
+    from .extend_logging import extend_logging
     from .__version__ import __version__
 except (ImportError, ModuleNotFoundError):
     from __version__ import __version__
     from objectDictionary import objectDictionary
     import CANopenConstants as coc
     from mirrorClasses import MyDCSController
-    from extend_logging import extend_logging, removeAllHandlers
+    from extend_logging import extend_logging
 
 
 scrdir = os.path.dirname(os.path.abspath(__file__))
@@ -283,10 +283,7 @@ class DCSControllerServer(object):
             self.logger.exception(exception_value)
         # self.__ch.setCallback(ct.cast(None, analib.wrapper.dll.CBFUNC))
         self.stop()
-        self.__fh.close()
-        self.__fh_opcua.close()
-        removeAllHandlers(self.logger)
-        removeAllHandlers(self.opcua_logger)
+        logging.shutdown()
         return True
 
     @property
@@ -770,7 +767,10 @@ class DCSControllerServer(object):
             return None
         # Check command byte
         if ret[0] == 0x80:
-            self.logger.error('Received SDO abort message')
+            abort_code = int.from_bytes(ret[4:], 'little')
+            self.logger.error(f'Received SDO abort message while reading '
+                              f'object {index:04X}:{subindex:02X} of node '
+                              f'{nodeId} with abort code {abort_code:08X}')
             self.cnt['SDO read abort'] += 1
             return None
         nDatabytes = 4 - ((ret[0] >> 2) & 0b11)
@@ -853,8 +853,9 @@ class DCSControllerServer(object):
         # Analyse the response
         if ret[0] == 0x80:
             abort_code = int.from_bytes(ret[4:], 'little')
-            self.logger.error('Got SDO abort message. Abort code: '
-                              f'{abort_code:08X}')
+            self.logger.error(f'Received SDO abort message while writing '
+                              f'object {index:04X}:{subindex:02X} of node '
+                              f'{nodeId} with abort code {abort_code:08X}')
             self.cnt['SDO write abort'] += 1
             return False
         else:
