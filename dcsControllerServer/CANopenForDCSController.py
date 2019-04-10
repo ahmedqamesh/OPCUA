@@ -83,7 +83,10 @@ class CANopenDCSController(object):
         fp = os.path.join(scrdir, 'CANControllerForPSPPv1.eds')
         self.__od = od.from_eds(self.logger, fp, 42, True)
         for scb in range(4):
-            val = rdm.randrange(2**16)
+            val = 0
+            if scb == 0:
+                val = 0b11
+            # val = rdm.randrange(2**16)
             self.logger.notice(f'Connected PSPPs on SCB {scb}: {val:016b}')
             self.__od[0x2000][1 + scb].value = val
             states = [bool(int(x)) for x in f'{val:016b}'[::-1]]
@@ -586,5 +589,5 @@ def main():
 
 if __name__ == '__main__':
 
-    with CANopenDCSController(loglevel=logging.NOTICE) as codc:
+    with CANopenDCSController(loglevel=logging.NOTICE, nodeId=8) as codc:
         codc.mainloop()

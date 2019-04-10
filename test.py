@@ -72,14 +72,15 @@ if __name__=='__main__':
         ch.writeAnalog([100, 200, 300, 400])
         
         logger.info('Writing messages ...')
+        nodeId = 0
         for i in [x.to_bytes(8, 'little') for x in range(0x100)]:
             ch.write(0x700, i)
             # time.sleep(0.04)
-            ch.write(0x600, [0x40, 0x00, 0x10, 0x00, 0, 0, 0, 0])
-            ch.write(0x600, [0x40, 0x00, 0x18, 0x01, 0, 0, 0, 0])
-        ch.write(0x600, [0x40, 0x00, 0x18, 0x01, 0, 0, 0, 0])
+            ch.write(0x600 + nodeId, [0x40, 0x00, 0x10, 0x00, 0, 0, 0, 0])
+            ch.write(0x600 + nodeId, [0x40, 0x00, 0x18, 0x01, 0, 0, 0, 0])
+        ch.write(0x600 + nodeId, [0x40, 0x00, 0x18, 0x01, 0, 0, 0, 0])
         time.sleep(1)
-        ch.write(0x600, [0x40, 0x00, 0x18, 0x01, 0, 0, 0, 0])
+        ch.write(0x600 + nodeId, [0x40, 0x00, 0x18, 0x01, 0, 0, 0, 0])
 
         logger.info('Reading messages ...')
         while True:

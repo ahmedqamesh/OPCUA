@@ -22,6 +22,7 @@ start it manually with the following command::
 # Standard library modules
 import os
 import logging
+import re
 from logging.handlers import RotatingFileHandler
 # import random as rdm
 import time
@@ -30,6 +31,7 @@ from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from collections import deque, Counter
 from threading import Thread, Event, Lock
 import ctypes as ct
+from configparser import ConfigParser
 
 # Third party modules
 import coloredlogs as cl
@@ -260,7 +262,17 @@ class DCSControllerServer(object):
         """:class:`~.objectDictionary.objectDictionary` : The CANopen Object
         Dictionary (|OD|) for a |DCS| Controller"""
 
+        # Set connected PSPPs by reading configuration file
         self.__connectedPSPPs = {}
+        cf = ConfigParser()
+        cf.read(os.path.join(scrdir, 'ConnectedPSPPs.ini'))
+        for nodeid in cf.sections():
+            self.__connectedPSPPs[int(nodeid)] = [[], [], [], []]
+            for key in cf[nodeid]:
+                if re.match('scb[0-3]', key):
+                    scb = int(key[3])
+                    self.__connectedPSPPs[int(nodeid)][scb] = \
+                        [i for i in range(16) if int(cf[nodeid][key][i])]
 
     def __str__(self):
         if self.__interface == 'Kvaser':
@@ -476,7 +488,9 @@ class DCSControllerServer(object):
                 # Do this instead
                 for nodeId in self.__nodeIds:
                     self.mypyDCs[nodeId].Status = True
-                self.getConnectedPSPPs()
+                # self.getConnectedPSPPs()
+                # self.__connectedPSPPs = {8: [[0, 1, 2, 3, 4, 5, 6],
+                #                              [0, 1, 2, 3], [0, 1], []]}
                 self.logger.success('Initialization Done.')
                 self.run()
             except BusEmptyError as ex:
@@ -538,9 +552,9 @@ class DCSControllerServer(object):
                 # Loop over all SCB masters
                 for scb in range(4):
                     # Reread connected PSPPs in case the user has changed it
-                    val = self.mypyDCs[nodeId][scb].ConnectedPSPPs
-                    self.__connectedPSPPs[nodeId][scb] = \
-                        [i for i in range(16) if int(f'{val:016b}'[::-1][i])]
+                    # val = self.mypyDCs[nodeId][scb].ConnectedPSPPs
+                    # self.__connectedPSPPs[nodeId][scb] = \
+                    #     [i for i in range(16) if int(f'{val:016b}'[::-1][i])]
                     # Loop over all possible PSPPs
                     for pspp in self.__connectedPSPPs[nodeId][scb]:
                         PSPP = self.mypyDCs[nodeId][scb][pspp]
@@ -556,8 +570,8 @@ class DCSControllerServer(object):
                                 PSPP.MonitoringData.write(name)
                         # Read less often than monitoring values
                         if True:
-                            val = bool(self.sdoRead(nodeId, index, 2, 1000))
-                            PSPP.Status = val
+                            # val = bool(self.sdoRead(nodeId, index, 2, 1000))
+                            PSPP.Status = True
                             PSPP.serverWriting['Status'] = True
                             PSPP.write('Status')
                             # Loop over ADC channels
@@ -751,7 +765,7 @@ class DCSControllerServer(object):
                             self.__canMsgQueue):
                     messageValid = \
                         (cobid_ret == coc.COBID.SDO_TX + nodeId and
-                         ret[0] in [0x80, 0x43, 0x47, 0x4b, 0x4f] and
+                         ret[0] in [0x80, 0x43, 0x47, 0x4b, 0x4f, 0x42] and
                          int.from_bytes([ret[1], ret[2]], 'little') == index
                          and ret[3] == subindex and
                          dlc == 8)
@@ -773,7 +787,7 @@ class DCSControllerServer(object):
                               f'{nodeId} with abort code {abort_code:08X}')
             self.cnt['SDO read abort'] += 1
             return None
-        nDatabytes = 4 - ((ret[0] >> 2) & 0b11)
+        nDatabytes = 4 - ((ret[0] >> 2) & 0b11) if ret[0] != 0x42 else 4
         data = []
         for i in range(nDatabytes):
             data.append(ret[4 + i])
@@ -1027,4 +1041,5 @@ def main():
 
 if __name__ == '__main__':
 
-    main()
+    with DCSControllerServer() as server:
+        server.start()
