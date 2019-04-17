@@ -85,7 +85,13 @@ class CANopenDCSController(object):
         for scb in range(4):
             val = 0
             if scb == 0:
+                val = 0
+            elif scb == 1:
+                val = 0b1111
+            elif scb == 2:
                 val = 0b11
+            elif scb == 3:
+                val = 0
             # val = rdm.randrange(2**16)
             self.logger.notice(f'Connected PSPPs on SCB {scb}: {val:016b}')
             self.__od[0x2000][1 + scb].value = val

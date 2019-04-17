@@ -108,6 +108,9 @@ class DCSControllerServer(object):
     ipAddress : :obj:`str`, optional
         Network address of the AnaGate partner. Defaults to ``'192.168.1.254'``
         which is the factory default.
+    period : :obj:`int`, optional
+        Publishing interval for data subscription in milliseconds. Defaults to
+        100 ms.
 
     Example
     -------
@@ -132,8 +135,7 @@ class DCSControllerServer(object):
                  endpoint='opc.tcp://localhost:4840/',
                  file_loglevel=logging.INFO, logdir=None, channel=0,
                  bitrate=125000, xmlfile='dcscontrollerdesign.xml',
-                 ipAddress='192.168.1.254',
-                 nodes=[]):
+                 ipAddress='192.168.1.254', period=500):
 
         self.__isinit = False
         self.ret = None
@@ -180,6 +182,9 @@ class DCSControllerServer(object):
 
         # Initialize OPC server
         self.logger.notice('Configuring OPC UA server ...')
+        self.__period = period
+        """:obj:`int` : Internal attribute for the publishing interval of data 
+        subscriptions in millisceonds"""
         self.server = Server()
         """:doc:`opcua.Server<server>` : Handles the |OPCUA| server."""
         self.__isserver = False
@@ -242,7 +247,7 @@ class DCSControllerServer(object):
         self.logger.success('... Done!')
 
         # Scan nodes
-        self.__nodeIds = nodes
+        self.__nodeIds = []
         """:obj:`list` of :obj:`int` : Contains all |CAN| nodeIds currently
         present on the bus."""
         self.__myDCs = {}
@@ -263,16 +268,24 @@ class DCSControllerServer(object):
         Dictionary (|OD|) for a |DCS| Controller"""
 
         # Set connected PSPPs by reading configuration file
+        self.logger.notice('Read configuration file ...')
         self.__connectedPSPPs = {}
         cf = ConfigParser()
         cf.read(os.path.join(scrdir, 'ConnectedPSPPs.ini'))
+        if len(cf.sections()) == 0:
+            raise BusEmptyError('No sections found in configuration file!')
         for nodeid in cf.sections():
-            self.__connectedPSPPs[int(nodeid)] = [[], [], [], []]
+            nodeid_i = int(nodeid)
+            if nodeid_i not in range(1, 128):
+                raise ValueError(f'Found invalid node id: {nodeid_i}')
+            self.__nodeIds.append(nodeid_i)
+            self.__connectedPSPPs[nodeid_i] = [[], [], [], []]
             for key in cf[nodeid]:
                 if re.match('scb[0-3]', key):
                     scb = int(key[3])
-                    self.__connectedPSPPs[int(nodeid)][scb] = \
+                    self.__connectedPSPPs[nodeid_i][scb] = \
                         [i for i in range(16) if int(cf[nodeid][key][i])]
+        self.logger.success('... Done!')
 
     def __str__(self):
         if self.__interface == 'Kvaser':
@@ -420,6 +433,12 @@ class DCSControllerServer(object):
         attribute holding information about which |PSPP| chips are connected.
         """
         return self.__connectedPSPPs
+    
+    @property
+    def period(self):
+        """:obj:`int` : Publishing interval for data subscriptions in
+        milliseconds"""
+        return self.__period
 
     def _parseBitRate(self, bitrate):
         if self.__interface == 'Kvaser':
@@ -474,13 +493,24 @@ class DCSControllerServer(object):
                         self.logger.notice('Restarting AnaGate CAN interface.')
                         self.__ch.restart()
                         time.sleep(10)
-                self.scanNodes()
-                if len(self.__nodeIds) == 0:
-                    raise BusEmptyError('No CAN nodes found!')
+                self.confirmNodes()
+                # self.scanNodes()
+                self.createOpcUaObjects()
+                # if len(self.__nodeIds) == 0:
+                #     raise BusEmptyError('No CAN nodes found!')
                 self.logger.notice('Starting the server ...')
                 self.server.start()
                 self.__isserver = True
                 self.createMirroredObjects()
+                # Write information about connected PSPPs to mirrored objects
+                # and their corrresponding UA nodes
+                for nodeId in self.__nodeIds:
+                    for scb in range(4):
+                        val = 0
+                        for pspp in self.__connectedPSPPs[nodeId][scb]:
+                            val |= 1 << pspp
+                        self.__mypyDCs[nodeId][scb].ConnectedPSPPs = val
+                        self.__mypyDCs[nodeId][scb].write('ConnectedPSPPs')
                 time.sleep(1)
                 self.__isinit = True
                 # Do not do this if you have auto-detection of your PSPPs
@@ -488,10 +518,11 @@ class DCSControllerServer(object):
                 # Do this instead
                 for nodeId in self.__nodeIds:
                     self.mypyDCs[nodeId].Status = True
+                    self.mypyDCs[nodeId].write('Status')
                 # self.getConnectedPSPPs()
-                # self.__connectedPSPPs = {8: [[0, 1, 2, 3, 4, 5, 6],
-                #                              [0, 1, 2, 3], [0, 1], []]}
-                self.logger.success('Initialization Done.')
+                self.logger.success('Initialization Done, starting '
+                                    'communication.')
+                # time.sleep(10)
                 self.run()
             except BusEmptyError as ex:
                 self.__isinit = False
@@ -566,13 +597,11 @@ class DCSControllerServer(object):
                                     for i in range(3)]
                             for v, name in zip(vals, coc.PSPPMONVALS):
                                 PSPP.MonitoringData[name] = v
-                                PSPP.MonitoringData.serverWriting[name] = True
                                 PSPP.MonitoringData.write(name)
                         # Read less often than monitoring values
                         if True:
                             # val = bool(self.sdoRead(nodeId, index, 2, 1000))
                             PSPP.Status = True
-                            PSPP.serverWriting['Status'] = True
                             PSPP.write('Status')
                             # Loop over ADC channels
                             for ch in range(8):
@@ -580,8 +609,6 @@ class DCSControllerServer(object):
                                                    1000)
                                 if val is not None:
                                     PSPP.ADCChannels[ch] = val
-                                    PSPP.ADCChannels.serverWriting[f'Ch{ch}']=\
-                                        True
                                     PSPP.ADCChannels.write(f'Ch{ch}')
                             # Loop over registers
                             for name in coc.PSPP_REGISTERS:
@@ -590,10 +617,8 @@ class DCSControllerServer(object):
                                                    1000)
                                 if val is not None:
                                     PSPP.Regs[name] = val
-                                    PSPP.Regs.serverWriting[name] = True
                                     PSPP.Regs.write(name)
             count += 1
-            # time.sleep(60)
 
     def readCanMessages(self):
         """Read incoming |CAN| messages and store them in the queue
@@ -819,8 +844,8 @@ class DCSControllerServer(object):
         """
 
         # Create the request message
-        self.logger.notice(f'Send SDO write request to node {nodeId}.')
-        self.logger.notice(f'Writing value {value:X}')
+        self.logger.notice(f'Send SDO write request to node {nodeId}, object '
+                           f'{index:04X}:{subindex:X} with value {value:X}.')
         self.cnt['SDO write total'] += 1
         cobid = coc.COBID.SDO_RX + nodeId
         datasize = len(f'{value:X}') // 2 + 1
@@ -889,7 +914,6 @@ class DCSControllerServer(object):
                 while val is None:
                     val = self.sdoRead(nodeId, 0x2000, 1 + scb, 3000)
                 self.mypyDCs[nodeId][scb].ConnectedPSPPs = val
-                self.mypyDCs[nodeId][scb].serverWriting[attr] = True
                 self.mypyDCs[nodeId][scb].write(attr)
                 self.__connectedPSPPs[nodeId][scb] = \
                     [i for i in range(16) if int(f'{val:016b}'[::-1][i])]
@@ -924,8 +948,24 @@ class DCSControllerServer(object):
                 self.__nodeIds.remove(nodeId)
             else:
                 self.logger.success(f'Added node {nodeId}')
+        if len(self.__nodeIds) == 0:
+            raise BusEmptyError('No CAN nodes found!')
         self.logger.success('... Done!')
 
+    def confirmNodes(self, timeout=100):
+        self.logger.notice('Checking node connections ...')
+        for nodeId in self.__nodeIds:
+            dev_t = self.sdoRead(nodeId, 0x1000, 0, timeout)
+            if dev_t is None:
+                self.logger.error(f'Node {nodeId} did not answer!')
+                # self.__nodeIds.remove(nodeId)
+            else:
+                self.logger.info(f'Connection to node {nodeId} has been '
+                                 f'verified.')
+        self.logger.success('... Done!')
+    
+    def createOpcUaObjects(self):
+        """Populate OPC UA address space"""
         # Populate adress space
         self.logger.notice('Creating OPCUA Objects for every Controller on the'
                            ' bus ...')
@@ -935,7 +975,7 @@ class DCSControllerServer(object):
                 self.__objects.add_object(self.__idx, f'DCSController{n}',
                                           self.__dctni)
         self.logger.success('... Done!')
-
+        
     def createMirroredObjects(self):
         """Create mirror Classes for every UA object.
 
@@ -954,7 +994,8 @@ class DCSControllerServer(object):
         self.__mypyDCs = {}
         for i in self.__nodeIds:
             self.__myDCs[i].get_child(f'{self.__idx}:NodeId').set_value(i)
-            self.__mypyDCs[i] = MyDCSController(self, self.__myDCs[i], i)
+            self.__mypyDCs[i] = MyDCSController(self, self.__myDCs[i], i,
+                                                self.__period)
         self.logger.success('... Done!')
 
 
@@ -986,6 +1027,10 @@ def main():
                         default=os.path.join(scrdir,
                                              'dcscontrollerdesign.xml'),
                         help='File path of OPCUA XML design file')
+    sGroup.add_argument('-p', '--period', metavar='PERIOD', type=int,
+                        default=500,
+                        help='Publishing interval for data subscriptions in '
+                        'millisseconds')
 
     # CAN interface
     CGroup = parser.add_argument_group('CAN interface')

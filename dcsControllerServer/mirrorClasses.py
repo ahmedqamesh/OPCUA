@@ -4,9 +4,8 @@
 This module provides classes that are used to mirror an |OPCUA| address space.
 
 The main 'magic' (parsing between |OPCUA| nodes, the mirrored objects and the
-CANopen_ communication) happens inside descriptors. There are two descriptor
-classes which only differ in details because there is one for an unsigned
-integer (which is the predominant data type) and one for a boolean.
+CANopen_ communication) happens inside the classes in this module. Each
+object/node has a data subscription which handles most of the data exchange.
 
 :Author: Sebastian Scholz
 :Contact: sebastian.scholz@cern.ch
@@ -25,44 +24,82 @@ except (ModuleNotFoundError, ImportError):
     import CANopenConstants as coc
 
 
+PERIOD_DEFAULT = 500
+""":obj:`int` : Default OPC UA publish interval in milliseconds"""
+
 class SubHandler(object):
     """
     Subscription Handler. To receive events from server for a subscription.
     The handler forwards updates to it's referenced python object.
+    
+    Parameters
+    ----------
+    obj : Child class of :class:`~UaObject`
+        The mirror class of this subscription handler. This is needed for 
+        reference to its value and the server.
     """
 
     def __init__(self, obj):
         self.obj = obj
 
     def datachange_notification(self, node, val, data):
-        """Write incoming value from the server to mirrored object
+        """Handle data change events coming from the server.
+        
+        In particular this function handles all writing.
 
-        This method passes the value to the respective descriptor which handles
-        the actual writing.
+        Parameters
+        ----------
+        node : :class:`~opcua.common.node.Node`
+            The UA node where the value change has happened
+        val
+            New value of the node. In most cases this will be an unsigned
+            :obj:`int`.
+        data : :class:`opcua.common.subscription.DataChangeNotif`
+            Contains detailed information about the subscription data and the
+            monitored item.
         """
-
+        # Check for valid data change
         if val is None or not self.obj.server.isinit:
             return
-
-        _node_name = node.get_browse_name()
         display_name = node.get_display_name().to_string()
-        if self.obj.serverWriting[display_name]:
-            self.obj.serverWriting[display_name] = False
+        mirrorval = eval(f'self.obj.{display_name}')
+        # Check if data change originates from server or client
+        if val == mirrorval:
             return
+        nodeval = node.get_value()
+        # The following check prevents problems which occur when you write the
+        # same node too frequently
+        if val != nodeval:
+            if nodeval == mirrorval:
+                node.set_value(val)
+            return
+        # Count the data change event
         self.obj.server.cnt['Datachange events'] += 1
+        # Prepare |SDO| writing based on object type
         if type(self.obj) is MyRegs:
             index = 0x2200 | (self.obj.n_scb << 4) | self.obj.n_pspp
             subindex = 0x10 | coc.PSPP_REGISTERS[display_name]
+            if val not in range(256):
+                raise ValueError(f'Error in data change: Trying to write '
+                                 f'register {index:04X}:{subindex:X} with '
+                                 f'value {val:X}.')
             if self.obj.server.od[index][subindex].attribute == coc.ATTR.RO:
                 return
         elif type(self.obj) is MySCBMaster:
             index = 0x2000
             subindex = 1 + self.obj.n_scb
+            if val not in range(2**16):
+                raise ValueError(f'Error in data change: Trying to write '
+                                 f'register {index:04X}:{subindex:X} with '
+                                 f'value {val:X}.')
         else:
             return
+        # Write value to hardware and set it to UA node and python object
         if self.obj.server.sdoWrite(self.obj.nodeId, index, subindex, val):
-            setattr(self.obj, _node_name.Name,
-                    data.monitored_item.Value.Value.Value)
+            exec(f'self.obj.{display_name} = {val}')
+            node.set_value(val)
+            # setattr(self.obj, _node_name.Name,
+            #         data.monitored_item.Value.Value.Value)
 
 
 class UaObject(object):
@@ -73,11 +110,6 @@ class UaObject(object):
     with UA server. Python can write to children via write method, which will
     trigger an update for UA clients.
 
-    This class redefines the :meth:`object.__getattribute__` and
-    :meth:`object.__setattr__` methods so that :any:`descriptors<descriptors>`
-    work with instance attributes. This is necessary because in order to mirror
-    the address space correctly the attributes have to be instance attributes.
-
     Parameters
     ----------
     master : :class:`~.dcsControllerServer.DCSControllerServer`
@@ -86,13 +118,10 @@ class UaObject(object):
     ua_node
         The python respresentation of the corresponding |OPCUA| node
     period : :obj:`int`, optional
-        Publish interval for |OPCUA| data subscription in milliseconds. Most
-        subscriptions use 500 ms whereas here a default value of 100 ms is used
-        in order to ensure that changes made by the user are applied as fast as
-        possible.
+        Publish interval for |OPCUA| data subscription in milliseconds.
     """
 
-    def __init__(self, master, ua_node, period=100):
+    def __init__(self, master, ua_node, period=PERIOD_DEFAULT):
         self.ua_node = ua_node
         """The python respresentation of the corresponding |OPCUA| node"""
         self.logger = master.logger
@@ -125,7 +154,7 @@ class UaObject(object):
         # subscribe to properties/variables
         handler = SubHandler(self)
         sub = self.server.create_subscription(period, handler)
-        sub.subscribe_data_change(sub_children)
+        sub.subscribe_data_change(sub_children, queuesize=0)
 
     def write(self, attr=None):
         """Write value of mirrored object to |OPCUA| node.
@@ -153,22 +182,6 @@ class UaObject(object):
     def __str__(self):
         return f'Mirror class of node {self.d_name}.'
 
-    def __getattribute__(self, name):
-        attr = super().__getattribute__(name)
-        if hasattr(attr, '__get__'):
-            return attr.__get__(self, self.__class__)
-        return attr
-
-    def __setattr__(self, name, value):
-        try:
-            obj = object.__getattribute__(self, name)
-        except AttributeError:
-            pass
-        else:
-            if hasattr(obj, '__set__'):
-                return obj.__set__(self, value)
-        return object.__setattr__(self, name, value)
-
 
 class MyPSPPADCChannels(UaObject):
     """
@@ -176,8 +189,9 @@ class MyPSPPADCChannels(UaObject):
     python. This class mirrors it's UA counterpart and semi-configures itself
     according to the UA model (generally from |XML|).
 
-    This class mirrors all 13 |PSPP| registers. Each has a length of one byte.
-    The instance attributes are created dynamically to decrease verbosity.
+    This class mirrors all 8 |PSPP| |ADC| channels. Each has a length of 10 
+    bits. The instance attributes are created dynamically to decrease 
+    verbosity.
 
     Parameters
     ----------
@@ -194,7 +208,8 @@ class MyPSPPADCChannels(UaObject):
         Chip address of the parent |PSPP| in the serial power chain
     """
 
-    def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
+    def __init__(self, master, ua_node, nodeId, n_scb, n_pspp, 
+                 period=PERIOD_DEFAULT):
 
         # properties and variables; must mirror UA model (based on browsename!)
         for ch in range(8):
@@ -202,7 +217,7 @@ class MyPSPPADCChannels(UaObject):
 
         # init the UaObject super class to connect the python object to the UA
         # object.
-        super().__init__(master, ua_node)
+        super().__init__(master, ua_node, period)
 
         self.server = master
         """:class:`~.dcsControllerServer.DCSControllerServer` : The master
@@ -214,9 +229,6 @@ class MyPSPPADCChannels(UaObject):
         self.n_pspp = n_pspp
         """:obj:`int` : Chip address of the parent |PSPP| in the serial power
         chain"""
-        self.serverWriting = {f'"Ch{ch}"': False for ch in range(8)}
-        """:obj:`dict` : Internal status attribute describing if the server is
-        currently writing to the children of this instance"""
         self.__i = 0
 
     def __getitem__(self, ch):
@@ -260,7 +272,8 @@ class MyMonitoringData(UaObject):
         Chip address of the |PSPP| in the serial power chain
     """
 
-    def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
+    def __init__(self, master, ua_node, nodeId, n_scb, n_pspp,
+                 period=PERIOD_DEFAULT):
 
         # properties and variables; must mirror UA model (based on browsename!)
         self.Temperature = None
@@ -272,7 +285,7 @@ class MyMonitoringData(UaObject):
 
         # init the UaObject super class to connect the python object to the UA
         # object.
-        super().__init__(master, ua_node)
+        super().__init__(master, ua_node, period)
 
         self.server = master
         """:class:`~.dcsControllerServer.DCSControllerServer` : The master
@@ -284,9 +297,6 @@ class MyMonitoringData(UaObject):
         self.n_pspp = n_pspp
         """:obj:`int` : Chip address of the parent |PSPP| in the serial power
         chain"""
-        self.serverWriting = {name: False for name in coc.PSPPMONVALS}
-        """:obj:`dict` : Internal status attribute describing if the server is
-        currently writing to the children of this instance"""
         self.__i = 0
 
     def __getitem__(self, key):
@@ -330,7 +340,8 @@ class MyRegs(UaObject):
         Chip address of the parent |PSPP| in the serial power chain
     """
 
-    def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
+    def __init__(self, master, ua_node, nodeId, n_scb, n_pspp,
+                 period=PERIOD_DEFAULT):
 
         # properties and variables; must mirror UA model (based on browsename!)
         for name in coc.PSPP_REGISTERS.keys():
@@ -338,7 +349,7 @@ class MyRegs(UaObject):
 
         # init the UaObject super class to connect the python object to the UA
         # object.
-        super().__init__(master, ua_node)
+        super().__init__(master, ua_node, period)
 
         self.server = master
         """:class:`~.dcsControllerServer.DCSControllerServer` : The master
@@ -350,9 +361,6 @@ class MyRegs(UaObject):
         self.n_pspp = n_pspp
         """:obj:`int` : Chip address of the parent |PSPP| in the serial power
         chain"""
-        self.serverWriting = {name: False for name in coc.PSPP_REGISTERS}
-        """:obj:`dict` : Internal status attribute describing if the server is
-        currently writing to the children of this instance"""
         self.__i = 0
 
     def __getitem__(self, key):
@@ -402,7 +410,8 @@ class MyPSPP(UaObject):
         Chip address of this |PSPP| in the serial power chain
     """
 
-    def __init__(self, master, ua_node, nodeId, n_scb, n_pspp):
+    def __init__(self, master, ua_node, nodeId, n_scb, n_pspp, 
+                 period=PERIOD_DEFAULT):
 
         # properties and variables; must mirror UA model (based on browsename!)
         self.Status = False
@@ -411,21 +420,21 @@ class MyPSPP(UaObject):
         self.ADCChannels = \
             MyPSPPADCChannels(master,
                               ua_node.get_child(f'{master.idx}:ADCChannels'),
-                              nodeId, n_scb, n_pspp=n_pspp)
+                              nodeId, n_scb, n_pspp=n_pspp, period=period)
         """:class:`MyPSPPADCChannels` : Mirror a folder for |ADC| channels"""
         self.MonitoringData = \
             MyMonitoringData(master,
                              ua_node.get_child(f'{master.idx}:MonitoringData'),
-                             nodeId, n_scb, n_pspp=n_pspp)
+                             nodeId, n_scb, n_pspp=n_pspp, period=period)
         """:class:`MyMonitoringData` : Mirroring a folder for monitoring
         data"""
         self.Regs = MyRegs(master, ua_node.get_child(f'{master.idx}:Regs'),
-                           nodeId, n_scb, n_pspp=n_pspp)
+                           nodeId, n_scb, n_pspp=n_pspp, period=period)
         """:class:`MyRegs` : Mirroring a folder for the |PSPP| registers"""
 
         # init the UaObject super class to connect the python object to the UA
         # object.
-        super().__init__(master, ua_node)
+        super().__init__(master, ua_node, period)
 
         self.server = master
         """:class:`~.dcsControllerServer.DCSControllerServer` : The master
@@ -437,9 +446,6 @@ class MyPSPP(UaObject):
         self.n_pspp = n_pspp
         """:obj:`int` : Chip address of this |PSPP| in the serial power
         chain"""
-        self.serverWriting = {'Status': False}
-        """:obj:`dict` : Internal status attribute describing if the server is
-        currently writing to the children of this instance"""
 
 
 class MySCBMaster(UaObject):
@@ -464,7 +470,7 @@ class MySCBMaster(UaObject):
         Number of this |SCB| master
     """
 
-    def __init__(self, master, ua_node, nodeId, n_scb):
+    def __init__(self, master, ua_node, nodeId, n_scb, period=PERIOD_DEFAULT):
 
         # properties and variables; must mirror UA model (based on browsename!)
         self.ConnectedPSPPs = 0
@@ -472,10 +478,10 @@ class MySCBMaster(UaObject):
         are connected to this |SCB| master."""
         for i in range(16):
             exec(f"self.PSPP{i} = MyPSPP(master, ua_node.get_child('"
-                 f"{master.idx}:PSPP{i}'), nodeId, n_scb, i)")
+                 f"{master.idx}:PSPP{i}'), nodeId, n_scb, i, period)")
         # init the UaObject super class to connect the python object to the UA
         # object.
-        super().__init__(master, ua_node)
+        super().__init__(master, ua_node, period)
 
         self.isinit = False
         """:obj:`bool`: If the :attr:`ConnectedPSPPs` attribute has been set
@@ -487,9 +493,6 @@ class MySCBMaster(UaObject):
         server providing |CAN| communication and |OPCUA| functionality"""
         self.nodeId = nodeId
         """:obj:`int` : |CAN| node id of the parent |DCS| Controller"""
-        self.serverWriting = {'ConnectedPSPPs': False}
-        """:obj:`dict` : Internal status attribute describing if the server is
-        currently writing to the children of this instance"""
         self.__i = 0
 
     def __getitem__(self, key):
@@ -529,7 +532,7 @@ class MyDCSController(UaObject):
         |CAN| node id of this |DCS| Controller
     """
 
-    def __init__(self, master, ua_node, nodeId):
+    def __init__(self, master, ua_node, nodeId, period=PERIOD_DEFAULT):
 
         # properties and variables; must mirror UA model (based on browsename!)
         self.Status = True
@@ -538,11 +541,12 @@ class MyDCSController(UaObject):
         """:obj:`int` : |CAN| node id of this |DCS| Controller"""
         for i in range(4):
             exec(f"self.SCB{i} = MySCBMaster(master, "
-                 f"ua_node.get_child('{master.idx}:SCB{i}'), nodeId, i)")
+                 f"ua_node.get_child('{master.idx}:SCB{i}'), nodeId, i,"
+                 f" period)")
 
         # init the UaObject super class to connect the python object to the UA
         # object.
-        super().__init__(master, ua_node)
+        super().__init__(master, ua_node, period)
 
         self.isinit = True
         """:obj:`bool` : If the Controller has been initialized"""

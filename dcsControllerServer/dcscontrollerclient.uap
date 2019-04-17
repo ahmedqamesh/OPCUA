@@ -1,6 +1,6 @@
 [Servers]
-0\Name=
-0\Connected=false
+0\Name=DCSController
+0\Connected=true
 0\ProjectServerId=0
 0\ServerUrl=opc.tcp://localhost:4840/
 0\Server.ApplicationUri=
@@ -17,7 +17,7 @@
 0\NoOfUserIdentityTokens=0
 0\TransportProfileUri=
 0\SecurityLevel=0
-0\DisplayName=
+0\DisplayName=DCSController
 0\UserTokenType=0
 0\SessionName=
 0\DiscoveryHost=
@@ -28,6 +28,8 @@
 0\Namespaces\0=http://opcfoundation.org/UA/
 0\Namespaces\1=urn:freeopcua:python:server
 0\Namespaces\2=http://yourorganisation.org/DCSControllerDesign/
+0\ReverseConnect=false
+0\ClientEndpointUrl=
 
 [Documents]
 Data%20Access%20View\DocumentType=Data Access View
@@ -38,14 +40,32 @@ Data%20Access%20View\DocumentSettings\SubscriptionSettings\maxKeepAliveCount=10
 Data%20Access%20View\DocumentSettings\SubscriptionSettings\maxNotificationsPerPublish=0
 Data%20Access%20View\DocumentSettings\SubscriptionSettings\priority=0
 Data%20Access%20View\DocumentSettings\SubscriptionSettings\publishingEnabled=true
+Data%20Access%20View\DocumentSettings\Items\000\003\DisplayName=Temperature
+Data%20Access%20View\DocumentSettings\Items\000\003\NodeId="ns=2;i=8484"
+Data%20Access%20View\DocumentSettings\Items\000\003\Status=2
+Data%20Access%20View\DocumentSettings\Items\000\003\MonitoringMode=2
+Data%20Access%20View\DocumentSettings\Items\000\003\MonitoringParameters\DiscardOldest=1
+Data%20Access%20View\DocumentSettings\Items\000\003\MonitoringParameters\QueueSize=1
+Data%20Access%20View\DocumentSettings\Items\000\003\MonitoringParameters\SamplingInterval=500
+Data%20Access%20View\DocumentSettings\Items\000\005\DisplayName=Voltage1
+Data%20Access%20View\DocumentSettings\Items\000\005\NodeId="ns=2;i=8485"
+Data%20Access%20View\DocumentSettings\Items\000\005\Status=2
+Data%20Access%20View\DocumentSettings\Items\000\005\MonitoringMode=2
+Data%20Access%20View\DocumentSettings\Items\000\005\MonitoringParameters\DiscardOldest=1
+Data%20Access%20View\DocumentSettings\Items\000\005\MonitoringParameters\QueueSize=1
+Data%20Access%20View\DocumentSettings\Items\000\005\MonitoringParameters\SamplingInterval=500
+Data%20Access%20View\DocumentSettings\Items\000\007\DisplayName=Voltage2
+Data%20Access%20View\DocumentSettings\Items\000\007\NodeId="ns=2;i=8486"
+Data%20Access%20View\DocumentSettings\Items\000\007\Status=2
+Data%20Access%20View\DocumentSettings\Items\000\007\MonitoringMode=2
+Data%20Access%20View\DocumentSettings\Items\000\007\MonitoringParameters\DiscardOldest=1
+Data%20Access%20View\DocumentSettings\Items\000\007\MonitoringParameters\QueueSize=1
+Data%20Access%20View\DocumentSettings\Items\000\007\MonitoringParameters\SamplingInterval=500
 
-[UA%20Devices%20Plugin]
-PluginActivated=false
-
-[UA%20Attribute%20Plugin]
+[Attribute%20Plugin]
 Act_OnOff_Checked=true
 
-[UA%20Reference%20Plugin]
+[Reference%20Plugin]
 Act_OnOff_Checked=true
 Act_ShowHierarchical_Checked=true
 Act_ShowNonHierarchical_Checked=true
