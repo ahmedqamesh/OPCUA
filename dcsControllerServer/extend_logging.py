@@ -65,15 +65,15 @@ def removeAllHandlers(logger):
 
 
 if __name__ == '__main__':
-    import logging
     import verboselogs
 
     extend_logging()
     verboselogs.install()
 
-    logger = logging.getLogger(__name__)
+    logger = verboselogs.VerboseLogger(__name__)
 
-    cl.install(isatty=True)
+    cl.install(fmt='%(asctime)s %(levelname)-8s %(message)s', 
+               level='DEBUG', isatty=True, milliseconds=True)
 
     logger.notice('This is a notice.')
     logger.success('This was a success.')

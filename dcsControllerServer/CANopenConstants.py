@@ -9,6 +9,8 @@ specification [CiA301]_.
 :Contact: sebastian.scholz@cern.ch
 :Organization: Bergische Universität Wuppertal
 """
+from math import inf
+
 # Third party modules
 from aenum import IntEnum
 from canlib import canlib
@@ -23,7 +25,7 @@ PSPP_REGISTERS = {'ChipID1': 0, 'ChipID2': 1, 'ADCR1': 2, 'ADCR2': 3, 'DIN': 4,
                   'DIN': 4, 'DOUT': 5, 'Bypass': 6, 'ADCmux': 7, 'ADCL1': 8,
                   'ADCL2': 9, 'Control': 10, 'BGHI': 11, 'BGLO': 12}
 """:obj:`dict` : Keys are |PSPP| register names and values are their number."""
-PSPPMONVALS = {'Temperature': 0, 'Voltage1': 1, 'Voltage2': 2}
+PSPPMONVALS = {'Temperature1': 0, 'Temperature2': 1, 'Voltage': 2}
 """:obj:`dict` : Keys are names of monitoring values and values are their
 relative position."""
 
@@ -119,6 +121,17 @@ class VARTYPE(IntEnum):
     PDO_MAPPING = 0x21
     SDO_PARAMETER = 0x22
     IDENTITY = 0x23
+    
+
+def LIMITS(vartype, minimum, maximum):
+    if vartype is None:
+        return None, None
+    retmin = -inf if minimum is None else minimum
+    retmax = inf if maximum is None else maximum
+    if vartype.name.startswith('UNSIGNED'):
+        retmin = max(0, retmin)
+        retmax = min(2**(int(vartype.name.strip('UNSIGNED'))) - 1, retmax)
+    return retmin, retmax
 
 
 class ENTRYTYPE(IntEnum):

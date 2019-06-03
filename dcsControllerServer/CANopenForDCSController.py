@@ -82,6 +82,7 @@ class CANopenDCSController(object):
         # Intialize object dictionary
         fp = os.path.join(scrdir, 'CANControllerForPSPPv1.eds')
         self.__od = od.from_eds(self.logger, fp, 42, True)
+        
         for scb in range(4):
             val = 0
             if scb == 0:
@@ -99,10 +100,12 @@ class CANopenDCSController(object):
             for pspp in range(16):
                 index = 0x2200 | (scb << 4) | pspp
                 self.__od[index][2].value = states[pspp]
-        self.__od[0x2000][1].value |= 0b11
-        self.__od[0x2200][2].value = True
-        self.__od[0x2201][2].value = True
-
+                if states[pspp]:
+                    for reg in range(13):
+                        self.__od[index][0x10 | reg].value = 0
+                    self.__od[index][0x10].value = 0x21
+                    self.__od[index][0x11].value = 0xF5
+            
         # Initialize library and open channel
         self.__channel = channel
         self.__bitrate = bitrate
@@ -324,7 +327,11 @@ class CANopenDCSController(object):
             # Register values
             if subindex in range(0x10, 0x1D):
                 sleep(0.001)
-                return rdm.randrange(PSPP_MAX_VALUES[subindex - 0x10])
+                reg = subindex & 0xF
+                if reg == 0: return 0x21
+                if reg == 1: return 0xF5
+                if reg not in [5, 6, 7, 10, 11, 12]:
+                    return rdm.randrange(PSPP_MAX_VALUES[reg])
             # ADC channels
             if subindex in range(0x20, 0x28):
                 sleep(0.001)
@@ -384,7 +391,7 @@ class CANopenDCSController(object):
                 return False
             try:
                 val = self.gather_value(index, subindex)
-                self.logger.info(f'Answering with value {val:X}.')
+                self.logger.info(f'Answering with value {val}.')
             except ChipNotConnectedError:
                 ret = self.sdo_abort_message(idx, subindex, SAC.HARDWARE_ERROR)
                 self.__ch.writeWait(Frame(cobid, ret), timeout)
@@ -565,7 +572,8 @@ class CANopenDCSController(object):
             dz = ceil(vbl / 8)
             ret = val.to_bytes(max(4, dz), 'little')
         else:
-            self.logger.error('No data types beside string and int supported!')
+            self.logger.error(f'No data types beside string and int supported!'
+                              f' Got: {val}')
         return ret, dz
 
 

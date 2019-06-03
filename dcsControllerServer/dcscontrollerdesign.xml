@@ -15,13 +15,17 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="SJH7KFyVra/HnzXZ2Bgg7g==" Version="1.6.0"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="lvBCucKs9o17eweuBh8XYQ==" Version="1.6.2"/>
         </Extension>
     </Extensions>
     <UAObjectType NodeId="ns=1;i=1003" BrowseName="1:DCSControllerType">
         <DisplayName>DCSControllerType</DisplayName>
         <References>
+            <Reference ReferenceType="HasComponent">ns=1;i=5346</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8034</Reference>
             <Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5345</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=8468</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5004</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5101</Reference>
@@ -30,6 +34,542 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6018</Reference>
         </References>
     </UAObjectType>
+    <UAObject ParentNodeId="ns=1;i=1003" NodeId="ns=1;i=5346" BrowseName="1:ADCchannels">
+        <DisplayName>ADCchannels</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1003</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8070</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8071</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8072</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8073</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8074</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5346" NodeId="ns=1;i=8070" BrowseName="1:Ch35">
+        <DisplayName>Ch35</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5346</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5346" NodeId="ns=1;i=8071" BrowseName="1:Ch36">
+        <DisplayName>Ch36</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5346</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5346" NodeId="ns=1;i=8072" BrowseName="1:Ch37">
+        <DisplayName>Ch37</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5346</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5346" NodeId="ns=1;i=8073" BrowseName="1:Ch38">
+        <DisplayName>Ch38</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5346</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5346" NodeId="ns=1;i=8074" BrowseName="1:Ch39">
+        <DisplayName>Ch39</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5346</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="Byte" ParentNodeId="ns=1;i=1003" NodeId="ns=1;i=8034" BrowseName="1:ADCTRIM" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>ADCTRIM</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1003</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=1003" NodeId="ns=1;i=5328" BrowseName="1:Frontends">
+        <DisplayName>Frontends</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5344</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5329</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5330</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5331</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5332</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5333</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5334</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5335</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5336</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5337</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5338</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5339</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5340</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5341</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5342</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5343</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1003</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+        </References>
+    </UAObject>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5344" BrowseName="1:Frontend0">
+        <DisplayName>Frontend0</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8065</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8066</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5344" NodeId="ns=1;i=8065" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5344</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5344" NodeId="ns=1;i=8066" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5344</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5329" BrowseName="1:Frontend1">
+        <DisplayName>Frontend1</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8035</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8036</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5329" NodeId="ns=1;i=8035" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5329</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5329" NodeId="ns=1;i=8036" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5329</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5330" BrowseName="1:Frontend2">
+        <DisplayName>Frontend2</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8037</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8038</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5330" NodeId="ns=1;i=8037" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5330</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5330" NodeId="ns=1;i=8038" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5330</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5331" BrowseName="1:Frontend3">
+        <DisplayName>Frontend3</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8039</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8040</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5331" NodeId="ns=1;i=8039" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5331</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5331" NodeId="ns=1;i=8040" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5331</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5332" BrowseName="1:Frontend4">
+        <DisplayName>Frontend4</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8041</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8042</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5332" NodeId="ns=1;i=8041" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5332</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5332" NodeId="ns=1;i=8042" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5332</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5333" BrowseName="1:Frontend5">
+        <DisplayName>Frontend5</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8043</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8044</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5333" NodeId="ns=1;i=8043" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5333</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5333" NodeId="ns=1;i=8044" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5333</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5334" BrowseName="1:Frontend6">
+        <DisplayName>Frontend6</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8045</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8046</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5334" NodeId="ns=1;i=8045" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5334</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5334" NodeId="ns=1;i=8046" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5334</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5335" BrowseName="1:Frontend7">
+        <DisplayName>Frontend7</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8047</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8048</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5335" NodeId="ns=1;i=8047" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5335</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5335" NodeId="ns=1;i=8048" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5335</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5336" BrowseName="1:Frontend8">
+        <DisplayName>Frontend8</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8049</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8050</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5336" NodeId="ns=1;i=8049" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5336</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5336" NodeId="ns=1;i=8050" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5336</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5337" BrowseName="1:Frontend9">
+        <DisplayName>Frontend9</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8051</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8052</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5337" NodeId="ns=1;i=8051" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5337</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5337" NodeId="ns=1;i=8052" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5337</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5338" BrowseName="1:FrontendA">
+        <DisplayName>FrontendA</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8053</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8054</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5338" NodeId="ns=1;i=8053" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5338</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5338" NodeId="ns=1;i=8054" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5338</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5339" BrowseName="1:FrontendB">
+        <DisplayName>FrontendB</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8055</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8056</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5339" NodeId="ns=1;i=8055" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5339</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5339" NodeId="ns=1;i=8056" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5339</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5340" BrowseName="1:FrontendC">
+        <DisplayName>FrontendC</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8057</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8058</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5340" NodeId="ns=1;i=8057" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5340</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5340" NodeId="ns=1;i=8058" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5340</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5341" BrowseName="1:FrontendD">
+        <DisplayName>FrontendD</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8059</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8060</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5341" NodeId="ns=1;i=8059" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5341</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5341" NodeId="ns=1;i=8060" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5341</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5342" BrowseName="1:FrontendE">
+        <DisplayName>FrontendE</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8061</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8062</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5342" NodeId="ns=1;i=8061" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5342</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5342" NodeId="ns=1;i=8062" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5342</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=5328" NodeId="ns=1;i=5343" BrowseName="1:FrontendF">
+        <DisplayName>FrontendF</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5328</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8063</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8064</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5343" NodeId="ns=1;i=8063" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5343</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5343" NodeId="ns=1;i=8064" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5343</Reference>
+        </References>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=1003" NodeId="ns=1;i=5345" BrowseName="1:MonVals">
+        <DisplayName>MonVals</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1003</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8068</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8069</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8067</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5345" NodeId="ns=1;i=8068" BrowseName="1:VCANSEN">
+        <DisplayName>VCANSEN</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5345</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5345" NodeId="ns=1;i=8069" BrowseName="1:VGNDSEN">
+        <DisplayName>VGNDSEN</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5345</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5345" NodeId="ns=1;i=8067" BrowseName="1:VMODGND">
+        <DisplayName>VMODGND</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5345</Reference>
+        </References>
+    </UAVariable>
     <UAVariable DataType="Byte" ParentNodeId="ns=1;i=1003" NodeId="ns=1;i=8468" BrowseName="1:NodeId">
         <DisplayName>NodeId</DisplayName>
         <References>
@@ -204,24 +744,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6442</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5152" NodeId="ns=1;i=6440" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5152" NodeId="ns=1;i=6440" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5152</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5152" NodeId="ns=1;i=6441" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5152" NodeId="ns=1;i=6441" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5152</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5152" NodeId="ns=1;i=6442" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5152" NodeId="ns=1;i=6442" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -488,24 +1028,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6467</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5155" NodeId="ns=1;i=6465" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5155" NodeId="ns=1;i=6465" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5155</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5155" NodeId="ns=1;i=6466" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5155" NodeId="ns=1;i=6466" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5155</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5155" NodeId="ns=1;i=6467" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5155" NodeId="ns=1;i=6467" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -772,24 +1312,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6492</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5158" NodeId="ns=1;i=6490" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5158" NodeId="ns=1;i=6490" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5158</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5158" NodeId="ns=1;i=6491" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5158" NodeId="ns=1;i=6491" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5158</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5158" NodeId="ns=1;i=6492" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5158" NodeId="ns=1;i=6492" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -1056,24 +1596,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6517</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5161" NodeId="ns=1;i=6515" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5161" NodeId="ns=1;i=6515" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5161</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5161" NodeId="ns=1;i=6516" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5161" NodeId="ns=1;i=6516" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5161</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5161" NodeId="ns=1;i=6517" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5161" NodeId="ns=1;i=6517" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -1340,24 +1880,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6542</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5164" NodeId="ns=1;i=6540" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5164" NodeId="ns=1;i=6540" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5164</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5164" NodeId="ns=1;i=6541" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5164" NodeId="ns=1;i=6541" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5164</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5164" NodeId="ns=1;i=6542" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5164" NodeId="ns=1;i=6542" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -1624,24 +2164,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6567</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5167" NodeId="ns=1;i=6565" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5167" NodeId="ns=1;i=6565" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5167</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5167" NodeId="ns=1;i=6566" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5167" NodeId="ns=1;i=6566" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5167</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5167" NodeId="ns=1;i=6567" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5167" NodeId="ns=1;i=6567" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -1908,24 +2448,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6592</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5170" NodeId="ns=1;i=6590" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5170" NodeId="ns=1;i=6590" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5170</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5170" NodeId="ns=1;i=6591" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5170" NodeId="ns=1;i=6591" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5170</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5170" NodeId="ns=1;i=6592" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5170" NodeId="ns=1;i=6592" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -2192,24 +2732,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6617</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5173" NodeId="ns=1;i=6615" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5173" NodeId="ns=1;i=6615" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5173</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5173" NodeId="ns=1;i=6616" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5173" NodeId="ns=1;i=6616" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5173</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5173" NodeId="ns=1;i=6617" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5173" NodeId="ns=1;i=6617" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -2476,24 +3016,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6642</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5176" NodeId="ns=1;i=6640" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5176" NodeId="ns=1;i=6640" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5176</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5176" NodeId="ns=1;i=6641" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5176" NodeId="ns=1;i=6641" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5176</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5176" NodeId="ns=1;i=6642" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5176" NodeId="ns=1;i=6642" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -2760,24 +3300,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6667</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5179" NodeId="ns=1;i=6665" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5179" NodeId="ns=1;i=6665" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5179</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5179" NodeId="ns=1;i=6666" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5179" NodeId="ns=1;i=6666" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5179</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5179" NodeId="ns=1;i=6667" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5179" NodeId="ns=1;i=6667" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -3044,24 +3584,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6692</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5182" NodeId="ns=1;i=6690" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5182" NodeId="ns=1;i=6690" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5182</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5182" NodeId="ns=1;i=6691" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5182" NodeId="ns=1;i=6691" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5182</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5182" NodeId="ns=1;i=6692" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5182" NodeId="ns=1;i=6692" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -3328,24 +3868,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6717</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5185" NodeId="ns=1;i=6715" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5185" NodeId="ns=1;i=6715" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5185</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5185" NodeId="ns=1;i=6716" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5185" NodeId="ns=1;i=6716" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5185</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5185" NodeId="ns=1;i=6717" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5185" NodeId="ns=1;i=6717" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -3612,24 +4152,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6742</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5188" NodeId="ns=1;i=6740" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5188" NodeId="ns=1;i=6740" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5188</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5188" NodeId="ns=1;i=6741" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5188" NodeId="ns=1;i=6741" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5188</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5188" NodeId="ns=1;i=6742" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5188" NodeId="ns=1;i=6742" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -3896,24 +4436,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6767</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5191" NodeId="ns=1;i=6765" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5191" NodeId="ns=1;i=6765" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5191</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5191" NodeId="ns=1;i=6766" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5191" NodeId="ns=1;i=6766" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5191</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5191" NodeId="ns=1;i=6767" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5191" NodeId="ns=1;i=6767" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -4180,24 +4720,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6792</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5194" NodeId="ns=1;i=6790" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5194" NodeId="ns=1;i=6790" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5194</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5194" NodeId="ns=1;i=6791" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5194" NodeId="ns=1;i=6791" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5194</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5194" NodeId="ns=1;i=6792" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5194" NodeId="ns=1;i=6792" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -4464,24 +5004,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6817</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5197" NodeId="ns=1;i=6815" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5197" NodeId="ns=1;i=6815" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5197</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5197" NodeId="ns=1;i=6816" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5197" NodeId="ns=1;i=6816" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5197</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5197" NodeId="ns=1;i=6817" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5197" NodeId="ns=1;i=6817" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -4784,24 +5324,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6842</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5201" NodeId="ns=1;i=6840" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5201" NodeId="ns=1;i=6840" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5201</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5201" NodeId="ns=1;i=6841" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5201" NodeId="ns=1;i=6841" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5201</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5201" NodeId="ns=1;i=6842" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5201" NodeId="ns=1;i=6842" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -5068,24 +5608,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6867</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5204" NodeId="ns=1;i=6865" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5204" NodeId="ns=1;i=6865" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5204</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5204" NodeId="ns=1;i=6866" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5204" NodeId="ns=1;i=6866" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5204</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5204" NodeId="ns=1;i=6867" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5204" NodeId="ns=1;i=6867" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -5352,24 +5892,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6892</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5207" NodeId="ns=1;i=6890" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5207" NodeId="ns=1;i=6890" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5207</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5207" NodeId="ns=1;i=6891" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5207" NodeId="ns=1;i=6891" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5207</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5207" NodeId="ns=1;i=6892" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5207" NodeId="ns=1;i=6892" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -5636,24 +6176,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6917</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5210" NodeId="ns=1;i=6915" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5210" NodeId="ns=1;i=6915" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5210</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5210" NodeId="ns=1;i=6916" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5210" NodeId="ns=1;i=6916" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5210</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5210" NodeId="ns=1;i=6917" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5210" NodeId="ns=1;i=6917" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -5920,24 +6460,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6942</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5213" NodeId="ns=1;i=6940" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5213" NodeId="ns=1;i=6940" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5213</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5213" NodeId="ns=1;i=6941" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5213" NodeId="ns=1;i=6941" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5213</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5213" NodeId="ns=1;i=6942" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5213" NodeId="ns=1;i=6942" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -6204,24 +6744,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6967</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5216" NodeId="ns=1;i=6965" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5216" NodeId="ns=1;i=6965" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5216</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5216" NodeId="ns=1;i=6966" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5216" NodeId="ns=1;i=6966" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5216</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5216" NodeId="ns=1;i=6967" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5216" NodeId="ns=1;i=6967" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -6488,24 +7028,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6992</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5219" NodeId="ns=1;i=6990" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5219" NodeId="ns=1;i=6990" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5219</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5219" NodeId="ns=1;i=6991" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5219" NodeId="ns=1;i=6991" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5219</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5219" NodeId="ns=1;i=6992" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5219" NodeId="ns=1;i=6992" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -6772,24 +7312,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7017</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5222" NodeId="ns=1;i=7015" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5222" NodeId="ns=1;i=7015" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5222</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5222" NodeId="ns=1;i=7016" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5222" NodeId="ns=1;i=7016" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5222</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5222" NodeId="ns=1;i=7017" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5222" NodeId="ns=1;i=7017" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -7056,24 +7596,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7042</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5225" NodeId="ns=1;i=7040" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5225" NodeId="ns=1;i=7040" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5225</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5225" NodeId="ns=1;i=7041" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5225" NodeId="ns=1;i=7041" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5225</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5225" NodeId="ns=1;i=7042" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5225" NodeId="ns=1;i=7042" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -7340,24 +7880,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7067</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5228" NodeId="ns=1;i=7065" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5228" NodeId="ns=1;i=7065" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5228</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5228" NodeId="ns=1;i=7066" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5228" NodeId="ns=1;i=7066" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5228</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5228" NodeId="ns=1;i=7067" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5228" NodeId="ns=1;i=7067" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -7624,24 +8164,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7092</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5231" NodeId="ns=1;i=7090" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5231" NodeId="ns=1;i=7090" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5231</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5231" NodeId="ns=1;i=7091" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5231" NodeId="ns=1;i=7091" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5231</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5231" NodeId="ns=1;i=7092" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5231" NodeId="ns=1;i=7092" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -7908,24 +8448,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7117</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5234" NodeId="ns=1;i=7115" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5234" NodeId="ns=1;i=7115" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5234</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5234" NodeId="ns=1;i=7116" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5234" NodeId="ns=1;i=7116" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5234</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5234" NodeId="ns=1;i=7117" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5234" NodeId="ns=1;i=7117" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -8192,24 +8732,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7142</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5237" NodeId="ns=1;i=7140" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5237" NodeId="ns=1;i=7140" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5237</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5237" NodeId="ns=1;i=7141" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5237" NodeId="ns=1;i=7141" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5237</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5237" NodeId="ns=1;i=7142" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5237" NodeId="ns=1;i=7142" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -8476,24 +9016,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7167</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5240" NodeId="ns=1;i=7165" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5240" NodeId="ns=1;i=7165" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5240</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5240" NodeId="ns=1;i=7166" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5240" NodeId="ns=1;i=7166" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5240</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5240" NodeId="ns=1;i=7167" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5240" NodeId="ns=1;i=7167" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -8760,24 +9300,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7192</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5243" NodeId="ns=1;i=7190" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5243" NodeId="ns=1;i=7190" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5243</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5243" NodeId="ns=1;i=7191" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5243" NodeId="ns=1;i=7191" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5243</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5243" NodeId="ns=1;i=7192" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5243" NodeId="ns=1;i=7192" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -9044,24 +9584,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7217</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5246" NodeId="ns=1;i=7215" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5246" NodeId="ns=1;i=7215" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5246</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5246" NodeId="ns=1;i=7216" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5246" NodeId="ns=1;i=7216" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5246</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5246" NodeId="ns=1;i=7217" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5246" NodeId="ns=1;i=7217" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -9364,24 +9904,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7242</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5265" NodeId="ns=1;i=7240" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5265" NodeId="ns=1;i=7240" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5265</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5265" NodeId="ns=1;i=7241" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5265" NodeId="ns=1;i=7241" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5265</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5265" NodeId="ns=1;i=7242" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5265" NodeId="ns=1;i=7242" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -9648,24 +10188,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7267</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5267" NodeId="ns=1;i=7265" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5267" NodeId="ns=1;i=7265" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5267</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5267" NodeId="ns=1;i=7266" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5267" NodeId="ns=1;i=7266" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5267</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5267" NodeId="ns=1;i=7267" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5267" NodeId="ns=1;i=7267" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -9932,24 +10472,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7292</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5269" NodeId="ns=1;i=7290" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5269" NodeId="ns=1;i=7290" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5269</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5269" NodeId="ns=1;i=7291" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5269" NodeId="ns=1;i=7291" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5269</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5269" NodeId="ns=1;i=7292" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5269" NodeId="ns=1;i=7292" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -10216,24 +10756,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7317</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5271" NodeId="ns=1;i=7315" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5271" NodeId="ns=1;i=7315" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5271</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5271" NodeId="ns=1;i=7316" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5271" NodeId="ns=1;i=7316" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5271</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5271" NodeId="ns=1;i=7317" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5271" NodeId="ns=1;i=7317" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -10500,24 +11040,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7342</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5273" NodeId="ns=1;i=7340" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5273" NodeId="ns=1;i=7340" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5273</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5273" NodeId="ns=1;i=7341" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5273" NodeId="ns=1;i=7341" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5273</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5273" NodeId="ns=1;i=7342" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5273" NodeId="ns=1;i=7342" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -10784,24 +11324,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7367</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5275" NodeId="ns=1;i=7365" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5275" NodeId="ns=1;i=7365" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5275</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5275" NodeId="ns=1;i=7366" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5275" NodeId="ns=1;i=7366" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5275</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5275" NodeId="ns=1;i=7367" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5275" NodeId="ns=1;i=7367" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -11068,24 +11608,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7397</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5277" NodeId="ns=1;i=7395" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5277" NodeId="ns=1;i=7395" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5277</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5277" NodeId="ns=1;i=7396" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5277" NodeId="ns=1;i=7396" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5277</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5277" NodeId="ns=1;i=7397" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5277" NodeId="ns=1;i=7397" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -11352,24 +11892,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7422</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5279" NodeId="ns=1;i=7420" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5279" NodeId="ns=1;i=7420" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5279</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5279" NodeId="ns=1;i=7421" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5279" NodeId="ns=1;i=7421" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5279</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5279" NodeId="ns=1;i=7422" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5279" NodeId="ns=1;i=7422" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -11636,24 +12176,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7447</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5281" NodeId="ns=1;i=7445" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5281" NodeId="ns=1;i=7445" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5281</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5281" NodeId="ns=1;i=7446" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5281" NodeId="ns=1;i=7446" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5281</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5281" NodeId="ns=1;i=7447" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5281" NodeId="ns=1;i=7447" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -11920,24 +12460,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7472</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5283" NodeId="ns=1;i=7470" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5283" NodeId="ns=1;i=7470" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5283</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5283" NodeId="ns=1;i=7471" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5283" NodeId="ns=1;i=7471" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5283</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5283" NodeId="ns=1;i=7472" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5283" NodeId="ns=1;i=7472" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -12204,24 +12744,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7497</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5285" NodeId="ns=1;i=7495" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5285" NodeId="ns=1;i=7495" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5285</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5285" NodeId="ns=1;i=7496" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5285" NodeId="ns=1;i=7496" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5285</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5285" NodeId="ns=1;i=7497" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5285" NodeId="ns=1;i=7497" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -12488,24 +13028,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7522</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5287" NodeId="ns=1;i=7520" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5287" NodeId="ns=1;i=7520" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5287</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5287" NodeId="ns=1;i=7521" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5287" NodeId="ns=1;i=7521" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5287</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5287" NodeId="ns=1;i=7522" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5287" NodeId="ns=1;i=7522" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -12772,24 +13312,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7547</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5289" NodeId="ns=1;i=7545" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5289" NodeId="ns=1;i=7545" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5289</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5289" NodeId="ns=1;i=7546" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5289" NodeId="ns=1;i=7546" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5289</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5289" NodeId="ns=1;i=7547" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5289" NodeId="ns=1;i=7547" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -13056,24 +13596,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7572</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5291" NodeId="ns=1;i=7570" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5291" NodeId="ns=1;i=7570" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5291</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5291" NodeId="ns=1;i=7571" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5291" NodeId="ns=1;i=7571" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5291</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5291" NodeId="ns=1;i=7572" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5291" NodeId="ns=1;i=7572" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -13340,24 +13880,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7597</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5293" NodeId="ns=1;i=7595" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5293" NodeId="ns=1;i=7595" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5293</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5293" NodeId="ns=1;i=7596" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5293" NodeId="ns=1;i=7596" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5293</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5293" NodeId="ns=1;i=7597" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5293" NodeId="ns=1;i=7597" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -13624,24 +14164,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7622</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5295" NodeId="ns=1;i=7620" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5295" NodeId="ns=1;i=7620" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5295</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5295" NodeId="ns=1;i=7621" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5295" NodeId="ns=1;i=7621" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5295</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5295" NodeId="ns=1;i=7622" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5295" NodeId="ns=1;i=7622" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -13944,24 +14484,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7647</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5297" NodeId="ns=1;i=7645" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5297" NodeId="ns=1;i=7645" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5297</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5297" NodeId="ns=1;i=7646" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5297" NodeId="ns=1;i=7646" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5297</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5297" NodeId="ns=1;i=7647" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5297" NodeId="ns=1;i=7647" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -14228,24 +14768,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7672</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5299" NodeId="ns=1;i=7670" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5299" NodeId="ns=1;i=7670" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5299</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5299" NodeId="ns=1;i=7671" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5299" NodeId="ns=1;i=7671" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5299</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5299" NodeId="ns=1;i=7672" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5299" NodeId="ns=1;i=7672" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -14512,24 +15052,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7697</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5301" NodeId="ns=1;i=7695" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5301" NodeId="ns=1;i=7695" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5301</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5301" NodeId="ns=1;i=7696" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5301" NodeId="ns=1;i=7696" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5301</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5301" NodeId="ns=1;i=7697" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5301" NodeId="ns=1;i=7697" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -14796,24 +15336,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7722</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5303" NodeId="ns=1;i=7720" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5303" NodeId="ns=1;i=7720" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5303</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5303" NodeId="ns=1;i=7721" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5303" NodeId="ns=1;i=7721" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5303</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5303" NodeId="ns=1;i=7722" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5303" NodeId="ns=1;i=7722" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -15080,24 +15620,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7747</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5305" NodeId="ns=1;i=7745" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5305" NodeId="ns=1;i=7745" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5305</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5305" NodeId="ns=1;i=7746" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5305" NodeId="ns=1;i=7746" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5305</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5305" NodeId="ns=1;i=7747" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5305" NodeId="ns=1;i=7747" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -15364,24 +15904,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7772</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5307" NodeId="ns=1;i=7770" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5307" NodeId="ns=1;i=7770" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5307</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5307" NodeId="ns=1;i=7771" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5307" NodeId="ns=1;i=7771" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5307</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5307" NodeId="ns=1;i=7772" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5307" NodeId="ns=1;i=7772" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -15648,24 +16188,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7797</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5309" NodeId="ns=1;i=7795" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5309" NodeId="ns=1;i=7795" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5309</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5309" NodeId="ns=1;i=7796" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5309" NodeId="ns=1;i=7796" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5309</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5309" NodeId="ns=1;i=7797" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5309" NodeId="ns=1;i=7797" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -15932,24 +16472,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7822</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5311" NodeId="ns=1;i=7820" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5311" NodeId="ns=1;i=7820" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5311</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5311" NodeId="ns=1;i=7821" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5311" NodeId="ns=1;i=7821" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5311</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5311" NodeId="ns=1;i=7822" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5311" NodeId="ns=1;i=7822" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -16216,24 +16756,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7847</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5313" NodeId="ns=1;i=7845" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5313" NodeId="ns=1;i=7845" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5313</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5313" NodeId="ns=1;i=7846" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5313" NodeId="ns=1;i=7846" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5313</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5313" NodeId="ns=1;i=7847" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5313" NodeId="ns=1;i=7847" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -16500,24 +17040,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7872</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5315" NodeId="ns=1;i=7870" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5315" NodeId="ns=1;i=7870" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5315</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5315" NodeId="ns=1;i=7871" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5315" NodeId="ns=1;i=7871" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5315</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5315" NodeId="ns=1;i=7872" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5315" NodeId="ns=1;i=7872" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -16784,24 +17324,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7897</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5317" NodeId="ns=1;i=7895" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5317" NodeId="ns=1;i=7895" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5317</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5317" NodeId="ns=1;i=7896" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5317" NodeId="ns=1;i=7896" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5317</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5317" NodeId="ns=1;i=7897" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5317" NodeId="ns=1;i=7897" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -17068,24 +17608,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7922</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5319" NodeId="ns=1;i=7920" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5319" NodeId="ns=1;i=7920" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5319</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5319" NodeId="ns=1;i=7921" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5319" NodeId="ns=1;i=7921" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5319</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5319" NodeId="ns=1;i=7922" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5319" NodeId="ns=1;i=7922" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -17352,24 +17892,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7947</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5321" NodeId="ns=1;i=7945" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5321" NodeId="ns=1;i=7945" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5321</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5321" NodeId="ns=1;i=7946" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5321" NodeId="ns=1;i=7946" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5321</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5321" NodeId="ns=1;i=7947" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5321" NodeId="ns=1;i=7947" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -17636,24 +18176,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7972</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5323" NodeId="ns=1;i=7970" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5323" NodeId="ns=1;i=7970" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5323</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5323" NodeId="ns=1;i=7971" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5323" NodeId="ns=1;i=7971" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5323</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5323" NodeId="ns=1;i=7972" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5323" NodeId="ns=1;i=7972" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -17920,24 +18460,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=7997</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5325" NodeId="ns=1;i=7995" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5325" NodeId="ns=1;i=7995" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5325</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5325" NodeId="ns=1;i=7996" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5325" NodeId="ns=1;i=7996" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5325</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5325" NodeId="ns=1;i=7997" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5325" NodeId="ns=1;i=7997" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -18204,24 +18744,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=8022</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5327" NodeId="ns=1;i=8020" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5327" NodeId="ns=1;i=8020" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5327</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5327" NodeId="ns=1;i=8021" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5327" NodeId="ns=1;i=8021" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5327</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5327" NodeId="ns=1;i=8022" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5327" NodeId="ns=1;i=8022" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -18530,24 +19070,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6021</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5006" NodeId="ns=1;i=6019" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5006" NodeId="ns=1;i=6019" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5006</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5006" NodeId="ns=1;i=6020" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5006" NodeId="ns=1;i=6020" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5006</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5006" NodeId="ns=1;i=6021" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5006" NodeId="ns=1;i=6021" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -18814,24 +19354,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6038</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=6036" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=6036" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=6037" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=6037" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=6038" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=6038" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -19098,24 +19638,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6191</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5036" NodeId="ns=1;i=6189" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5036" NodeId="ns=1;i=6189" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5036</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5036" NodeId="ns=1;i=6190" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5036" NodeId="ns=1;i=6190" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5036</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5036" NodeId="ns=1;i=6191" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5036" NodeId="ns=1;i=6191" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -19382,24 +19922,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6208</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5039" NodeId="ns=1;i=6206" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5039" NodeId="ns=1;i=6206" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5039</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5039" NodeId="ns=1;i=6207" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5039" NodeId="ns=1;i=6207" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5039</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5039" NodeId="ns=1;i=6208" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5039" NodeId="ns=1;i=6208" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -19666,24 +20206,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6225</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5042" NodeId="ns=1;i=6223" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5042" NodeId="ns=1;i=6223" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5042</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5042" NodeId="ns=1;i=6224" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5042" NodeId="ns=1;i=6224" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5042</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5042" NodeId="ns=1;i=6225" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5042" NodeId="ns=1;i=6225" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -19950,24 +20490,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6242</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5045" NodeId="ns=1;i=6240" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5045" NodeId="ns=1;i=6240" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5045</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5045" NodeId="ns=1;i=6241" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5045" NodeId="ns=1;i=6241" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5045</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5045" NodeId="ns=1;i=6242" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5045" NodeId="ns=1;i=6242" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -20234,24 +20774,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6259</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5048" NodeId="ns=1;i=6257" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5048" NodeId="ns=1;i=6257" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5048</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5048" NodeId="ns=1;i=6258" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5048" NodeId="ns=1;i=6258" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5048</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5048" NodeId="ns=1;i=6259" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5048" NodeId="ns=1;i=6259" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -20518,24 +21058,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6276</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5051" NodeId="ns=1;i=6274" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5051" NodeId="ns=1;i=6274" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5051</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5051" NodeId="ns=1;i=6275" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5051" NodeId="ns=1;i=6275" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5051</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5051" NodeId="ns=1;i=6276" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5051" NodeId="ns=1;i=6276" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -20802,24 +21342,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6055</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5012" NodeId="ns=1;i=6053" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5012" NodeId="ns=1;i=6053" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5012</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5012" NodeId="ns=1;i=6054" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5012" NodeId="ns=1;i=6054" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5012</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5012" NodeId="ns=1;i=6055" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5012" NodeId="ns=1;i=6055" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -21086,24 +21626,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6072</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5015" NodeId="ns=1;i=6070" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5015" NodeId="ns=1;i=6070" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5015</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5015" NodeId="ns=1;i=6071" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5015" NodeId="ns=1;i=6071" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5015</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5015" NodeId="ns=1;i=6072" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5015" NodeId="ns=1;i=6072" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -21370,24 +21910,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6089</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5018" NodeId="ns=1;i=6087" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5018" NodeId="ns=1;i=6087" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5018</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5018" NodeId="ns=1;i=6088" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5018" NodeId="ns=1;i=6088" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5018</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5018" NodeId="ns=1;i=6089" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5018" NodeId="ns=1;i=6089" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -21654,24 +22194,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6106</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5021" NodeId="ns=1;i=6104" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5021" NodeId="ns=1;i=6104" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5021</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5021" NodeId="ns=1;i=6105" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5021" NodeId="ns=1;i=6105" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5021</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5021" NodeId="ns=1;i=6106" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5021" NodeId="ns=1;i=6106" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -21938,24 +22478,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6123</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5024" NodeId="ns=1;i=6121" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5024" NodeId="ns=1;i=6121" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5024</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5024" NodeId="ns=1;i=6122" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5024" NodeId="ns=1;i=6122" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5024</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5024" NodeId="ns=1;i=6123" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5024" NodeId="ns=1;i=6123" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -22222,24 +22762,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6140</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5027" NodeId="ns=1;i=6138" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5027" NodeId="ns=1;i=6138" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5027</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5027" NodeId="ns=1;i=6139" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5027" NodeId="ns=1;i=6139" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5027</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5027" NodeId="ns=1;i=6140" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5027" NodeId="ns=1;i=6140" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -22506,24 +23046,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6157</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6155" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6155" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5030</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6156" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6156" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5030</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6157" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6157" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -22790,24 +23330,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6174</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5033" NodeId="ns=1;i=6172" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5033" NodeId="ns=1;i=6172" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5033</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5033" NodeId="ns=1;i=6173" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5033" NodeId="ns=1;i=6173" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5033</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5033" NodeId="ns=1;i=6174" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5033" NodeId="ns=1;i=6174" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -22947,6 +23487,30 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5032</Reference>
         </References>
     </UAVariable>
+    <UAObjectType NodeId="ns=1;i=1005" BrowseName="1:FrontendType">
+        <DisplayName>FrontendType</DisplayName>
+        <References>
+            <Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8032</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=8033</Reference>
+        </References>
+    </UAObjectType>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=1005" NodeId="ns=1;i=8032" BrowseName="1:Temperature">
+        <DisplayName>Temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1005</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=1005" NodeId="ns=1;i=8033" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1005</Reference>
+        </References>
+    </UAVariable>
     <UAObjectType NodeId="ns=1;i=1002" BrowseName="1:PSPPType">
         <DisplayName>PSPPType</DisplayName>
         <References>
@@ -23072,24 +23636,24 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6004</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=6002" BrowseName="1:Temperature">
-        <DisplayName>Temperature</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=6002" BrowseName="1:Temperature1">
+        <DisplayName>Temperature1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=6003" BrowseName="1:Voltage1">
-        <DisplayName>Voltage1</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=6003" BrowseName="1:Temperature2">
+        <DisplayName>Temperature2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=6004" BrowseName="1:Voltage2">
-        <DisplayName>Voltage2</DisplayName>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=6004" BrowseName="1:Voltage">
+        <DisplayName>Voltage</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>

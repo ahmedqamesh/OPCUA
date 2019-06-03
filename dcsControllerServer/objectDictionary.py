@@ -37,10 +37,10 @@ import verboselogs
 
 # Other files
 try:
-    from .CANopenConstants import ATTR, VARTYPE, ENTRYTYPE
+    from .CANopenConstants import ATTR, VARTYPE, ENTRYTYPE, LIMITS
     from .extend_logging import extend_logging
 except (ModuleNotFoundError, ImportError):
-    from CANopenConstants import ATTR, VARTYPE, ENTRYTYPE
+    from CANopenConstants import ATTR, VARTYPE, ENTRYTYPE, LIMITS
     from extend_logging import extend_logging
 
 
@@ -77,6 +77,10 @@ class odEntry():
         Additional comment (Defaults to ``''``)
     direct_access : :obj:`bool`
         True makes it possible to write on all entries
+    minimum : :obj:`int`, optional
+        Low Limit of this entry.
+    maximum : :obj:`int`, optional
+        High Limit of this entry.
 
     Attributes
     ----------
@@ -90,17 +94,18 @@ class odEntry():
 
     def __init__(self, index, entrytype, logger, datatype=None, attribute=None,
                  description='', default=None, comment='',
-                 direct_access=False):
+                 direct_access=False, minimum=None, maximum=None):
         self.__index = index
         self.description = description
         self.logger = logger
         self.__entrytype = entrytype
         self.__direct_access = direct_access
+        self.__minimum, self.__maximum = LIMITS(datatype, minimum, maximum)
         if entrytype is not ENTRYTYPE.VAR:
             self.__attribute = None
             self.__default = None
             self.__subentries = []
-            self.__datatype = None
+            self.__datatype = None            
         else:
             self.__attribute = attribute
             self.__default = default
@@ -210,6 +215,18 @@ class odEntry():
         """:obj:`list` of :obj:`odSubEntry` : List of subentries belonging to
         this :obj:`odEntry`"""
         return self.__subentries
+    
+    @property
+    def minimum(self):
+        """:obj:`int` : Low Limit of this entry. -:data:`~math.inf` if not
+        specified or :data:`None` if the entry has subideces."""
+        return self.__minimum
+    
+    @property
+    def maximum(self):
+        """:obj:`int` : High Limit of this entry. :data:`~math.inf` if not
+        specified or :data:`None` if the entry has subindeces."""
+        return self.__maximum
 
     @property
     def value(self):
@@ -227,7 +244,7 @@ class odEntry():
             raise AttributeError('Entry may not be written!')
 
     def addSubEntry(self, subindex, vartype, attribute, description='',
-                    default=None, comment=''):
+                    default=None, comment='', minimum=None, maximum=None):
         """Add a sub entry to the current |OD| top level entry
 
         Parameters
@@ -244,6 +261,10 @@ class odEntry():
             Default value. Defaults to :data:`None`.
         comment : :obj:`str`, optional
             Additional comment on subentry. Defaults to ``''``.
+        minimum : :obj:`int`, optional
+            Low Limit of this entry.
+        maximum : :obj:`int`, optional
+            High Limit of this entry.
 
         Raises
         ------
@@ -260,13 +281,14 @@ class odEntry():
         while subindex > len(self.__subentries):
             odSE = odSubEntry(master=self, subindex=len(self.__subentries),
                               logger=self.logger, description='reserved',
-                              reserved=True,
+                              reserved=True, minimum=minimum, maximum=maximum,
                               direct_access=self.__direct_access)
             self.__subentries.append(odSE)
         odSE = odSubEntry(master=self, subindex=subindex, vartype=vartype,
                           attribute=attribute, logger=self.logger,
                           description=description, default=default,
-                          comment=comment, direct_access=self.__direct_access)
+                          comment=comment, direct_access=self.__direct_access,
+                          minimum=minimum, maximum=maximum)
         self.__subentries.append(odSE)
 
     def __iter__(self):
@@ -300,11 +322,15 @@ class odSubEntry():
         Mark an subentry as reserved for further use.
     direct_access : :obj:`bool`
         True makes it possible to write on all entries.
+    minimum : :obj:`int`, optional
+        Low Limit of this entry.
+    maximum : :obj:`int`, optional
+        High Limit of this entry.
     """
 
     def __init__(self, master, subindex, logger, vartype=None, attribute=None,
                  description='', default=None, comment='', reserved=False,
-                 direct_access=False):
+                 direct_access=False, minimum=None, maximum=None):
         if not reserved:
             if vartype is None:
                 raise ValueError(f'Missing VARTYPE for subentry at '
@@ -322,6 +348,7 @@ class odSubEntry():
         self.comment = comment
         self.logger = logger
         self.__default = default
+        self.__minimum, self.__maximum = LIMITS(vartype, minimum, maximum)
         self.__value = default
         self.logger.spam('Created ' + str(self))
 
@@ -355,6 +382,18 @@ class odSubEntry():
     def default(self):
         """Default value of this entry"""
         return self.__default
+
+    @property
+    def minimum(self):
+        """:obj:`int` : Low Limit of this entry. -:data:`~math.inf` if not
+        specified."""
+        return self.__minimum
+    
+    @property
+    def maximum(self):
+        """:obj:`int` : High Limit of this entry. -:data:`~math.inf` if not
+        specified."""
+        return self.__maximum
 
     @property
     def value(self):
@@ -448,7 +487,12 @@ class objectDictionary():
                 object_type = ENTRYTYPE(int(eds.get(section, "ObjectType"), 0))
 
                 if object_type == ENTRYTYPE.VAR:
+                    minimum, maximum = None, None
                     datatype = VARTYPE(int(eds.get(section, "DataType"), 0))
+                    if eds.has_option(section, "LowLimit"):
+                        minimum = int(eds[section]["lowLimit"], 0)
+                    if eds.has_option(section, "HighLimit"):
+                        maximum = int(eds[section]["HighLimit"], 0)
                     if eds.has_option(section, "DefaultValue"):
                         val = cls.parse_value(eds.get(section, "DefaultValue"),
                                               datatype, node_id)
@@ -458,7 +502,8 @@ class objectDictionary():
                                 datatype=datatype,
                                 attribute=ATTR[eds.get(section, "AccessType")],
                                 description=name,
-                                default=val)
+                                default=val,
+                                minimum=minimum, maximum=maximum)
                 elif object_type == ENTRYTYPE.ARRAY and \
                         eds.has_option(section, "CompactSubObj"):
                     od.addEntry(index, object_type, description=name)
@@ -480,13 +525,19 @@ class objectDictionary():
                 name = eds.get(section, "ParameterName")
                 default = None
                 datatype = VARTYPE(int(eds.get(section, "DataType"), 0))
+                minimum, maximum = None, None
                 if eds.has_option(section, "DefaultValue"):
                     default = cls.parse_value(eds.get(section, "DefaultValue"),
                                               datatype, node_id)
+                if eds.has_option(section, "LowLimit"):
+                    minimum = int(eds[section]["lowLimit"], 0)
+                if eds.has_option(section, "HighLimit"):
+                    maximum = int(eds[section]["HighLimit"], 0)
                 if od[index].entrytype != ENTRYTYPE.VAR:
                     od[index].addSubEntry(subindex, datatype,
                                           ATTR[eds.get(section, "AccessType")],
-                                          description=name, default=default)
+                                          description=name, default=default,
+                                          minimum=minimum, maximum=maximum)
                 else:
                     logger.error('Top level entry is VAR and may not have any '
                                  'subentries!')
@@ -590,7 +641,8 @@ class objectDictionary():
         self.__entries[index].value = val
 
     def addEntry(self, index, entrytype, datatype=None, attribute=None,
-                 description='', default=None, comment=''):
+                 description='', default=None, comment='', minimum=None, 
+                 maximum=None):
         """Add an odEntry to the object dictionary if index is still free
 
         Parameters
@@ -609,6 +661,10 @@ class objectDictionary():
             Default value if single value entry. Defaults to :data:`None`.
         comment : :obj:`str`, optional
             Additional comment on this entry. Defaults to ``''``.
+        minimum : :obj:`int`, optional
+            Low Limit of this entry.
+        maximum : :obj:`int`, optional
+            High Limit of this entry.
 
         Raises
         ------
@@ -626,7 +682,8 @@ class objectDictionary():
                                         datatype=datatype, attribute=attribute,
                                         description=description,
                                         default=default, comment=comment,
-                                        direct_access=self.__direct_access)
+                                        direct_access=self.__direct_access,
+                                        minimum=minimum, maximum=maximum)
 
     def __len__(self):
         """Number of all defined top level entries"""

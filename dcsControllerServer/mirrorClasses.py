@@ -75,23 +75,21 @@ class SubHandler(object):
             return
         # Count the data change event
         self.obj.server.cnt['Datachange events'] += 1
-        # Prepare |SDO| writing based on object type
+        # Prepare SDO writing based on object type
         if type(self.obj) is MyRegs:
             index = 0x2200 | (self.obj.n_scb << 4) | self.obj.n_pspp
             subindex = 0x10 | coc.PSPP_REGISTERS[display_name]
-            if val not in range(256):
-                raise ValueError(f'Error in data change: Trying to write '
-                                 f'register {index:04X}:{subindex:X} with '
-                                 f'value {val:X}.')
             if self.obj.server.od[index][subindex].attribute == coc.ATTR.RO:
                 return
         elif type(self.obj) is MySCBMaster:
             index = 0x2000
             subindex = 1 + self.obj.n_scb
-            if val not in range(2**16):
-                raise ValueError(f'Error in data change: Trying to write '
-                                 f'register {index:04X}:{subindex:X} with '
-                                 f'value {val:X}.')
+        elif type(self.obj) is MyDCSController:
+            if display_name == 'ADCTRIM':
+                index = 0x2001
+                subindex = 0
+            else:
+                return
         else:
             return
         # Write value to hardware and set it to UA node and python object
@@ -100,6 +98,8 @@ class SubHandler(object):
             node.set_value(val)
             # setattr(self.obj, _node_name.Name,
             #         data.monitored_item.Value.Value.Value)
+        else:
+            node.set_value(mirrorval)
 
 
 class UaObject(object):
@@ -118,7 +118,8 @@ class UaObject(object):
     ua_node
         The python respresentation of the corresponding |OPCUA| node
     period : :obj:`int`, optional
-        Publish interval for |OPCUA| data subscription in milliseconds.
+        Publish interval for |OPCUA| data subscription in milliseconds. 
+        Defaults to :data:`PERIOD_DEFAULT`.
     """
 
     def __init__(self, master, ua_node, period=PERIOD_DEFAULT):
@@ -183,6 +184,108 @@ class UaObject(object):
         return f'Mirror class of node {self.d_name}.'
 
 
+class MyFrontend(UaObject):
+    """
+    Definition of |OPCUA| object which represents a object to be mirrored in
+    python. This class mirrors it's UA counterpart and semi-configures itself
+    according to the UA model (generally from |XML|).
+    
+    This class represents one Frontend which has two monitoring values (one 
+    temperature and one voltage).
+    
+    Parameters
+    ----------
+    master : :class:`~.dcsControllerServer.DCSControllerServer`
+        The master server providing |CAN| communication and |OPCUA|
+        functionality
+    ua_node
+        The python respresentation of the corresponding |OPCUA| node
+    nodeId : :obj:`int`
+        |CAN| node id of the |DCS| Controller
+    n_module : :obj:`int`
+        Module number (0-15). This is not neccessarily equal to the module
+        number in its serial powering chain.
+    period : :obj:`int`, optional
+        Publish interval for |OPCUA| data subscription in milliseconds. 
+        Defaults to :data:`PERIOD_DEFAULT`.
+    """
+    
+    def __init__(self, master, ua_node, nodeId, n_module, 
+                 period=PERIOD_DEFAULT):
+        
+        # properties and variables; must mirror UA model (based on browsename!)
+        self.Temperature = None
+        self.Voltage = None
+        
+        # init the UaObject super class to connect the python object to the UA
+        # object.
+        super().__init__(master, ua_node, period)
+        
+        self.server = master
+        """:class:`~.dcsControllerServer.DCSControllerServer` : The master
+        server providing |CAN| communication and |OPCUA| functionality"""
+        self.nodeId = nodeId
+        """:obj:`int` : |CAN| node id of the parent |DCS| Controller"""
+        self.n_module = n_module
+        """:obj:`int` : Module number (0-15)"""
+        
+        
+class MyFrontends(UaObject):
+    """
+    Definition of |OPCUA| object which represents a object to be mirrored in
+    python. This class mirrors it's UA counterpart and semi-configures itself
+    according to the UA model (generally from |XML|).
+    
+    This class represents a FolderType object which contains 16 entries of
+    :class:`MyFrontend`.
+    
+    Parameters
+    ----------
+    master : :class:`~.dcsControllerServer.DCSControllerServer`
+        The master server providing |CAN| communication and |OPCUA|
+        functionality
+    ua_node
+        The python respresentation of the corresponding |OPCUA| node
+    nodeId : :obj:`int`
+        |CAN| node id of the |DCS| Controller
+    period : :obj:`int`, optional
+        Publish interval for |OPCUA| data subscription in milliseconds. 
+        Defaults to :data:`PERIOD_DEFAULT`.
+    """
+    
+    def __init__(self, master, ua_node, nodeId, period=PERIOD_DEFAULT):
+        
+        # properties and variables; must mirror UA model (based on browsename!)
+        for module in range(16):
+            exec(f'self.Frontend{module:X} = MyFrontend(master, '
+                 f'ua_node.get_child(f"{master.idx}:Frontend{module:X}"), '
+                 f'nodeId, module, period=period)')
+            
+        # init the UaObject super class to connect the python object to the UA
+        # object.
+        super().__init__(master, ua_node, period)
+
+        self.server = master
+        """:class:`~.dcsControllerServer.DCSControllerServer` : The master
+        server providing |CAN| communication and |OPCUA| functionality"""
+        self.nodeId = nodeId
+        """:obj:`int` : |CAN| node id of the parent |DCS| Controller"""
+        self.__i = 0
+        
+    def __getitem__(self, key):
+        return eval(f'self.Frontend{key:X}')
+    
+    def __iter__(self):
+        self.__i = 0
+        return self
+    
+    def __next__(self):
+        if self.__i < 16:
+            self.__i += 1
+            return self[self.__i - 1]
+        raise StopIteration
+
+
 class MyPSPPADCChannels(UaObject):
     """
     Definition of |OPCUA| object which represents a object to be mirrored in
@@ -206,6 +309,9 @@ class MyPSPPADCChannels(UaObject):
         Number of the |SCB| master if this belongs to one
     n_pspp : :obj:`int`
         Chip address of the parent |PSPP| in the serial power chain
+    period : :obj:`int`, optional
+        Publish interval for |OPCUA| data subscription in milliseconds. 
+        Defaults to :data:`PERIOD_DEFAULT`.
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp, 
@@ -270,18 +376,17 @@ class MyMonitoringData(UaObject):
         Number of the |SCB| master if this belongs to one
     n_pspp : :obj:`int`
         Chip address of the |PSPP| in the serial power chain
+    period : :obj:`int`, optional
+        Publish interval for |OPCUA| data subscription in milliseconds. 
+        Defaults to :data:`PERIOD_DEFAULT`.
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp,
                  period=PERIOD_DEFAULT):
 
         # properties and variables; must mirror UA model (based on browsename!)
-        self.Temperature = None
-        """:obj:`int` : UInt16 attribute for a |PSPP| chip temperature"""
-        self.Voltage1 = None
-        """:obj:`int` : UInt16 attribute for a |PSPP| chip voltage"""
-        self.Voltage2 = None
-        """:obj:`int` : UInt16 attribute for another |PSPP| chip voltage"""
+        for key in coc.PSPPMONVALS:
+            exec(f'self.{key} = None')
 
         # init the UaObject super class to connect the python object to the UA
         # object.
@@ -338,6 +443,9 @@ class MyRegs(UaObject):
         Number of the |SCB| master if this belongs to one
     n_pspp : :obj:`int`
         Chip address of the parent |PSPP| in the serial power chain
+    period : :obj:`int`, optional
+        Publish interval for |OPCUA| data subscription in milliseconds. 
+        Defaults to :data:`PERIOD_DEFAULT`.
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp,
@@ -408,6 +516,9 @@ class MyPSPP(UaObject):
         Number of the |SCB| master this belongs to
     n_pspp : :obj:`int`
         Chip address of this |PSPP| in the serial power chain
+    period : :obj:`int`, optional
+        Publish interval for |OPCUA| data subscription in milliseconds. 
+        Defaults to :data:`PERIOD_DEFAULT`.
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb, n_pspp, 
@@ -468,6 +579,9 @@ class MySCBMaster(UaObject):
         |CAN| node id of the parent |DCS| Controller
     n_scb : :obj:`int`
         Number of this |SCB| master
+    period : :obj:`int`, optional
+        Publish interval for |OPCUA| data subscription in milliseconds. 
+        Defaults to :data:`PERIOD_DEFAULT`.
     """
 
     def __init__(self, master, ua_node, nodeId, n_scb, period=PERIOD_DEFAULT):
@@ -530,6 +644,9 @@ class MyDCSController(UaObject):
         The python respresentation of the corresponding |OPCUA| node
     nodeId : :obj:`int`
         |CAN| node id of this |DCS| Controller
+    period : :obj:`int`, optional
+        Publish interval for |OPCUA| data subscription in milliseconds. 
+        Defaults to :data:`PERIOD_DEFAULT`.
     """
 
     def __init__(self, master, ua_node, nodeId, period=PERIOD_DEFAULT):
@@ -539,10 +656,17 @@ class MyDCSController(UaObject):
         """:obj:`bool` : Status of the Controller"""
         self.NodeId = nodeId
         """:obj:`int` : |CAN| node id of this |DCS| Controller"""
+        self.ADCTRIM = None
+        """:obj:`int` : |ADC| trimming bits. This is a 6 bit entry"""
         for i in range(4):
             exec(f"self.SCB{i} = MySCBMaster(master, "
                  f"ua_node.get_child('{master.idx}:SCB{i}'), nodeId, i,"
                  f" period)")
+        self.Frontends = \
+            MyFrontends(master, ua_node.get_child(f'{master.idx}:Frontends'),
+                        nodeId, period)
+        """:class:`MyFrontends` : Folder-like mirror class containing 
+        references to mirrored modules"""
 
         # init the UaObject super class to connect the python object to the UA
         # object.
@@ -554,7 +678,8 @@ class MyDCSController(UaObject):
         """:class:`~.dcsControllerServer.DCSControllerServer` : The master
         server providing |CAN| communication and |OPCUA| functionality"""
         self.nodeId = nodeId
-        """:obj:`int` : |CAN| node id of the |DCS| Controller"""
+        """:obj:`int` : |CAN| node id of this |DCS| Controller for conformity
+        with other mirror classes"""
         self.__n = 0
 
     def __getitem__(self, key):
@@ -637,8 +762,14 @@ class TestClass(object):
 
 
 if __name__ == '__main__':
-    import logging
-    logger = logging.getLogger(__name__)
+    import coloredlogs
+    import verboselogs
+    from extend_logging import extend_logging
+    
+    extend_logging()
+    logger = verboselogs.VerboseLogger(__name__)
+    coloredlogs.install(fmt='%(asctime)s %(levelname)-8s %(message)s', 
+                        level='NOTICE', isatty=True, milliseconds=True)
 
     with TestClass(logger) as tc:
         tc.start()

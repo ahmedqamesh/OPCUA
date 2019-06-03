@@ -84,7 +84,7 @@ class DCSControllerServer(object):
         Vendor of the |CAN| interface.
     edsfile : :obj:`str`, optional
         File path of |EDS|. The default will search for
-        'CANControllerForPSPPv1.eds' in the directory of this file.
+        'DCSControllerOD.eds' in the directory of this file.
     console_loglevel : :obj:`int` or :obj:`str`, optional
         Defines which log messages are displayed in the console.
     file_loglevel : :obj:`int` or :obj:`str`, optional
@@ -110,7 +110,11 @@ class DCSControllerServer(object):
         which is the factory default.
     period : :obj:`int`, optional
         Publishing interval for data subscription in milliseconds. Defaults to
-        100 ms.
+        500 ms.
+    config : :obj:`str`, optional
+        Path to configuration file. Defaults to :data:`None`. In this case the
+        default config file 'DCSControllerConfig.ini' in the source directory
+        is taken.
 
     Example
     -------
@@ -134,8 +138,8 @@ class DCSControllerServer(object):
                  logformat='%(asctime)s %(levelname)-8s %(message)s',
                  endpoint='opc.tcp://localhost:4840/',
                  file_loglevel=logging.INFO, logdir=None, channel=0,
-                 bitrate=125000, xmlfile='dcscontrollerdesign.xml',
-                 ipAddress='192.168.1.254', period=500):
+                 bitrate=125000, xmlfile=None,
+                 ipAddress='192.168.1.254', period=500, config=None):
 
         self.__isinit = False
         self.ret = None
@@ -256,13 +260,21 @@ class DCSControllerServer(object):
         self.__mypyDCs = {}
         """:obj:`dict` : List of :class:`MyDCSController` instances which
         mirrors |OPCUA| adress space. Key is the node id."""
+        self.__ADCTRIM = {}
+        """:obj.`dict` : List of ADC trimming bits for each node id."""
+        self.__MODTEMPCONN = {}
+        """:obj:`dict` : List of module nummbers where the temperature is 
+        connected for each node id"""
+        self.__MODVOLTCONN = {}
+        """:obj:`dict` : List of module nummbers where the voltage is connected
+        for each node id"""
 
         # Import Object Dictionary from EDS
         self.logger.notice('Importing Object Dictionary ...')
         if edsfile is None:
             self.logger.debug('File path for EDS not given. Looking in '
                               'the dicrectory of this script.')
-            edsfile = os.path.join(scrdir, 'CANControllerForPSPPv1.eds')
+            edsfile = os.path.join(scrdir, 'DCSControllerOD.eds')
         self.__od = objectDictionary.from_eds(self.logger, edsfile, 0)
         """:class:`~.objectDictionary.objectDictionary` : The CANopen Object
         Dictionary (|OD|) for a |DCS| Controller"""
@@ -271,20 +283,38 @@ class DCSControllerServer(object):
         self.logger.notice('Read configuration file ...')
         self.__connectedPSPPs = {}
         cf = ConfigParser()
-        cf.read(os.path.join(scrdir, 'ConnectedPSPPs.ini'))
+        if config is None:
+            config = os.path.join(scrdir, 'DCSControllerConfig.ini')
+        cf.read(config)
         if len(cf.sections()) == 0:
             raise BusEmptyError('No sections found in configuration file!')
         for nodeid in cf.sections():
             nodeid_i = int(nodeid)
             if nodeid_i not in range(1, 128):
-                raise ValueError(f'Found invalid node id: {nodeid_i}')
+                self.logger.error(f'Found invalid node id: {nodeid_i}')
+                continue
             self.__nodeIds.append(nodeid_i)
             self.__connectedPSPPs[nodeid_i] = [[], [], [], []]
+            self.__MODTEMPCONN[nodeid_i] = [False for i in range(16)]
+            self.__MODVOLTCONN[nodeid_i] = [False for i in range(16)]
             for key in cf[nodeid]:
-                if re.match('scb[0-3]', key):
+                if re.fullmatch('scb[0-3]', key, re.IGNORECASE):
                     scb = int(key[3])
                     self.__connectedPSPPs[nodeid_i][scb] = \
                         [i for i in range(16) if int(cf[nodeid][key][i])]
+                elif re.fullmatch('scbx', key, re.IGNORECASE):
+                    pass
+                elif re.fullmatch('adctrim', key, re.IGNORECASE):
+                    adctrim = int(cf[nodeid][key], 0)
+                    self.__ADCTRIM[nodeid_i] = adctrim
+                elif re.fullmatch('module_temp', key, re.IGNORECASE):
+                    self.__MODTEMPCONN[nodeid_i] = \
+                        [i for i in range(16) if int(cf[nodeid][key][i])]
+                elif re.fullmatch('module_volt', key, re.IGNORECASE):
+                    self.__MODVOLTCONN[nodeid_i] = \
+                        [i for i in range(16) if int(cf[nodeid][key][i])]
+                else:
+                    self.logger.warning(f'Found invalid key: {key}.')
         self.logger.success('... Done!')
 
     def __str__(self):
@@ -502,24 +532,29 @@ class DCSControllerServer(object):
                 self.server.start()
                 self.__isserver = True
                 self.createMirroredObjects()
-                # Write information about connected PSPPs to mirrored objects
-                # and their corrresponding UA nodes
+                # Write configuration information to mirrored objects and their 
+                # corrresponding UA nodes
+                self.logger.notice('Write config info to nodes and python '
+                                   'objects ...')
                 for nodeId in self.__nodeIds:
+                    adctrim = self.__ADCTRIM[nodeId]
+                    if self.sdoWrite(nodeId, 0x2001, 0, adctrim):
+                        self.__mypyDCs[nodeId].ADCTRIM = adctrim
+                        self.__mypyDCs[nodeId].write('ADCTRIM')
+                    else:
+                        self.logger.error(f'Failed setting ADC trimming bits '
+                                          f'({adctrim}) on node {nodeId}.')
                     for scb in range(4):
                         val = 0
                         for pspp in self.__connectedPSPPs[nodeId][scb]:
                             val |= 1 << pspp
                         self.__mypyDCs[nodeId][scb].ConnectedPSPPs = val
                         self.__mypyDCs[nodeId][scb].write('ConnectedPSPPs')
-                time.sleep(1)
-                self.__isinit = True
-                # Do not do this if you have auto-detection of your PSPPs
-                # self.rdmSetConnPSPPs()
-                # Do this instead
-                for nodeId in self.__nodeIds:
                     self.mypyDCs[nodeId].Status = True
                     self.mypyDCs[nodeId].write('Status')
-                # self.getConnectedPSPPs()
+                time.sleep(1)
+                self.logger.success('... Done!')
+                self.__isinit = True
                 self.logger.success('Initialization Done, starting '
                                     'communication.')
                 # time.sleep(10)
@@ -580,6 +615,15 @@ class DCSControllerServer(object):
             count = 0 if count == 10 else count
             # Loop over all connected CAN nodeIds
             for nodeId in self.__nodeIds:
+                # Read ADC trimming bits
+                adctrim_n = self.sdoRead(nodeId, 0x2001, 0, 1000)
+                adctrim_o = self.mypyDCs[nodeId].ADCTRIM
+                if adctrim_n != adctrim_o:
+                    self.logger.warning(f'ADC trimming bits of node {nodeId} '
+                                        f'unexpectedly changed from '
+                                        f'{adctrim_o} to {adctrim_n}.')
+                    self.mypyDCs[nodeId].ADCTRIM = adctrim_n
+                    self.mypyDCs[nodeId].write('ADCTRIM')
                 # Loop over all SCB masters
                 for scb in range(4):
                     # Reread connected PSPPs in case the user has changed it
@@ -618,6 +662,18 @@ class DCSControllerServer(object):
                                 if val is not None:
                                     PSPP.Regs[name] = val
                                     PSPP.Regs.write(name)
+                # Read module temperatures
+                for i in self.__MODTEMPCONN[nodeId]:
+                    val = self.sdoRead(nodeId, 0x2300 | i, 1, 1000)
+                    if val is not None:
+                        self.mypyDCs[nodeId].Frontends[i].Temperature = val
+                        self.mypyDCs[nodeId].Frontends[i].write('Temperature')
+                # Read module voltages
+                for i in self.__MODVOLTCONN[nodeId]:
+                    val = self.sdoRead(nodeId, 0x2300 | i, 2, 1000)
+                    if val is not None:
+                        self.mypyDCs[nodeId].Frontends[i].Voltage = val
+                        self.mypyDCs[nodeId].Frontends[i].write('Voltage')
             count += 1
 
     def readCanMessages(self):
@@ -789,11 +845,10 @@ class DCSControllerServer(object):
                         zip(range(len(self.__canMsgQueue)),
                             self.__canMsgQueue):
                     messageValid = \
-                        (cobid_ret == coc.COBID.SDO_TX + nodeId and
-                         ret[0] in [0x80, 0x43, 0x47, 0x4b, 0x4f, 0x42] and
+                        (dlc == 8 and cobid_ret == coc.COBID.SDO_TX + nodeId
+                         and ret[0] in [0x80, 0x43, 0x47, 0x4b, 0x4f, 0x42] and
                          int.from_bytes([ret[1], ret[2]], 'little') == index
-                         and ret[3] == subindex and
-                         dlc == 8)
+                         and ret[3] == subindex)
                     if messageValid:
                         del self.__canMsgQueue[i]
                         break
@@ -847,6 +902,12 @@ class DCSControllerServer(object):
         self.logger.notice(f'Send SDO write request to node {nodeId}, object '
                            f'{index:04X}:{subindex:X} with value {value:X}.')
         self.cnt['SDO write total'] += 1
+        if value < self.__od[index][subindex].minimum or \
+                value > self.__od[index][subindex].maximum:
+            self.logger.error(f'Value for SDO write protocol outside value '
+                              f'range!')
+            self.cnt['SDO write value range'] += 1
+            return False
         cobid = coc.COBID.SDO_RX + nodeId
         datasize = len(f'{value:X}') // 2 + 1
         data = value.to_bytes(4, 'little')
@@ -875,11 +936,10 @@ class DCSControllerServer(object):
                         zip(range(len(self.__canMsgQueue)),
                             self.__canMsgQueue):
                     messageValid = \
-                        (cobid_ret == coc.COBID.SDO_TX + nodeId and
-                         ret[0] in [0x80, 0b1100000] and
+                        (dlc == 8 and cobid_ret == coc.COBID.SDO_TX + nodeId
+                         and ret[0] in [0x80, 0b1100000] and
                          int.from_bytes([ret[1], ret[2]], 'little') == index
-                         and ret[3] == subindex and
-                         dlc == 8)
+                         and ret[3] == subindex)
                     if messageValid:
                         del self.__canMsgQueue[i]
                         break
@@ -1021,16 +1081,20 @@ def main():
                         default='opc.tcp://localhost:4840/')
     sGroup.add_argument('-e', '--edsfile', metavar='EDSFILE',
                         default=os.path.join(scrdir,
-                                             'CANControllerForPSPPv1.eds'),
+                                             'DCSControllerOD.eds'),
                         help='File path of Electronic Data Sheet (EDS)')
     sGroup.add_argument('-x', '--xmlfile', metavar='XMLFILE',
                         default=os.path.join(scrdir,
                                              'dcscontrollerdesign.xml'),
                         help='File path of OPCUA XML design file')
+    sGroup.add_argument('--config', metavar='CONFIG',
+                        default=os.path.join(scrdir,
+                                             'DCSControllerConfig.ini'),
+                        help='File path of server configuration file')
     sGroup.add_argument('-p', '--period', metavar='PERIOD', type=int,
                         default=500,
                         help='Publishing interval for data subscriptions in '
-                        'millisseconds')
+                        'milliseconds')
 
     # CAN interface
     CGroup = parser.add_argument_group('CAN interface')

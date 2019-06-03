@@ -40,27 +40,6 @@ Data%20Access%20View\DocumentSettings\SubscriptionSettings\maxKeepAliveCount=10
 Data%20Access%20View\DocumentSettings\SubscriptionSettings\maxNotificationsPerPublish=0
 Data%20Access%20View\DocumentSettings\SubscriptionSettings\priority=0
 Data%20Access%20View\DocumentSettings\SubscriptionSettings\publishingEnabled=true
-Data%20Access%20View\DocumentSettings\Items\000\003\DisplayName=Temperature
-Data%20Access%20View\DocumentSettings\Items\000\003\NodeId="ns=2;i=8484"
-Data%20Access%20View\DocumentSettings\Items\000\003\Status=2
-Data%20Access%20View\DocumentSettings\Items\000\003\MonitoringMode=2
-Data%20Access%20View\DocumentSettings\Items\000\003\MonitoringParameters\DiscardOldest=1
-Data%20Access%20View\DocumentSettings\Items\000\003\MonitoringParameters\QueueSize=1
-Data%20Access%20View\DocumentSettings\Items\000\003\MonitoringParameters\SamplingInterval=500
-Data%20Access%20View\DocumentSettings\Items\000\005\DisplayName=Voltage1
-Data%20Access%20View\DocumentSettings\Items\000\005\NodeId="ns=2;i=8485"
-Data%20Access%20View\DocumentSettings\Items\000\005\Status=2
-Data%20Access%20View\DocumentSettings\Items\000\005\MonitoringMode=2
-Data%20Access%20View\DocumentSettings\Items\000\005\MonitoringParameters\DiscardOldest=1
-Data%20Access%20View\DocumentSettings\Items\000\005\MonitoringParameters\QueueSize=1
-Data%20Access%20View\DocumentSettings\Items\000\005\MonitoringParameters\SamplingInterval=500
-Data%20Access%20View\DocumentSettings\Items\000\007\DisplayName=Voltage2
-Data%20Access%20View\DocumentSettings\Items\000\007\NodeId="ns=2;i=8486"
-Data%20Access%20View\DocumentSettings\Items\000\007\Status=2
-Data%20Access%20View\DocumentSettings\Items\000\007\MonitoringMode=2
-Data%20Access%20View\DocumentSettings\Items\000\007\MonitoringParameters\DiscardOldest=1
-Data%20Access%20View\DocumentSettings\Items\000\007\MonitoringParameters\QueueSize=1
-Data%20Access%20View\DocumentSettings\Items\000\007\MonitoringParameters\SamplingInterval=500
 
 [Attribute%20Plugin]
 Act_OnOff_Checked=true
