@@ -664,13 +664,13 @@ class DCSControllerServer(object):
                                     PSPP.Regs.write(name)
                 # Read module temperatures
                 for i in self.__MODTEMPCONN[nodeId]:
-                    val = self.sdoRead(nodeId, 0x2300 | i, 1, 1000)
+                    val = self.sdoRead(nodeId, 0x2200 | i, 0, 1000)
                     if val is not None:
                         self.mypyDCs[nodeId].Frontends[i].Temperature = val
                         self.mypyDCs[nodeId].Frontends[i].write('Temperature')
                 # Read module voltages
                 for i in self.__MODVOLTCONN[nodeId]:
-                    val = self.sdoRead(nodeId, 0x2300 | i, 2, 1000)
+                    val = self.sdoRead(nodeId, 0x2200 | i, 1, 1000)
                     if val is not None:
                         self.mypyDCs[nodeId].Frontends[i].Voltage = val
                         self.mypyDCs[nodeId].Frontends[i].write('Voltage')
@@ -1150,5 +1150,5 @@ def main():
 
 if __name__ == '__main__':
 
-    with DCSControllerServer() as server:
+    with DCSControllerServer(interface = "AnaGate") as server:
         server.start()

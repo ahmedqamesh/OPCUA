@@ -1,0 +1,2030 @@
+2019-11-22 11:12:56.199 INFO     Existing logging Handler: [<RotatingFileHandler /home/qamesh/git/OPCUA/dcsControllerServer/log/2019-11-22_11-12-56_OPCUA_Server.log (INFO)>]
+2019-11-22 11:12:56.200 NOTICE   Configuring OPC UA server ...
+2019-11-22 11:12:57.013 INFO     Configuring namespace
+2019-11-22 11:12:57.013 INFO     Namespace index: 2
+2019-11-22 11:12:57.013 SUCCESS  ... Done!
+2019-11-22 11:12:57.013 NOTICE   Importing OPCUA object types from XML. This may take some time ...
+2019-11-22 11:12:59.565 SUCCESS  ... Done!
+2019-11-22 11:12:59.573 SUCCESS  Anagate CAN channel: IP address: 192.168.1.254; CAN port: 0
+2019-11-22 11:12:59.573 NOTICE   Get OPC UA Object Type of DCS Controller ...
+2019-11-22 11:12:59.573 SUCCESS  ... Done!
+2019-11-22 11:12:59.573 NOTICE   Importing Object Dictionary ...
+2019-11-22 11:12:59.697 SUCCESS  Successfully created OD from EDS.
+2019-11-22 11:12:59.697 NOTICE   Read configuration file ...
+2019-11-22 11:12:59.698 SUCCESS  ... Done!
+2019-11-22 11:12:59.698 NOTICE   Checking node connections ...
+2019-11-22 11:12:59.698 INFO     Send SDO read request to node 8.
+2019-11-22 11:12:59.707 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:12:59.707 INFO     Got data: [145, 1, 0, 0]
+2019-11-22 11:12:59.707 INFO     588 8   43  00  10  00  91  01  00  00  
+2019-11-22 11:12:59.707 INFO     Connection to node 8 has been verified.
+2019-11-22 11:12:59.707 SUCCESS  ... Done!
+2019-11-22 11:12:59.708 NOTICE   Creating OPCUA Objects for every Controller on the bus ...
+2019-11-22 11:13:01.400 SUCCESS  ... Done!
+2019-11-22 11:13:01.400 NOTICE   Starting the server ...
+2019-11-22 11:13:01.404 NOTICE   Creating mirrored python objects for every UA object ...
+2019-11-22 11:13:01.753 SUCCESS  ... Done!
+2019-11-22 11:13:01.753 NOTICE   Write config info to nodes and python objects ...
+2019-11-22 11:13:01.753 NOTICE   Send SDO write request to node 8, object 2001:0 with value 0.
+2019-11-22 11:13:01.765 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:01.765 SUCCESS  SDO write protocol successful!
+2019-11-22 11:13:01.765 INFO     588 8   60  01  20  00  00  00  00  00  
+2019-11-22 11:13:02.767 SUCCESS  ... Done!
+2019-11-22 11:13:02.767 SUCCESS  Initialization Done, starting communication.
+2019-11-22 11:13:02.767 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.778 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.778 INFO     588 8   43  01  20  00  00  00  00  00  
+2019-11-22 11:13:02.778 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:02.778 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.790 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.790 INFO     Got data: [150, 90, 10, 192]
+2019-11-22 11:13:02.790 INFO     588 8   43  00  22  01  96  5a  0a  c0  
+2019-11-22 11:13:02.790 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.802 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.802 INFO     588 8   43  00  22  20  00  00  00  00  
+2019-11-22 11:13:02.802 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:02.802 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.813 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.814 INFO     588 8   43  00  22  21  d9  02  00  00  
+2019-11-22 11:13:02.814 INFO     Got data: [217, 2, 0, 0]
+2019-11-22 11:13:02.814 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.823 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.823 INFO     588 8   43  00  22  22  d9  02  00  00  
+2019-11-22 11:13:02.823 INFO     Got data: [217, 2, 0, 0]
+2019-11-22 11:13:02.824 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.834 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.834 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:02.835 INFO     588 8   43  00  22  23  00  00  00  00  
+2019-11-22 11:13:02.835 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.846 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.846 INFO     588 8   43  00  22  24  00  00  00  00  
+2019-11-22 11:13:02.846 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:02.847 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.858 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.858 INFO     588 8   43  00  22  25  cb  00  00  00  
+2019-11-22 11:13:02.858 INFO     Got data: [203, 0, 0, 0]
+2019-11-22 11:13:02.858 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.870 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.870 INFO     Got data: [203, 0, 0, 0]
+2019-11-22 11:13:02.870 INFO     588 8   43  00  22  26  cb  00  00  00  
+2019-11-22 11:13:02.870 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.882 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.882 INFO     Got data: [152, 2, 0, 0]
+2019-11-22 11:13:02.882 INFO     588 8   43  00  22  27  98  02  00  00  
+2019-11-22 11:13:02.882 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.894 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.894 INFO     588 8   43  00  22  10  21  00  00  00  
+2019-11-22 11:13:02.894 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:02.894 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.906 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.906 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:02.906 INFO     588 8   43  00  22  11  f5  00  00  00  
+2019-11-22 11:13:02.906 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.917 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.918 INFO     588 8   43  00  22  12  02  00  00  00  
+2019-11-22 11:13:02.918 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:02.918 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.929 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.929 INFO     Got data: [152, 0, 0, 0]
+2019-11-22 11:13:02.929 INFO     588 8   43  00  22  13  98  00  00  00  
+2019-11-22 11:13:02.930 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.941 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.941 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:02.941 INFO     588 8   43  00  22  14  03  00  00  00  
+2019-11-22 11:13:02.941 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.953 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.953 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:02.953 INFO     588 8   43  00  22  15  00  00  00  00  
+2019-11-22 11:13:02.953 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.965 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.965 INFO     588 8   43  00  22  16  f8  00  00  00  
+2019-11-22 11:13:02.965 INFO     Got data: [248, 0, 0, 0]
+2019-11-22 11:13:02.965 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.974 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.974 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:02.974 INFO     588 8   43  00  22  17  07  00  00  00  
+2019-11-22 11:13:02.974 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.986 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.986 INFO     Got data: [166, 0, 0, 0]
+2019-11-22 11:13:02.986 INFO     588 8   43  00  22  18  a6  00  00  00  
+2019-11-22 11:13:02.986 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:02.998 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:02.998 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:02.998 INFO     588 8   43  00  22  19  00  00  00  00  
+2019-11-22 11:13:02.998 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.009 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.010 INFO     588 8   43  00  22  1a  00  00  00  00  
+2019-11-22 11:13:03.010 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.010 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.024 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.024 INFO     Got data: [121, 0, 0, 0]
+2019-11-22 11:13:03.024 INFO     588 8   43  00  22  1b  79  00  00  00  
+2019-11-22 11:13:03.025 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.036 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.036 INFO     Got data: [81, 0, 0, 0]
+2019-11-22 11:13:03.036 INFO     588 8   43  00  22  1c  51  00  00  00  
+2019-11-22 11:13:03.037 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.048 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.048 INFO     Got data: [162, 138, 10, 192]
+2019-11-22 11:13:03.048 INFO     588 8   43  01  22  01  a2  8a  0a  c0  
+2019-11-22 11:13:03.048 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.060 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.060 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.060 INFO     588 8   43  01  22  20  00  00  00  00  
+2019-11-22 11:13:03.060 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.072 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.072 INFO     Got data: [221, 2, 0, 0]
+2019-11-22 11:13:03.072 INFO     588 8   43  01  22  21  dd  02  00  00  
+2019-11-22 11:13:03.072 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.084 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.084 INFO     Got data: [221, 2, 0, 0]
+2019-11-22 11:13:03.084 INFO     588 8   43  01  22  22  dd  02  00  00  
+2019-11-22 11:13:03.084 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.096 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.096 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.096 INFO     588 8   43  01  22  23  00  00  00  00  
+2019-11-22 11:13:03.096 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.108 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.108 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.108 INFO     588 8   43  01  22  24  00  00  00  00  
+2019-11-22 11:13:03.108 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.119 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.120 INFO     Got data: [129, 1, 0, 0]
+2019-11-22 11:13:03.120 INFO     588 8   43  01  22  25  81  01  00  00  
+2019-11-22 11:13:03.120 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.131 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.131 INFO     Got data: [129, 1, 0, 0]
+2019-11-22 11:13:03.132 INFO     588 8   43  01  22  26  81  01  00  00  
+2019-11-22 11:13:03.132 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.143 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.143 INFO     Got data: [160, 2, 0, 0]
+2019-11-22 11:13:03.143 INFO     588 8   43  01  22  27  a0  02  00  00  
+2019-11-22 11:13:03.144 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.155 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.155 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:03.155 INFO     588 8   43  01  22  10  21  00  00  00  
+2019-11-22 11:13:03.156 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.167 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.167 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:03.167 INFO     588 8   43  01  22  11  f5  00  00  00  
+2019-11-22 11:13:03.167 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.179 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.179 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:03.179 INFO     588 8   43  01  22  12  02  00  00  00  
+2019-11-22 11:13:03.179 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.191 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.191 INFO     Got data: [160, 0, 0, 0]
+2019-11-22 11:13:03.191 INFO     588 8   43  01  22  13  a0  00  00  00  
+2019-11-22 11:13:03.191 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.203 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.203 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:03.203 INFO     588 8   43  01  22  14  03  00  00  00  
+2019-11-22 11:13:03.203 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.214 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.214 INFO     Got data: [72, 0, 0, 0]
+2019-11-22 11:13:03.215 INFO     588 8   43  01  22  15  48  00  00  00  
+2019-11-22 11:13:03.215 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.226 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.226 INFO     Got data: [249, 0, 0, 0]
+2019-11-22 11:13:03.226 INFO     588 8   43  01  22  16  f9  00  00  00  
+2019-11-22 11:13:03.227 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.238 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.238 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:03.238 INFO     588 8   43  01  22  17  07  00  00  00  
+2019-11-22 11:13:03.238 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.250 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.250 INFO     Got data: [168, 0, 0, 0]
+2019-11-22 11:13:03.250 INFO     588 8   43  01  22  18  a8  00  00  00  
+2019-11-22 11:13:03.250 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.262 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.262 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.262 INFO     588 8   43  01  22  19  00  00  00  00  
+2019-11-22 11:13:03.262 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.274 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.274 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.274 INFO     588 8   43  01  22  1a  00  00  00  00  
+2019-11-22 11:13:03.274 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.286 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.286 INFO     Got data: [199, 0, 0, 0]
+2019-11-22 11:13:03.286 INFO     588 8   43  01  22  1b  c7  00  00  00  
+2019-11-22 11:13:03.286 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.295 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.295 INFO     Got data: [93, 0, 0, 0]
+2019-11-22 11:13:03.295 INFO     588 8   43  01  22  1c  5d  00  00  00  
+2019-11-22 11:13:03.295 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.306 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.307 INFO     588 8   43  02  22  01  00  00  08  c0  
+2019-11-22 11:13:03.307 INFO     Got data: [0, 0, 8, 192]
+2019-11-22 11:13:03.307 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.318 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.318 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.318 INFO     588 8   43  02  22  20  00  00  00  00  
+2019-11-22 11:13:03.319 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.330 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.330 INFO     588 8   43  02  22  21  d5  02  00  00  
+2019-11-22 11:13:03.330 INFO     Got data: [213, 2, 0, 0]
+2019-11-22 11:13:03.331 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.342 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.342 INFO     588 8   43  02  22  22  d5  02  00  00  
+2019-11-22 11:13:03.342 INFO     Got data: [213, 2, 0, 0]
+2019-11-22 11:13:03.342 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.354 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.354 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.354 INFO     588 8   43  02  22  23  00  00  00  00  
+2019-11-22 11:13:03.354 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.366 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.366 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.366 INFO     588 8   43  02  22  24  00  00  00  00  
+2019-11-22 11:13:03.366 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.378 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.378 INFO     Got data: [167, 2, 0, 0]
+2019-11-22 11:13:03.378 INFO     588 8   43  02  22  25  a7  02  00  00  
+2019-11-22 11:13:03.378 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.390 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.390 INFO     Got data: [167, 2, 0, 0]
+2019-11-22 11:13:03.390 INFO     588 8   43  02  22  26  a7  02  00  00  
+2019-11-22 11:13:03.390 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.402 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.402 INFO     Got data: [144, 2, 0, 0]
+2019-11-22 11:13:03.402 INFO     588 8   43  02  22  27  90  02  00  00  
+2019-11-22 11:13:03.402 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.413 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.414 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:03.414 INFO     588 8   43  02  22  10  21  00  00  00  
+2019-11-22 11:13:03.414 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.425 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.425 INFO     588 8   43  02  22  11  f5  00  00  00  
+2019-11-22 11:13:03.425 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:03.426 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.437 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.437 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:03.437 INFO     588 8   43  02  22  12  02  00  00  00  
+2019-11-22 11:13:03.438 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.449 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.449 INFO     Got data: [144, 0, 0, 0]
+2019-11-22 11:13:03.449 INFO     588 8   43  02  22  13  90  00  00  00  
+2019-11-22 11:13:03.449 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.461 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.461 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:03.461 INFO     588 8   43  02  22  14  03  00  00  00  
+2019-11-22 11:13:03.461 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.473 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.473 INFO     Got data: [176, 0, 0, 0]
+2019-11-22 11:13:03.473 INFO     588 8   43  02  22  15  b0  00  00  00  
+2019-11-22 11:13:03.473 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.482 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.482 INFO     588 8   43  02  22  16  f9  00  00  00  
+2019-11-22 11:13:03.482 INFO     Got data: [249, 0, 0, 0]
+2019-11-22 11:13:03.482 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.494 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.494 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:03.494 INFO     588 8   43  02  22  17  07  00  00  00  
+2019-11-22 11:13:03.494 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.505 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.506 INFO     Got data: [164, 0, 0, 0]
+2019-11-22 11:13:03.506 INFO     588 8   43  02  22  18  a4  00  00  00  
+2019-11-22 11:13:03.506 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.517 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.517 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.517 INFO     588 8   43  02  22  19  00  00  00  00  
+2019-11-22 11:13:03.518 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.534 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.534 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:03.534 INFO     588 8   43  02  22  1a  02  00  00  00  
+2019-11-22 11:13:03.535 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.544 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.544 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:03.544 INFO     588 8   43  02  22  1b  21  00  00  00  
+2019-11-22 11:13:03.545 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.556 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.556 INFO     Got data: [16, 0, 0, 0]
+2019-11-22 11:13:03.556 INFO     588 8   43  02  22  1c  10  00  00  00  
+2019-11-22 11:13:03.556 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.568 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.568 INFO     588 8   43  03  22  01  af  be  fa  c0  
+2019-11-22 11:13:03.568 INFO     Got data: [175, 190, 250, 192]
+2019-11-22 11:13:03.568 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.580 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.580 INFO     588 8   43  03  22  20  0f  00  00  00  
+2019-11-22 11:13:03.580 INFO     Got data: [15, 0, 0, 0]
+2019-11-22 11:13:03.580 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.592 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.592 INFO     Got data: [238, 2, 0, 0]
+2019-11-22 11:13:03.592 INFO     588 8   43  03  22  21  ee  02  00  00  
+2019-11-22 11:13:03.592 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.604 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.604 INFO     Got data: [238, 2, 0, 0]
+2019-11-22 11:13:03.604 INFO     588 8   43  03  22  22  ee  02  00  00  
+2019-11-22 11:13:03.604 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.615 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.616 INFO     Got data: [15, 0, 0, 0]
+2019-11-22 11:13:03.616 INFO     588 8   43  03  22  23  0f  00  00  00  
+2019-11-22 11:13:03.616 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.627 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.627 INFO     Got data: [15, 0, 0, 0]
+2019-11-22 11:13:03.628 INFO     588 8   43  03  22  24  0f  00  00  00  
+2019-11-22 11:13:03.628 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.639 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.639 INFO     Got data: [208, 1, 0, 0]
+2019-11-22 11:13:03.639 INFO     588 8   43  03  22  25  d0  01  00  00  
+2019-11-22 11:13:03.640 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.651 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.651 INFO     Got data: [208, 1, 0, 0]
+2019-11-22 11:13:03.651 INFO     588 8   43  03  22  26  d0  01  00  00  
+2019-11-22 11:13:03.651 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.663 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.663 INFO     Got data: [176, 2, 0, 0]
+2019-11-22 11:13:03.663 INFO     588 8   43  03  22  27  b0  02  00  00  
+2019-11-22 11:13:03.663 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.672 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.672 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:03.672 INFO     588 8   43  03  22  10  21  00  00  00  
+2019-11-22 11:13:03.672 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.684 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.684 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:03.684 INFO     588 8   43  03  22  11  f5  00  00  00  
+2019-11-22 11:13:03.684 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.696 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.696 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:03.696 INFO     588 8   43  03  22  12  02  00  00  00  
+2019-11-22 11:13:03.696 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.707 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.708 INFO     Got data: [176, 0, 0, 0]
+2019-11-22 11:13:03.708 INFO     588 8   43  03  22  13  b0  00  00  00  
+2019-11-22 11:13:03.708 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.719 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.720 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:03.720 INFO     588 8   43  03  22  14  03  00  00  00  
+2019-11-22 11:13:03.720 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.731 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.731 INFO     588 8   43  03  22  15  00  00  00  00  
+2019-11-22 11:13:03.731 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.732 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.743 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.743 INFO     Got data: [248, 0, 0, 0]
+2019-11-22 11:13:03.743 INFO     588 8   43  03  22  16  f8  00  00  00  
+2019-11-22 11:13:03.743 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.755 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.755 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:03.755 INFO     588 8   43  03  22  17  07  00  00  00  
+2019-11-22 11:13:03.755 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.767 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.767 INFO     588 8   43  03  22  18  ac  00  00  00  
+2019-11-22 11:13:03.767 INFO     Got data: [172, 0, 0, 0]
+2019-11-22 11:13:03.767 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.779 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.779 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.779 INFO     588 8   43  03  22  19  00  00  00  00  
+2019-11-22 11:13:03.779 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.791 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.791 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.791 INFO     588 8   43  03  22  1a  00  00  00  00  
+2019-11-22 11:13:03.791 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.803 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.803 INFO     Got data: [99, 0, 0, 0]
+2019-11-22 11:13:03.803 INFO     588 8   43  03  22  1b  63  00  00  00  
+2019-11-22 11:13:03.803 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.814 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.815 INFO     Got data: [192, 0, 0, 0]
+2019-11-22 11:13:03.815 INFO     588 8   43  03  22  1c  c0  00  00  00  
+2019-11-22 11:13:03.815 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.826 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.826 INFO     Got data: [160, 130, 10, 192]
+2019-11-22 11:13:03.826 INFO     588 8   43  01  22  01  a0  82  0a  c0  
+2019-11-22 11:13:03.827 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.859 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.859 INFO     588 8   43  02  22  01  90  0a  08  c0  
+2019-11-22 11:13:03.860 INFO     Got data: [144, 10, 8, 192]
+2019-11-22 11:13:03.860 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.874 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.874 INFO     Got data: [152, 98, 10, 192]
+2019-11-22 11:13:03.874 INFO     588 8   43  00  22  01  98  62  0a  c0  
+2019-11-22 11:13:03.874 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.886 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.886 INFO     Got data: [0, 0, 0, 192]
+2019-11-22 11:13:03.886 INFO     588 8   43  01  22  01  00  00  00  c0  
+2019-11-22 11:13:03.886 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.898 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.898 INFO     Got data: [0, 4, 8, 192]
+2019-11-22 11:13:03.898 INFO     588 8   43  02  22  01  00  04  08  c0  
+2019-11-22 11:13:03.898 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.907 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.907 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.907 INFO     588 8   43  01  20  00  00  00  00  00  
+2019-11-22 11:13:03.907 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.921 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.921 INFO     Got data: [0, 0, 0, 192]
+2019-11-22 11:13:03.921 INFO     588 8   43  00  22  01  00  00  00  c0  
+2019-11-22 11:13:03.922 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.933 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.933 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.933 INFO     588 8   43  00  22  20  00  00  00  00  
+2019-11-22 11:13:03.934 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.945 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.945 INFO     Got data: [219, 2, 0, 0]
+2019-11-22 11:13:03.945 INFO     588 8   43  00  22  21  db  02  00  00  
+2019-11-22 11:13:03.945 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.957 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.957 INFO     Got data: [219, 2, 0, 0]
+2019-11-22 11:13:03.957 INFO     588 8   43  00  22  22  db  02  00  00  
+2019-11-22 11:13:03.957 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.969 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.969 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.969 INFO     588 8   43  00  22  23  00  00  00  00  
+2019-11-22 11:13:03.969 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.981 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.981 INFO     588 8   43  00  22  24  00  00  00  00  
+2019-11-22 11:13:03.981 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:03.981 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:03.993 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:03.993 INFO     Got data: [201, 0, 0, 0]
+2019-11-22 11:13:03.993 INFO     588 8   43  00  22  25  c9  00  00  00  
+2019-11-22 11:13:03.993 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.004 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.005 INFO     Got data: [201, 0, 0, 0]
+2019-11-22 11:13:04.005 INFO     588 8   43  00  22  26  c9  00  00  00  
+2019-11-22 11:13:04.005 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.016 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.016 INFO     Got data: [150, 2, 0, 0]
+2019-11-22 11:13:04.016 INFO     588 8   43  00  22  27  96  02  00  00  
+2019-11-22 11:13:04.017 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.028 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.028 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:04.028 INFO     588 8   43  00  22  10  21  00  00  00  
+2019-11-22 11:13:04.028 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.041 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.041 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:04.041 INFO     588 8   43  00  22  11  f5  00  00  00  
+2019-11-22 11:13:04.042 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.055 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.055 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:04.055 INFO     588 8   43  00  22  12  02  00  00  00  
+2019-11-22 11:13:04.055 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.067 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.067 INFO     Got data: [150, 0, 0, 0]
+2019-11-22 11:13:04.067 INFO     588 8   43  00  22  13  96  00  00  00  
+2019-11-22 11:13:04.067 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.079 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.079 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:04.079 INFO     588 8   43  00  22  14  03  00  00  00  
+2019-11-22 11:13:04.079 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.091 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.091 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:04.091 INFO     588 8   43  00  22  15  00  00  00  00  
+2019-11-22 11:13:04.091 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.102 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.103 INFO     588 8   43  00  22  16  f8  00  00  00  
+2019-11-22 11:13:04.103 INFO     Got data: [248, 0, 0, 0]
+2019-11-22 11:13:04.103 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.112 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.112 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:04.112 INFO     588 8   43  00  22  17  07  00  00  00  
+2019-11-22 11:13:04.112 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.123 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.123 INFO     588 8   43  00  22  18  a5  00  00  00  
+2019-11-22 11:13:04.123 INFO     Got data: [165, 0, 0, 0]
+2019-11-22 11:13:04.124 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.135 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.135 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:04.135 INFO     588 8   43  00  22  19  02  00  00  00  
+2019-11-22 11:13:04.135 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.147 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.147 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:04.147 INFO     588 8   43  00  22  1a  00  00  00  00  
+2019-11-22 11:13:04.147 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.159 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.159 INFO     Got data: [121, 0, 0, 0]
+2019-11-22 11:13:04.159 INFO     588 8   43  00  22  1b  79  00  00  00  
+2019-11-22 11:13:04.159 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.171 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.171 INFO     Got data: [81, 0, 0, 0]
+2019-11-22 11:13:04.171 INFO     588 8   43  00  22  1c  51  00  00  00  
+2019-11-22 11:13:04.171 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.183 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.183 INFO     Got data: [0, 0, 0, 192]
+2019-11-22 11:13:04.183 INFO     588 8   43  01  22  01  00  00  00  c0  
+2019-11-22 11:13:04.183 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.195 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.195 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:04.195 INFO     588 8   43  01  22  20  00  00  00  00  
+2019-11-22 11:13:04.195 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.206 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.206 INFO     Got data: [221, 2, 0, 0]
+2019-11-22 11:13:04.207 INFO     588 8   43  01  22  21  dd  02  00  00  
+2019-11-22 11:13:04.207 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.218 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.218 INFO     Got data: [221, 2, 0, 0]
+2019-11-22 11:13:04.218 INFO     588 8   43  01  22  22  dd  02  00  00  
+2019-11-22 11:13:04.219 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.230 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.230 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:04.230 INFO     588 8   43  01  22  23  00  00  00  00  
+2019-11-22 11:13:04.230 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.242 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.242 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:04.242 INFO     588 8   43  01  22  24  00  00  00  00  
+2019-11-22 11:13:04.242 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.254 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.254 INFO     Got data: [129, 1, 0, 0]
+2019-11-22 11:13:04.254 INFO     588 8   43  01  22  25  81  01  00  00  
+2019-11-22 11:13:04.254 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.266 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.266 INFO     Got data: [129, 1, 0, 0]
+2019-11-22 11:13:04.266 INFO     588 8   43  01  22  26  81  01  00  00  
+2019-11-22 11:13:04.266 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.278 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.278 INFO     Got data: [160, 2, 0, 0]
+2019-11-22 11:13:04.278 INFO     588 8   43  01  22  27  a0  02  00  00  
+2019-11-22 11:13:04.278 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.290 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.290 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:04.290 INFO     588 8   43  01  22  10  21  00  00  00  
+2019-11-22 11:13:04.290 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.302 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.302 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:04.302 INFO     588 8   43  01  22  11  f5  00  00  00  
+2019-11-22 11:13:04.302 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.313 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.313 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:04.314 INFO     588 8   43  01  22  12  02  00  00  00  
+2019-11-22 11:13:04.314 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.325 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.325 INFO     Got data: [160, 0, 0, 0]
+2019-11-22 11:13:04.325 INFO     588 8   43  01  22  13  a0  00  00  00  
+2019-11-22 11:13:04.326 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.337 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.337 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:04.337 INFO     588 8   43  01  22  14  03  00  00  00  
+2019-11-22 11:13:04.338 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.349 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.349 INFO     Got data: [72, 0, 0, 0]
+2019-11-22 11:13:04.349 INFO     588 8   43  01  22  15  48  00  00  00  
+2019-11-22 11:13:04.349 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.358 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.358 INFO     Got data: [249, 0, 0, 0]
+2019-11-22 11:13:04.358 INFO     588 8   43  01  22  16  f9  00  00  00  
+2019-11-22 11:13:04.358 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.404 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.404 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:04.404 INFO     588 8   43  01  22  17  07  00  00  00  
+2019-11-22 11:13:04.404 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.414 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.415 INFO     Got data: [168, 0, 0, 0]
+2019-11-22 11:13:04.415 INFO     588 8   43  01  22  18  a8  00  00  00  
+2019-11-22 11:13:04.415 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.426 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.426 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:04.426 INFO     588 8   43  01  22  19  00  00  00  00  
+2019-11-22 11:13:04.426 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.435 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.435 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:04.435 INFO     588 8   43  01  22  1a  00  00  00  00  
+2019-11-22 11:13:04.435 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.447 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.447 INFO     Got data: [199, 0, 0, 0]
+2019-11-22 11:13:04.447 INFO     588 8   43  01  22  1b  c7  00  00  00  
+2019-11-22 11:13:04.447 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.459 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.459 INFO     Got data: [93, 0, 0, 0]
+2019-11-22 11:13:04.459 INFO     588 8   43  01  22  1c  5d  00  00  00  
+2019-11-22 11:13:04.459 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.471 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.471 INFO     Got data: [0, 0, 8, 192]
+2019-11-22 11:13:04.471 INFO     588 8   43  02  22  01  00  00  08  c0  
+2019-11-22 11:13:04.471 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.483 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.483 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:04.483 INFO     588 8   43  02  22  20  00  00  00  00  
+2019-11-22 11:13:04.483 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.495 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.495 INFO     Got data: [211, 2, 0, 0]
+2019-11-22 11:13:04.495 INFO     588 8   43  02  22  21  d3  02  00  00  
+2019-11-22 11:13:04.495 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.506 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.506 INFO     Got data: [211, 2, 0, 0]
+2019-11-22 11:13:04.506 INFO     588 8   43  02  22  22  d3  02  00  00  
+2019-11-22 11:13:04.507 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.518 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.518 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:04.518 INFO     588 8   43  02  22  23  00  00  00  00  
+2019-11-22 11:13:04.519 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.530 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.530 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:04.530 INFO     588 8   43  02  22  24  00  00  00  00  
+2019-11-22 11:13:04.530 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.542 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.542 INFO     Got data: [168, 2, 0, 0]
+2019-11-22 11:13:04.542 INFO     588 8   43  02  22  25  a8  02  00  00  
+2019-11-22 11:13:04.542 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.558 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.558 INFO     Got data: [168, 2, 0, 0]
+2019-11-22 11:13:04.558 INFO     588 8   43  02  22  26  a8  02  00  00  
+2019-11-22 11:13:04.558 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.569 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.569 INFO     Got data: [144, 2, 0, 0]
+2019-11-22 11:13:04.569 INFO     588 8   43  02  22  27  90  02  00  00  
+2019-11-22 11:13:04.569 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.581 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.581 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:04.581 INFO     588 8   43  02  22  10  21  00  00  00  
+2019-11-22 11:13:04.581 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.593 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.593 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:04.593 INFO     588 8   43  02  22  11  f5  00  00  00  
+2019-11-22 11:13:04.593 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.602 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.602 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:04.602 INFO     588 8   43  02  22  12  02  00  00  00  
+2019-11-22 11:13:04.602 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.613 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.613 INFO     Got data: [144, 0, 0, 0]
+2019-11-22 11:13:04.613 INFO     588 8   43  02  22  13  90  00  00  00  
+2019-11-22 11:13:04.614 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.625 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.625 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:04.625 INFO     588 8   43  02  22  14  03  00  00  00  
+2019-11-22 11:13:04.626 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.637 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.637 INFO     Got data: [176, 0, 0, 0]
+2019-11-22 11:13:04.637 INFO     588 8   43  02  22  15  b0  00  00  00  
+2019-11-22 11:13:04.637 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.649 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.649 INFO     Got data: [249, 0, 0, 0]
+2019-11-22 11:13:04.649 INFO     588 8   43  02  22  16  f9  00  00  00  
+2019-11-22 11:13:04.650 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.661 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.661 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:04.661 INFO     588 8   43  02  22  17  07  00  00  00  
+2019-11-22 11:13:04.661 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.673 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.673 INFO     Got data: [164, 0, 0, 0]
+2019-11-22 11:13:04.673 INFO     588 8   43  02  22  18  a4  00  00  00  
+2019-11-22 11:13:04.673 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.685 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.685 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:04.685 INFO     588 8   43  02  22  19  00  00  00  00  
+2019-11-22 11:13:04.685 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.697 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.697 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:04.697 INFO     588 8   43  02  22  1a  02  00  00  00  
+2019-11-22 11:13:04.697 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.708 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.709 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:04.709 INFO     588 8   43  02  22  1b  21  00  00  00  
+2019-11-22 11:13:04.709 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.720 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.720 INFO     Got data: [16, 0, 0, 0]
+2019-11-22 11:13:04.720 INFO     588 8   43  02  22  1c  10  00  00  00  
+2019-11-22 11:13:04.721 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.735 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.735 INFO     Got data: [176, 194, 250, 192]
+2019-11-22 11:13:04.735 INFO     588 8   43  03  22  01  b0  c2  fa  c0  
+2019-11-22 11:13:04.736 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.747 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.747 INFO     Got data: [15, 0, 0, 0]
+2019-11-22 11:13:04.747 INFO     588 8   43  03  22  20  0f  00  00  00  
+2019-11-22 11:13:04.747 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.759 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.759 INFO     Got data: [239, 2, 0, 0]
+2019-11-22 11:13:04.759 INFO     588 8   43  03  22  21  ef  02  00  00  
+2019-11-22 11:13:04.759 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.771 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.771 INFO     Got data: [239, 2, 0, 0]
+2019-11-22 11:13:04.771 INFO     588 8   43  03  22  22  ef  02  00  00  
+2019-11-22 11:13:04.771 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.783 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.783 INFO     Got data: [14, 0, 0, 0]
+2019-11-22 11:13:04.783 INFO     588 8   43  03  22  23  0e  00  00  00  
+2019-11-22 11:13:04.783 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.795 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.795 INFO     Got data: [14, 0, 0, 0]
+2019-11-22 11:13:04.795 INFO     588 8   43  03  22  24  0e  00  00  00  
+2019-11-22 11:13:04.795 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.806 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.806 INFO     Got data: [208, 1, 0, 0]
+2019-11-22 11:13:04.807 INFO     588 8   43  03  22  25  d0  01  00  00  
+2019-11-22 11:13:04.807 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.818 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.818 INFO     Got data: [208, 1, 0, 0]
+2019-11-22 11:13:04.819 INFO     588 8   43  03  22  26  d0  01  00  00  
+2019-11-22 11:13:04.819 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.830 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.830 INFO     Got data: [175, 2, 0, 0]
+2019-11-22 11:13:04.830 INFO     588 8   43  03  22  27  af  02  00  00  
+2019-11-22 11:13:04.830 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.842 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.842 INFO     588 8   43  03  22  10  21  00  00  00  
+2019-11-22 11:13:04.842 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:04.842 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.851 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.851 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:04.851 INFO     588 8   43  03  22  11  f5  00  00  00  
+2019-11-22 11:13:04.851 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.863 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.863 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:04.863 INFO     588 8   43  03  22  12  02  00  00  00  
+2019-11-22 11:13:04.863 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.872 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.872 INFO     Got data: [175, 0, 0, 0]
+2019-11-22 11:13:04.872 INFO     588 8   43  03  22  13  af  00  00  00  
+2019-11-22 11:13:04.873 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.884 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.884 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:04.884 INFO     588 8   43  03  22  14  03  00  00  00  
+2019-11-22 11:13:04.884 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.896 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.896 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:04.896 INFO     588 8   43  03  22  15  00  00  00  00  
+2019-11-22 11:13:04.896 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.907 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.908 INFO     Got data: [248, 0, 0, 0]
+2019-11-22 11:13:04.908 INFO     588 8   43  03  22  16  f8  00  00  00  
+2019-11-22 11:13:04.908 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.919 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.919 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:04.920 INFO     588 8   43  03  22  17  07  00  00  00  
+2019-11-22 11:13:04.920 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.931 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.931 INFO     588 8   43  03  22  18  ab  00  00  00  
+2019-11-22 11:13:04.931 INFO     Got data: [171, 0, 0, 0]
+2019-11-22 11:13:04.932 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.943 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.943 INFO     588 8   43  03  22  19  03  00  00  00  
+2019-11-22 11:13:04.943 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:04.944 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.955 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.955 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:04.955 INFO     588 8   43  03  22  1a  00  00  00  00  
+2019-11-22 11:13:04.955 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.967 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.967 INFO     Got data: [99, 0, 0, 0]
+2019-11-22 11:13:04.967 INFO     588 8   43  03  22  1b  63  00  00  00  
+2019-11-22 11:13:04.967 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.979 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.979 INFO     Got data: [192, 0, 0, 0]
+2019-11-22 11:13:04.979 INFO     588 8   43  03  22  1c  c0  00  00  00  
+2019-11-22 11:13:04.979 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:04.991 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:04.991 INFO     Got data: [160, 130, 10, 192]
+2019-11-22 11:13:04.991 INFO     588 8   43  01  22  01  a0  82  0a  c0  
+2019-11-22 11:13:04.991 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.003 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.003 INFO     Got data: [144, 6, 8, 192]
+2019-11-22 11:13:05.003 INFO     588 8   43  02  22  01  90  06  08  c0  
+2019-11-22 11:13:05.003 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.017 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.017 INFO     588 8   43  00  22  01  96  5a  0a  c0  
+2019-11-22 11:13:05.018 INFO     Got data: [150, 90, 10, 192]
+2019-11-22 11:13:05.018 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.029 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.029 INFO     Got data: [0, 0, 0, 192]
+2019-11-22 11:13:05.029 INFO     588 8   43  01  22  01  00  00  00  c0  
+2019-11-22 11:13:05.030 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.041 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.041 INFO     Got data: [0, 4, 8, 192]
+2019-11-22 11:13:05.041 INFO     588 8   43  02  22  01  00  04  08  c0  
+2019-11-22 11:13:05.042 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.059 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.059 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:05.062 INFO     588 8   43  01  20  00  00  00  00  00  
+2019-11-22 11:13:05.063 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.077 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.077 INFO     Got data: [0, 0, 0, 192]
+2019-11-22 11:13:05.077 INFO     588 8   43  00  22  01  00  00  00  c0  
+2019-11-22 11:13:05.077 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.089 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.089 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:05.089 INFO     588 8   43  00  22  20  00  00  00  00  
+2019-11-22 11:13:05.089 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.101 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.101 INFO     Got data: [216, 2, 0, 0]
+2019-11-22 11:13:05.101 INFO     588 8   43  00  22  21  d8  02  00  00  
+2019-11-22 11:13:05.101 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.113 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.113 INFO     Got data: [216, 2, 0, 0]
+2019-11-22 11:13:05.113 INFO     588 8   43  00  22  22  d8  02  00  00  
+2019-11-22 11:13:05.113 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.124 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.124 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:05.124 INFO     588 8   43  00  22  23  00  00  00  00  
+2019-11-22 11:13:05.125 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.136 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.136 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:05.136 INFO     588 8   43  00  22  24  00  00  00  00  
+2019-11-22 11:13:05.136 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.148 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.148 INFO     Got data: [204, 0, 0, 0]
+2019-11-22 11:13:05.148 INFO     588 8   43  00  22  25  cc  00  00  00  
+2019-11-22 11:13:05.148 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.160 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.160 INFO     Got data: [204, 0, 0, 0]
+2019-11-22 11:13:05.160 INFO     588 8   43  00  22  26  cc  00  00  00  
+2019-11-22 11:13:05.160 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.172 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.172 INFO     Got data: [150, 2, 0, 0]
+2019-11-22 11:13:05.172 INFO     588 8   43  00  22  27  96  02  00  00  
+2019-11-22 11:13:05.172 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.184 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.184 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:05.184 INFO     588 8   43  00  22  10  21  00  00  00  
+2019-11-22 11:13:05.184 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.195 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.196 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:05.196 INFO     588 8   43  00  22  11  f5  00  00  00  
+2019-11-22 11:13:05.196 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.207 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.207 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:05.208 INFO     588 8   43  00  22  12  02  00  00  00  
+2019-11-22 11:13:05.208 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.219 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.219 INFO     Got data: [150, 0, 0, 0]
+2019-11-22 11:13:05.219 INFO     588 8   43  00  22  13  96  00  00  00  
+2019-11-22 11:13:05.220 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.231 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.231 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:05.231 INFO     588 8   43  00  22  14  03  00  00  00  
+2019-11-22 11:13:05.231 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.243 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.243 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:05.243 INFO     588 8   43  00  22  15  00  00  00  00  
+2019-11-22 11:13:05.243 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.255 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.255 INFO     Got data: [248, 0, 0, 0]
+2019-11-22 11:13:05.255 INFO     588 8   43  00  22  16  f8  00  00  00  
+2019-11-22 11:13:05.255 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.267 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.267 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:05.267 INFO     588 8   43  00  22  17  07  00  00  00  
+2019-11-22 11:13:05.267 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.279 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.279 INFO     Got data: [165, 0, 0, 0]
+2019-11-22 11:13:05.279 INFO     588 8   43  00  22  18  a5  00  00  00  
+2019-11-22 11:13:05.279 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.295 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.295 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:05.295 INFO     588 8   43  00  22  19  02  00  00  00  
+2019-11-22 11:13:05.295 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.306 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.306 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:05.306 INFO     588 8   43  00  22  1a  00  00  00  00  
+2019-11-22 11:13:05.306 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.317 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.317 INFO     Got data: [121, 0, 0, 0]
+2019-11-22 11:13:05.318 INFO     588 8   43  00  22  1b  79  00  00  00  
+2019-11-22 11:13:05.318 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.329 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.329 INFO     Got data: [81, 0, 0, 0]
+2019-11-22 11:13:05.329 INFO     588 8   43  00  22  1c  51  00  00  00  
+2019-11-22 11:13:05.330 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.341 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.341 INFO     Got data: [0, 0, 0, 192]
+2019-11-22 11:13:05.341 INFO     588 8   43  01  22  01  00  00  00  c0  
+2019-11-22 11:13:05.342 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.353 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.353 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:05.353 INFO     588 8   43  01  22  20  00  00  00  00  
+2019-11-22 11:13:05.354 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.365 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.365 INFO     Got data: [221, 2, 0, 0]
+2019-11-22 11:13:05.365 INFO     588 8   43  01  22  21  dd  02  00  00  
+2019-11-22 11:13:05.365 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.377 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.377 INFO     Got data: [221, 2, 0, 0]
+2019-11-22 11:13:05.377 INFO     588 8   43  01  22  22  dd  02  00  00  
+2019-11-22 11:13:05.377 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.389 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.389 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:05.389 INFO     588 8   43  01  22  23  00  00  00  00  
+2019-11-22 11:13:05.389 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.401 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.401 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:05.401 INFO     588 8   43  01  22  24  00  00  00  00  
+2019-11-22 11:13:05.401 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.412 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.413 INFO     Got data: [130, 1, 0, 0]
+2019-11-22 11:13:05.413 INFO     588 8   43  01  22  25  82  01  00  00  
+2019-11-22 11:13:05.414 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.432 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.432 INFO     Got data: [130, 1, 0, 0]
+2019-11-22 11:13:05.432 INFO     588 8   43  01  22  26  82  01  00  00  
+2019-11-22 11:13:05.433 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.442 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.442 INFO     Got data: [161, 2, 0, 0]
+2019-11-22 11:13:05.443 INFO     588 8   43  01  22  27  a1  02  00  00  
+2019-11-22 11:13:05.443 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.454 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.454 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:05.454 INFO     588 8   43  01  22  10  21  00  00  00  
+2019-11-22 11:13:05.454 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.466 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.466 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:05.466 INFO     588 8   43  01  22  11  f5  00  00  00  
+2019-11-22 11:13:05.466 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.478 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.478 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:05.478 INFO     588 8   43  01  22  12  02  00  00  00  
+2019-11-22 11:13:05.478 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.490 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.490 INFO     Got data: [161, 0, 0, 0]
+2019-11-22 11:13:05.490 INFO     588 8   43  01  22  13  a1  00  00  00  
+2019-11-22 11:13:05.490 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.502 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.502 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:05.502 INFO     588 8   43  01  22  14  03  00  00  00  
+2019-11-22 11:13:05.503 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.513 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.513 INFO     Got data: [72, 0, 0, 0]
+2019-11-22 11:13:05.514 INFO     588 8   43  01  22  15  48  00  00  00  
+2019-11-22 11:13:05.514 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.525 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.525 INFO     Got data: [249, 0, 0, 0]
+2019-11-22 11:13:05.525 INFO     588 8   43  01  22  16  f9  00  00  00  
+2019-11-22 11:13:05.526 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.537 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.537 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:05.537 INFO     588 8   43  01  22  17  07  00  00  00  
+2019-11-22 11:13:05.538 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.549 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.549 INFO     Got data: [168, 0, 0, 0]
+2019-11-22 11:13:05.549 INFO     588 8   43  01  22  18  a8  00  00  00  
+2019-11-22 11:13:05.550 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.561 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.561 INFO     Got data: [1, 0, 0, 0]
+2019-11-22 11:13:05.561 INFO     588 8   43  01  22  19  01  00  00  00  
+2019-11-22 11:13:05.561 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.572 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.572 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:05.572 INFO     588 8   43  01  22  1a  00  00  00  00  
+2019-11-22 11:13:05.573 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.585 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.585 INFO     Got data: [199, 0, 0, 0]
+2019-11-22 11:13:05.585 INFO     588 8   43  01  22  1b  c7  00  00  00  
+2019-11-22 11:13:05.585 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.596 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.596 INFO     588 8   43  01  22  1c  5d  00  00  00  
+2019-11-22 11:13:05.597 INFO     Got data: [93, 0, 0, 0]
+2019-11-22 11:13:05.597 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.608 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.608 INFO     Got data: [0, 4, 8, 192]
+2019-11-22 11:13:05.608 INFO     588 8   43  02  22  01  00  04  08  c0  
+2019-11-22 11:13:05.609 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.620 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.620 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:05.621 INFO     588 8   43  02  22  20  00  00  00  00  
+2019-11-22 11:13:05.621 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.632 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.632 INFO     Got data: [212, 2, 0, 0]
+2019-11-22 11:13:05.632 INFO     588 8   43  02  22  21  d4  02  00  00  
+2019-11-22 11:13:05.633 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.644 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.644 INFO     Got data: [212, 2, 0, 0]
+2019-11-22 11:13:05.644 INFO     588 8   43  02  22  22  d4  02  00  00  
+2019-11-22 11:13:05.645 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.656 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.656 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:05.656 INFO     588 8   43  02  22  23  00  00  00  00  
+2019-11-22 11:13:05.656 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.668 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.668 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:05.668 INFO     588 8   43  02  22  24  00  00  00  00  
+2019-11-22 11:13:05.668 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.680 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.680 INFO     Got data: [167, 2, 0, 0]
+2019-11-22 11:13:05.680 INFO     588 8   43  02  22  25  a7  02  00  00  
+2019-11-22 11:13:05.680 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.692 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.692 INFO     Got data: [167, 2, 0, 0]
+2019-11-22 11:13:05.692 INFO     588 8   43  02  22  26  a7  02  00  00  
+2019-11-22 11:13:05.692 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.703 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.704 INFO     588 8   43  02  22  27  90  02  00  00  
+2019-11-22 11:13:05.704 INFO     Got data: [144, 2, 0, 0]
+2019-11-22 11:13:05.704 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.715 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.715 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:05.716 INFO     588 8   43  02  22  10  21  00  00  00  
+2019-11-22 11:13:05.716 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.727 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.727 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:05.727 INFO     588 8   43  02  22  11  f5  00  00  00  
+2019-11-22 11:13:05.727 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.739 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.739 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:05.739 INFO     588 8   43  02  22  12  02  00  00  00  
+2019-11-22 11:13:05.740 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.751 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.751 INFO     Got data: [144, 0, 0, 0]
+2019-11-22 11:13:05.751 INFO     588 8   43  02  22  13  90  00  00  00  
+2019-11-22 11:13:05.751 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.763 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.763 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:05.763 INFO     588 8   43  02  22  14  03  00  00  00  
+2019-11-22 11:13:05.763 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.775 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.775 INFO     Got data: [176, 0, 0, 0]
+2019-11-22 11:13:05.775 INFO     588 8   43  02  22  15  b0  00  00  00  
+2019-11-22 11:13:05.775 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.787 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.787 INFO     Got data: [249, 0, 0, 0]
+2019-11-22 11:13:05.787 INFO     588 8   43  02  22  16  f9  00  00  00  
+2019-11-22 11:13:05.787 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.798 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.799 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:05.799 INFO     588 8   43  02  22  17  07  00  00  00  
+2019-11-22 11:13:05.799 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.810 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.811 INFO     Got data: [164, 0, 0, 0]
+2019-11-22 11:13:05.811 INFO     588 8   43  02  22  18  a4  00  00  00  
+2019-11-22 11:13:05.811 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.822 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.822 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:05.822 INFO     588 8   43  02  22  19  00  00  00  00  
+2019-11-22 11:13:05.823 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.834 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.834 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:05.834 INFO     588 8   43  02  22  1a  02  00  00  00  
+2019-11-22 11:13:05.835 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.846 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.846 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:05.846 INFO     588 8   43  02  22  1b  21  00  00  00  
+2019-11-22 11:13:05.846 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.858 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.858 INFO     Got data: [16, 0, 0, 0]
+2019-11-22 11:13:05.858 INFO     588 8   43  02  22  1c  10  00  00  00  
+2019-11-22 11:13:05.858 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.873 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.873 INFO     Got data: [175, 190, 250, 192]
+2019-11-22 11:13:05.873 INFO     588 8   43  03  22  01  af  be  fa  c0  
+2019-11-22 11:13:05.874 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.885 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.885 INFO     Got data: [15, 0, 0, 0]
+2019-11-22 11:13:05.885 INFO     588 8   43  03  22  20  0f  00  00  00  
+2019-11-22 11:13:05.885 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.897 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.897 INFO     588 8   43  03  22  21  ef  02  00  00  
+2019-11-22 11:13:05.897 INFO     Got data: [239, 2, 0, 0]
+2019-11-22 11:13:05.897 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.908 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.909 INFO     Got data: [239, 2, 0, 0]
+2019-11-22 11:13:05.909 INFO     588 8   43  03  22  22  ef  02  00  00  
+2019-11-22 11:13:05.909 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.921 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.921 INFO     Got data: [15, 0, 0, 0]
+2019-11-22 11:13:05.921 INFO     588 8   43  03  22  23  0f  00  00  00  
+2019-11-22 11:13:05.922 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.932 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.932 INFO     Got data: [15, 0, 0, 0]
+2019-11-22 11:13:05.932 INFO     588 8   43  03  22  24  0f  00  00  00  
+2019-11-22 11:13:05.933 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.944 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.944 INFO     Got data: [208, 1, 0, 0]
+2019-11-22 11:13:05.944 INFO     588 8   43  03  22  25  d0  01  00  00  
+2019-11-22 11:13:05.945 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.956 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.956 INFO     588 8   43  03  22  26  d0  01  00  00  
+2019-11-22 11:13:05.956 INFO     Got data: [208, 1, 0, 0]
+2019-11-22 11:13:05.956 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.968 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.968 INFO     Got data: [174, 2, 0, 0]
+2019-11-22 11:13:05.968 INFO     588 8   43  03  22  27  ae  02  00  00  
+2019-11-22 11:13:05.968 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.980 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.980 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:05.980 INFO     588 8   43  03  22  10  21  00  00  00  
+2019-11-22 11:13:05.980 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:05.992 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:05.992 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:05.992 INFO     588 8   43  03  22  11  f5  00  00  00  
+2019-11-22 11:13:05.992 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.003 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.004 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:06.004 INFO     588 8   43  03  22  12  02  00  00  00  
+2019-11-22 11:13:06.004 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.015 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.016 INFO     588 8   43  03  22  13  ae  00  00  00  
+2019-11-22 11:13:06.016 INFO     Got data: [174, 0, 0, 0]
+2019-11-22 11:13:06.016 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.027 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.027 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:06.027 INFO     588 8   43  03  22  14  03  00  00  00  
+2019-11-22 11:13:06.028 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.039 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.039 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.039 INFO     588 8   43  03  22  15  00  00  00  00  
+2019-11-22 11:13:06.040 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.051 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.051 INFO     Got data: [248, 0, 0, 0]
+2019-11-22 11:13:06.051 INFO     588 8   43  03  22  16  f8  00  00  00  
+2019-11-22 11:13:06.051 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.063 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.063 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:06.063 INFO     588 8   43  03  22  17  07  00  00  00  
+2019-11-22 11:13:06.063 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.072 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.073 INFO     Got data: [171, 0, 0, 0]
+2019-11-22 11:13:06.073 INFO     588 8   43  03  22  18  ab  00  00  00  
+2019-11-22 11:13:06.073 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.081 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.082 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:06.082 INFO     588 8   43  03  22  19  02  00  00  00  
+2019-11-22 11:13:06.084 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.095 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.096 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.096 INFO     588 8   43  03  22  1a  00  00  00  00  
+2019-11-22 11:13:06.096 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.107 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.107 INFO     Got data: [99, 0, 0, 0]
+2019-11-22 11:13:06.108 INFO     588 8   43  03  22  1b  63  00  00  00  
+2019-11-22 11:13:06.108 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.119 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.119 INFO     Got data: [192, 0, 0, 0]
+2019-11-22 11:13:06.119 INFO     588 8   43  03  22  1c  c0  00  00  00  
+2019-11-22 11:13:06.120 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.134 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.134 INFO     Got data: [161, 134, 10, 192]
+2019-11-22 11:13:06.134 INFO     588 8   43  01  22  01  a1  86  0a  c0  
+2019-11-22 11:13:06.135 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.149 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.149 INFO     Got data: [144, 2, 8, 192]
+2019-11-22 11:13:06.149 INFO     588 8   43  02  22  01  90  02  08  c0  
+2019-11-22 11:13:06.149 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.161 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.161 INFO     Got data: [150, 90, 10, 192]
+2019-11-22 11:13:06.161 INFO     588 8   43  00  22  01  96  5a  0a  c0  
+2019-11-22 11:13:06.161 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.173 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.173 INFO     Got data: [0, 0, 0, 192]
+2019-11-22 11:13:06.173 INFO     588 8   43  01  22  01  00  00  00  c0  
+2019-11-22 11:13:06.173 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.185 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.185 INFO     Got data: [0, 0, 8, 192]
+2019-11-22 11:13:06.185 INFO     588 8   43  02  22  01  00  00  08  c0  
+2019-11-22 11:13:06.185 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.194 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.194 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.194 INFO     588 8   43  01  20  00  00  00  00  00  
+2019-11-22 11:13:06.194 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.205 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.205 INFO     Got data: [0, 0, 0, 192]
+2019-11-22 11:13:06.205 INFO     588 8   43  00  22  01  00  00  00  c0  
+2019-11-22 11:13:06.206 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.217 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.217 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.217 INFO     588 8   43  00  22  20  00  00  00  00  
+2019-11-22 11:13:06.218 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.229 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.229 INFO     Got data: [217, 2, 0, 0]
+2019-11-22 11:13:06.229 INFO     588 8   43  00  22  21  d9  02  00  00  
+2019-11-22 11:13:06.229 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.241 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.241 INFO     Got data: [217, 2, 0, 0]
+2019-11-22 11:13:06.241 INFO     588 8   43  00  22  22  d9  02  00  00  
+2019-11-22 11:13:06.241 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.253 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.253 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.253 INFO     588 8   43  00  22  23  00  00  00  00  
+2019-11-22 11:13:06.253 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.265 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.265 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.265 INFO     588 8   43  00  22  24  00  00  00  00  
+2019-11-22 11:13:06.265 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.277 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.277 INFO     Got data: [201, 0, 0, 0]
+2019-11-22 11:13:06.277 INFO     588 8   43  00  22  25  c9  00  00  00  
+2019-11-22 11:13:06.277 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.288 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.289 INFO     Got data: [201, 0, 0, 0]
+2019-11-22 11:13:06.289 INFO     588 8   43  00  22  26  c9  00  00  00  
+2019-11-22 11:13:06.289 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.300 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.300 INFO     Got data: [152, 2, 0, 0]
+2019-11-22 11:13:06.300 INFO     588 8   43  00  22  27  98  02  00  00  
+2019-11-22 11:13:06.301 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.312 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.312 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:06.313 INFO     588 8   43  00  22  10  21  00  00  00  
+2019-11-22 11:13:06.313 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.324 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.324 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:06.324 INFO     588 8   43  00  22  11  f5  00  00  00  
+2019-11-22 11:13:06.324 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.336 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.336 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:06.336 INFO     588 8   43  00  22  12  02  00  00  00  
+2019-11-22 11:13:06.336 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.348 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.348 INFO     Got data: [152, 0, 0, 0]
+2019-11-22 11:13:06.348 INFO     588 8   43  00  22  13  98  00  00  00  
+2019-11-22 11:13:06.348 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.360 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.360 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:06.360 INFO     588 8   43  00  22  14  03  00  00  00  
+2019-11-22 11:13:06.360 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.372 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.372 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.372 INFO     588 8   43  00  22  15  00  00  00  00  
+2019-11-22 11:13:06.372 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.384 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.384 INFO     Got data: [248, 0, 0, 0]
+2019-11-22 11:13:06.384 INFO     588 8   43  00  22  16  f8  00  00  00  
+2019-11-22 11:13:06.384 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.395 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.395 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:06.395 INFO     588 8   43  00  22  17  07  00  00  00  
+2019-11-22 11:13:06.396 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.407 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.407 INFO     Got data: [166, 0, 0, 0]
+2019-11-22 11:13:06.407 INFO     588 8   43  00  22  18  a6  00  00  00  
+2019-11-22 11:13:06.408 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.419 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.419 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.420 INFO     588 8   43  00  22  19  00  00  00  00  
+2019-11-22 11:13:06.420 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.434 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.435 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.435 INFO     588 8   43  00  22  1a  00  00  00  00  
+2019-11-22 11:13:06.435 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.453 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.453 INFO     Got data: [121, 0, 0, 0]
+2019-11-22 11:13:06.453 INFO     588 8   43  00  22  1b  79  00  00  00  
+2019-11-22 11:13:06.454 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.464 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.464 INFO     Got data: [81, 0, 0, 0]
+2019-11-22 11:13:06.464 INFO     588 8   43  00  22  1c  51  00  00  00  
+2019-11-22 11:13:06.464 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.479 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.479 INFO     Got data: [0, 0, 0, 192]
+2019-11-22 11:13:06.479 INFO     588 8   43  01  22  01  00  00  00  c0  
+2019-11-22 11:13:06.479 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.490 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.491 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.491 INFO     588 8   43  01  22  20  00  00  00  00  
+2019-11-22 11:13:06.491 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.502 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.503 INFO     Got data: [221, 2, 0, 0]
+2019-11-22 11:13:06.503 INFO     588 8   43  01  22  21  dd  02  00  00  
+2019-11-22 11:13:06.503 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.514 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.514 INFO     Got data: [221, 2, 0, 0]
+2019-11-22 11:13:06.514 INFO     588 8   43  01  22  22  dd  02  00  00  
+2019-11-22 11:13:06.515 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.526 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.526 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.526 INFO     588 8   43  01  22  23  00  00  00  00  
+2019-11-22 11:13:06.527 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.538 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.538 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.538 INFO     588 8   43  01  22  24  00  00  00  00  
+2019-11-22 11:13:06.538 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.550 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.550 INFO     Got data: [129, 1, 0, 0]
+2019-11-22 11:13:06.550 INFO     588 8   43  01  22  25  81  01  00  00  
+2019-11-22 11:13:06.550 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.562 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.562 INFO     Got data: [129, 1, 0, 0]
+2019-11-22 11:13:06.562 INFO     588 8   43  01  22  26  81  01  00  00  
+2019-11-22 11:13:06.562 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.574 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.574 INFO     Got data: [161, 2, 0, 0]
+2019-11-22 11:13:06.574 INFO     588 8   43  01  22  27  a1  02  00  00  
+2019-11-22 11:13:06.574 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.585 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.586 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:06.586 INFO     588 8   43  01  22  10  21  00  00  00  
+2019-11-22 11:13:06.586 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.597 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.598 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:06.598 INFO     588 8   43  01  22  11  f5  00  00  00  
+2019-11-22 11:13:06.598 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.609 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.609 INFO     588 8   43  01  22  12  02  00  00  00  
+2019-11-22 11:13:06.609 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:06.610 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.621 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.621 INFO     Got data: [161, 0, 0, 0]
+2019-11-22 11:13:06.621 INFO     588 8   43  01  22  13  a1  00  00  00  
+2019-11-22 11:13:06.622 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.633 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.633 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:06.633 INFO     588 8   43  01  22  14  03  00  00  00  
+2019-11-22 11:13:06.634 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.645 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.645 INFO     Got data: [72, 0, 0, 0]
+2019-11-22 11:13:06.645 INFO     588 8   43  01  22  15  48  00  00  00  
+2019-11-22 11:13:06.645 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.657 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.657 INFO     Got data: [249, 0, 0, 0]
+2019-11-22 11:13:06.657 INFO     588 8   43  01  22  16  f9  00  00  00  
+2019-11-22 11:13:06.657 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.669 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.669 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:06.669 INFO     588 8   43  01  22  17  07  00  00  00  
+2019-11-22 11:13:06.669 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.681 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.681 INFO     Got data: [168, 0, 0, 0]
+2019-11-22 11:13:06.681 INFO     588 8   43  01  22  18  a8  00  00  00  
+2019-11-22 11:13:06.681 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.692 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.693 INFO     Got data: [1, 0, 0, 0]
+2019-11-22 11:13:06.693 INFO     588 8   43  01  22  19  01  00  00  00  
+2019-11-22 11:13:06.693 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.704 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.704 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.704 INFO     588 8   43  01  22  1a  00  00  00  00  
+2019-11-22 11:13:06.705 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.716 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.716 INFO     Got data: [199, 0, 0, 0]
+2019-11-22 11:13:06.716 INFO     588 8   43  01  22  1b  c7  00  00  00  
+2019-11-22 11:13:06.717 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.728 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.728 INFO     Got data: [93, 0, 0, 0]
+2019-11-22 11:13:06.728 INFO     588 8   43  01  22  1c  5d  00  00  00  
+2019-11-22 11:13:06.728 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.740 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.740 INFO     Got data: [0, 0, 8, 192]
+2019-11-22 11:13:06.740 INFO     588 8   43  02  22  01  00  00  08  c0  
+2019-11-22 11:13:06.740 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.752 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.752 INFO     588 8   43  02  22  20  00  00  00  00  
+2019-11-22 11:13:06.752 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.752 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.764 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.764 INFO     588 8   43  02  22  21  d3  02  00  00  
+2019-11-22 11:13:06.764 INFO     Got data: [211, 2, 0, 0]
+2019-11-22 11:13:06.764 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.776 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.776 INFO     588 8   43  02  22  22  d3  02  00  00  
+2019-11-22 11:13:06.776 INFO     Got data: [211, 2, 0, 0]
+2019-11-22 11:13:06.776 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.787 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.788 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.788 INFO     588 8   43  02  22  23  00  00  00  00  
+2019-11-22 11:13:06.788 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.799 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.799 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:06.799 INFO     588 8   43  02  22  24  00  00  00  00  
+2019-11-22 11:13:06.800 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.811 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.811 INFO     Got data: [168, 2, 0, 0]
+2019-11-22 11:13:06.811 INFO     588 8   43  02  22  25  a8  02  00  00  
+2019-11-22 11:13:06.812 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.823 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.824 INFO     Got data: [168, 2, 0, 0]
+2019-11-22 11:13:06.824 INFO     588 8   43  02  22  26  a8  02  00  00  
+2019-11-22 11:13:06.824 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.835 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.835 INFO     Got data: [143, 2, 0, 0]
+2019-11-22 11:13:06.835 INFO     588 8   43  02  22  27  8f  02  00  00  
+2019-11-22 11:13:06.836 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.847 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.847 INFO     588 8   43  02  22  10  21  00  00  00  
+2019-11-22 11:13:06.847 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:06.847 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.859 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.859 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:06.859 INFO     588 8   43  02  22  11  f5  00  00  00  
+2019-11-22 11:13:06.859 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.871 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.871 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:06.871 INFO     588 8   43  02  22  12  02  00  00  00  
+2019-11-22 11:13:06.871 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.882 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.883 INFO     Got data: [143, 0, 0, 0]
+2019-11-22 11:13:06.883 INFO     588 8   43  02  22  13  8f  00  00  00  
+2019-11-22 11:13:06.883 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.894 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.895 INFO     588 8   43  02  22  14  03  00  00  00  
+2019-11-22 11:13:06.895 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:06.895 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.906 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.906 INFO     Got data: [176, 0, 0, 0]
+2019-11-22 11:13:06.907 INFO     588 8   43  02  22  15  b0  00  00  00  
+2019-11-22 11:13:06.907 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.918 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.918 INFO     Got data: [249, 0, 0, 0]
+2019-11-22 11:13:06.919 INFO     588 8   43  02  22  16  f9  00  00  00  
+2019-11-22 11:13:06.919 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.930 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.930 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:06.930 INFO     588 8   43  02  22  17  07  00  00  00  
+2019-11-22 11:13:06.930 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.942 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.942 INFO     Got data: [163, 0, 0, 0]
+2019-11-22 11:13:06.942 INFO     588 8   43  02  22  18  a3  00  00  00  
+2019-11-22 11:13:06.943 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.954 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.954 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:06.954 INFO     588 8   43  02  22  19  03  00  00  00  
+2019-11-22 11:13:06.954 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.966 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.966 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:06.966 INFO     588 8   43  02  22  1a  02  00  00  00  
+2019-11-22 11:13:06.966 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.978 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.978 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:06.978 INFO     588 8   43  02  22  1b  21  00  00  00  
+2019-11-22 11:13:06.978 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:06.989 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:06.990 INFO     Got data: [16, 0, 0, 0]
+2019-11-22 11:13:06.990 INFO     588 8   43  02  22  1c  10  00  00  00  
+2019-11-22 11:13:06.990 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.001 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.001 INFO     588 8   43  03  22  01  ae  ba  0a  c1  
+2019-11-22 11:13:07.002 INFO     Got data: [174, 186, 10, 193]
+2019-11-22 11:13:07.002 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.013 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.013 INFO     Got data: [16, 0, 0, 0]
+2019-11-22 11:13:07.013 INFO     588 8   43  03  22  20  10  00  00  00  
+2019-11-22 11:13:07.014 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.025 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.025 INFO     588 8   43  03  22  21  ef  02  00  00  
+2019-11-22 11:13:07.025 INFO     Got data: [239, 2, 0, 0]
+2019-11-22 11:13:07.025 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.037 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.037 INFO     Got data: [239, 2, 0, 0]
+2019-11-22 11:13:07.037 INFO     588 8   43  03  22  22  ef  02  00  00  
+2019-11-22 11:13:07.037 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.049 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.049 INFO     Got data: [16, 0, 0, 0]
+2019-11-22 11:13:07.049 INFO     588 8   43  03  22  23  10  00  00  00  
+2019-11-22 11:13:07.049 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.061 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.061 INFO     Got data: [16, 0, 0, 0]
+2019-11-22 11:13:07.061 INFO     588 8   43  03  22  24  10  00  00  00  
+2019-11-22 11:13:07.061 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.073 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.073 INFO     Got data: [209, 1, 0, 0]
+2019-11-22 11:13:07.073 INFO     588 8   43  03  22  25  d1  01  00  00  
+2019-11-22 11:13:07.073 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.084 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.085 INFO     Got data: [209, 1, 0, 0]
+2019-11-22 11:13:07.085 INFO     588 8   43  03  22  26  d1  01  00  00  
+2019-11-22 11:13:07.085 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.101 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.102 INFO     Got data: [176, 2, 0, 0]
+2019-11-22 11:13:07.102 INFO     588 8   43  03  22  27  b0  02  00  00  
+2019-11-22 11:13:07.103 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.114 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.114 INFO     588 8   43  03  22  10  21  00  00  00  
+2019-11-22 11:13:07.114 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:07.114 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.123 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.123 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:07.123 INFO     588 8   43  03  22  11  f5  00  00  00  
+2019-11-22 11:13:07.123 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.135 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.135 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:07.135 INFO     588 8   43  03  22  12  02  00  00  00  
+2019-11-22 11:13:07.135 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.147 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.147 INFO     Got data: [176, 0, 0, 0]
+2019-11-22 11:13:07.147 INFO     588 8   43  03  22  13  b0  00  00  00  
+2019-11-22 11:13:07.147 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.159 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.159 INFO     588 8   43  03  22  14  03  00  00  00  
+2019-11-22 11:13:07.159 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:07.159 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.171 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.171 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.171 INFO     588 8   43  03  22  15  00  00  00  00  
+2019-11-22 11:13:07.171 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.183 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.183 INFO     Got data: [248, 0, 0, 0]
+2019-11-22 11:13:07.183 INFO     588 8   43  03  22  16  f8  00  00  00  
+2019-11-22 11:13:07.183 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.194 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.194 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:07.195 INFO     588 8   43  03  22  17  07  00  00  00  
+2019-11-22 11:13:07.195 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.206 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.207 INFO     Got data: [172, 0, 0, 0]
+2019-11-22 11:13:07.207 INFO     588 8   43  03  22  18  ac  00  00  00  
+2019-11-22 11:13:07.207 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.218 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.218 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.218 INFO     588 8   43  03  22  19  00  00  00  00  
+2019-11-22 11:13:07.219 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.230 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.230 INFO     588 8   43  03  22  1a  00  00  00  00  
+2019-11-22 11:13:07.230 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.230 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.242 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.242 INFO     Got data: [99, 0, 0, 0]
+2019-11-22 11:13:07.242 INFO     588 8   43  03  22  1b  63  00  00  00  
+2019-11-22 11:13:07.242 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.254 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.254 INFO     Got data: [192, 0, 0, 0]
+2019-11-22 11:13:07.254 INFO     588 8   43  03  22  1c  c0  00  00  00  
+2019-11-22 11:13:07.254 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.266 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.266 INFO     Got data: [161, 134, 26, 192]
+2019-11-22 11:13:07.266 INFO     588 8   43  01  22  01  a1  86  1a  c0  
+2019-11-22 11:13:07.266 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.280 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.281 INFO     Got data: [143, 2, 8, 192]
+2019-11-22 11:13:07.281 INFO     588 8   43  02  22  01  8f  02  08  c0  
+2019-11-22 11:13:07.281 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.292 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.292 INFO     Got data: [152, 98, 10, 192]
+2019-11-22 11:13:07.292 INFO     588 8   43  00  22  01  98  62  0a  c0  
+2019-11-22 11:13:07.293 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.304 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.304 INFO     Got data: [1, 4, 16, 192]
+2019-11-22 11:13:07.304 INFO     588 8   43  01  22  01  01  04  10  c0  
+2019-11-22 11:13:07.305 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.316 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.316 INFO     Got data: [0, 0, 8, 192]
+2019-11-22 11:13:07.316 INFO     588 8   43  02  22  01  00  00  08  c0  
+2019-11-22 11:13:07.316 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.325 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.325 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.325 INFO     588 8   43  01  20  00  00  00  00  00  
+2019-11-22 11:13:07.325 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.337 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.337 INFO     Got data: [0, 0, 0, 192]
+2019-11-22 11:13:07.337 INFO     588 8   43  00  22  01  00  00  00  c0  
+2019-11-22 11:13:07.337 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.349 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.349 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.349 INFO     588 8   43  00  22  20  00  00  00  00  
+2019-11-22 11:13:07.349 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.361 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.361 INFO     Got data: [218, 2, 0, 0]
+2019-11-22 11:13:07.361 INFO     588 8   43  00  22  21  da  02  00  00  
+2019-11-22 11:13:07.361 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.373 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.373 INFO     Got data: [218, 2, 0, 0]
+2019-11-22 11:13:07.373 INFO     588 8   43  00  22  22  da  02  00  00  
+2019-11-22 11:13:07.373 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.384 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.385 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.385 INFO     588 8   43  00  22  23  00  00  00  00  
+2019-11-22 11:13:07.385 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.396 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.396 INFO     588 8   43  00  22  24  00  00  00  00  
+2019-11-22 11:13:07.397 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.397 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.408 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.408 INFO     Got data: [202, 0, 0, 0]
+2019-11-22 11:13:07.408 INFO     588 8   43  00  22  25  ca  00  00  00  
+2019-11-22 11:13:07.409 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.420 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.420 INFO     Got data: [202, 0, 0, 0]
+2019-11-22 11:13:07.420 INFO     588 8   43  00  22  26  ca  00  00  00  
+2019-11-22 11:13:07.420 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.432 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.432 INFO     Got data: [149, 2, 0, 0]
+2019-11-22 11:13:07.432 INFO     588 8   43  00  22  27  95  02  00  00  
+2019-11-22 11:13:07.432 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.444 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.444 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:07.444 INFO     588 8   43  00  22  10  21  00  00  00  
+2019-11-22 11:13:07.444 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.454 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.454 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:07.454 INFO     588 8   43  00  22  11  f5  00  00  00  
+2019-11-22 11:13:07.455 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.465 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.465 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:07.465 INFO     588 8   43  00  22  12  02  00  00  00  
+2019-11-22 11:13:07.465 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.477 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.477 INFO     Got data: [149, 0, 0, 0]
+2019-11-22 11:13:07.477 INFO     588 8   43  00  22  13  95  00  00  00  
+2019-11-22 11:13:07.478 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.488 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.489 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:07.489 INFO     588 8   43  00  22  14  03  00  00  00  
+2019-11-22 11:13:07.489 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.500 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.500 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.501 INFO     588 8   43  00  22  15  00  00  00  00  
+2019-11-22 11:13:07.501 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.512 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.512 INFO     Got data: [248, 0, 0, 0]
+2019-11-22 11:13:07.512 INFO     588 8   43  00  22  16  f8  00  00  00  
+2019-11-22 11:13:07.513 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.524 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.524 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:07.524 INFO     588 8   43  00  22  17  07  00  00  00  
+2019-11-22 11:13:07.524 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.536 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.536 INFO     Got data: [165, 0, 0, 0]
+2019-11-22 11:13:07.536 INFO     588 8   43  00  22  18  a5  00  00  00  
+2019-11-22 11:13:07.536 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.548 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.548 INFO     Got data: [1, 0, 0, 0]
+2019-11-22 11:13:07.548 INFO     588 8   43  00  22  19  01  00  00  00  
+2019-11-22 11:13:07.548 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.560 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.560 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.560 INFO     588 8   43  00  22  1a  00  00  00  00  
+2019-11-22 11:13:07.560 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.572 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.572 INFO     Got data: [121, 0, 0, 0]
+2019-11-22 11:13:07.572 INFO     588 8   43  00  22  1b  79  00  00  00  
+2019-11-22 11:13:07.572 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.583 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.584 INFO     Got data: [81, 0, 0, 0]
+2019-11-22 11:13:07.584 INFO     588 8   43  00  22  1c  51  00  00  00  
+2019-11-22 11:13:07.584 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.595 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.595 INFO     Got data: [1, 4, 0, 192]
+2019-11-22 11:13:07.595 INFO     588 8   43  01  22  01  01  04  00  c0  
+2019-11-22 11:13:07.596 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.609 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.609 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.609 INFO     588 8   43  01  22  20  00  00  00  00  
+2019-11-22 11:13:07.610 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.622 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.622 INFO     Got data: [222, 2, 0, 0]
+2019-11-22 11:13:07.622 INFO     588 8   43  01  22  21  de  02  00  00  
+2019-11-22 11:13:07.622 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.634 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.634 INFO     Got data: [222, 2, 0, 0]
+2019-11-22 11:13:07.634 INFO     588 8   43  01  22  22  de  02  00  00  
+2019-11-22 11:13:07.634 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.646 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.646 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.646 INFO     588 8   43  01  22  23  00  00  00  00  
+2019-11-22 11:13:07.646 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.658 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.658 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.658 INFO     588 8   43  01  22  24  00  00  00  00  
+2019-11-22 11:13:07.658 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.670 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.670 INFO     Got data: [130, 1, 0, 0]
+2019-11-22 11:13:07.670 INFO     588 8   43  01  22  25  82  01  00  00  
+2019-11-22 11:13:07.670 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.681 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.681 INFO     Got data: [130, 1, 0, 0]
+2019-11-22 11:13:07.682 INFO     588 8   43  01  22  26  82  01  00  00  
+2019-11-22 11:13:07.682 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.693 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.693 INFO     Got data: [162, 2, 0, 0]
+2019-11-22 11:13:07.693 INFO     588 8   43  01  22  27  a2  02  00  00  
+2019-11-22 11:13:07.694 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.705 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.705 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:07.705 INFO     588 8   43  01  22  10  21  00  00  00  
+2019-11-22 11:13:07.705 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.717 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.717 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:07.717 INFO     588 8   43  01  22  11  f5  00  00  00  
+2019-11-22 11:13:07.717 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.729 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.729 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:07.729 INFO     588 8   43  01  22  12  02  00  00  00  
+2019-11-22 11:13:07.729 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.738 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.738 INFO     Got data: [162, 0, 0, 0]
+2019-11-22 11:13:07.738 INFO     588 8   43  01  22  13  a2  00  00  00  
+2019-11-22 11:13:07.738 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.750 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.750 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:07.750 INFO     588 8   43  01  22  14  03  00  00  00  
+2019-11-22 11:13:07.750 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.762 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.762 INFO     Got data: [72, 0, 0, 0]
+2019-11-22 11:13:07.762 INFO     588 8   43  01  22  15  48  00  00  00  
+2019-11-22 11:13:07.762 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.771 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.771 INFO     Got data: [249, 0, 0, 0]
+2019-11-22 11:13:07.771 INFO     588 8   43  01  22  16  f9  00  00  00  
+2019-11-22 11:13:07.771 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.782 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.783 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:07.783 INFO     588 8   43  01  22  17  07  00  00  00  
+2019-11-22 11:13:07.783 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.794 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.794 INFO     Got data: [168, 0, 0, 0]
+2019-11-22 11:13:07.794 INFO     588 8   43  01  22  18  a8  00  00  00  
+2019-11-22 11:13:07.795 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.806 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.806 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:07.806 INFO     588 8   43  01  22  19  02  00  00  00  
+2019-11-22 11:13:07.806 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.818 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.818 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.818 INFO     588 8   43  01  22  1a  00  00  00  00  
+2019-11-22 11:13:07.818 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.830 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.830 INFO     Got data: [199, 0, 0, 0]
+2019-11-22 11:13:07.830 INFO     588 8   43  01  22  1b  c7  00  00  00  
+2019-11-22 11:13:07.830 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.842 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.842 INFO     Got data: [93, 0, 0, 0]
+2019-11-22 11:13:07.842 INFO     588 8   43  01  22  1c  5d  00  00  00  
+2019-11-22 11:13:07.842 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.854 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.854 INFO     Got data: [0, 0, 8, 192]
+2019-11-22 11:13:07.854 INFO     588 8   43  02  22  01  00  00  08  c0  
+2019-11-22 11:13:07.855 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.866 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.866 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.866 INFO     588 8   43  02  22  20  00  00  00  00  
+2019-11-22 11:13:07.866 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.877 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.878 INFO     Got data: [211, 2, 0, 0]
+2019-11-22 11:13:07.878 INFO     588 8   43  02  22  21  d3  02  00  00  
+2019-11-22 11:13:07.878 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.889 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.889 INFO     Got data: [211, 2, 0, 0]
+2019-11-22 11:13:07.890 INFO     588 8   43  02  22  22  d3  02  00  00  
+2019-11-22 11:13:07.890 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.901 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.901 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.901 INFO     588 8   43  02  22  23  00  00  00  00  
+2019-11-22 11:13:07.902 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.913 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.913 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:07.913 INFO     588 8   43  02  22  24  00  00  00  00  
+2019-11-22 11:13:07.914 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.925 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.925 INFO     Got data: [166, 2, 0, 0]
+2019-11-22 11:13:07.925 INFO     588 8   43  02  22  25  a6  02  00  00  
+2019-11-22 11:13:07.925 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.937 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.937 INFO     Got data: [166, 2, 0, 0]
+2019-11-22 11:13:07.937 INFO     588 8   43  02  22  26  a6  02  00  00  
+2019-11-22 11:13:07.937 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.949 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.949 INFO     Got data: [144, 2, 0, 0]
+2019-11-22 11:13:07.949 INFO     588 8   43  02  22  27  90  02  00  00  
+2019-11-22 11:13:07.949 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.966 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.967 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:07.967 INFO     588 8   43  02  22  10  21  00  00  00  
+2019-11-22 11:13:07.967 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.978 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.979 INFO     588 8   43  02  22  11  f5  00  00  00  
+2019-11-22 11:13:07.979 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:07.979 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:07.990 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:07.990 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:07.990 INFO     588 8   43  02  22  12  02  00  00  00  
+2019-11-22 11:13:07.991 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.002 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.002 INFO     Got data: [144, 0, 0, 0]
+2019-11-22 11:13:08.002 INFO     588 8   43  02  22  13  90  00  00  00  
+2019-11-22 11:13:08.003 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.014 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.014 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:08.014 INFO     588 8   43  02  22  14  03  00  00  00  
+2019-11-22 11:13:08.015 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.026 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.026 INFO     Got data: [176, 0, 0, 0]
+2019-11-22 11:13:08.026 INFO     588 8   43  02  22  15  b0  00  00  00  
+2019-11-22 11:13:08.026 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.038 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.038 INFO     Got data: [249, 0, 0, 0]
+2019-11-22 11:13:08.038 INFO     588 8   43  02  22  16  f9  00  00  00  
+2019-11-22 11:13:08.038 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.050 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.050 INFO     588 8   43  02  22  17  07  00  00  00  
+2019-11-22 11:13:08.053 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:08.053 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.065 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.065 INFO     588 8   43  02  22  18  a4  00  00  00  
+2019-11-22 11:13:08.065 INFO     Got data: [164, 0, 0, 0]
+2019-11-22 11:13:08.065 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.077 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.077 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:08.077 INFO     588 8   43  02  22  19  00  00  00  00  
+2019-11-22 11:13:08.077 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.088 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.089 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:08.089 INFO     588 8   43  02  22  1a  02  00  00  00  
+2019-11-22 11:13:08.089 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.100 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.101 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:08.101 INFO     588 8   43  02  22  1b  21  00  00  00  
+2019-11-22 11:13:08.101 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.113 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.113 INFO     Got data: [16, 0, 0, 0]
+2019-11-22 11:13:08.113 INFO     588 8   43  02  22  1c  10  00  00  00  
+2019-11-22 11:13:08.113 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.130 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.130 INFO     Got data: [176, 194, 10, 193]
+2019-11-22 11:13:08.130 INFO     588 8   43  03  22  01  b0  c2  0a  c1  
+2019-11-22 11:13:08.131 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.142 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.142 INFO     Got data: [16, 0, 0, 0]
+2019-11-22 11:13:08.143 INFO     588 8   43  03  22  20  10  00  00  00  
+2019-11-22 11:13:08.143 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.154 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.154 INFO     Got data: [240, 2, 0, 0]
+2019-11-22 11:13:08.154 INFO     588 8   43  03  22  21  f0  02  00  00  
+2019-11-22 11:13:08.154 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.165 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.166 INFO     588 8   43  03  22  22  f0  02  00  00  
+2019-11-22 11:13:08.166 INFO     Got data: [240, 2, 0, 0]
+2019-11-22 11:13:08.166 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.178 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.178 INFO     588 8   43  03  22  23  0f  00  00  00  
+2019-11-22 11:13:08.178 INFO     Got data: [15, 0, 0, 0]
+2019-11-22 11:13:08.178 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.189 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.189 INFO     588 8   43  03  22  24  0f  00  00  00  
+2019-11-22 11:13:08.190 INFO     Got data: [15, 0, 0, 0]
+2019-11-22 11:13:08.190 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.201 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.201 INFO     Got data: [208, 1, 0, 0]
+2019-11-22 11:13:08.201 INFO     588 8   43  03  22  25  d0  01  00  00  
+2019-11-22 11:13:08.201 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.213 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.213 INFO     Got data: [208, 1, 0, 0]
+2019-11-22 11:13:08.213 INFO     588 8   43  03  22  26  d0  01  00  00  
+2019-11-22 11:13:08.214 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.225 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.225 INFO     Got data: [175, 2, 0, 0]
+2019-11-22 11:13:08.225 INFO     588 8   43  03  22  27  af  02  00  00  
+2019-11-22 11:13:08.225 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.237 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.237 INFO     588 8   43  03  22  10  21  00  00  00  
+2019-11-22 11:13:08.237 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:08.237 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.246 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.246 INFO     588 8   43  03  22  11  f5  00  00  00  
+2019-11-22 11:13:08.246 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:08.246 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.258 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.258 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:08.258 INFO     588 8   43  03  22  12  02  00  00  00  
+2019-11-22 11:13:08.258 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.270 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.270 INFO     Got data: [175, 0, 0, 0]
+2019-11-22 11:13:08.270 INFO     588 8   43  03  22  13  af  00  00  00  
+2019-11-22 11:13:08.270 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.281 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.282 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:08.282 INFO     588 8   43  03  22  14  03  00  00  00  
+2019-11-22 11:13:08.282 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.293 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.293 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:08.294 INFO     588 8   43  03  22  15  00  00  00  00  
+2019-11-22 11:13:08.294 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.305 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.305 INFO     Got data: [248, 0, 0, 0]
+2019-11-22 11:13:08.305 INFO     588 8   43  03  22  16  f8  00  00  00  
+2019-11-22 11:13:08.306 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.317 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.317 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:08.317 INFO     588 8   43  03  22  17  07  00  00  00  
+2019-11-22 11:13:08.318 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.329 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.329 INFO     Got data: [171, 0, 0, 0]
+2019-11-22 11:13:08.329 INFO     588 8   43  03  22  18  ab  00  00  00  
+2019-11-22 11:13:08.329 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.341 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.341 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:08.341 INFO     588 8   43  03  22  19  03  00  00  00  
+2019-11-22 11:13:08.341 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.353 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.353 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:08.353 INFO     588 8   43  03  22  1a  00  00  00  00  
+2019-11-22 11:13:08.353 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.365 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.365 INFO     588 8   43  03  22  1b  63  00  00  00  
+2019-11-22 11:13:08.365 INFO     Got data: [99, 0, 0, 0]
+2019-11-22 11:13:08.365 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.374 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.374 INFO     Got data: [192, 0, 0, 0]
+2019-11-22 11:13:08.374 INFO     588 8   43  03  22  1c  c0  00  00  00  
+2019-11-22 11:13:08.374 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.385 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.385 INFO     Got data: [162, 138, 10, 192]
+2019-11-22 11:13:08.385 INFO     588 8   43  01  22  01  a2  8a  0a  c0  
+2019-11-22 11:13:08.386 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.397 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.397 INFO     Got data: [144, 6, 8, 192]
+2019-11-22 11:13:08.397 INFO     588 8   43  02  22  01  90  06  08  c0  
+2019-11-22 11:13:08.397 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.409 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.409 INFO     Got data: [149, 86, 10, 192]
+2019-11-22 11:13:08.409 INFO     588 8   43  00  22  01  95  56  0a  c0  
+2019-11-22 11:13:08.409 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.421 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.421 INFO     Got data: [0, 0, 0, 192]
+2019-11-22 11:13:08.421 INFO     588 8   43  01  22  01  00  00  00  c0  
+2019-11-22 11:13:08.422 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.433 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.433 INFO     Got data: [0, 4, 8, 192]
+2019-11-22 11:13:08.433 INFO     588 8   43  02  22  01  00  04  08  c0  
+2019-11-22 11:13:08.433 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.442 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.442 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:08.442 INFO     588 8   43  01  20  00  00  00  00  00  
+2019-11-22 11:13:08.442 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.454 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.454 INFO     Got data: [0, 0, 0, 192]
+2019-11-22 11:13:08.454 INFO     588 8   43  00  22  01  00  00  00  c0  
+2019-11-22 11:13:08.454 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.465 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.466 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:08.466 INFO     588 8   43  00  22  20  00  00  00  00  
+2019-11-22 11:13:08.466 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.485 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.486 INFO     Got data: [217, 2, 0, 0]
+2019-11-22 11:13:08.486 INFO     588 8   43  00  22  21  d9  02  00  00  
+2019-11-22 11:13:08.486 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.495 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.495 INFO     Got data: [217, 2, 0, 0]
+2019-11-22 11:13:08.495 INFO     588 8   43  00  22  22  d9  02  00  00  
+2019-11-22 11:13:08.496 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.507 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.507 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:08.507 INFO     588 8   43  00  22  23  00  00  00  00  
+2019-11-22 11:13:08.507 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.519 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.519 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:08.519 INFO     588 8   43  00  22  24  00  00  00  00  
+2019-11-22 11:13:08.519 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.531 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.531 INFO     Got data: [202, 0, 0, 0]
+2019-11-22 11:13:08.531 INFO     588 8   43  00  22  25  ca  00  00  00  
+2019-11-22 11:13:08.531 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.543 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.543 INFO     Got data: [202, 0, 0, 0]
+2019-11-22 11:13:08.543 INFO     588 8   43  00  22  26  ca  00  00  00  
+2019-11-22 11:13:08.543 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.555 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.555 INFO     Got data: [152, 2, 0, 0]
+2019-11-22 11:13:08.555 INFO     588 8   43  00  22  27  98  02  00  00  
+2019-11-22 11:13:08.555 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.567 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.567 INFO     Got data: [33, 0, 0, 0]
+2019-11-22 11:13:08.567 INFO     588 8   43  00  22  10  21  00  00  00  
+2019-11-22 11:13:08.567 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.578 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.579 INFO     Got data: [245, 0, 0, 0]
+2019-11-22 11:13:08.579 INFO     588 8   43  00  22  11  f5  00  00  00  
+2019-11-22 11:13:08.579 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.590 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.590 INFO     Got data: [2, 0, 0, 0]
+2019-11-22 11:13:08.590 INFO     588 8   43  00  22  12  02  00  00  00  
+2019-11-22 11:13:08.591 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.602 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.602 INFO     Got data: [152, 0, 0, 0]
+2019-11-22 11:13:08.602 INFO     588 8   43  00  22  13  98  00  00  00  
+2019-11-22 11:13:08.602 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.614 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.614 INFO     Got data: [3, 0, 0, 0]
+2019-11-22 11:13:08.614 INFO     588 8   43  00  22  14  03  00  00  00  
+2019-11-22 11:13:08.614 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.624 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.624 INFO     588 8   43  00  22  15  00  00  00  00  
+2019-11-22 11:13:08.624 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:08.625 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.635 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.635 INFO     Got data: [248, 0, 0, 0]
+2019-11-22 11:13:08.635 INFO     588 8   43  00  22  16  f8  00  00  00  
+2019-11-22 11:13:08.636 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.647 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.647 INFO     588 8   43  00  22  17  07  00  00  00  
+2019-11-22 11:13:08.647 INFO     Got data: [7, 0, 0, 0]
+2019-11-22 11:13:08.647 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.659 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.659 INFO     Got data: [166, 0, 0, 0]
+2019-11-22 11:13:08.659 INFO     588 8   43  00  22  18  a6  00  00  00  
+2019-11-22 11:13:08.659 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.670 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.670 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:08.671 INFO     588 8   43  00  22  19  00  00  00  00  
+2019-11-22 11:13:08.671 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.683 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.683 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:08.683 INFO     588 8   43  00  22  1a  00  00  00  00  
+2019-11-22 11:13:08.683 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.694 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.694 INFO     Got data: [121, 0, 0, 0]
+2019-11-22 11:13:08.694 INFO     588 8   43  00  22  1b  79  00  00  00  
+2019-11-22 11:13:08.695 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.706 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.706 INFO     Got data: [81, 0, 0, 0]
+2019-11-22 11:13:08.706 INFO     588 8   43  00  22  1c  51  00  00  00  
+2019-11-22 11:13:08.706 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.718 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.718 INFO     Got data: [0, 0, 0, 192]
+2019-11-22 11:13:08.718 INFO     588 8   43  01  22  01  00  00  00  c0  
+2019-11-22 11:13:08.719 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.730 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.730 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:08.730 INFO     588 8   43  01  22  20  00  00  00  00  
+2019-11-22 11:13:08.730 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.742 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.742 INFO     Got data: [220, 2, 0, 0]
+2019-11-22 11:13:08.742 INFO     588 8   43  01  22  21  dc  02  00  00  
+2019-11-22 11:13:08.743 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.754 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.754 INFO     Got data: [220, 2, 0, 0]
+2019-11-22 11:13:08.754 INFO     588 8   43  01  22  22  dc  02  00  00  
+2019-11-22 11:13:08.754 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.766 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.766 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:08.766 INFO     588 8   43  01  22  23  00  00  00  00  
+2019-11-22 11:13:08.766 INFO     Send SDO read request to node 8.
+2019-11-22 11:13:08.777 INFO     ID  DLC DATA                            TIME
+2019-11-22 11:13:08.778 INFO     588 8   43  01  22  24  00  00  00  00  
+2019-11-22 11:13:08.778 INFO     Got data: [0, 0, 0, 0]
+2019-11-22 11:13:08.778 INFO     Send SDO read request to node 8.
