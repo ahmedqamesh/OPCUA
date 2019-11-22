@@ -1,0 +1,4 @@
+[console_scripts]
+CANopenForDCSController = dcsControllerServer.CANopenForDCSController:main
+DCSControllerServer = dcsControllerServer.dcsControllerServer:main
+

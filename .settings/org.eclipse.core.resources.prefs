@@ -1,6 +1,10 @@
 eclipse.preferences.version=1
 encoding//analib/channel.py=utf-8
+encoding//dcsControllerServer/CANopenConstants.py=utf-8
+encoding//dcsControllerServer/CANopenForDCSController.py=utf-8
 encoding//dcsControllerServer/dcsControllerServer.py=utf-8
 encoding//dcsControllerServer/extend_logging.py=utf-8
+encoding//dcsControllerServer/mirrorClasses.py=utf-8
+encoding//dcsControllerServer/objectDictionary.py=utf-8
 encoding/setup.py=utf-8
 encoding/test.py=utf-8

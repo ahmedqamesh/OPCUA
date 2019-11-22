@@ -1,0 +1,45 @@
+2019-11-22 12:09:14.636 INFO     Existing logging Handler: [<RotatingFileHandler /home/qamesh/git/OPCUA/dcsControllerServer/log/2019-11-22_12-09-14_OPCUA_Server.log (INFO)>]
+2019-11-22 12:09:14.636 NOTICE   Configuring OPC UA server ...
+2019-11-22 12:09:15.250 INFO     Configuring namespace
+2019-11-22 12:09:15.250 INFO     Namespace index: 2
+2019-11-22 12:09:15.250 SUCCESS  ... Done!
+2019-11-22 12:09:15.250 NOTICE   Importing OPCUA object types from XML. This may take some time ...
+2019-11-22 12:09:17.710 SUCCESS  ... Done!
+2019-11-22 12:09:17.718 SUCCESS  Anagate CAN channel: IP address: 192.168.1.254; CAN port: 0
+2019-11-22 12:09:17.718 NOTICE   Get OPC UA Object Type of DCS Controller ...
+2019-11-22 12:09:17.718 SUCCESS  ... Done!
+2019-11-22 12:09:17.719 NOTICE   Importing Object Dictionary ...
+2019-11-22 12:09:17.841 SUCCESS  Successfully created OD from EDS.
+2019-11-22 12:09:17.841 NOTICE   Read configuration file ...
+2019-11-22 12:09:17.842 SUCCESS  ... Done!
+2019-11-22 12:09:17.842 NOTICE   Checking node connections ...
+2019-11-22 12:09:17.842 INFO     Send SDO read request to node 8.
+2019-11-22 12:09:17.851 INFO     ID  DLC DATA                            TIME
+2019-11-22 12:09:17.851 INFO     Got data: [145, 1, 0, 0]
+2019-11-22 12:09:17.852 INFO     588 8   43  00  10  00  91  01  00  00  
+2019-11-22 12:09:17.852 INFO     Connection to node 8 has been verified.
+2019-11-22 12:09:17.852 SUCCESS  ... Done!
+2019-11-22 12:09:17.852 NOTICE   Creating OPCUA Objects for every Controller on the bus ...
+2019-11-22 12:09:19.659 SUCCESS  ... Done!
+2019-11-22 12:09:19.659 NOTICE   Starting the server ...
+2019-11-22 12:09:19.662 ERROR    [Errno 98] error while attempting to bind on address ('127.0.0.1', 4840): address already in use
+Traceback (most recent call last):
+  File "/home/qamesh/git/OPCUA/dcsControllerServer/dcsControllerServer.py", line 1148, in main
+    server.start()
+  File "/home/qamesh/git/OPCUA/dcsControllerServer/dcsControllerServer.py", line 532, in start
+    self.server.start()
+  File "/home/qamesh/anaconda3/lib/python3.7/site-packages/opcua/server/server.py", line 321, in start
+    raise exp
+  File "/home/qamesh/anaconda3/lib/python3.7/site-packages/opcua/server/server.py", line 318, in start
+    self.bserver.start()
+  File "/home/qamesh/anaconda3/lib/python3.7/site-packages/opcua/server/binary_server_asyncio.py", line 116, in start
+    self._server = self.loop.run_coro_and_wait(coro)
+  File "/home/qamesh/anaconda3/lib/python3.7/site-packages/opcua/common/utils.py", line 193, in run_coro_and_wait
+    return task.result()
+  File "/home/qamesh/anaconda3/lib/python3.7/asyncio/base_events.py", line 1378, in create_server
+    % (sa, err.strerror.lower())) from None
+OSError: [Errno 98] error while attempting to bind on address ('127.0.0.1', 4840): address already in use
+2019-11-22 12:09:19.663 NOTICE   Error counters: Counter({'SDO read total': 1, 'Residual CAN messages': 0})
+2019-11-22 12:09:19.663 WARNING  Stopping helper threads. This might take a minute
+2019-11-22 12:09:19.663 WARNING  Closing the CAN channel.
+2019-11-22 12:09:19.664 WARNING  Stopping the server.

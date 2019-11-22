@@ -1,0 +1,2 @@
+2019-11-22 12:34:44.658 WARNING  Endpoints other than open requested but private key and certificate are not set.
+2019-11-22 12:34:44.661 WARNING  Listening on localhost:4840

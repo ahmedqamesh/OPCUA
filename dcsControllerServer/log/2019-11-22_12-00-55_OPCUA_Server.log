@@ -1,0 +1,7 @@
+2019-11-22 12:00:55.014 INFO     Existing logging Handler: [<RotatingFileHandler /home/qamesh/git/OPCUA/dcsControllerServer/log/2019-11-22_12-00-55_OPCUA_Server.log (INFO)>]
+2019-11-22 12:00:55.014 NOTICE   Configuring OPC UA server ...
+2019-11-22 12:00:55.634 INFO     Configuring namespace
+2019-11-22 12:00:55.634 INFO     Namespace index: 2
+2019-11-22 12:00:55.634 SUCCESS  ... Done!
+2019-11-22 12:00:55.634 NOTICE   Importing OPCUA object types from XML. This may take some time ...
+2019-11-22 12:00:58.063 SUCCESS  ... Done!
