@@ -1,0 +1,1302 @@
+WCCILpmon    (1), 2019.11.26 20:35:21.750, SYS,  INFO,        1, Manager Start, START_MODE
+WCCILpmon    (1), 2019.11.26 20:35:21.852, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILdata -PROJ client_OPCUA_WinccOA -pmonIndex 1 
+WCCILdata    (0), 2019.11.26 20:35:21.863, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILdata    (0), 2019.11.26 20:35:21.864, SYS,  INFO,        0, , (Re)Opening databases in single user mode without transaction logging.
+WCCILdata    (0), 2019.11.26 20:35:21.865, SYS,  INFO,        0, , Initialize archive smoothing
+WCCILdata    (0), 2019.11.26 20:35:21.865, SYS,  INFO,        0, , Initialize archive smoothing
+WCCILdata    (0), 2019.11.26 20:35:21.865, SYS,  INFO,        0, , Loading DpIdentification
+WCCILdata    (0), 2019.11.26 20:35:21.887, SYS,  INFO,        0, , Initializing last value cache
+WCCILdata    (0), 2019.11.26 20:35:21.903, SYS,  INFO,        0, , Loading internal datapoints
+WCCILdata    (0), 2019.11.26 20:35:21.904, SYS,  INFO,        0, , Initializing ID history
+WCCILdata    (0), 2019.11.26 20:35:21.904, SYS,  INFO,        0, , Initializing Alert history
+WCCILdata    (0), 2019.11.26 20:35:21.904, SYS,  INFO,        0, , Initializing Alert Class cache
+WCCILdata    (0), 2019.11.26 20:35:21.905, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 20:35:21.926, SYS,  INFO,        0, , Initializing Value Archives
+WCCILdata    (0), 2019.11.26 20:35:21.928, SYS,  INFO,        0, , ValueArchive will be used...
+WCCILpmon    (1), 2019.11.26 20:35:21.961, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 2 -num 0
+WCCOAvalarch (0), 2019.11.26 20:35:21.971, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (0), 2019.11.26 20:35:21.972, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (0), 2019.11.26 20:35:21.972, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:21.973, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 2 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:21.973, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 0
+WCCILdata    (0), 2019.11.26 20:35:21.974, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 2 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 20:35:22.065, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 3 -num 1
+WCCOAvalarch (1), 2019.11.26 20:35:22.074, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (1), 2019.11.26 20:35:22.074, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (1), 2019.11.26 20:35:22.074, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:22.075, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 3 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:22.075, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 1
+WCCILdata    (0), 2019.11.26 20:35:22.076, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 3 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 20:35:22.179, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 4 -num 2
+WCCOAvalarch (2), 2019.11.26 20:35:22.187, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (2), 2019.11.26 20:35:22.188, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (2), 2019.11.26 20:35:22.188, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:22.189, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 4 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:22.189, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 2
+WCCILdata    (0), 2019.11.26 20:35:22.189, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 4 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 20:35:22.379, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 5 -num 3
+WCCOAvalarch (3), 2019.11.26 20:35:22.390, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (3), 2019.11.26 20:35:22.390, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (3), 2019.11.26 20:35:22.390, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:22.391, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 5 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:22.391, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 3
+WCCILdata    (0), 2019.11.26 20:35:22.391, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 5 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 20:35:22.580, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 6 -num 4
+WCCOAvalarch (4), 2019.11.26 20:35:22.589, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (4), 2019.11.26 20:35:22.589, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (4), 2019.11.26 20:35:22.590, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:22.590, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 6 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:22.590, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 4
+WCCILdata    (0), 2019.11.26 20:35:22.591, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 6 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 20:35:22.781, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 7 -num 5
+WCCOAvalarch (5), 2019.11.26 20:35:22.789, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (5), 2019.11.26 20:35:22.790, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (5), 2019.11.26 20:35:22.790, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:22.790, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 7 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:22.791, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 5
+WCCILdata    (0), 2019.11.26 20:35:22.791, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 7 CONN: 1) initialised
+WCCOAvalarch (0), 2019.11.26 20:35:25.012, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 20:35:25.027, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (1), 2019.11.26 20:35:25.110, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 20:35:25.128, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (2), 2019.11.26 20:35:25.219, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 20:35:25.222, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (3), 2019.11.26 20:35:25.426, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 20:35:25.444, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (4), 2019.11.26 20:35:25.620, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 20:35:25.623, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (5), 2019.11.26 20:35:25.821, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 20:35:25.824, SYS,  INFO,        0, , Sending initial values to archive
+WCCILpmon    (1), 2019.11.26 20:35:25.825, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILevent -PROJ client_OPCUA_WinccOA -pmonIndex 8 
+WCCILevent   (0), 2019.11.26 20:35:25.834, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILevent   (0), 2019.11.26 20:35:25.835, SYS,  INFO,      108, License information, Host information
+Hostname:   dhcp-109-82.physik.uni-wuppertal.de
+HW-code:    21722716381
+HW-version: 31500002
+
+WCCILevent   (0), 2019.11.26 20:35:25.835, SYS,  SEVERE,    105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found
+WCCILevent   (0), 2019.11.26 20:35:25.836, SYS,  INFO,      108, License information, Using license file /opt/WinCC_OA/3.15/shield
+
+WCCILevent   (0), 2019.11.26 20:35:25.849, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCILevent   (0), 2019.11.26 20:35:25.849, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:25.849, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:35:25.854, SYS,  SEVERE,    105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found
+WCCILdata    (0), 2019.11.26 20:35:25.910, SYS,  INFO,        0, , Manager (SYS: 1 Event -num 0 CONN: 1) initialised
+WCCILevent   (0), 2019.11.26 20:35:25.910, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILevent   (0), 2019.11.26 20:35:25.911, SYS,  INFO,      169, Initialize 72 dp-functions
+WCCILevent   (0), 2019.11.26 20:35:25.918, SYS,  INFO,      168, Initialize 100 alerts
+WCCILevent   (0), 2019.11.26 20:35:25.918, SYS,  SEVERE,    105, Invalid license, Eventmanager will shutdown after the demo period of 1800 seconds
+WCCILevent   (0), 2019.11.26 20:35:25.938, SYS,  INFO,      103, User names/passwords initialized
+WCCOAvalarch (0), 2019.11.26 20:35:26.013, SYS,  INFO,        0, , Ready for operation.
+WCCILpmon    (1), 2019.11.26 20:35:26.026, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILproxy -PROJ client_OPCUA_WinccOA -pmonIndex 9 
+WCCILproxy   (1), 2019.11.26 20:35:26.037, SYS,  INFO,      220, Multiplexing proxy Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILproxy   (1), 2019.11.26 20:35:26.059, SYS,  INFO,        0, , Can maintain up to 504 concurrent connections
+WCCOAvalarch (1), 2019.11.26 20:35:26.110, SYS,  INFO,        0, , Ready for operation.
+WCCILpmon    (1), 2019.11.26 20:35:26.138, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOActrl -PROJ client_OPCUA_WinccOA -pmonIndex 10 -f pvss_scripts.lst
+WCCOActrl    (0), 2019.11.26 20:35:26.147, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOActrl    (0), 2019.11.26 20:35:26.147, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOActrl    (0), 2019.11.26 20:35:26.147, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.152, SYS,  INFO,        4, Connected to (SYS: 1 Ctrl -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.153, SYS,  INFO,        0, , Manager (SYS: 1 Ctrl -num 1 CONN: 1) initialised
+WCCOActrl    (1), 2019.11.26 20:35:26.155, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOActrl    (1), 2019.11.26 20:35:26.155, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOActrl    (1), 2019.11.26 20:35:26.155, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:35:26.155, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ctrl
+WCCILevent   (0), 2019.11.26 20:35:26.156, SYS,  INFO,        4, Connected to (SYS: 1 Ctrl -num 1 CONN: 1) @ localhost (::1)
+WCCOActrl    (1), 2019.11.26 20:35:26.156, SYS,  INFO,      102, Waiting for user names/passwords
+WCCOActrl    (1), 2019.11.26 20:35:26.157, SYS,  INFO,      103, User names/passwords initialized
+WCCOActrl    (1), 2019.11.26 20:35:26.210, CTRL, INFO,        0, , DB Version Update, Initial set of project DB version: 3.15 DB version 12
+WCCOActrl    (1), 2019.11.26 20:35:26.210, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 0, try upgrading to 1
+WCCOActrl    (1), 2019.11.26 20:35:26.210, CTRL, INFO,        0, , DB Version Update, Starting ASCII manager, /opt/WinCC_OA/3.15/dplist/update_001.dpl
+WCCOAvalarch (2), 2019.11.26 20:35:26.219, SYS,  INFO,        0, , Ready for operation.
+WCCILdata    (0), 2019.11.26 20:35:26.222, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.224, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILevent   (0), 2019.11.26 20:35:26.226, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ascii
+WCCILevent   (0), 2019.11.26 20:35:26.226, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.230, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 20:35:26.230, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 20:35:26.231, CTRL, INFO,        0, , DB Version Update, 3.15 DB version is now 1
+WCCOActrl    (1), 2019.11.26 20:35:26.231, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 1, try upgrading to 2
+WCCOActrl    (1), 2019.11.26 20:35:26.231, CTRL, INFO,        0, , DB Version Update, Starting ASCII manager, /opt/WinCC_OA/3.15/dplist/update_002.dpl
+WCCILdata    (0), 2019.11.26 20:35:26.243, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.245, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILevent   (0), 2019.11.26 20:35:26.246, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ascii
+WCCILevent   (0), 2019.11.26 20:35:26.247, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:35:26.247, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ascii -num 1 CONN: 1) with and ID 2 smaller than the ID 5 of the last received message, assuming manager has been restarted
+WCCILevent   (0), 2019.11.26 20:35:26.251, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:26.251, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 20:35:26.252, CTRL, INFO,        0, , DB Version Update, 3.15 DB version is now 2
+WCCOActrl    (1), 2019.11.26 20:35:26.252, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 2, try upgrading to 3
+WCCOActrl    (1), 2019.11.26 20:35:26.252, CTRL, INFO,        0, , DB Version Update, Starting ASCII manager, /opt/WinCC_OA/3.15/dplist/update_003.dpl
+WCCILdata    (0), 2019.11.26 20:35:26.265, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.266, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILevent   (0), 2019.11.26 20:35:26.268, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ascii
+WCCILevent   (0), 2019.11.26 20:35:26.268, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:35:26.269, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ascii -num 1 CONN: 1) with and ID 2 smaller than the ID 10 of the last received message, assuming manager has been restarted
+WCCILevent   (0), 2019.11.26 20:35:26.273, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:26.273, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 20:35:26.275, CTRL, INFO,        0, , DB Version Update, 3.15 DB version is now 3
+WCCOActrl    (1), 2019.11.26 20:35:26.276, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 3, try upgrading to 4
+WCCOActrl    (1), 2019.11.26 20:35:26.289, CTRL, INFO,        0, , DB Version Update, 3.15 DB version is now 4
+WCCOActrl    (1), 2019.11.26 20:35:26.289, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 4, try upgrading to 5
+WCCOActrl    (1), 2019.11.26 20:35:26.290, CTRL, INFO,        0, , DB Version Update, Starting ASCII manager, /opt/WinCC_OA/3.15/dplist/update_005.dpl
+WCCILdata    (0), 2019.11.26 20:35:26.303, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.305, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILevent   (0), 2019.11.26 20:35:26.308, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ascii
+WCCILevent   (0), 2019.11.26 20:35:26.308, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:35:26.309, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ascii -num 1 CONN: 1) with and ID 2 smaller than the ID 6 of the last received message, assuming manager has been restarted
+WCCILdata    (0), 2019.11.26 20:35:26.314, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 20:35:26.314, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 20:35:26.315, CTRL, INFO,        0, , DB Version Update, 3.15 DB version is now 5
+WCCOActrl    (1), 2019.11.26 20:35:26.315, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 5, try upgrading to 6
+WCCOActrl    (1), 2019.11.26 20:35:26.315, CTRL, INFO,        0, , DB Version Update, Starting ASCII manager, /opt/WinCC_OA/3.15/dplist/update_006.dpl
+WCCILdata    (0), 2019.11.26 20:35:26.328, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.329, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILevent   (0), 2019.11.26 20:35:26.331, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ascii
+WCCILevent   (0), 2019.11.26 20:35:26.331, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:35:26.332, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ascii -num 1 CONN: 1) with and ID 2 smaller than the ID 14 of the last received message, assuming manager has been restarted
+WCCILevent   (0), 2019.11.26 20:35:26.339, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILpmon    (1), 2019.11.26 20:35:26.339, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILsim -PROJ client_OPCUA_WinccOA -pmonIndex 11 
+WCCILdata    (0), 2019.11.26 20:35:26.339, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 20:35:26.343, CTRL, INFO,        0, , DB Version Update, 3.15 DB version is now 6
+WCCOActrl    (1), 2019.11.26 20:35:26.343, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 6, try upgrading to 7
+WCCOActrl    (1), 2019.11.26 20:35:26.343, CTRL, INFO,        0, , DB Version Update, Starting ASCII manager, /opt/WinCC_OA/3.15/dplist/update_007.dpl
+WCCILsim     (1), 2019.11.26 20:35:26.349, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILsim     (1), 2019.11.26 20:35:26.349, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCILsim     (1), 2019.11.26 20:35:26.350, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.350, SYS,  INFO,        4, Connected to (SYS: 1 Driver -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.353, SYS,  INFO,        0, , Manager (SYS: 1 Driver -num 1 CONN: 1) initialised
+WCCILsim     (1), 2019.11.26 20:35:26.354, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILsim     (1), 2019.11.26 20:35:26.354, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCILsim     (1), 2019.11.26 20:35:26.354, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:35:26.354, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, driver
+WCCILevent   (0), 2019.11.26 20:35:26.355, SYS,  INFO,        4, Connected to (SYS: 1 Driver -num 1 CONN: 1) @ localhost (::1)
+WCCILsim     (1), 2019.11.26 20:35:26.355, SYS,  SEVERE,    105, Invalid license, Driver will shutdown after the demo period of 1800 seconds
+WCCILsim     (1), 2019.11.26 20:35:26.355, SYS,  INFO,      156, Driver initialization finished.
+WCCILdata    (0), 2019.11.26 20:35:26.358, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.360, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILevent   (0), 2019.11.26 20:35:26.362, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ascii
+WCCILevent   (0), 2019.11.26 20:35:26.362, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:35:26.363, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ascii -num 1 CONN: 1) with and ID 2 smaller than the ID 10 of the last received message, assuming manager has been restarted
+WCCILevent   (0), 2019.11.26 20:35:26.371, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:26.371, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 20:35:26.371, CTRL, INFO,        0, , DB Version Update, 3.15 DB version is now 7
+WCCOActrl    (1), 2019.11.26 20:35:26.372, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 7, try upgrading to 8
+WCCOActrl    (1), 2019.11.26 20:35:26.372, CTRL, INFO,        0, , DB Version Update, Starting ASCII manager, /opt/WinCC_OA/3.15/dplist/update_008.dpl
+WCCILdata    (0), 2019.11.26 20:35:26.385, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.386, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILevent   (0), 2019.11.26 20:35:26.388, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ascii
+WCCILevent   (0), 2019.11.26 20:35:26.388, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:35:26.389, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ascii -num 1 CONN: 1) with and ID 2 smaller than the ID 22 of the last received message, assuming manager has been restarted
+WCCILdata    (0), 2019.11.26 20:35:26.395, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 20:35:26.395, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 20:35:26.396, CTRL, INFO,        0, , DB Version Update, 3.15 DB version is now 8
+WCCOActrl    (1), 2019.11.26 20:35:26.397, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 8, try upgrading to 9
+WCCOActrl    (1), 2019.11.26 20:35:26.397, CTRL, INFO,        0, , DB Version Update, Starting ASCII manager, /opt/WinCC_OA/3.15/dplist/update_009.dpl
+WCCILdata    (0), 2019.11.26 20:35:26.410, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.411, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILevent   (0), 2019.11.26 20:35:26.413, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ascii
+WCCILevent   (0), 2019.11.26 20:35:26.413, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:35:26.414, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ascii -num 1 CONN: 1) with and ID 2 smaller than the ID 6 of the last received message, assuming manager has been restarted
+WCCILdata    (0), 2019.11.26 20:35:26.423, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 20:35:26.423, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 20:35:26.423, CTRL, INFO,        0, , DB Version Update, 3.15 DB version is now 9
+WCCOActrl    (1), 2019.11.26 20:35:26.424, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 9, try upgrading to 10
+WCCOActrl    (1), 2019.11.26 20:35:26.424, CTRL, INFO,        0, , DB Version Update, Starting ASCII manager, /opt/WinCC_OA/3.15/dplist/update_010.dpl
+WCCOAvalarch (3), 2019.11.26 20:35:26.427, SYS,  INFO,        0, , Ready for operation.
+WCCILdata    (0), 2019.11.26 20:35:26.438, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.439, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILevent   (0), 2019.11.26 20:35:26.442, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ascii
+WCCILevent   (0), 2019.11.26 20:35:26.442, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:35:26.442, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ascii -num 1 CONN: 1) with and ID 2 smaller than the ID 40 of the last received message, assuming manager has been restarted
+WCCILdata    (0), 2019.11.26 20:35:26.448, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 20:35:26.448, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 20:35:26.450, CTRL, INFO,        0, , DB Version Update, 3.15 DB version is now 10
+WCCOActrl    (1), 2019.11.26 20:35:26.450, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 10, try upgrading to 11
+WCCOActrl    (1), 2019.11.26 20:35:26.450, CTRL, INFO,        0, , DB Version Update, Starting ASCII manager, /opt/WinCC_OA/3.15/dplist/update_011.dpl
+WCCILdata    (0), 2019.11.26 20:35:26.462, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.463, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILevent   (0), 2019.11.26 20:35:26.465, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ascii
+WCCILevent   (0), 2019.11.26 20:35:26.466, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:35:26.466, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ascii -num 1 CONN: 1) with and ID 2 smaller than the ID 5 of the last received message, assuming manager has been restarted
+WCCILdata    (0), 2019.11.26 20:35:26.472, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 20:35:26.472, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 20:35:26.472, CTRL, INFO,        0, , DB Version Update, 3.15 DB version is now 11
+WCCOActrl    (1), 2019.11.26 20:35:26.473, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 11, try upgrading to 12
+WCCOActrl    (1), 2019.11.26 20:35:26.473, CTRL, INFO,        0, , DB Version Update, Starting ASCII manager, /opt/WinCC_OA/3.15/dplist/update_012.dpl
+WCCILdata    (0), 2019.11.26 20:35:26.485, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:26.486, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILevent   (0), 2019.11.26 20:35:26.488, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ascii
+WCCILevent   (0), 2019.11.26 20:35:26.488, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:35:26.489, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ascii -num 1 CONN: 1) with and ID 2 smaller than the ID 6 of the last received message, assuming manager has been restarted
+WCCILevent   (0), 2019.11.26 20:35:26.496, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:26.496, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 20:35:26.497, CTRL, INFO,        0, , DB Version Update, 3.15 DB version is now 12
+WCCOActrl    (1), 2019.11.26 20:35:26.497, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 12, nothing to do
+WCCILpmon    (1), 2019.11.26 20:35:26.540, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 12 -m gedi
+WCCOAvalarch (4), 2019.11.26 20:35:26.620, SYS,  INFO,        0, , Ready for operation.
+WCCOAui      (0), 2019.11.26 20:35:26.675, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (5), 2019.11.26 20:35:26.821, SYS,  INFO,        0, , Ready for operation.
+WCCOAui      (0), 2019.11.26 20:35:28.018, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 20:35:28.020, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:28.022, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:28.024, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 1 CONN: 1) initialised
+WCCOAui      (1), 2019.11.26 20:35:28.025, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (1), 2019.11.26 20:35:28.026, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (1), 2019.11.26 20:35:28.028, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:35:28.031, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 20:35:28.031, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCOAui      (1), 2019.11.26 20:35:28.032, SYS,  INFO,      102, Waiting for user names/passwords
+WCCOAui      (1), 2019.11.26 20:35:28.033, SYS,  INFO,      103, User names/passwords initialized
+WCCILpmon    (1), 2019.11.26 20:35:28.042, SYS,  INFO,        9/pmon, The project is up and running. Entering monitor mode
+WCCILpmon    (1), 2019.11.26 20:36:00.393, SYS,  INFO,       28/pmon, Got INS command from ::1, inserting new manager WCCOAopcua at index 13
+WCCILpmon    (1), 2019.11.26 20:36:00.393, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAopcua(3) - restarting it #1
+WCCILpmon    (1), 2019.11.26 20:36:00.394, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAopcua -PROJ client_OPCUA_WinccOA -pmonIndex 13 -num 3
+WCCOAopcua   (3), 2019.11.26 20:36:00.404, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAopcua   (3), 2019.11.26 20:36:00.405, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAopcua   (3), 2019.11.26 20:36:00.405, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:36:00.405, SYS,  INFO,        4, Connected to (SYS: 1 Driver -num 3 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:36:00.406, SYS,  INFO,        0, , Manager (SYS: 1 Driver -num 3 CONN: 1) initialised
+WCCOAopcua   (3), 2019.11.26 20:36:00.407, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAopcua   (3), 2019.11.26 20:36:00.407, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAopcua   (3), 2019.11.26 20:36:00.407, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 20:36:00.408, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, driver
+WCCILevent   (0), 2019.11.26 20:36:00.408, SYS,  INFO,        4, Connected to (SYS: 1 Driver -num 3 CONN: 1) @ localhost (::1)
+WCCOAopcua   (3), 2019.11.26 20:36:00.408, SYS,  SEVERE,    105, Invalid license, Driver will shutdown after the demo period of 1800 seconds
+WCCOAopcua   (3), 2019.11.26 20:36:00.409, SYS,  INFO,      156, Driver initialization finished.
+WCCILdata    (0), 2019.11.26 20:37:00.549, SYS,  INFO,        0, , Closing databases...
+WCCILdata    (0), 2019.11.26 20:37:00.549, SYS,  INFO,        0, , Loading DpIdentification
+WCCILdata    (0), 2019.11.26 20:37:00.550, SYS,  INFO,        0, , Databases closed.
+WCCILdata    (0), 2019.11.26 20:37:00.550, SYS,  INFO,        0, , Opening databases...
+WCCILdata    (0), 2019.11.26 20:37:00.550, SYS,  INFO,        0, , (Re)Opening databases in multi user mode without transaction logging.
+WCCILdata    (0), 2019.11.26 20:37:00.550, SYS,  INFO,        0, , Databases opened.
+WCCILdata    (0), 2019.11.26 20:37:00.550, SYS,  INFO,        0, , Restoring last value cache...
+WCCILdata    (0), 2019.11.26 20:37:00.551, SYS,  INFO,        0, , Refreshing value DB list...
+WCCILdata    (0), 2019.11.26 20:37:00.551, SYS,  INFO,        0, , Refreshing alert DB list...
+WCCILdata    (0), 2019.11.26 20:37:00.551, SYS,  INFO,        0, , Reopening database done.
+WCCILdata    (0), 2019.11.26 20:37:00.551, SYS,  INFO,        0, , DataManager, startBgMgr, (Re)starting WCCILdatabg
+WCCILdatabg  (1), 2019.11.26 20:37:00.559, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILdatabg  (1), 2019.11.26 20:37:00.559, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCILdatabg  (1), 2019.11.26 20:37:00.559, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:37:00.560, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:37:00.562, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 1 CONN: 1) initialised
+WCCILdatabg  (1), 2019.11.26 20:37:00.565, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAopcua   (3), 2019.11.26 20:53:45.171, SYS,  WARNING,    57/opcua, OpcUaCComm in Function csCertCommunication, Certificate /home/dcs/Wincc_OA_Proj/client_OPCUA_WinccOA/data/opcua/client/PKI/CA/rejected/noCertFile.der cannot be stored.
+WCCOAopcua   (3), 2019.11.26 20:53:45.172, SYS,  WARNING,    56/opcua, OpcUaCComm in Function connect, Certificate of OPCUAclient (opc.tcp://localhost:4840/) is expired. Setting up connection.
+WCCOAopcua   (3), 2019.11.26 20:53:45.186, SYS,  INFO,       28/opcua, OpcUaCServerData in Function run, Connected to OPCUAclient @ opc.tcp://localhost:4840/
+WCCOAopcua   (3), 2019.11.26 20:56:54.323, SYS,  INFO,      156, Driver initialization finished., all items connected
+WCCOAopcua   (3), 2019.11.26 20:56:54.361, PARAM,INFO,       23/opcua, OpcUaCServerData in Function doSubscription, Subscription[1] status_data successful created @ OPCUAclient-main
+WCCOAopcua   (3), 2019.11.26 20:56:54.888, SYS,  WARNING,    67/opcua, OpcUaCHWService in Function setHWOTime, Requested time stamp not available from server OPCUAclient address ns=2;i=10395.
+WCCOAopcua   (3), 2019.11.26 20:56:57.912, SYS,  WARNING,    67/opcua, OpcUaCHWService in Function setHWOTime, Requested time stamp not available from server OPCUAclient address ns=2;i=10395.
+WCCOAopcua   (3), 2019.11.26 20:58:09.063, PARAM,INFO,       23/opcua, OpcUaCServerData in Function doSubscription, Subscription[2] Int_Data successful created @ OPCUAclient-main
+WCCOAopcua   (3), 2019.11.26 20:58:09.593, SYS,  WARNING,    67/opcua, OpcUaCHWService in Function setHWOTime, Requested time stamp not available from server OPCUAclient address ns=2;i=8530.
+WCCOAopcua   (3), 2019.11.26 20:58:10.597, SYS,  WARNING,    67/opcua, OpcUaCHWService in Function setHWOTime, Requested time stamp not available from server OPCUAclient address ns=2;i=8530.
+WCCOAopcua   (3), 2019.11.26 20:58:38.507, SYS,  WARNING,    67/opcua, OpcUaCHWService in Function setHWOTime, Requested time stamp not available from server OPCUAclient address ns=2;i=8476.
+WCCOAopcua   (3), 2019.11.26 20:58:39.010, SYS,  WARNING,    67/opcua, OpcUaCHWService in Function setHWOTime, Requested time stamp not available from server OPCUAclient address ns=2;i=8476.
+WCCOAui      (1), 2019.11.26 20:59:28.216, CTRL, SEVERE,    176, Uncaught exception in thread started at main: 
+WCCOAui      (1), 2019.11.26 20:59:28.215, CTRL, SEVERE,     73, Variable not defined, 
+    Module: Vision_29
+    Panel: /opt/WinCC_OA/3.15/panels/gedi/ep_colorValueBack_w.pnl [Dialog]
+    In reference: gedi/ep_dpsel.pnl Group: 1 named: "dpselwert"
+      used in:    gedi/ep_colorValueBack.pnl Group: 7 named: ""
+    Script: dpTextChange
+    Library: /opt/WinCC_OA/3.15/scripts/libs/ep.ctl
+    Line: 4630, Farbe
+	Stacktrace:
+	     1: ep_prepareDsForTypeInit(string sTyp = "bool", dyn_string & ds = ({ 0 items }), dyn_string & ds2 = ({ 0 items }), int & start = 0) at ep.ctl:4630
+	     2: ep_colorTypInit(string sTyp = "bool", dyn_string Op = ({ 5 items }), dyn_string Wert = ({ 5 items }), dyn_string Farbe = ({ 5 items })) at ep.ctl:4517
+	     3: ep_colorDpTextChange(string dp = "System1:DA ...", string & dporig = "", string & sTyporig = "bool") at ep.ctl:4685
+	     4: dpTextChange(string dp = "System1:DA ...") at [Module: Vision_29 Panel: gedi/ep_colorValueBack_w.pnl    In reference: gedi/ep_dpsel.pnl Group: 1 named: "dpselwert"
+      used in:    gedi/ep_colorValueBack.pnl Group: 7 named: ""
+ Script: dpTextChange]:3
+
+WCCOAopcua   (3), 2019.11.26 21:02:57.638, SYS,  WARNING,     6/opcua, OpcUaCComm in Function write, Can not write to node ns=2;i=10395 @ OPCUAclient (opc.tcp://localhost:4840/) (Statuscode: BadUserAccessDenied)
+WCCOAui      (1), 2019.11.26 21:03:02.077, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (1), 2019.11.26 21:03:02.077, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:03:02.077, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:03:02.077, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:03:02.077, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:03:02.078, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:03:02.282, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:03:21.410, SYS,  INFO,       21/pmon, Got STOP_ALL command from ::1, stopping the project
+WCCILpmon    (1), 2019.11.26 21:03:21.410, SYS,  INFO,       17/pmon, Stopping Manager WCCOAopcua(3) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.410, SYS,  INFO,       17/pmon, Stopping Manager WCCILsim(1) with signal SIGTERM
+WCCOAopcua   (3), 2019.11.26 21:03:21.410, SYS,  INFO,      170, Signal SIGTERM received - exiting ...
+WCCILsim     (1), 2019.11.26 21:03:21.411, SYS,  INFO,      170, Signal SIGTERM received - exiting ...
+WCCILpmon    (1), 2019.11.26 21:03:21.411, SYS,  INFO,       17/pmon, Stopping Manager WCCOActrl(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.411, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(5) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.411, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(4) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.411, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(3) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.411, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(2) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.411, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.411, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(0) with signal SIGTERM
+WCCOActrl    (1), 2019.11.26 21:03:21.411, SYS,  INFO,      170, Signal SIGTERM received - exiting ...
+WCCOAopcua   (3), 2019.11.26 21:03:22.484, SYS,  INFO,       30/opcua, OpcUaCServerData in Function run, Disconnected from Server OPCUAclient-main
+WCCOAopcua   (3), 2019.11.26 21:03:22.484, SYS,  INFO,        2/opcua, OpcUA Driver stop
+WCCOActrl    (1), 2019.11.26 21:03:23.412, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOActrl    (1), 2019.11.26 21:03:23.413, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:03:23.413, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ctrl -num 1 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:03:23.413, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ctrl -num 1 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 21:03:23.413, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 21:03:23.413, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCILsim     (1), 2019.11.26 21:03:23.423, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILsim     (1), 2019.11.26 21:03:23.423, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:03:23.423, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Driver -num 1 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:03:23.423, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Driver -num 1 CONN: 1), Connection closed
+WCCILsim     (1), 2019.11.26 21:03:23.423, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILsim     (1), 2019.11.26 21:03:23.423, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCILsim     (1), 2019.11.26 21:03:23.423, SYS,  INFO,        2, Manager Stop
+WCCOActrl    (1), 2019.11.26 21:03:23.427, SYS,  INFO,        2, Manager Stop
+WCCOAopcua   (3), 2019.11.26 21:03:24.486, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAopcua   (3), 2019.11.26 21:03:24.486, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:03:24.486, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Driver -num 3 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:03:24.486, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Driver -num 3 CONN: 1), Connection closed
+WCCOAopcua   (3), 2019.11.26 21:03:24.486, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCOAopcua   (3), 2019.11.26 21:03:24.487, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAopcua   (3), 2019.11.26 21:03:24.487, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (1), 2019.11.26 21:03:27.412, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:03:27.412, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 3 CONN: 1), Connection closed
+WCCOAvalarch (1), 2019.11.26 21:03:27.412, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:03:27.412, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:1
+WCCOAvalarch (1), 2019.11.26 21:03:27.412, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (1), 2019.11.26 21:03:27.412, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (3), 2019.11.26 21:03:27.413, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:03:27.413, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 5 CONN: 1), Connection closed
+WCCOAvalarch (3), 2019.11.26 21:03:27.413, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:03:27.413, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:3
+WCCOAvalarch (3), 2019.11.26 21:03:27.413, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (3), 2019.11.26 21:03:27.413, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (5), 2019.11.26 21:03:27.414, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (4), 2019.11.26 21:03:27.414, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:03:27.414, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 7 CONN: 1), Connection closed
+WCCOAvalarch (2), 2019.11.26 21:03:27.414, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (5), 2019.11.26 21:03:27.414, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:03:27.414, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:5
+WCCOAvalarch (5), 2019.11.26 21:03:27.414, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:03:27.414, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 4 CONN: 1), Connection closed
+WCCOAvalarch (0), 2019.11.26 21:03:27.414, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (5), 2019.11.26 21:03:27.414, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (2), 2019.11.26 21:03:27.414, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:03:27.414, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:2
+WCCOAvalarch (2), 2019.11.26 21:03:27.414, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:03:27.414, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 6 CONN: 1), Connection closed
+WCCOAvalarch (2), 2019.11.26 21:03:27.414, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (4), 2019.11.26 21:03:27.414, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:03:27.414, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:4
+WCCOAvalarch (4), 2019.11.26 21:03:27.414, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:03:27.414, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 2 CONN: 1), Connection closed
+WCCOAvalarch (4), 2019.11.26 21:03:27.414, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (0), 2019.11.26 21:03:27.414, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:03:27.414, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:0
+WCCOAvalarch (0), 2019.11.26 21:03:27.414, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (0), 2019.11.26 21:03:27.414, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:03:27.415, SYS,  INFO,       17/pmon, Stopping Manager WCCILevent(0) with signal SIGTERM
+WCCILevent   (0), 2019.11.26 21:03:27.416, SYS,  INFO,        2, Manager Stop, received signal 15, exiting
+WCCILevent   (0), 2019.11.26 21:03:27.416, SYS,  INFO,        2, Manager Stop, start cleanup
+WCCILevent   (0), 2019.11.26 21:03:27.416, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:03:27.416, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:03:27.416, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:03:27.421, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:03:27.423, SYS,  INFO,       17/pmon, Stopping Manager WCCILdata(0) with signal SIGTERM
+WCCILdata    (0), 2019.11.26 21:03:27.423, SYS,  INFO,        0, , DataManager, stopBgMgr, Stopping WCCILdatabg
+WCCILdata    (0), 2019.11.26 21:03:27.423, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 1 CONN: 1)
+WCCILdatabg  (1), 2019.11.26 21:03:27.423, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:03:27.423, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 1 CONN: 1), Connection closed
+WCCILdatabg  (1), 2019.11.26 21:03:27.423, SYS,  SEVERE,     39, Connection lost, (SYS: 1 Data -num 0 CONN: 1), exiting ...
+WCCILdata    (0), 2019.11.26 21:03:27.423, SYS,  WARNING,    65, Wrong destination address, (SYS: 1 Event -num 0 CONN: 1), DP_MSG_COMPLEX_VC
+WCCILdata    (0), 2019.11.26 21:03:27.423, SYS,  WARNING,    65, Wrong destination address, (SYS: 1 Event -num 0 CONN: 1), DP_MSG_COMPLEX_VC
+WCCILdatabg  (1), 2019.11.26 21:03:29.425, SYS,  INFO,        2, Manager Stop
+WCCILdata    (0), 2019.11.26 21:03:31.428, SYS,  INFO,        0, , Loading DpIdentification
+WCCILdata    (0), 2019.11.26 21:03:31.430, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:03:31.433, SYS,  INFO,       17/pmon, Stopping Manager WCCILproxy(1) with signal SIGTERM
+WCCILproxy   (1), 2019.11.26 21:03:31.433, SYS,  INFO,      170, Signal SIGTERM received - exiting ...
+WCCILproxy   (1), 2019.11.26 21:03:31.433, SYS,  INFO,      221, Multiplexing proxy Stop
+WCCILpmon    (1), 2019.11.26 21:03:31.434, SYS,  INFO,       13/pmon, Completely stopped the project - waiting for commands
+WCCILpmon    (1), 2019.11.26 21:03:35.689, SYS,  INFO,        3/pmon, Got shutdown command - stopping the project and terminating
+WCCILpmon    (1), 2019.11.26 21:03:35.689, SYS,  INFO,       15/pmon, Completely stopped the project - terminating
+WCCILpmon    (1), 2019.11.26 21:03:35.689, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:04:14.390, SYS,  INFO,        1, Manager Start, WAIT_MODE
+WCCILpmon    (1), 2019.11.26 21:04:17.335, SYS,  INFO,       20/pmon, Got START_ALL command from ::1, starting the project
+WCCILpmon    (1), 2019.11.26 21:04:17.335, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILdata -PROJ client_OPCUA_WinccOA -pmonIndex 1 
+WCCILdata    (0), 2019.11.26 21:04:17.345, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILdata    (0), 2019.11.26 21:04:17.345, SYS,  INFO,        0, , (Re)Opening databases in single user mode without transaction logging.
+WCCILdata    (0), 2019.11.26 21:04:17.346, SYS,  INFO,        0, , Initialize archive smoothing
+WCCILdata    (0), 2019.11.26 21:04:17.346, SYS,  INFO,        0, , Initialize archive smoothing
+WCCILdata    (0), 2019.11.26 21:04:17.346, SYS,  INFO,        0, , Loading DpIdentification
+WCCILdata    (0), 2019.11.26 21:04:17.363, SYS,  INFO,        0, , Initializing last value cache
+WCCILdata    (0), 2019.11.26 21:04:17.381, SYS,  INFO,        0, , Loading internal datapoints
+WCCILdata    (0), 2019.11.26 21:04:17.382, SYS,  INFO,        0, , Initializing ID history
+WCCILdata    (0), 2019.11.26 21:04:17.382, SYS,  INFO,        0, , Initializing Alert history
+WCCILdata    (0), 2019.11.26 21:04:17.383, SYS,  INFO,        0, , Initializing Alert Class cache
+WCCILdata    (0), 2019.11.26 21:04:17.384, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 21:04:17.405, SYS,  INFO,        0, , Initializing Value Archives
+WCCILdata    (0), 2019.11.26 21:04:17.407, SYS,  INFO,        0, , ValueArchive will be used...
+WCCILpmon    (1), 2019.11.26 21:04:17.536, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 2 -num 0
+WCCOAvalarch (0), 2019.11.26 21:04:17.544, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (0), 2019.11.26 21:04:17.545, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (0), 2019.11.26 21:04:17.545, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:17.545, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 2 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:17.546, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 0
+WCCILdata    (0), 2019.11.26 21:04:17.547, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 2 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 21:04:17.737, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 3 -num 1
+WCCOAvalarch (1), 2019.11.26 21:04:17.745, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (1), 2019.11.26 21:04:17.746, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (1), 2019.11.26 21:04:17.746, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:17.746, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 3 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:17.747, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 1
+WCCILdata    (0), 2019.11.26 21:04:17.747, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 3 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 21:04:17.937, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 4 -num 2
+WCCOAvalarch (2), 2019.11.26 21:04:17.945, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (2), 2019.11.26 21:04:17.946, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (2), 2019.11.26 21:04:17.946, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:17.947, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 4 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:17.947, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 2
+WCCILdata    (0), 2019.11.26 21:04:17.947, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 4 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 21:04:18.138, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 5 -num 3
+WCCOAvalarch (3), 2019.11.26 21:04:18.147, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (3), 2019.11.26 21:04:18.147, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (3), 2019.11.26 21:04:18.148, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:18.148, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 5 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:18.148, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 3
+WCCILdata    (0), 2019.11.26 21:04:18.149, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 5 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 21:04:18.339, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 6 -num 4
+WCCOAvalarch (4), 2019.11.26 21:04:18.348, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (4), 2019.11.26 21:04:18.348, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (4), 2019.11.26 21:04:18.348, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:18.353, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 6 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:18.353, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 4
+WCCILdata    (0), 2019.11.26 21:04:18.354, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 6 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 21:04:18.539, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 7 -num 5
+WCCOAvalarch (5), 2019.11.26 21:04:18.548, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (5), 2019.11.26 21:04:18.548, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (5), 2019.11.26 21:04:18.549, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:18.549, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 7 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:18.549, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 5
+WCCILdata    (0), 2019.11.26 21:04:18.550, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 7 CONN: 1) initialised
+WCCOAvalarch (0), 2019.11.26 21:04:20.564, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 21:04:20.579, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (1), 2019.11.26 21:04:20.765, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 21:04:20.779, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (2), 2019.11.26 21:04:20.965, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 21:04:20.980, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (3), 2019.11.26 21:04:21.166, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 21:04:21.181, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (4), 2019.11.26 21:04:21.367, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 21:04:21.386, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (0), 2019.11.26 21:04:21.565, SYS,  INFO,        0, , Ready for operation.
+WCCOAvalarch (5), 2019.11.26 21:04:21.567, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 21:04:21.582, SYS,  INFO,        0, , Sending initial values to archive
+WCCILpmon    (1), 2019.11.26 21:04:21.593, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILevent -PROJ client_OPCUA_WinccOA -pmonIndex 8 
+WCCILevent   (0), 2019.11.26 21:04:21.603, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILevent   (0), 2019.11.26 21:04:21.605, SYS,  INFO,      108, License information, Host information
+Hostname:   dhcp-109-82.physik.uni-wuppertal.de
+HW-code:    21722716381
+HW-version: 31500002
+
+WCCILevent   (0), 2019.11.26 21:04:21.605, SYS,  SEVERE,    105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found
+WCCILevent   (0), 2019.11.26 21:04:21.606, SYS,  INFO,      108, License information, Using license file /opt/WinCC_OA/3.15/shield
+
+WCCILevent   (0), 2019.11.26 21:04:21.622, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCILevent   (0), 2019.11.26 21:04:21.622, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:21.623, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:04:21.629, SYS,  SEVERE,    105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found
+WCCILdata    (0), 2019.11.26 21:04:21.698, SYS,  INFO,        0, , Manager (SYS: 1 Event -num 0 CONN: 1) initialised
+WCCILevent   (0), 2019.11.26 21:04:21.699, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILevent   (0), 2019.11.26 21:04:21.699, SYS,  INFO,      169, Initialize 72 dp-functions
+WCCILevent   (0), 2019.11.26 21:04:21.706, SYS,  INFO,      168, Initialize 103 alerts
+WCCILevent   (0), 2019.11.26 21:04:21.707, SYS,  SEVERE,    105, Invalid license, Eventmanager will shutdown after the demo period of 1800 seconds
+WCCILevent   (0), 2019.11.26 21:04:21.728, SYS,  INFO,      103, User names/passwords initialized
+WCCOAvalarch (1), 2019.11.26 21:04:21.765, SYS,  INFO,        0, , Ready for operation.
+WCCILpmon    (1), 2019.11.26 21:04:21.794, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILproxy -PROJ client_OPCUA_WinccOA -pmonIndex 9 
+WCCILproxy   (1), 2019.11.26 21:04:21.808, SYS,  INFO,      220, Multiplexing proxy Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILproxy   (1), 2019.11.26 21:04:21.834, SYS,  INFO,        0, , Can maintain up to 504 concurrent connections
+WCCOAvalarch (2), 2019.11.26 21:04:21.965, SYS,  INFO,        0, , Ready for operation.
+WCCILpmon    (1), 2019.11.26 21:04:21.994, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOActrl -PROJ client_OPCUA_WinccOA -pmonIndex 10 -f pvss_scripts.lst
+WCCOActrl    (0), 2019.11.26 21:04:22.003, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOActrl    (0), 2019.11.26 21:04:22.004, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOActrl    (0), 2019.11.26 21:04:22.004, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:22.008, SYS,  INFO,        4, Connected to (SYS: 1 Ctrl -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:22.009, SYS,  INFO,        0, , Manager (SYS: 1 Ctrl -num 1 CONN: 1) initialised
+WCCOActrl    (1), 2019.11.26 21:04:22.012, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOActrl    (1), 2019.11.26 21:04:22.012, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOActrl    (1), 2019.11.26 21:04:22.013, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:04:22.013, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ctrl
+WCCILevent   (0), 2019.11.26 21:04:22.013, SYS,  INFO,        4, Connected to (SYS: 1 Ctrl -num 1 CONN: 1) @ localhost (::1)
+WCCOActrl    (1), 2019.11.26 21:04:22.014, SYS,  INFO,      102, Waiting for user names/passwords
+WCCOActrl    (1), 2019.11.26 21:04:22.014, SYS,  INFO,      103, User names/passwords initialized
+WCCOActrl    (1), 2019.11.26 21:04:22.073, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 12, nothing to do
+WCCOAvalarch (3), 2019.11.26 21:04:22.167, SYS,  INFO,        0, , Ready for operation.
+WCCILpmon    (1), 2019.11.26 21:04:22.195, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILsim -PROJ client_OPCUA_WinccOA -pmonIndex 11 
+WCCILsim     (1), 2019.11.26 21:04:22.203, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILsim     (1), 2019.11.26 21:04:22.204, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCILsim     (1), 2019.11.26 21:04:22.204, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:22.204, SYS,  INFO,        4, Connected to (SYS: 1 Driver -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:22.207, SYS,  INFO,        0, , Manager (SYS: 1 Driver -num 1 CONN: 1) initialised
+WCCILsim     (1), 2019.11.26 21:04:22.207, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILsim     (1), 2019.11.26 21:04:22.208, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCILsim     (1), 2019.11.26 21:04:22.208, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:04:22.208, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, driver
+WCCILevent   (0), 2019.11.26 21:04:22.208, SYS,  INFO,        4, Connected to (SYS: 1 Driver -num 1 CONN: 1) @ localhost (::1)
+WCCILsim     (1), 2019.11.26 21:04:22.209, SYS,  SEVERE,    105, Invalid license, Driver will shutdown after the demo period of 1800 seconds
+WCCILsim     (1), 2019.11.26 21:04:22.209, SYS,  INFO,      156, Driver initialization finished.
+WCCOAvalarch (4), 2019.11.26 21:04:22.367, SYS,  INFO,        0, , Ready for operation.
+WCCILpmon    (1), 2019.11.26 21:04:22.396, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 12 -m gedi
+WCCOAui      (0), 2019.11.26 21:04:22.519, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (5), 2019.11.26 21:04:22.567, SYS,  INFO,        0, , Ready for operation.
+WCCOAui      (0), 2019.11.26 21:04:25.536, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 21:04:25.537, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:25.540, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:25.542, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 1 CONN: 1) initialised
+WCCOAui      (1), 2019.11.26 21:04:25.544, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (1), 2019.11.26 21:04:25.546, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (1), 2019.11.26 21:04:25.549, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:04:25.552, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 21:04:25.552, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCOAui      (1), 2019.11.26 21:04:25.554, SYS,  INFO,      102, Waiting for user names/passwords
+WCCOAui      (1), 2019.11.26 21:04:25.555, SYS,  INFO,      103, User names/passwords initialized
+WCCILpmon    (1), 2019.11.26 21:04:25.612, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAopcua -PROJ client_OPCUA_WinccOA -pmonIndex 13 -num 3
+WCCOAopcua   (3), 2019.11.26 21:04:25.626, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAopcua   (3), 2019.11.26 21:04:25.626, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAopcua   (3), 2019.11.26 21:04:25.626, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:25.627, SYS,  INFO,        4, Connected to (SYS: 1 Driver -num 3 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:04:25.628, SYS,  INFO,        0, , Manager (SYS: 1 Driver -num 3 CONN: 1) initialised
+WCCOAopcua   (3), 2019.11.26 21:04:25.629, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAopcua   (3), 2019.11.26 21:04:25.630, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAopcua   (3), 2019.11.26 21:04:25.630, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:04:25.630, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, driver
+WCCILevent   (0), 2019.11.26 21:04:25.630, SYS,  INFO,        4, Connected to (SYS: 1 Driver -num 3 CONN: 1) @ localhost (::1)
+WCCOAopcua   (3), 2019.11.26 21:04:25.631, SYS,  SEVERE,    105, Invalid license, Driver will shutdown after the demo period of 1800 seconds
+WCCOAopcua   (3), 2019.11.26 21:04:25.631, SYS,  INFO,      156, Driver initialization finished., all items connected
+WCCOAopcua   (3), 2019.11.26 21:04:25.633, SYS,  INFO,      156, Driver initialization finished.
+WCCOAopcua   (3), 2019.11.26 21:04:25.642, SYS,  WARNING,    57/opcua, OpcUaCComm in Function csCertCommunication, Certificate /home/dcs/Wincc_OA_Proj/client_OPCUA_WinccOA/data/opcua/client/PKI/CA/rejected/noCertFile.der cannot be stored.
+WCCOAopcua   (3), 2019.11.26 21:04:25.642, SYS,  WARNING,    56/opcua, OpcUaCComm in Function connect, Certificate of OPCUAclient (opc.tcp://localhost:4840/) is expired. Setting up connection.
+WCCOAopcua   (3), 2019.11.26 21:04:25.646, SYS,  INFO,       28/opcua, OpcUaCServerData in Function run, Connected to OPCUAclient @ opc.tcp://localhost:4840/
+WCCOAopcua   (3), 2019.11.26 21:04:25.657, PARAM,INFO,       23/opcua, OpcUaCServerData in Function doSubscription, Subscription[1] Int_Data successful created @ OPCUAclient-main
+WCCOAopcua   (3), 2019.11.26 21:04:25.658, PARAM,INFO,       23/opcua, OpcUaCServerData in Function doSubscription, Subscription[2] status_data successful created @ OPCUAclient-main
+WCCILpmon    (1), 2019.11.26 21:04:25.813, SYS,  INFO,        9/pmon, The project is up and running. Entering monitor mode
+WCCOAopcua   (3), 2019.11.26 21:04:26.198, SYS,  WARNING,    67/opcua, OpcUaCHWService in Function setHWOTime, Requested time stamp not available from server OPCUAclient address ns=2;i=8476.
+WCCOAopcua   (3), 2019.11.26 21:04:26.199, SYS,  WARNING,    67/opcua, OpcUaCHWService in Function setHWOTime, Requested time stamp not available from server OPCUAclient address ns=2;i=8530.
+WCCOAopcua   (3), 2019.11.26 21:04:26.199, SYS,  WARNING,    67/opcua, OpcUaCHWService in Function setHWOTime, Requested time stamp not available from server OPCUAclient address ns=2;i=10395.
+WCCILdata    (0), 2019.11.26 21:05:25.689, SYS,  INFO,        0, , Closing databases...
+WCCILdata    (0), 2019.11.26 21:05:25.689, SYS,  INFO,        0, , Loading DpIdentification
+WCCILdata    (0), 2019.11.26 21:05:25.690, SYS,  INFO,        0, , Databases closed.
+WCCILdata    (0), 2019.11.26 21:05:25.690, SYS,  INFO,        0, , Opening databases...
+WCCILdata    (0), 2019.11.26 21:05:25.690, SYS,  INFO,        0, , (Re)Opening databases in multi user mode without transaction logging.
+WCCILdata    (0), 2019.11.26 21:05:25.691, SYS,  INFO,        0, , Databases opened.
+WCCILdata    (0), 2019.11.26 21:05:25.691, SYS,  INFO,        0, , Restoring last value cache...
+WCCILdata    (0), 2019.11.26 21:05:25.691, SYS,  INFO,        0, , Refreshing value DB list...
+WCCILdata    (0), 2019.11.26 21:05:25.691, SYS,  INFO,        0, , Refreshing alert DB list...
+WCCILdata    (0), 2019.11.26 21:05:25.691, SYS,  INFO,        0, , Reopening database done.
+WCCILdata    (0), 2019.11.26 21:05:25.691, SYS,  INFO,        0, , DataManager, startBgMgr, (Re)starting WCCILdatabg
+WCCILdatabg  (1), 2019.11.26 21:05:25.700, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILdatabg  (1), 2019.11.26 21:05:25.701, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCILdatabg  (1), 2019.11.26 21:05:25.701, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:05:25.702, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:05:25.704, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 1 CONN: 1) initialised
+WCCILdatabg  (1), 2019.11.26 21:05:25.707, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILpmon    (1), 2019.11.26 21:16:40.072, SYS,  INFO,       28/pmon, Got INS command from ::1, inserting new manager WCCOActrl at index 14
+WCCILpmon    (1), 2019.11.26 21:16:51.810, SYS,  INFO,       24/pmon, Got START command from ::1, starting the manager WCCOActrl(1) at index 14
+WCCILpmon    (1), 2019.11.26 21:16:51.811, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOActrl -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCOActrl    (0), 2019.11.26 21:16:51.822, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOActrl    (0), 2019.11.26 21:16:51.823, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOActrl    (0), 2019.11.26 21:16:51.823, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:16:51.823, SYS,  INFO,        4, Connected to (SYS: 1 Ctrl -num 2 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:16:51.825, SYS,  INFO,        0, , Manager (SYS: 1 Ctrl -num 2 CONN: 1) initialised
+WCCOActrl    (2), 2019.11.26 21:16:51.826, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOActrl    (2), 2019.11.26 21:16:51.826, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOActrl    (2), 2019.11.26 21:16:51.827, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:16:51.827, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ctrl
+WCCILevent   (0), 2019.11.26 21:16:51.827, SYS,  INFO,        4, Connected to (SYS: 1 Ctrl -num 2 CONN: 1) @ localhost (::1)
+WCCOActrl    (2), 2019.11.26 21:16:51.827, SYS,  INFO,      102, Waiting for user names/passwords
+WCCOActrl    (2), 2019.11.26 21:16:51.827, SYS,  INFO,      103, User names/passwords initialized
+WCCOActrl    (2), 2019.11.26 21:16:51.861, IMPL, WARNING,    61, Cannot open file, CtrlCB, readFromFile,  : No such file or directory
+WCCOActrl    (2), 2019.11.26 21:16:53.861, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOActrl    (2), 2019.11.26 21:16:53.861, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:16:53.861, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ctrl -num 2 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:16:53.861, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ctrl -num 2 CONN: 1), Connection closed
+WCCOActrl    (2), 2019.11.26 21:16:53.861, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCOActrl    (2), 2019.11.26 21:16:53.862, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOActrl    (2), 2019.11.26 21:16:53.862, SYS,  SEVERE,     54, Unexpected state, CtrlMgr, doConnectionClose, Lost Connection to Event Manager, exiting ...
+WCCOActrl    (2), 2019.11.26 21:16:53.868, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:17:02.898, SYS,  INFO,       24/pmon, Got START command from ::1, starting the manager WCCOActrl(2) at index 14
+WCCILpmon    (1), 2019.11.26 21:17:02.898, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOActrl -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCOActrl    (0), 2019.11.26 21:17:02.907, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOActrl    (0), 2019.11.26 21:17:02.907, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOActrl    (0), 2019.11.26 21:17:02.907, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:17:02.908, SYS,  INFO,        4, Connected to (SYS: 1 Ctrl -num 2 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:17:02.909, SYS,  INFO,        0, , Manager (SYS: 1 Ctrl -num 2 CONN: 1) initialised
+WCCOActrl    (2), 2019.11.26 21:17:02.911, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOActrl    (2), 2019.11.26 21:17:02.911, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOActrl    (2), 2019.11.26 21:17:02.911, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:17:02.911, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ctrl
+WCCILevent   (0), 2019.11.26 21:17:02.911, SYS,  INFO,        4, Connected to (SYS: 1 Ctrl -num 2 CONN: 1) @ localhost (::1)
+WCCOActrl    (2), 2019.11.26 21:17:02.912, SYS,  INFO,      102, Waiting for user names/passwords
+WCCILevent   (0), 2019.11.26 21:17:02.912, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ctrl -num 2 CONN: 1) with and ID 2 smaller than the ID 3 of the last received message, assuming manager has been restarted
+WCCOActrl    (2), 2019.11.26 21:17:02.912, SYS,  INFO,      103, User names/passwords initialized
+WCCOActrl    (2), 2019.11.26 21:17:02.946, IMPL, WARNING,    61, Cannot open file, CtrlCB, readFromFile,  : No such file or directory
+WCCOActrl    (2), 2019.11.26 21:17:04.948, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOActrl    (2), 2019.11.26 21:17:04.948, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:17:04.948, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ctrl -num 2 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:17:04.948, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ctrl -num 2 CONN: 1), Connection closed
+WCCOActrl    (2), 2019.11.26 21:17:04.948, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCOActrl    (2), 2019.11.26 21:17:04.948, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOActrl    (2), 2019.11.26 21:17:04.948, SYS,  SEVERE,     54, Unexpected state, CtrlMgr, doConnectionClose, Lost Connection to Event Manager, exiting ...
+WCCOActrl    (2), 2019.11.26 21:17:04.956, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:17:40.877, SYS,  INFO,       29/pmon, Got PROP_PUT command from ::1, changing manager WCCOActrl(1) at index 14
+WCCILpmon    (1), 2019.11.26 21:17:42.966, SYS,  INFO,       27/pmon, Got DEL command from ::1, deleting the manager WCCOActrl at index 14
+WCCILpmon    (1), 2019.11.26 21:17:55.816, SYS,  INFO,       28/pmon, Got INS command from ::1, inserting new manager WCCOAui at index 14
+WCCILpmon    (1), 2019.11.26 21:18:01.938, SYS,  INFO,       24/pmon, Got START command from ::1, starting the manager WCCOAui(1) at index 14
+WCCILpmon    (1), 2019.11.26 21:18:01.939, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCOAui      (0), 2019.11.26 21:18:02.071, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAui      (0), 2019.11.26 21:18:02.072, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 21:18:02.073, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:18:02.074, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 2 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:18:02.076, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 2 CONN: 1) initialised
+WCCOAui      (2), 2019.11.26 21:18:02.078, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (2), 2019.11.26 21:18:02.078, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (2), 2019.11.26 21:18:02.078, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:18:02.079, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 21:18:02.079, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 2 CONN: 1) @ localhost (::1)
+WCCOAui      (2), 2019.11.26 21:18:02.080, SYS,  INFO,      102, Waiting for user names/passwords
+WCCOAui      (2), 2019.11.26 21:18:02.080, SYS,  INFO,      103, User names/passwords initialized
+WCCOAui      (2), 2019.11.26 21:18:07.831, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (2), 2019.11.26 21:18:07.831, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:18:07.831, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 2 CONN: 1), Connection closed
+WCCOAui      (2), 2019.11.26 21:18:07.832, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:18:07.832, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 2 CONN: 1), Connection closed
+WCCOAui      (2), 2019.11.26 21:18:07.832, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (2), 2019.11.26 21:18:07.873, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:18:15.694, SYS,  INFO,       29/pmon, Got PROP_PUT command from ::1, changing manager WCCOAui(1) at index 14
+WCCILpmon    (1), 2019.11.26 21:18:15.694, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(1) - restarting it #1
+WCCILpmon    (1), 2019.11.26 21:18:15.694, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCOAui      (0), 2019.11.26 21:18:15.843, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAui      (0), 2019.11.26 21:18:15.846, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 21:18:15.846, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:18:15.848, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 2 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:18:15.850, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 2 CONN: 1) initialised
+WCCOAui      (2), 2019.11.26 21:18:15.853, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (2), 2019.11.26 21:18:15.853, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (2), 2019.11.26 21:18:15.853, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:18:15.855, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 21:18:15.855, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 2 CONN: 1) @ localhost (::1)
+WCCOAui      (2), 2019.11.26 21:18:15.856, SYS,  INFO,      102, Waiting for user names/passwords
+WCCILevent   (0), 2019.11.26 21:18:15.856, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ui -num 2 CONN: 1) with and ID 2 smaller than the ID 40 of the last received message, assuming manager has been restarted
+WCCOAui      (2), 2019.11.26 21:18:15.856, SYS,  INFO,      103, User names/passwords initialized
+WCCOAui      (2), 2019.11.26 21:18:29.887, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (2), 2019.11.26 21:18:29.887, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:18:29.887, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 2 CONN: 1), Connection closed
+WCCOAui      (2), 2019.11.26 21:18:29.887, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:18:29.887, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 2 CONN: 1), Connection closed
+WCCOAui      (2), 2019.11.26 21:18:29.887, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (2), 2019.11.26 21:18:29.929, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:18:29.938, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(2) - restarting it #2
+WCCILpmon    (1), 2019.11.26 21:18:29.939, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCOAui      (0), 2019.11.26 21:18:30.073, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAui      (0), 2019.11.26 21:18:30.075, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 21:18:30.075, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:18:30.077, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 2 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:18:30.078, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 2 CONN: 1) initialised
+WCCOAui      (2), 2019.11.26 21:18:30.080, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (2), 2019.11.26 21:18:30.080, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (2), 2019.11.26 21:18:30.080, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:18:30.081, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 21:18:30.081, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 2 CONN: 1) @ localhost (::1)
+WCCOAui      (2), 2019.11.26 21:18:30.082, SYS,  INFO,      102, Waiting for user names/passwords
+WCCILevent   (0), 2019.11.26 21:18:30.082, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ui -num 2 CONN: 1) with and ID 2 smaller than the ID 40 of the last received message, assuming manager has been restarted
+WCCOAui      (2), 2019.11.26 21:18:30.082, SYS,  INFO,      103, User names/passwords initialized
+WCCOAui      (2), 2019.11.26 21:18:42.199, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (2), 2019.11.26 21:18:42.199, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:18:42.199, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 2 CONN: 1), Connection closed
+WCCOAui      (2), 2019.11.26 21:18:42.199, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:18:42.199, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 2 CONN: 1), Connection closed
+WCCOAui      (2), 2019.11.26 21:18:42.200, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (2), 2019.11.26 21:18:42.254, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:18:42.263, SYS,  INFO,       12/pmon, Manager WCCOAui(2) restarting too rapidly - giving up restarting
+WCCILpmon    (1), 2019.11.26 21:19:33.815, SYS,  INFO,       25/pmon, Got STOP command (SIGTERM) from ::1, stopping the manager WCCOAui(1) at index 12
+WCCILpmon    (1), 2019.11.26 21:19:33.815, SYS,  INFO,       17/pmon, Stopping Manager WCCOAui(1) with signal SIGTERM
+WCCOAui      (1), 2019.11.26 21:19:33.815, SYS,  INFO,      170, Signal SIGTERM received - exiting ...
+WCCOAui      (1), 2019.11.26 21:19:35.849, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (1), 2019.11.26 21:19:35.849, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:19:35.849, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:19:35.849, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:19:35.849, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:19:35.850, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:19:35.910, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:19:37.836, SYS,  INFO,       24/pmon, Got START command from ::1, starting the manager WCCOAui(1) at index 12
+WCCILpmon    (1), 2019.11.26 21:19:37.837, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 12 -m gedi
+WCCOAui      (0), 2019.11.26 21:19:37.969, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAui      (0), 2019.11.26 21:19:39.105, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 21:19:39.106, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:19:39.109, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:19:39.111, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 1 CONN: 1) initialised
+WCCOAui      (1), 2019.11.26 21:19:39.114, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (1), 2019.11.26 21:19:39.115, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (1), 2019.11.26 21:19:39.117, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:19:39.119, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 21:19:39.120, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCOAui      (1), 2019.11.26 21:19:39.122, SYS,  INFO,      102, Waiting for user names/passwords
+WCCILevent   (0), 2019.11.26 21:19:39.123, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ui -num 1 CONN: 1) with and ID 2 smaller than the ID 72 of the last received message, assuming manager has been restarted
+WCCOAui      (1), 2019.11.26 21:19:39.123, SYS,  INFO,      103, User names/passwords initialized
+WCCOAui      (1), 2019.11.26 21:19:44.688, SYS,  WARNING,    41/uim, Could not read panel reference. Cannot open file /home/dcs/Wincc_OA_Proj/client_OPCUA_WinccOA/panels/PSPPoverview.pnl -> objects/refPSPPoverview.pnl
+WCCOAui      (1), 2019.11.26 21:25:20.721, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (1), 2019.11.26 21:25:20.721, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:25:20.721, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:25:20.721, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:25:20.721, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:25:20.721, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:25:20.797, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:25:21.605, SYS,  INFO,       24/pmon, Got START command from ::1, starting the manager WCCOAui(2) at index 14
+WCCILpmon    (1), 2019.11.26 21:25:21.605, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCOAui      (0), 2019.11.26 21:25:21.736, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAui      (0), 2019.11.26 21:25:21.737, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 21:25:21.738, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:25:21.739, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:25:21.741, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 1 CONN: 1) initialised
+WCCOAui      (1), 2019.11.26 21:25:21.743, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (1), 2019.11.26 21:25:21.743, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (1), 2019.11.26 21:25:21.743, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:25:21.744, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 21:25:21.744, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCOAui      (1), 2019.11.26 21:25:21.745, SYS,  INFO,      102, Waiting for user names/passwords
+WCCILevent   (0), 2019.11.26 21:25:21.745, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ui -num 1 CONN: 1) with and ID 2 smaller than the ID 74 of the last received message, assuming manager has been restarted
+WCCOAui      (1), 2019.11.26 21:25:21.745, SYS,  INFO,      103, User names/passwords initialized
+WCCOAui      (1), 2019.11.26 21:25:29.617, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (1), 2019.11.26 21:25:29.617, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:25:29.617, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:25:29.617, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:25:29.617, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:25:29.618, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:25:29.662, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:25:29.671, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(1) - restarting it #1
+WCCILpmon    (1), 2019.11.26 21:25:29.671, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCOAui      (0), 2019.11.26 21:25:29.793, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAui      (0), 2019.11.26 21:25:29.794, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 21:25:29.795, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:25:29.796, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:25:29.798, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 1 CONN: 1) initialised
+WCCOAui      (1), 2019.11.26 21:25:29.799, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (1), 2019.11.26 21:25:29.799, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (1), 2019.11.26 21:25:29.800, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:25:29.801, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 21:25:29.801, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCOAui      (1), 2019.11.26 21:25:29.801, SYS,  INFO,      102, Waiting for user names/passwords
+WCCILevent   (0), 2019.11.26 21:25:29.801, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ui -num 1 CONN: 1) with and ID 2 smaller than the ID 42 of the last received message, assuming manager has been restarted
+WCCOAui      (1), 2019.11.26 21:25:29.801, SYS,  INFO,      103, User names/passwords initialized
+WCCOAui      (1), 2019.11.26 21:25:33.617, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (1), 2019.11.26 21:25:33.617, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:25:33.617, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:25:33.617, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:25:33.617, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:25:33.618, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:25:33.663, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:25:33.673, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(1) - restarting it #2
+WCCILpmon    (1), 2019.11.26 21:25:33.673, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCOAui      (0), 2019.11.26 21:25:33.816, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAui      (0), 2019.11.26 21:25:33.817, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 21:25:33.818, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:25:33.819, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:25:33.821, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 1 CONN: 1) initialised
+WCCOAui      (1), 2019.11.26 21:25:33.823, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (1), 2019.11.26 21:25:33.823, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (1), 2019.11.26 21:25:33.823, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:25:33.824, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 21:25:33.824, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCOAui      (1), 2019.11.26 21:25:33.825, SYS,  INFO,      102, Waiting for user names/passwords
+WCCILevent   (0), 2019.11.26 21:25:33.825, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ui -num 1 CONN: 1) with and ID 2 smaller than the ID 41 of the last received message, assuming manager has been restarted
+WCCOAui      (1), 2019.11.26 21:25:33.825, SYS,  INFO,      103, User names/passwords initialized
+WCCILpmon    (1), 2019.11.26 21:25:57.056, SYS,  INFO,       29/pmon, Got PROP_PUT command from ::1, changing manager WCCOAui(1) at index 12
+WCCILpmon    (1), 2019.11.26 21:26:08.911, SYS,  INFO,       21/pmon, Got STOP_ALL command from ::1, stopping the project
+WCCILpmon    (1), 2019.11.26 21:26:08.911, SYS,  INFO,       17/pmon, Stopping Manager WCCOAui(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.911, SYS,  INFO,       17/pmon, Stopping Manager WCCOAopcua(3) with signal SIGTERM
+WCCOAui      (1), 2019.11.26 21:26:08.911, SYS,  INFO,      170, Signal SIGTERM received - exiting ...
+WCCOAopcua   (3), 2019.11.26 21:26:08.911, SYS,  INFO,      170, Signal SIGTERM received - exiting ...
+WCCILpmon    (1), 2019.11.26 21:26:08.911, SYS,  INFO,       17/pmon, Stopping Manager WCCILsim(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.911, SYS,  INFO,       17/pmon, Stopping Manager WCCOActrl(1) with signal SIGTERM
+WCCILsim     (1), 2019.11.26 21:26:08.911, SYS,  INFO,      170, Signal SIGTERM received - exiting ...
+WCCILpmon    (1), 2019.11.26 21:26:08.911, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(5) with signal SIGTERM
+WCCOActrl    (1), 2019.11.26 21:26:08.911, SYS,  INFO,      170, Signal SIGTERM received - exiting ...
+WCCILpmon    (1), 2019.11.26 21:26:08.912, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(4) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.912, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(3) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.912, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(2) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.912, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.912, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(0) with signal SIGTERM
+WCCOAopcua   (3), 2019.11.26 21:26:09.947, SYS,  INFO,       30/opcua, OpcUaCServerData in Function run, Disconnected from Server OPCUAclient-main
+WCCOAopcua   (3), 2019.11.26 21:26:09.947, SYS,  INFO,        2/opcua, OpcUA Driver stop
+WCCOActrl    (1), 2019.11.26 21:26:10.913, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOActrl    (1), 2019.11.26 21:26:10.913, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:26:10.913, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ctrl -num 1 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:26:10.913, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ctrl -num 1 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 21:26:10.913, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 21:26:10.914, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCILsim     (1), 2019.11.26 21:26:10.923, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILsim     (1), 2019.11.26 21:26:10.923, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:26:10.923, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Driver -num 1 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:26:10.923, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Driver -num 1 CONN: 1), Connection closed
+WCCILsim     (1), 2019.11.26 21:26:10.923, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILsim     (1), 2019.11.26 21:26:10.923, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCILsim     (1), 2019.11.26 21:26:10.923, SYS,  INFO,        2, Manager Stop
+WCCOActrl    (1), 2019.11.26 21:26:10.925, SYS,  INFO,        2, Manager Stop
+WCCOAui      (1), 2019.11.26 21:26:10.929, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (1), 2019.11.26 21:26:10.929, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:26:10.929, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:26:10.929, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:26:10.929, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:26:10.929, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:26:10.971, SYS,  INFO,        2, Manager Stop
+WCCOAopcua   (3), 2019.11.26 21:26:11.948, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAopcua   (3), 2019.11.26 21:26:11.948, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:26:11.948, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Driver -num 3 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:26:11.948, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Driver -num 3 CONN: 1), Connection closed
+WCCOAopcua   (3), 2019.11.26 21:26:11.948, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCOAopcua   (3), 2019.11.26 21:26:11.948, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAopcua   (3), 2019.11.26 21:26:11.948, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (1), 2019.11.26 21:26:14.913, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:26:14.914, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 3 CONN: 1), Connection closed
+WCCOAvalarch (1), 2019.11.26 21:26:14.914, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:26:14.914, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:1
+WCCOAvalarch (1), 2019.11.26 21:26:14.914, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (1), 2019.11.26 21:26:14.914, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (2), 2019.11.26 21:26:14.914, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (4), 2019.11.26 21:26:14.914, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:26:14.914, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 4 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:26:14.914, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:2
+WCCOAvalarch (2), 2019.11.26 21:26:14.914, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:26:14.914, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 6 CONN: 1), Connection closed
+WCCOAvalarch (2), 2019.11.26 21:26:14.914, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:26:14.914, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:4
+WCCOAvalarch (4), 2019.11.26 21:26:14.914, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCOAvalarch (2), 2019.11.26 21:26:14.914, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (4), 2019.11.26 21:26:14.914, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (4), 2019.11.26 21:26:14.914, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (5), 2019.11.26 21:26:14.914, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (0), 2019.11.26 21:26:14.914, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:26:14.915, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 7 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:26:14.915, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:5
+WCCOAvalarch (5), 2019.11.26 21:26:14.915, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:26:14.915, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 2 CONN: 1), Connection closed
+WCCOAvalarch (5), 2019.11.26 21:26:14.915, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (5), 2019.11.26 21:26:14.915, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (0), 2019.11.26 21:26:14.915, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:26:14.915, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:0
+WCCOAvalarch (0), 2019.11.26 21:26:14.915, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (3), 2019.11.26 21:26:14.915, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (0), 2019.11.26 21:26:14.915, SYS,  INFO,        2, Manager Stop
+WCCILdata    (0), 2019.11.26 21:26:14.915, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 5 CONN: 1), Connection closed
+WCCOAvalarch (3), 2019.11.26 21:26:14.915, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:26:14.915, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:3
+WCCOAvalarch (3), 2019.11.26 21:26:14.915, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (3), 2019.11.26 21:26:14.915, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:26:14.916, SYS,  INFO,       17/pmon, Stopping Manager WCCILevent(0) with signal SIGTERM
+WCCILevent   (0), 2019.11.26 21:26:14.917, SYS,  INFO,        2, Manager Stop, received signal 15, exiting
+WCCILevent   (0), 2019.11.26 21:26:14.917, SYS,  INFO,        2, Manager Stop, start cleanup
+WCCILevent   (0), 2019.11.26 21:26:14.917, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:26:14.917, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:26:14.917, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:26:14.922, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:26:14.925, SYS,  INFO,       17/pmon, Stopping Manager WCCILdata(0) with signal SIGTERM
+WCCILdata    (0), 2019.11.26 21:26:14.925, SYS,  INFO,        0, , DataManager, stopBgMgr, Stopping WCCILdatabg
+WCCILdata    (0), 2019.11.26 21:26:14.925, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 1 CONN: 1)
+WCCILdatabg  (1), 2019.11.26 21:26:14.925, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:26:14.925, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 1 CONN: 1), Connection closed
+WCCILdatabg  (1), 2019.11.26 21:26:14.925, SYS,  SEVERE,     39, Connection lost, (SYS: 1 Data -num 0 CONN: 1), exiting ...
+WCCILdata    (0), 2019.11.26 21:26:14.925, SYS,  WARNING,    65, Wrong destination address, (SYS: 1 Event -num 0 CONN: 1), DP_MSG_COMPLEX_VC
+WCCILdata    (0), 2019.11.26 21:26:14.925, SYS,  WARNING,    65, Wrong destination address, (SYS: 1 Event -num 0 CONN: 1), DP_MSG_COMPLEX_VC
+WCCILdatabg  (1), 2019.11.26 21:26:16.927, SYS,  INFO,        2, Manager Stop
+WCCILdata    (0), 2019.11.26 21:26:18.931, SYS,  INFO,        0, , Loading DpIdentification
+WCCILdata    (0), 2019.11.26 21:26:18.933, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:26:18.935, SYS,  INFO,       17/pmon, Stopping Manager WCCILproxy(1) with signal SIGTERM
+WCCILproxy   (1), 2019.11.26 21:26:18.936, SYS,  INFO,      170, Signal SIGTERM received - exiting ...
+WCCILproxy   (1), 2019.11.26 21:26:18.936, SYS,  INFO,      221, Multiplexing proxy Stop
+WCCILpmon    (1), 2019.11.26 21:26:18.936, SYS,  INFO,       13/pmon, Completely stopped the project - waiting for commands
+WCCILpmon    (1), 2019.11.26 21:26:21.469, SYS,  INFO,       20/pmon, Got START_ALL command from ::1, starting the project
+WCCILpmon    (1), 2019.11.26 21:26:21.470, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILdata -PROJ client_OPCUA_WinccOA -pmonIndex 1 
+WCCILdata    (0), 2019.11.26 21:26:21.481, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILdata    (0), 2019.11.26 21:26:21.482, SYS,  INFO,        0, , (Re)Opening databases in single user mode without transaction logging.
+WCCILdata    (0), 2019.11.26 21:26:21.484, SYS,  INFO,        0, , Initialize archive smoothing
+WCCILdata    (0), 2019.11.26 21:26:21.484, SYS,  INFO,        0, , Initialize archive smoothing
+WCCILdata    (0), 2019.11.26 21:26:21.484, SYS,  INFO,        0, , Loading DpIdentification
+WCCILdata    (0), 2019.11.26 21:26:21.500, SYS,  INFO,        0, , Initializing last value cache
+WCCILdata    (0), 2019.11.26 21:26:21.517, SYS,  INFO,        0, , Loading internal datapoints
+WCCILdata    (0), 2019.11.26 21:26:21.518, SYS,  INFO,        0, , Initializing ID history
+WCCILdata    (0), 2019.11.26 21:26:21.518, SYS,  INFO,        0, , Initializing Alert history
+WCCILdata    (0), 2019.11.26 21:26:21.520, SYS,  INFO,        0, , Initializing Alert Class cache
+WCCILdata    (0), 2019.11.26 21:26:21.521, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 21:26:21.545, SYS,  INFO,        0, , Initializing Value Archives
+WCCILdata    (0), 2019.11.26 21:26:21.547, SYS,  INFO,        0, , ValueArchive will be used...
+WCCILpmon    (1), 2019.11.26 21:26:21.671, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 2 -num 0
+WCCOAvalarch (0), 2019.11.26 21:26:21.681, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (0), 2019.11.26 21:26:21.681, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (0), 2019.11.26 21:26:21.682, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:21.682, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 2 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:21.682, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 0
+WCCILdata    (0), 2019.11.26 21:26:21.683, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 2 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 21:26:21.871, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 3 -num 1
+WCCOAvalarch (1), 2019.11.26 21:26:21.881, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (1), 2019.11.26 21:26:21.881, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (1), 2019.11.26 21:26:21.881, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:21.882, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 3 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:21.882, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 1
+WCCILdata    (0), 2019.11.26 21:26:21.883, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 3 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 21:26:22.000, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 4 -num 2
+WCCOAvalarch (2), 2019.11.26 21:26:22.010, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (2), 2019.11.26 21:26:22.010, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (2), 2019.11.26 21:26:22.011, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:22.011, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 4 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:22.011, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 2
+WCCILdata    (0), 2019.11.26 21:26:22.012, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 4 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 21:26:22.200, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 5 -num 3
+WCCOAvalarch (3), 2019.11.26 21:26:22.209, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (3), 2019.11.26 21:26:22.209, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (3), 2019.11.26 21:26:22.210, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:22.210, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 5 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:22.210, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 3
+WCCILdata    (0), 2019.11.26 21:26:22.211, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 5 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 21:26:22.401, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 6 -num 4
+WCCOAvalarch (4), 2019.11.26 21:26:22.410, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (4), 2019.11.26 21:26:22.410, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (4), 2019.11.26 21:26:22.410, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:22.417, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 6 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:22.417, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 4
+WCCILdata    (0), 2019.11.26 21:26:22.418, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 6 CONN: 1) initialised
+WCCILpmon    (1), 2019.11.26 21:26:22.602, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 7 -num 5
+WCCOAvalarch (5), 2019.11.26 21:26:22.610, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAvalarch (5), 2019.11.26 21:26:22.611, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAvalarch (5), 2019.11.26 21:26:22.611, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:22.611, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 7 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:22.612, PARAM,INFO,        1, Manager Start, HistOrgMain, connection from archive received - initializing, archive number is: 5
+WCCILdata    (0), 2019.11.26 21:26:22.612, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 7 CONN: 1) initialised
+WCCOAvalarch (0), 2019.11.26 21:26:24.701, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 21:26:24.716, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (1), 2019.11.26 21:26:24.900, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 21:26:24.915, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (2), 2019.11.26 21:26:25.029, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 21:26:25.045, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (3), 2019.11.26 21:26:25.228, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 21:26:25.243, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (4), 2019.11.26 21:26:25.429, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 21:26:25.430, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (5), 2019.11.26 21:26:25.630, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 21:26:25.645, SYS,  INFO,        0, , Sending initial values to archive
+WCCOAvalarch (0), 2019.11.26 21:26:25.701, SYS,  INFO,        0, , Ready for operation.
+WCCILpmon    (1), 2019.11.26 21:26:25.719, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILevent -PROJ client_OPCUA_WinccOA -pmonIndex 8 
+WCCILevent   (0), 2019.11.26 21:26:25.727, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILevent   (0), 2019.11.26 21:26:25.729, SYS,  INFO,      108, License information, Host information
+Hostname:   dhcp-109-82.physik.uni-wuppertal.de
+HW-code:    21722716381
+HW-version: 31500002
+
+WCCILevent   (0), 2019.11.26 21:26:25.729, SYS,  SEVERE,    105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found
+WCCILevent   (0), 2019.11.26 21:26:25.729, SYS,  INFO,      108, License information, Using license file /opt/WinCC_OA/3.15/shield
+
+WCCILevent   (0), 2019.11.26 21:26:25.743, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCILevent   (0), 2019.11.26 21:26:25.743, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:25.743, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:26:25.748, SYS,  SEVERE,    105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found
+WCCILdata    (0), 2019.11.26 21:26:25.813, SYS,  INFO,        0, , Manager (SYS: 1 Event -num 0 CONN: 1) initialised
+WCCILevent   (0), 2019.11.26 21:26:25.814, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILevent   (0), 2019.11.26 21:26:25.814, SYS,  INFO,      169, Initialize 72 dp-functions
+WCCILevent   (0), 2019.11.26 21:26:25.821, SYS,  INFO,      168, Initialize 103 alerts
+WCCILevent   (0), 2019.11.26 21:26:25.822, SYS,  SEVERE,    105, Invalid license, Eventmanager will shutdown after the demo period of 1800 seconds
+WCCILevent   (0), 2019.11.26 21:26:25.842, SYS,  INFO,      103, User names/passwords initialized
+WCCOAvalarch (1), 2019.11.26 21:26:25.900, SYS,  INFO,        0, , Ready for operation.
+WCCILpmon    (1), 2019.11.26 21:26:25.919, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILproxy -PROJ client_OPCUA_WinccOA -pmonIndex 9 
+WCCILproxy   (1), 2019.11.26 21:26:25.930, SYS,  INFO,      220, Multiplexing proxy Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILproxy   (1), 2019.11.26 21:26:25.955, SYS,  INFO,        0, , Can maintain up to 504 concurrent connections
+WCCOAvalarch (2), 2019.11.26 21:26:26.030, SYS,  INFO,        0, , Ready for operation.
+WCCILpmon    (1), 2019.11.26 21:26:26.032, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOActrl -PROJ client_OPCUA_WinccOA -pmonIndex 10 -f pvss_scripts.lst
+WCCOActrl    (0), 2019.11.26 21:26:26.042, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOActrl    (0), 2019.11.26 21:26:26.042, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOActrl    (0), 2019.11.26 21:26:26.042, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:26.047, SYS,  INFO,        4, Connected to (SYS: 1 Ctrl -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:26.048, SYS,  INFO,        0, , Manager (SYS: 1 Ctrl -num 1 CONN: 1) initialised
+WCCOActrl    (1), 2019.11.26 21:26:26.050, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOActrl    (1), 2019.11.26 21:26:26.050, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOActrl    (1), 2019.11.26 21:26:26.050, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:26:26.050, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ctrl
+WCCILevent   (0), 2019.11.26 21:26:26.050, SYS,  INFO,        4, Connected to (SYS: 1 Ctrl -num 1 CONN: 1) @ localhost (::1)
+WCCOActrl    (1), 2019.11.26 21:26:26.051, SYS,  INFO,      102, Waiting for user names/passwords
+WCCOActrl    (1), 2019.11.26 21:26:26.051, SYS,  INFO,      103, User names/passwords initialized
+WCCOActrl    (1), 2019.11.26 21:26:26.102, CTRL, INFO,        0, , DB Version Update, 3.15 DB version 12, nothing to do
+WCCOAvalarch (3), 2019.11.26 21:26:26.229, SYS,  INFO,        0, , Ready for operation.
+WCCILpmon    (1), 2019.11.26 21:26:26.233, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILsim -PROJ client_OPCUA_WinccOA -pmonIndex 11 
+WCCILsim     (1), 2019.11.26 21:26:26.241, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILsim     (1), 2019.11.26 21:26:26.242, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCILsim     (1), 2019.11.26 21:26:26.242, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:26.242, SYS,  INFO,        4, Connected to (SYS: 1 Driver -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:26.246, SYS,  INFO,        0, , Manager (SYS: 1 Driver -num 1 CONN: 1) initialised
+WCCILsim     (1), 2019.11.26 21:26:26.246, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILsim     (1), 2019.11.26 21:26:26.247, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCILsim     (1), 2019.11.26 21:26:26.247, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:26:26.247, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, driver
+WCCILevent   (0), 2019.11.26 21:26:26.247, SYS,  INFO,        4, Connected to (SYS: 1 Driver -num 1 CONN: 1) @ localhost (::1)
+WCCILsim     (1), 2019.11.26 21:26:26.248, SYS,  SEVERE,    105, Invalid license, Driver will shutdown after the demo period of 1800 seconds
+WCCILsim     (1), 2019.11.26 21:26:26.248, SYS,  INFO,      156, Driver initialization finished.
+WCCOAvalarch (4), 2019.11.26 21:26:26.430, SYS,  INFO,        0, , Ready for operation.
+WCCILpmon    (1), 2019.11.26 21:26:26.434, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAopcua -PROJ client_OPCUA_WinccOA -pmonIndex 13 -num 3
+WCCOAopcua   (3), 2019.11.26 21:26:26.445, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAopcua   (3), 2019.11.26 21:26:26.445, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAopcua   (3), 2019.11.26 21:26:26.445, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:26.445, SYS,  INFO,        4, Connected to (SYS: 1 Driver -num 3 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:26.447, SYS,  INFO,        0, , Manager (SYS: 1 Driver -num 3 CONN: 1) initialised
+WCCOAopcua   (3), 2019.11.26 21:26:26.448, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAopcua   (3), 2019.11.26 21:26:26.448, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAopcua   (3), 2019.11.26 21:26:26.448, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:26:26.449, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, driver
+WCCILevent   (0), 2019.11.26 21:26:26.449, SYS,  INFO,        4, Connected to (SYS: 1 Driver -num 3 CONN: 1) @ localhost (::1)
+WCCOAopcua   (3), 2019.11.26 21:26:26.449, SYS,  SEVERE,    105, Invalid license, Driver will shutdown after the demo period of 1800 seconds
+WCCOAopcua   (3), 2019.11.26 21:26:26.450, SYS,  INFO,      156, Driver initialization finished., all items connected
+WCCOAopcua   (3), 2019.11.26 21:26:26.451, SYS,  INFO,      156, Driver initialization finished.
+WCCOAopcua   (3), 2019.11.26 21:26:26.460, SYS,  WARNING,    57/opcua, OpcUaCComm in Function csCertCommunication, Certificate /home/dcs/Wincc_OA_Proj/client_OPCUA_WinccOA/data/opcua/client/PKI/CA/rejected/noCertFile.der cannot be stored.
+WCCOAopcua   (3), 2019.11.26 21:26:26.460, SYS,  WARNING,    56/opcua, OpcUaCComm in Function connect, Certificate of OPCUAclient (opc.tcp://localhost:4840/) is expired. Setting up connection.
+WCCOAopcua   (3), 2019.11.26 21:26:26.469, SYS,  INFO,       28/opcua, OpcUaCServerData in Function run, Connected to OPCUAclient @ opc.tcp://localhost:4840/
+WCCOAopcua   (3), 2019.11.26 21:26:26.470, PARAM,INFO,       23/opcua, OpcUaCServerData in Function doSubscription, Subscription[1] Int_Data successful created @ OPCUAclient-main
+WCCOAopcua   (3), 2019.11.26 21:26:26.470, PARAM,INFO,       23/opcua, OpcUaCServerData in Function doSubscription, Subscription[2] status_data successful created @ OPCUAclient-main
+WCCOAvalarch (5), 2019.11.26 21:26:26.631, SYS,  INFO,        0, , Ready for operation.
+WCCILpmon    (1), 2019.11.26 21:26:26.634, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCOAui      (0), 2019.11.26 21:26:26.762, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAui      (0), 2019.11.26 21:26:26.763, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 21:26:26.764, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:26.765, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:26.766, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 1 CONN: 1) initialised
+WCCOAui      (1), 2019.11.26 21:26:26.768, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (1), 2019.11.26 21:26:26.768, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (1), 2019.11.26 21:26:26.769, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:26:26.769, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 21:26:26.770, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCOAui      (1), 2019.11.26 21:26:26.770, SYS,  INFO,      102, Waiting for user names/passwords
+WCCOAui      (1), 2019.11.26 21:26:26.771, SYS,  INFO,      103, User names/passwords initialized
+WCCILpmon    (1), 2019.11.26 21:26:26.935, SYS,  INFO,        9/pmon, The project is up and running. Entering monitor mode
+WCCOAopcua   (3), 2019.11.26 21:26:27.006, SYS,  WARNING,    67/opcua, OpcUaCHWService in Function setHWOTime, Requested time stamp not available from server OPCUAclient address ns=2;i=8476.
+WCCOAopcua   (3), 2019.11.26 21:26:27.007, SYS,  WARNING,    67/opcua, OpcUaCHWService in Function setHWOTime, Requested time stamp not available from server OPCUAclient address ns=2;i=8530.
+WCCOAopcua   (3), 2019.11.26 21:26:27.007, SYS,  WARNING,    67/opcua, OpcUaCHWService in Function setHWOTime, Requested time stamp not available from server OPCUAclient address ns=2;i=10395.
+WCCOAui      (1), 2019.11.26 21:26:49.104, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (1), 2019.11.26 21:26:49.104, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:26:49.104, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:26:49.105, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:26:49.105, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:26:49.105, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:26:49.146, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:26:49.155, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(1) - restarting it #1
+WCCILpmon    (1), 2019.11.26 21:26:49.155, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCOAui      (0), 2019.11.26 21:26:49.285, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAui      (0), 2019.11.26 21:26:49.286, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 21:26:49.287, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:49.288, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:49.290, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 1 CONN: 1) initialised
+WCCOAui      (1), 2019.11.26 21:26:49.291, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (1), 2019.11.26 21:26:49.291, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (1), 2019.11.26 21:26:49.292, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:26:49.293, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 21:26:49.293, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCOAui      (1), 2019.11.26 21:26:49.293, SYS,  INFO,      102, Waiting for user names/passwords
+WCCILevent   (0), 2019.11.26 21:26:49.294, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ui -num 1 CONN: 1) with and ID 2 smaller than the ID 40 of the last received message, assuming manager has been restarted
+WCCOAui      (1), 2019.11.26 21:26:49.294, SYS,  INFO,      103, User names/passwords initialized
+WCCOAui      (1), 2019.11.26 21:26:53.934, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (1), 2019.11.26 21:26:53.934, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:26:53.934, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:26:53.935, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:26:53.935, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:26:53.935, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:26:53.979, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:26:53.988, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(1) - restarting it #2
+WCCILpmon    (1), 2019.11.26 21:26:53.989, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCOAui      (0), 2019.11.26 21:26:54.112, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAui      (0), 2019.11.26 21:26:54.114, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 21:26:54.114, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:54.117, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:26:54.120, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 1 CONN: 1) initialised
+WCCOAui      (1), 2019.11.26 21:26:54.123, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (1), 2019.11.26 21:26:54.123, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (1), 2019.11.26 21:26:54.123, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:26:54.124, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 21:26:54.125, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCOAui      (1), 2019.11.26 21:26:54.125, SYS,  INFO,      102, Waiting for user names/passwords
+WCCILevent   (0), 2019.11.26 21:26:54.125, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ui -num 1 CONN: 1) with and ID 2 smaller than the ID 40 of the last received message, assuming manager has been restarted
+WCCOAui      (1), 2019.11.26 21:26:54.126, SYS,  INFO,      103, User names/passwords initialized
+WCCOAui      (1), 2019.11.26 21:27:05.269, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (1), 2019.11.26 21:27:05.269, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:27:05.270, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:27:05.270, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:27:05.270, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:27:05.270, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:27:05.311, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:27:05.320, SYS,  INFO,       12/pmon, Manager WCCOAui(1) restarting too rapidly - giving up restarting
+WCCILpmon    (1), 2019.11.26 21:27:21.181, SYS,  INFO,       24/pmon, Got START command from ::1, starting the manager WCCOAui(1) at index 14
+WCCILpmon    (1), 2019.11.26 21:27:21.181, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCOAui      (0), 2019.11.26 21:27:21.308, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAui      (0), 2019.11.26 21:27:21.310, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 21:27:21.310, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:27:21.312, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:27:21.314, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 1 CONN: 1) initialised
+WCCOAui      (1), 2019.11.26 21:27:21.317, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (1), 2019.11.26 21:27:21.317, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (1), 2019.11.26 21:27:21.318, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:27:21.319, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 21:27:21.319, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCOAui      (1), 2019.11.26 21:27:21.320, SYS,  INFO,      102, Waiting for user names/passwords
+WCCILevent   (0), 2019.11.26 21:27:21.320, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ui -num 1 CONN: 1) with and ID 2 smaller than the ID 40 of the last received message, assuming manager has been restarted
+WCCOAui      (1), 2019.11.26 21:27:21.320, SYS,  INFO,      103, User names/passwords initialized
+WCCOAui      (1), 2019.11.26 21:27:32.783, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (1), 2019.11.26 21:27:32.783, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:27:32.783, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:27:32.783, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:27:32.783, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:27:32.784, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:27:32.837, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:27:32.846, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(1) - restarting it #1
+WCCILpmon    (1), 2019.11.26 21:27:32.847, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCOAui      (0), 2019.11.26 21:27:32.979, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAui      (0), 2019.11.26 21:27:32.981, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 21:27:32.981, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:27:32.982, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:27:32.984, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 1 CONN: 1) initialised
+WCCOAui      (1), 2019.11.26 21:27:32.986, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (1), 2019.11.26 21:27:32.986, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (1), 2019.11.26 21:27:32.986, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:27:32.987, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 21:27:32.987, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCOAui      (1), 2019.11.26 21:27:32.988, SYS,  INFO,      102, Waiting for user names/passwords
+WCCILevent   (0), 2019.11.26 21:27:32.988, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ui -num 1 CONN: 1) with and ID 2 smaller than the ID 40 of the last received message, assuming manager has been restarted
+WCCOAui      (1), 2019.11.26 21:27:32.988, SYS,  INFO,      103, User names/passwords initialized
+WCCOAui      (1), 2019.11.26 21:27:37.136, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (1), 2019.11.26 21:27:37.137, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:27:37.137, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:27:37.137, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:27:37.137, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:27:37.137, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:27:37.178, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:27:37.187, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(1) - restarting it #2
+WCCILpmon    (1), 2019.11.26 21:27:37.187, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCOAui      (0), 2019.11.26 21:27:37.308, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAui      (0), 2019.11.26 21:27:37.310, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCOAui      (0), 2019.11.26 21:27:37.310, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:27:37.312, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:27:37.314, SYS,  INFO,        0, , Manager (SYS: 1 Ui -num 1 CONN: 1) initialised
+WCCOAui      (1), 2019.11.26 21:27:37.315, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAui      (1), 2019.11.26 21:27:37.315, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ localhost:4998
+WCCOAui      (1), 2019.11.26 21:27:37.315, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILevent   (0), 2019.11.26 21:27:37.316, SYS,  WARNING,   105, Invalid license, dhcp-109-82.physik.uni-wuppertal.de: No license found, Running as demo version, ui
+WCCILevent   (0), 2019.11.26 21:27:37.316, SYS,  INFO,        4, Connected to (SYS: 1 Ui -num 1 CONN: 1) @ localhost (::1)
+WCCOAui      (1), 2019.11.26 21:27:37.317, SYS,  INFO,      102, Waiting for user names/passwords
+WCCILevent   (0), 2019.11.26 21:27:37.317, SYS,  INFO,        1/event, Received message from MAN: (SYS: 1 Ui -num 1 CONN: 1) with and ID 2 smaller than the ID 40 of the last received message, assuming manager has been restarted
+WCCOAui      (1), 2019.11.26 21:27:37.317, SYS,  INFO,      103, User names/passwords initialized
+WCCILpmon    (1), 2019.11.26 21:27:39.506, SYS,  INFO,       28/pmon, Got INS command from ::1, inserting new manager WCCOAui at index 15
+WCCOAui      (1), 2019.11.26 21:27:40.632, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAui      (1), 2019.11.26 21:27:40.632, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:27:40.632, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:27:40.632, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:27:40.632, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ui -num 1 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:27:40.633, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAui      (1), 2019.11.26 21:27:40.677, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:27:40.686, SYS,  INFO,       12/pmon, Manager WCCOAui(1) restarting too rapidly - giving up restarting
+WCCILdata    (0), 2019.11.26 21:28:38.230, SYS,  INFO,        0, , Closing databases...
+WCCILdata    (0), 2019.11.26 21:28:38.230, SYS,  INFO,        0, , Loading DpIdentification
+WCCILdata    (0), 2019.11.26 21:28:38.231, SYS,  INFO,        0, , Databases closed.
+WCCILdata    (0), 2019.11.26 21:28:38.231, SYS,  INFO,        0, , Opening databases...
+WCCILdata    (0), 2019.11.26 21:28:38.231, SYS,  INFO,        0, , (Re)Opening databases in multi user mode without transaction logging.
+WCCILdata    (0), 2019.11.26 21:28:38.232, SYS,  INFO,        0, , Databases opened.
+WCCILdata    (0), 2019.11.26 21:28:38.232, SYS,  INFO,        0, , Restoring last value cache...
+WCCILdata    (0), 2019.11.26 21:28:38.232, SYS,  INFO,        0, , Refreshing value DB list...
+WCCILdata    (0), 2019.11.26 21:28:38.232, SYS,  INFO,        0, , Refreshing alert DB list...
+WCCILdata    (0), 2019.11.26 21:28:38.232, SYS,  INFO,        0, , Reopening database done.
+WCCILdata    (0), 2019.11.26 21:28:38.232, SYS,  INFO,        0, , DataManager, startBgMgr, (Re)starting WCCILdatabg
+WCCILdatabg  (1), 2019.11.26 21:28:38.240, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILdatabg  (1), 2019.11.26 21:28:38.240, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ localhost:4897
+WCCILdatabg  (1), 2019.11.26 21:28:38.241, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:28:38.241, SYS,  INFO,        4, Connected to (SYS: 1 Data -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 21:28:38.243, SYS,  INFO,        0, , Manager (SYS: 1 Data -num 1 CONN: 1) initialised
+WCCILdatabg  (1), 2019.11.26 21:28:38.247, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILpmon    (1), 2019.11.26 21:33:22.226, SYS,  INFO,       21/pmon, Got STOP_ALL command from ::1, stopping the project
+WCCILpmon    (1), 2019.11.26 21:33:22.226, SYS,  INFO,       17/pmon, Stopping Manager WCCOAopcua(3) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCILsim(1) with signal SIGTERM
+WCCOAopcua   (3), 2019.11.26 21:33:22.227, SYS,  INFO,      170, Signal SIGTERM received - exiting ...
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCOActrl(1) with signal SIGTERM
+WCCILsim     (1), 2019.11.26 21:33:22.227, SYS,  INFO,      170, Signal SIGTERM received - exiting ...
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(5) with signal SIGTERM
+WCCOActrl    (1), 2019.11.26 21:33:22.227, SYS,  INFO,      170, Signal SIGTERM received - exiting ...
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(4) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(3) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(2) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(0) with signal SIGTERM
+WCCOAopcua   (3), 2019.11.26 21:33:23.272, SYS,  INFO,       30/opcua, OpcUaCServerData in Function run, Disconnected from Server OPCUAclient-main
+WCCOAopcua   (3), 2019.11.26 21:33:23.272, SYS,  INFO,        2/opcua, OpcUA Driver stop
+WCCOActrl    (1), 2019.11.26 21:33:24.227, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOActrl    (1), 2019.11.26 21:33:24.228, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:33:24.228, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ctrl -num 1 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:33:24.228, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ctrl -num 1 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 21:33:24.228, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCOActrl    (1), 2019.11.26 21:33:24.228, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCILsim     (1), 2019.11.26 21:33:24.239, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILsim     (1), 2019.11.26 21:33:24.239, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:33:24.239, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Driver -num 1 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:33:24.239, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Driver -num 1 CONN: 1), Connection closed
+WCCILsim     (1), 2019.11.26 21:33:24.239, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILsim     (1), 2019.11.26 21:33:24.239, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCILsim     (1), 2019.11.26 21:33:24.239, SYS,  INFO,        2, Manager Stop
+WCCOActrl    (1), 2019.11.26 21:33:24.239, SYS,  INFO,        2, Manager Stop
+WCCOAopcua   (3), 2019.11.26 21:33:25.274, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAopcua   (3), 2019.11.26 21:33:25.274, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:33:25.274, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Driver -num 3 CONN: 1), Connection closed
+WCCOAopcua   (3), 2019.11.26 21:33:25.275, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:33:25.275, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Driver -num 3 CONN: 1), Connection closed
+WCCOAopcua   (3), 2019.11.26 21:33:25.275, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCOAopcua   (3), 2019.11.26 21:33:25.275, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (5), 2019.11.26 21:33:28.228, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (3), 2019.11.26 21:33:28.228, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:33:28.229, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 5 CONN: 1), Connection closed
+WCCOAvalarch (3), 2019.11.26 21:33:28.229, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:33:28.229, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:3
+WCCOAvalarch (3), 2019.11.26 21:33:28.229, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:33:28.229, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 7 CONN: 1), Connection closed
+WCCOAvalarch (3), 2019.11.26 21:33:28.229, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (5), 2019.11.26 21:33:28.229, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:33:28.229, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:5
+WCCOAvalarch (5), 2019.11.26 21:33:28.229, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (2), 2019.11.26 21:33:28.229, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (5), 2019.11.26 21:33:28.229, SYS,  INFO,        2, Manager Stop
+WCCILdata    (0), 2019.11.26 21:33:28.229, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 4 CONN: 1), Connection closed
+WCCOAvalarch (2), 2019.11.26 21:33:28.229, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:33:28.229, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:2
+WCCOAvalarch (2), 2019.11.26 21:33:28.229, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (2), 2019.11.26 21:33:28.229, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (4), 2019.11.26 21:33:28.230, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:33:28.230, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 6 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:33:28.230, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:4
+WCCOAvalarch (4), 2019.11.26 21:33:28.230, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCOAvalarch (1), 2019.11.26 21:33:28.230, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (4), 2019.11.26 21:33:28.230, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (0), 2019.11.26 21:33:28.230, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:33:28.230, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 3 CONN: 1), Connection closed
+WCCOAvalarch (4), 2019.11.26 21:33:28.230, SYS,  INFO,        2, Manager Stop
+WCCILdata    (0), 2019.11.26 21:33:28.230, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:1
+WCCOAvalarch (1), 2019.11.26 21:33:28.230, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:33:28.230, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 2 CONN: 1), Connection closed
+WCCOAvalarch (1), 2019.11.26 21:33:28.230, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (1), 2019.11.26 21:33:28.230, SYS,  INFO,        2, Manager Stop
+WCCOAvalarch (0), 2019.11.26 21:33:28.230, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:33:28.230, PARAM,INFO,        2, Manager Stop, HistOrgMain, archive is now offline, archive number is:0
+WCCOAvalarch (0), 2019.11.26 21:33:28.230, SYS,  INFO,       39, Connection lost, (SYS: 1 Data -num 0 CONN: 1)
+WCCOAvalarch (0), 2019.11.26 21:33:28.230, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:33:28.231, SYS,  INFO,       17/pmon, Stopping Manager WCCILevent(0) with signal SIGTERM
+WCCILevent   (0), 2019.11.26 21:33:28.231, SYS,  INFO,        2, Manager Stop, received signal 15, exiting
+WCCILevent   (0), 2019.11.26 21:33:28.231, SYS,  INFO,        2, Manager Stop, start cleanup
+WCCILevent   (0), 2019.11.26 21:33:28.231, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 21:33:28.232, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:33:28.232, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILevent   (0), 2019.11.26 21:33:28.237, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:33:28.239, SYS,  INFO,       17/pmon, Stopping Manager WCCILdata(0) with signal SIGTERM
+WCCILdata    (0), 2019.11.26 21:33:28.239, SYS,  INFO,        0, , DataManager, stopBgMgr, Stopping WCCILdatabg
+WCCILdata    (0), 2019.11.26 21:33:28.239, SYS,  INFO,      181, Closing connection to (SYS: 1 Data -num 1 CONN: 1)
+WCCILdatabg  (1), 2019.11.26 21:33:28.240, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 21:33:28.240, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Data -num 1 CONN: 1), Connection closed
+WCCILdatabg  (1), 2019.11.26 21:33:28.240, SYS,  SEVERE,     39, Connection lost, (SYS: 1 Data -num 0 CONN: 1), exiting ...
+WCCILdata    (0), 2019.11.26 21:33:28.240, SYS,  WARNING,    65, Wrong destination address, (SYS: 1 Event -num 0 CONN: 1), DP_MSG_COMPLEX_VC
+WCCILdata    (0), 2019.11.26 21:33:28.240, SYS,  WARNING,    65, Wrong destination address, (SYS: 1 Event -num 0 CONN: 1), DP_MSG_COMPLEX_VC
+WCCILdatabg  (1), 2019.11.26 21:33:30.240, SYS,  INFO,        2, Manager Stop
+WCCILdata    (0), 2019.11.26 21:33:32.244, SYS,  INFO,        0, , Loading DpIdentification
+WCCILdata    (0), 2019.11.26 21:33:32.246, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:33:32.248, SYS,  INFO,       17/pmon, Stopping Manager WCCILproxy(1) with signal SIGTERM
+WCCILproxy   (1), 2019.11.26 21:33:32.248, SYS,  INFO,      170, Signal SIGTERM received - exiting ...
+WCCILproxy   (1), 2019.11.26 21:33:32.248, SYS,  INFO,      221, Multiplexing proxy Stop
+WCCILpmon    (1), 2019.11.26 21:33:32.249, SYS,  INFO,       13/pmon, Completely stopped the project - waiting for commands

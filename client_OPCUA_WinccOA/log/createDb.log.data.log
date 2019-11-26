@@ -1,0 +1,105 @@
+WCCILdata    (0), 2019.11.26 20:35:09.499, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCILdata    (0), 2019.11.26 20:35:09.500, SYS,  INFO,        0, , (Re)Opening databases in single user mode without transaction logging.
+WCCILdata    (0), 2019.11.26 20:35:09.505, SYS,  INFO,        0, , Initialize archive smoothing
+WCCILdata    (0), 2019.11.26 20:35:09.505, SYS,  INFO,        0, , Initialize archive smoothing
+WCCILdata    (0), 2019.11.26 20:35:09.505, SYS,  INFO,        0, , Loading DpIdentification
+WCCILdata    (0), 2019.11.26 20:35:09.505, SYS,  INFO,        0, , Initializing last value cache
+WCCILdata    (0), 2019.11.26 20:35:09.505, SYS,  INFO,        0, , Loading internal datapoints
+WCCILdata    (0), 2019.11.26 20:35:09.505, SYS,  INFO,        0, , Initializing ID history
+WCCILdata    (0), 2019.11.26 20:35:09.505, SYS,  INFO,        0, , Initializing Alert history
+WCCILdata    (0), 2019.11.26 20:35:09.506, SYS,  INFO,        0, , Initializing Alert Class cache
+WCCILdata    (0), 2019.11.26 20:35:09.506, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.arNr:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.state:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.general.arType:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.general.arName:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.general.hostNameGet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.general.hostNameSet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.general.filePathGet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.general.filePathSet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.general.fileNameGet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.general.fileNameSet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.general.createArchive:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.general.forwardToRDB:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.error.errNum:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.error.errDp:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.error.errBit:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.error.errRead:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.size.maxDpElGet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.size.maxDpElSet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.size.maxValuesGet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.size.maxValuesSet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.size.maxFillPctGet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.size.maxFillPctSet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.size.maxHeapSizeGet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.size.maxHeapSizeSet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.size.maxCacheGet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.size.maxCacheSet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.size.maxCorrCacheGet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.size.maxCorrCacheSet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.intervals.aliveInterval:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.intervals.saveCycle:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeGet.validFrom:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeGet.validUntil:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeGet.time:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeGet.weekDay:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeGet.monthDay:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeGet.month:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeGet.syncTime:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeGet.syncWeekDay:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeGet.syncDay:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeGet.syncMonth:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeGet.interval:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeGet.delay:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeSet.validFrom:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeSet.validUntil:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeSet.time:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeSet.weekDay:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeSet.monthDay:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeSet.month:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeSet.syncTime:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileSwitch.switchTimeSet.syncWeekDay:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.506, SYS,  SEVERE,    118, Last error already repeated 50 times. Until another output occurs, this one will be blocked.
+WCCILdata    (0), 2019.11.26 20:35:09.507, PARAM,SEVERE,      8, Element does not exist, problem during archive initialization, datapoint does not exist:, _ValueArchive_0.setMgmt.fileCompression.autoStartAfterSwitchSet:_original.._value
+WCCILdata    (0), 2019.11.26 20:35:09.507, SYS,  INFO,      119, Last error repeated 213 times.
+WCCILdata    (0), 2019.11.26 20:35:09.507, SYS,  INFO,        0, , Initializing Value Archives
+WCCILdata    (0), 2019.11.26 20:35:09.507, SYS,  INFO,        0, , ValueArchive will be used...
+WCCILdata    (0), 2019.11.26 20:35:09.534, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:09.535, SYS,  INFO,        0, , Manager (SYS: 1 Event -num 0 CONN: 1) initialised
+WCCILdata    (0), 2019.11.26 20:35:09.546, SYS,  INFO,        4, Connected to (SYS: 1 Driver -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:09.547, SYS,  INFO,        0, , Manager (SYS: 1 Driver -num 1 CONN: 1) initialised
+WCCILdata    (0), 2019.11.26 20:35:09.558, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:09.559, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILdata    (0), 2019.11.26 20:35:09.702, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:09.711, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:09.713, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILdata    (0), 2019.11.26 20:35:09.737, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:09.747, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:09.749, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILdata    (0), 2019.11.26 20:35:09.913, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:09.925, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:09.926, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILdata    (0), 2019.11.26 20:35:09.933, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:09.943, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:09.944, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILdata    (0), 2019.11.26 20:35:09.948, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:09.958, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:09.960, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILdata    (0), 2019.11.26 20:35:09.972, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:09.982, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:09.983, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILdata    (0), 2019.11.26 20:35:10.536, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:10.550, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:10.551, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILdata    (0), 2019.11.26 20:35:10.555, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:10.564, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:10.566, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILdata    (0), 2019.11.26 20:35:10.584, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:10.594, SYS,  INFO,        4, Connected to (SYS: 1 Ascii -num 1 CONN: 1) @ localhost (::1)
+WCCILdata    (0), 2019.11.26 20:35:10.595, SYS,  INFO,        0, , Manager (SYS: 1 Ascii -num 1 CONN: 1) initialised
+WCCILdata    (0), 2019.11.26 20:35:10.600, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Ascii -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:12.611, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Driver -num 1 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:14.613, SYS,  INFO,      181, Closing connection to (SYS: 1 Event -num 0 CONN: 1)
+WCCILdata    (0), 2019.11.26 20:35:14.613, SYS,  INFO,       39, Connection lost, MAN: (SYS: 1 Event -num 0 CONN: 1), Connection closed
+WCCILdata    (0), 2019.11.26 20:35:14.613, SYS,  INFO,        0, , Loading DpIdentification
+WCCILdata    (0), 2019.11.26 20:35:14.617, SYS,  INFO,        2, Manager Stop

@@ -1,0 +1,9 @@
+WCCOAascii   (0), 2019.11.26 20:35:26.484, SYS,  INFO,        1, Manager Start, PROJ, client_OPCUA_WinccOA, V 3.15 - 3.15   platform Linux x86_64 linked at Aug  6 2019 22:51:42 (d02a2d5a17c)
+WCCOAascii   (0), 2019.11.26 20:35:26.484, SYS,  INFO,        3, Trying to connect to (SYS: 0 Data -num 0 CONN: 1) @ dhcp-109-82.physik.uni-wuppertal.de:4897
+WCCOAascii   (0), 2019.11.26 20:35:26.485, SYS,  INFO,        4, Connected to (SYS: 0 Data -num 0 CONN: 1) @ localhost (::1)
+WCCOAascii   (1), 2019.11.26 20:35:26.488, SYS,  INFO,        6, Initialization by Data Manager finished
+WCCOAascii   (1), 2019.11.26 20:35:26.488, SYS,  INFO,        3, Trying to connect to (SYS: 1 Event -num 0 CONN: 1) @ dhcp-109-82.physik.uni-wuppertal.de:4998
+WCCOAascii   (1), 2019.11.26 20:35:26.488, SYS,  INFO,        4, Connected to (SYS: 1 Event -num 0 CONN: 1) @ localhost (::1)
+WCCOAascii   (1), 2019.11.26 20:35:26.489, SYS,  INFO,      102, Waiting for user names/passwords
+WCCOAascii   (1), 2019.11.26 20:35:26.489, SYS,  INFO,      103, User names/passwords initialized
+WCCOAascii   (1), 2019.11.26 20:35:26.495, SYS,  INFO,        2, Manager Stop

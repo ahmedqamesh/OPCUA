@@ -1,0 +1,134 @@
+WCCILpmon    (1), 2019.11.26 20:35:21.750, SYS,  INFO,        1, Manager Start, START_MODE
+WCCILpmon    (1), 2019.11.26 20:35:21.852, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILdata -PROJ client_OPCUA_WinccOA -pmonIndex 1 
+WCCILpmon    (1), 2019.11.26 20:35:21.961, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 2 -num 0
+WCCILpmon    (1), 2019.11.26 20:35:22.065, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 3 -num 1
+WCCILpmon    (1), 2019.11.26 20:35:22.179, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 4 -num 2
+WCCILpmon    (1), 2019.11.26 20:35:22.379, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 5 -num 3
+WCCILpmon    (1), 2019.11.26 20:35:22.580, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 6 -num 4
+WCCILpmon    (1), 2019.11.26 20:35:22.781, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 7 -num 5
+WCCILpmon    (1), 2019.11.26 20:35:25.825, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILevent -PROJ client_OPCUA_WinccOA -pmonIndex 8 
+WCCILpmon    (1), 2019.11.26 20:35:26.026, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILproxy -PROJ client_OPCUA_WinccOA -pmonIndex 9 
+WCCILpmon    (1), 2019.11.26 20:35:26.138, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOActrl -PROJ client_OPCUA_WinccOA -pmonIndex 10 -f pvss_scripts.lst
+WCCILpmon    (1), 2019.11.26 20:35:26.339, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILsim -PROJ client_OPCUA_WinccOA -pmonIndex 11 
+WCCILpmon    (1), 2019.11.26 20:35:26.540, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 12 -m gedi
+WCCILpmon    (1), 2019.11.26 20:35:28.042, SYS,  INFO,        9/pmon, The project is up and running. Entering monitor mode
+WCCILpmon    (1), 2019.11.26 20:36:00.393, SYS,  INFO,       28/pmon, Got INS command from ::1, inserting new manager WCCOAopcua at index 13
+WCCILpmon    (1), 2019.11.26 20:36:00.393, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAopcua(3) - restarting it #1
+WCCILpmon    (1), 2019.11.26 20:36:00.394, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAopcua -PROJ client_OPCUA_WinccOA -pmonIndex 13 -num 3
+WCCILpmon    (1), 2019.11.26 21:03:21.410, SYS,  INFO,       21/pmon, Got STOP_ALL command from ::1, stopping the project
+WCCILpmon    (1), 2019.11.26 21:03:21.410, SYS,  INFO,       17/pmon, Stopping Manager WCCOAopcua(3) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.410, SYS,  INFO,       17/pmon, Stopping Manager WCCILsim(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.411, SYS,  INFO,       17/pmon, Stopping Manager WCCOActrl(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.411, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(5) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.411, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(4) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.411, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(3) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.411, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(2) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.411, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:21.411, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(0) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:27.415, SYS,  INFO,       17/pmon, Stopping Manager WCCILevent(0) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:27.423, SYS,  INFO,       17/pmon, Stopping Manager WCCILdata(0) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:31.433, SYS,  INFO,       17/pmon, Stopping Manager WCCILproxy(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:03:31.434, SYS,  INFO,       13/pmon, Completely stopped the project - waiting for commands
+WCCILpmon    (1), 2019.11.26 21:03:35.689, SYS,  INFO,        3/pmon, Got shutdown command - stopping the project and terminating
+WCCILpmon    (1), 2019.11.26 21:03:35.689, SYS,  INFO,       15/pmon, Completely stopped the project - terminating
+WCCILpmon    (1), 2019.11.26 21:03:35.689, SYS,  INFO,        2, Manager Stop
+WCCILpmon    (1), 2019.11.26 21:04:14.390, SYS,  INFO,        1, Manager Start, WAIT_MODE
+WCCILpmon    (1), 2019.11.26 21:04:17.335, SYS,  INFO,       20/pmon, Got START_ALL command from ::1, starting the project
+WCCILpmon    (1), 2019.11.26 21:04:17.335, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILdata -PROJ client_OPCUA_WinccOA -pmonIndex 1 
+WCCILpmon    (1), 2019.11.26 21:04:17.536, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 2 -num 0
+WCCILpmon    (1), 2019.11.26 21:04:17.737, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 3 -num 1
+WCCILpmon    (1), 2019.11.26 21:04:17.937, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 4 -num 2
+WCCILpmon    (1), 2019.11.26 21:04:18.138, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 5 -num 3
+WCCILpmon    (1), 2019.11.26 21:04:18.339, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 6 -num 4
+WCCILpmon    (1), 2019.11.26 21:04:18.539, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 7 -num 5
+WCCILpmon    (1), 2019.11.26 21:04:21.593, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILevent -PROJ client_OPCUA_WinccOA -pmonIndex 8 
+WCCILpmon    (1), 2019.11.26 21:04:21.794, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILproxy -PROJ client_OPCUA_WinccOA -pmonIndex 9 
+WCCILpmon    (1), 2019.11.26 21:04:21.994, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOActrl -PROJ client_OPCUA_WinccOA -pmonIndex 10 -f pvss_scripts.lst
+WCCILpmon    (1), 2019.11.26 21:04:22.195, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILsim -PROJ client_OPCUA_WinccOA -pmonIndex 11 
+WCCILpmon    (1), 2019.11.26 21:04:22.396, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 12 -m gedi
+WCCILpmon    (1), 2019.11.26 21:04:25.612, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAopcua -PROJ client_OPCUA_WinccOA -pmonIndex 13 -num 3
+WCCILpmon    (1), 2019.11.26 21:04:25.813, SYS,  INFO,        9/pmon, The project is up and running. Entering monitor mode
+WCCILpmon    (1), 2019.11.26 21:16:40.072, SYS,  INFO,       28/pmon, Got INS command from ::1, inserting new manager WCCOActrl at index 14
+WCCILpmon    (1), 2019.11.26 21:16:51.810, SYS,  INFO,       24/pmon, Got START command from ::1, starting the manager WCCOActrl(1) at index 14
+WCCILpmon    (1), 2019.11.26 21:16:51.811, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOActrl -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCILpmon    (1), 2019.11.26 21:17:02.898, SYS,  INFO,       24/pmon, Got START command from ::1, starting the manager WCCOActrl(2) at index 14
+WCCILpmon    (1), 2019.11.26 21:17:02.898, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOActrl -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCILpmon    (1), 2019.11.26 21:17:40.877, SYS,  INFO,       29/pmon, Got PROP_PUT command from ::1, changing manager WCCOActrl(1) at index 14
+WCCILpmon    (1), 2019.11.26 21:17:42.966, SYS,  INFO,       27/pmon, Got DEL command from ::1, deleting the manager WCCOActrl at index 14
+WCCILpmon    (1), 2019.11.26 21:17:55.816, SYS,  INFO,       28/pmon, Got INS command from ::1, inserting new manager WCCOAui at index 14
+WCCILpmon    (1), 2019.11.26 21:18:01.938, SYS,  INFO,       24/pmon, Got START command from ::1, starting the manager WCCOAui(1) at index 14
+WCCILpmon    (1), 2019.11.26 21:18:01.939, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCILpmon    (1), 2019.11.26 21:18:15.694, SYS,  INFO,       29/pmon, Got PROP_PUT command from ::1, changing manager WCCOAui(1) at index 14
+WCCILpmon    (1), 2019.11.26 21:18:15.694, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(1) - restarting it #1
+WCCILpmon    (1), 2019.11.26 21:18:15.694, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCILpmon    (1), 2019.11.26 21:18:29.938, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(2) - restarting it #2
+WCCILpmon    (1), 2019.11.26 21:18:29.939, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCILpmon    (1), 2019.11.26 21:18:42.263, SYS,  INFO,       12/pmon, Manager WCCOAui(2) restarting too rapidly - giving up restarting
+WCCILpmon    (1), 2019.11.26 21:19:33.815, SYS,  INFO,       25/pmon, Got STOP command (SIGTERM) from ::1, stopping the manager WCCOAui(1) at index 12
+WCCILpmon    (1), 2019.11.26 21:19:33.815, SYS,  INFO,       17/pmon, Stopping Manager WCCOAui(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:19:37.836, SYS,  INFO,       24/pmon, Got START command from ::1, starting the manager WCCOAui(1) at index 12
+WCCILpmon    (1), 2019.11.26 21:19:37.837, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 12 -m gedi
+WCCILpmon    (1), 2019.11.26 21:25:21.605, SYS,  INFO,       24/pmon, Got START command from ::1, starting the manager WCCOAui(2) at index 14
+WCCILpmon    (1), 2019.11.26 21:25:21.605, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCILpmon    (1), 2019.11.26 21:25:29.671, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(1) - restarting it #1
+WCCILpmon    (1), 2019.11.26 21:25:29.671, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCILpmon    (1), 2019.11.26 21:25:33.673, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(1) - restarting it #2
+WCCILpmon    (1), 2019.11.26 21:25:33.673, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCILpmon    (1), 2019.11.26 21:25:57.056, SYS,  INFO,       29/pmon, Got PROP_PUT command from ::1, changing manager WCCOAui(1) at index 12
+WCCILpmon    (1), 2019.11.26 21:26:08.911, SYS,  INFO,       21/pmon, Got STOP_ALL command from ::1, stopping the project
+WCCILpmon    (1), 2019.11.26 21:26:08.911, SYS,  INFO,       17/pmon, Stopping Manager WCCOAui(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.911, SYS,  INFO,       17/pmon, Stopping Manager WCCOAopcua(3) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.911, SYS,  INFO,       17/pmon, Stopping Manager WCCILsim(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.911, SYS,  INFO,       17/pmon, Stopping Manager WCCOActrl(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.911, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(5) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.912, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(4) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.912, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(3) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.912, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(2) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.912, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:08.912, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(0) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:14.916, SYS,  INFO,       17/pmon, Stopping Manager WCCILevent(0) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:14.925, SYS,  INFO,       17/pmon, Stopping Manager WCCILdata(0) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:18.935, SYS,  INFO,       17/pmon, Stopping Manager WCCILproxy(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:26:18.936, SYS,  INFO,       13/pmon, Completely stopped the project - waiting for commands
+WCCILpmon    (1), 2019.11.26 21:26:21.469, SYS,  INFO,       20/pmon, Got START_ALL command from ::1, starting the project
+WCCILpmon    (1), 2019.11.26 21:26:21.470, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILdata -PROJ client_OPCUA_WinccOA -pmonIndex 1 
+WCCILpmon    (1), 2019.11.26 21:26:21.671, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 2 -num 0
+WCCILpmon    (1), 2019.11.26 21:26:21.871, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 3 -num 1
+WCCILpmon    (1), 2019.11.26 21:26:22.000, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 4 -num 2
+WCCILpmon    (1), 2019.11.26 21:26:22.200, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 5 -num 3
+WCCILpmon    (1), 2019.11.26 21:26:22.401, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 6 -num 4
+WCCILpmon    (1), 2019.11.26 21:26:22.602, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAvalarch -PROJ client_OPCUA_WinccOA -pmonIndex 7 -num 5
+WCCILpmon    (1), 2019.11.26 21:26:25.719, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILevent -PROJ client_OPCUA_WinccOA -pmonIndex 8 
+WCCILpmon    (1), 2019.11.26 21:26:25.919, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILproxy -PROJ client_OPCUA_WinccOA -pmonIndex 9 
+WCCILpmon    (1), 2019.11.26 21:26:26.032, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOActrl -PROJ client_OPCUA_WinccOA -pmonIndex 10 -f pvss_scripts.lst
+WCCILpmon    (1), 2019.11.26 21:26:26.233, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCILsim -PROJ client_OPCUA_WinccOA -pmonIndex 11 
+WCCILpmon    (1), 2019.11.26 21:26:26.434, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAopcua -PROJ client_OPCUA_WinccOA -pmonIndex 13 -num 3
+WCCILpmon    (1), 2019.11.26 21:26:26.634, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCILpmon    (1), 2019.11.26 21:26:26.935, SYS,  INFO,        9/pmon, The project is up and running. Entering monitor mode
+WCCILpmon    (1), 2019.11.26 21:26:49.155, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(1) - restarting it #1
+WCCILpmon    (1), 2019.11.26 21:26:49.155, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCILpmon    (1), 2019.11.26 21:26:53.988, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(1) - restarting it #2
+WCCILpmon    (1), 2019.11.26 21:26:53.989, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCILpmon    (1), 2019.11.26 21:27:05.320, SYS,  INFO,       12/pmon, Manager WCCOAui(1) restarting too rapidly - giving up restarting
+WCCILpmon    (1), 2019.11.26 21:27:21.181, SYS,  INFO,       24/pmon, Got START command from ::1, starting the manager WCCOAui(1) at index 14
+WCCILpmon    (1), 2019.11.26 21:27:21.181, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCILpmon    (1), 2019.11.26 21:27:32.846, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(1) - restarting it #1
+WCCILpmon    (1), 2019.11.26 21:27:32.847, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCILpmon    (1), 2019.11.26 21:27:37.187, SYS,  INFO,       11/pmon, Detected stopped manager WCCOAui(1) - restarting it #2
+WCCILpmon    (1), 2019.11.26 21:27:37.187, SYS,  INFO,        1, Manager Start, /opt/WinCC_OA/3.15/bin/WCCOAui -PROJ client_OPCUA_WinccOA -pmonIndex 14 -p client_OPCUA_Wincc.pnl
+WCCILpmon    (1), 2019.11.26 21:27:39.506, SYS,  INFO,       28/pmon, Got INS command from ::1, inserting new manager WCCOAui at index 15
+WCCILpmon    (1), 2019.11.26 21:27:40.686, SYS,  INFO,       12/pmon, Manager WCCOAui(1) restarting too rapidly - giving up restarting
+WCCILpmon    (1), 2019.11.26 21:33:22.226, SYS,  INFO,       21/pmon, Got STOP_ALL command from ::1, stopping the project
+WCCILpmon    (1), 2019.11.26 21:33:22.226, SYS,  INFO,       17/pmon, Stopping Manager WCCOAopcua(3) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCILsim(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCOActrl(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(5) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(4) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(3) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(2) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:22.227, SYS,  INFO,       17/pmon, Stopping Manager WCCOAvalarch(0) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:28.231, SYS,  INFO,       17/pmon, Stopping Manager WCCILevent(0) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:28.239, SYS,  INFO,       17/pmon, Stopping Manager WCCILdata(0) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:32.248, SYS,  INFO,       17/pmon, Stopping Manager WCCILproxy(1) with signal SIGTERM
+WCCILpmon    (1), 2019.11.26 21:33:32.249, SYS,  INFO,       13/pmon, Completely stopped the project - waiting for commands

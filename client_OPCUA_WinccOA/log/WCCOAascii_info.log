@@ -1,0 +1,14 @@
+processing file /opt/WinCC_OA/3.15/dplist/update_012.dpl
+DpType (7): Create msg for type _Watchdog sent.
+Datapoint/DpId (10): create _mp__Watchdog.
+Datapoint/DpId (11): create _Watchdog_WCCILevent_0.
+Datapoint/DpId (12): create _Watchdog_WCCILevent_0_2.
+AlertValue (17): Values for _mp__Watchdog.Blocking sent.
+AlertValue (18): Values for _Watchdog_WCCILevent_0.Blocking sent.
+AlertValue (21): Values for _Watchdog_WCCILevent_0_2.Blocking sent.
+Datapoint/DpId (22): create _dt__Watchdog.
+DpValue (27): Values for _dt__Watchdog.Leaf sent.
+DpValue (28): Values for _dt__Watchdog.DynamicAttribute sent.
+Waiting for last response from eventmanager...
+Scanning of file /opt/WinCC_OA/3.15/dplist/update_012.dpl is finished (0)
+End of Program

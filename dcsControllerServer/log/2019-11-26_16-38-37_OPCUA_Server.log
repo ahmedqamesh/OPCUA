@@ -1,0 +1,37 @@
+2019-11-26 16:38:37.382 INFO     Existing logging Handler: [<RotatingFileHandler /home/dcs/git/OPCUA/dcsControllerServer/log/2019-11-26_16-38-37_OPCUA_Server.log (INFO)>]
+2019-11-26 16:38:37.383 NOTICE   Configuring OPC UA server ...
+2019-11-26 16:38:38.085 INFO     Configuring namespace
+2019-11-26 16:38:38.085 INFO     Namespace index: 2
+2019-11-26 16:38:38.086 SUCCESS  ... Done!
+2019-11-26 16:38:38.086 NOTICE   Importing OPCUA object types from XML. This may take some time ...
+2019-11-26 16:38:40.811 SUCCESS  ... Done!
+2019-11-26 16:38:40.819 SUCCESS  Anagate CAN channel: IP address: 192.168.1.254; CAN port: 0
+2019-11-26 16:38:40.819 NOTICE   Get OPC UA Object Type of DCS Controller ...
+2019-11-26 16:38:40.819 SUCCESS  ... Done!
+2019-11-26 16:38:40.819 NOTICE   Importing Object Dictionary ...
+2019-11-26 16:38:40.979 SUCCESS  Successfully created OD from EDS.
+2019-11-26 16:38:40.979 NOTICE   Read configuration file ...
+2019-11-26 16:38:40.982 SUCCESS  ... Done!
+2019-11-26 16:38:40.982 NOTICE   Checking node connections ...
+2019-11-26 16:38:40.982 INFO     Send SDO read request to node 8.
+2019-11-26 16:38:41.980 ERROR    CAN NACK (No Acknowledge)
+Traceback (most recent call last):
+  File "/home/dcs/git/OPCUA/dcsControllerServer/dcsControllerServer.py", line 1154, in <module>
+    server.start()
+  File "/home/dcs/git/OPCUA/dcsControllerServer/dcsControllerServer.py", line 526, in start
+    self.confirmNodes()
+  File "/home/dcs/git/OPCUA/dcsControllerServer/dcsControllerServer.py", line 1018, in confirmNodes
+    dev_t = self.sdoRead(nodeId, 0x1000, 0, timeout)
+  File "/home/dcs/git/OPCUA/dcsControllerServer/dcsControllerServer.py", line 835, in sdoRead
+    self.writeMessage(cobid, msg, timeout=timeout)
+  File "/home/dcs/git/OPCUA/dcsControllerServer/dcsControllerServer.py", line 797, in writeMessage
+    self.__ch.write(cobid, msg, flag)
+  File "/home/dcs/miniconda3/lib/python3.7/site-packages/analib/channel.py", line 714, in write
+    dll.CANWrite(self.__handle, identifier, buffer, bufferLen, flags)
+  File "/home/dcs/miniconda3/lib/python3.7/site-packages/analib/dll.py", line 102, in _error_check
+    raise DllException(result)
+analib.exception.DllException: CAN NACK (No Acknowledge)
+2019-11-26 16:38:41.983 NOTICE   Error counters: Counter({'SDO read total': 1, 'Residual CAN messages': 0})
+2019-11-26 16:38:41.983 WARNING  Stopping helper threads. This might take a minute
+2019-11-26 16:38:41.983 WARNING  Closing the CAN channel.
+2019-11-26 16:38:41.984 WARNING  Stopping the server.

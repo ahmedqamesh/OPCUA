@@ -1,0 +1,7 @@
+[general]
+pvss_path = "/opt/WinCC_OA/3.15"
+proj_path = "/home/dcs/Wincc_OA_Proj/client_OPCUA_WinccOA"
+proj_version = "3.15"
+## Switch off multiplexing proxy to enable connectivity with v.311 projects (CERN modification)
+mxProxy = "none"
+langs = "en_US.iso88591"
