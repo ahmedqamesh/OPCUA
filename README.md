@@ -72,7 +72,7 @@ Logging settings:
                         :\users\sebas\onedrive\dokumente\studium\master\thesis
                         \opcua\dcsControllerServer\log)
 
-For more information contact sebastian.scholz@cern.ch
+For more information contact ahmed.qamesh@cern.ch
 ```
 ### AnaGate
 If you are using an AnaGate Ethernet CAN interface you will probably need to manually set the IP address of your network card so that the interface is part of its network. The default IP address of an AnaGate CAN interface is *192.168.1.254*, so you should set the IP address of your network card to *192.168.1.1*.
